@@ -15,7 +15,9 @@ router.route('/user/signin')
 router.route('/user/ls')
 .post(passport.authenticate('jwt', {session: false}), userController.logLS)
 
-// router.route('/clothes/add')
-// .post(clothesController.addClothes)
+router.route('/clothes/add')
+.post(clothesController.addClothes)
+router.route('/clothes/get')
+.get(clothesController.getClothes)
 
 module.exports = router

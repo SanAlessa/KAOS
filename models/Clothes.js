@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const clothesSchema = new mongoose.Schema({
   size: String,
   colour: String,
-  cloth: String,
+  type: String,
+  category: String,
   price: Number,
   stock: Number
 })
