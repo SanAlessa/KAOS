@@ -7,13 +7,13 @@ const passport = require('passport')
 require('../config/passport')
 
 router.route('/user/signup')
-.post(validator.validateNewAccount, userController.signup)
+.post(validator.validateNewAccount, userController.signUp)
 
 router.route('/user/signin')
 .post(userController.signIn)
 
 router.route('/user/ls')
-.post(passport.authenticate('jwt', {session: false}), userController.logLS)
+.post(passport.authenticate('jwt', {session: false}), userController.logFromLS)
 
 // router.route('/clothes/add')
 // .post(clothesController.addClothes)
