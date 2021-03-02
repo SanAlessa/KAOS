@@ -1,9 +1,11 @@
 import React from 'react'
+import Homepage from './components/Homepage'
+import '../src/styles.css'
 
 function App() {
   return (
     <>
-      <h1>HOLA</h1>
+      <Homepage></Homepage>
     </>
   );
 }
