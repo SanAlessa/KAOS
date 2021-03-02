@@ -1,3 +1,7 @@
-/* ....
-.... */
-/* VA a ser styles */
+:root {
+    --primary-color: #6048a3;
+    --secondary-color: #FF7FFF;
+    --background-color: #FFFF;
+    --terciary-color: #3f7fe9;
+    --active-color: #6CC8FC;
+  }
