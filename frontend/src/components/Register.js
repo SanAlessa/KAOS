@@ -1,11 +1,12 @@
 import React ,{useState} from 'react'
-import { FaEye } from "react-icons/fa";
+import { connect } from 'react-redux'
+import { AiOutlineEye  } from "react-icons/ai"
+import userAction from '../redux/actions/userAction'
 
-export default function Register() {
+ function Register({registerUser}) {
+     console.log(registerUser)
     const [nuevoUsuario, setNuevoUsuario] = useState({})
     const [visible, setVisible] = useState(true)
-
-
 
     const leerInput = e => {
         const campo = e.target.name
@@ -14,19 +15,14 @@ export default function Register() {
             ...nuevoUsuario,
             [campo]: valor
         })
-
     }
-console.log(nuevoUsuario)
-    const validarUsuario = async () => {
-        alert('Me hiciste click')   
-        const respuesta = await     
-
+    const validarUsuario = async e  => {
+        e.preventDefault() 
+         if (nuevoUsuario.firstname === '' || nuevoUsuario.lastname === '' || nuevoUsuario.email === '' || nuevoUsuario.password === '' ) {
+         alert('Todos los campos deben estar completos')
+         const respuesta = await registerUser(nuevoUsuario)
+        }
     }
-  
-
-
-
-
     return (
     <div>
         <div>
@@ -43,7 +39,7 @@ console.log(nuevoUsuario)
             <div>
             <div className="inputDiv">
                         <input name='password' type={visible ? 'password' : 'text'} placeholder='Elija su contraseña' onChange={leerInput}  />
-                        <FaEye onClick={() => setVisible(!visible)} />
+                        <AiOutlineEye onClick={() => setVisible(!visible)} />
             </div>
                 <button onClick={validarUsuario}>Enviar Registro</button>
             </div>
@@ -52,3 +48,12 @@ console.log(nuevoUsuario)
     </div>    
     )   
 }
+const mapStateToProps = state => {
+    return {
+    }
+}
+const mapDispatchToProps = {
+    registerUser :userAction.registerUser   
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Register)
+

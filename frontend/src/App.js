@@ -1,9 +1,10 @@
 import React from 'react'
+import Register from './components/Register'
 
 function App() {
   return (
     <>
-      <h1>HOLA</h1>
+      <Register/>
     </>
   );
 }
