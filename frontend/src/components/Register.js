@@ -1,12 +1,20 @@
 import React ,{useState} from 'react'
 import { connect } from 'react-redux'
+import GoogleLogin from 'react-google-login'
 import { AiOutlineEye  } from "react-icons/ai"
 import userAction from '../redux/actions/userAction'
 
- function Register({registerUser}) {
-     console.log(registerUser)
-    const [nuevoUsuario, setNuevoUsuario] = useState({})
+
+ function Register({registerUser ,registerUserGoogle}) {
+    const [nuevoUsuario, setNuevoUsuario] = useState({
+        firstname:'',
+        lastname:'',
+        email:'',
+        password:''   
+    })
     const [visible, setVisible] = useState(true)
+    const [errores, setErrores] = useState([])
+
 
     const leerInput = e => {
         const campo = e.target.name
@@ -23,6 +31,27 @@ import userAction from '../redux/actions/userAction'
          const respuesta = await registerUser(nuevoUsuario)
         }
     }
+
+    const responseGoogle = async (response) => {
+        console.log(response)
+
+        if (response.error) {
+            alert("Algo pasó...")
+        } else {
+            const respuesta = await registerUserGoogle({
+                firstname: response.profileObj.name,
+                lastname: response.profileObj.familyName,
+                email: response.profileObj.email,
+                password: response.profileObj.googleId,
+
+            })
+            if (respuesta && !respuesta.success) {
+                setErrores(respuesta.errores)
+            } else {
+                alert("Su usuario fue creado correctamente")
+            }
+        }
+      }
     return (
     <div>
         <div>
@@ -43,6 +72,15 @@ import userAction from '../redux/actions/userAction'
             </div>
                 <button onClick={validarUsuario}>Enviar Registro</button>
             </div>
+            <div>
+            <GoogleLogin 
+                    clientId="56670268622-ujtfv11jtt2esb9qe4cgo4drut70tgu4.apps.googleusercontent.com"
+                    buttonText="Create Account"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                />
+            </div>
         </div>
         
     </div>    
@@ -50,10 +88,12 @@ import userAction from '../redux/actions/userAction'
 }
 const mapStateToProps = state => {
     return {
+        loggedUser: state.userR.loggedUser
     }
 }
 const mapDispatchToProps = {
-    registerUser :userAction.registerUser   
+    registerUser :userAction.registerUser ,
+    registerUserGoogle:userAction.registerUserGoogle  
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Register)
 
