@@ -6,8 +6,12 @@ const validator = require ('../controllers/validator')
 const passport = require('passport')
 require('../config/passport')
 
+router.route('/users')
+.get(userController.find)
+
 router.route('/user/signup')
 .post(validator.validateNewAccount, userController.signUp)
+
 
 router.route('/user/signin')
 .post(userController.signIn)
