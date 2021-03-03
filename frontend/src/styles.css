@@ -1,4 +1,11 @@
-:root {
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+  }
+  #root {
+    width: 100%;
+    height: 100vh;    
     --primary-color: #6048a3;
     --secondary-color: #FF7FFF;
     --background-color: #FFFF;
@@ -54,3 +61,13 @@
 .textCenter {
   text-align: center;
 }
+  body {
+    width: auto;
+    height: auto;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  p {
+    font-family: 'Archivo', sans-serif;
+    /* font-family: 'Oswald', sans-serif; */
+  }
