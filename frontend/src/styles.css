@@ -12,6 +12,55 @@
     --terciary-color: #3f7fe9;
     --active-color: #6CC8FC;
   }
+
+/* CSS GENERALES  */
+.centerCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.displayFlex {
+  display: flex;
+}
+
+.displayBlock {
+  display: block;
+}
+
+.displayInline {
+  display: inline;
+}
+
+.justifyCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.justifyAround {
+  display: flex;
+  justify-content: space-around;
+}
+
+.justifyBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+.justifyFlexEnd {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.textCenter {
+  text-align: center;
+}
   body {
     width: auto;
     height: auto;
