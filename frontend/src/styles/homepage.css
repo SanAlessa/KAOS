@@ -19,6 +19,9 @@ font-size: 5vh;
 .motto {
     width: 50vw;
     height: 20vh;
+    background-image: url('../assets/motto.png');
+    background-position: center;
+    background-size: cover; 
 }
 
 .allCards {
@@ -29,6 +32,9 @@ font-size: 5vh;
     background-color: purple;
     width: 100%;
     height: 800%;
+    background-image: url('../assets/aest1.jpg');
+    background-position: center;
+    background-size: cover; 
 }
 
 .clothCard {
@@ -36,6 +42,9 @@ font-size: 5vh;
     width: 18%;
     height: 80%;
     border-radius: 1%;
+    /* background-image: url('../assets/fotoPrueba.jpeg');
+    background-position: center;
+    background-size: cover;  */
 }
 
 .main {
@@ -70,7 +79,7 @@ font-size: 5vh;
     color: mintcream;
     width: 50%;
     height: 80%;
-    background-color: #6CC8FC;
+    background-color: #bd9bd1ce;
 }
 
 .bannerFrase {
@@ -89,7 +98,7 @@ font-size: 5vh;
 }
 
 .superSaleBanner {
-    background-color: rgb(20, 20, 20);
+    background-color: #1e1d20;
     width: 90%;
     height: 75%;
     margin-top: 2%;
