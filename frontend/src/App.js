@@ -1,9 +1,9 @@
 import React from 'react'
-
+import Productos from './components/Productos'
 function App() {
   return (
     <>
-      <h1>HOLA</h1>
+      <Productos/>
     </>
   );
 }
