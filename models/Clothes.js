@@ -5,7 +5,8 @@ const clothesSchema = new mongoose.Schema({
   colour: String,
   cloth: String,
   price: Number,
-  stock: Number
+  stock: Number,
+  images: [String]
 })
 
 const Clothes = mongoose.model('clothes', clothesSchema)
