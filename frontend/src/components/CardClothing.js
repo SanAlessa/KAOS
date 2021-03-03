@@ -5,7 +5,7 @@ const CardClothing = (props) => {
     const {id, title, description, availableSizes, category, price, stock, productPic} = props.product
 
     const addProduct = id => {
-        const product = products.filter(product => product.id === id)
+        // const product = products.filter(product => product.id === id)
     }
     return(
         <>
@@ -19,7 +19,6 @@ const CardClothing = (props) => {
             <div className='containerDescription'><p>{description}</p></div>
             <div className='containerPrice'>{`$ ${price}`}</div>
             <button type='button' onClick= {() => addProduct(id)}>Agregar al carrito</button>
-
         </div>
         </>
     )

@@ -1,7 +1,7 @@
 const Productos = ()=>{
     return (
         <>
-            <h1>Soy los productos</h1>
+        <h1>Soy los productos</h1>
         </>
     )
 }

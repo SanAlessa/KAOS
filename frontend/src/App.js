@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Redirect, Route, Switch} from 'react-router-dom'
 import AdminPanel from './pages/AdminPanel'
-import Homepage from './components/Homepage'
-import ProductsStore from './components/ProductsStore'
+import Homepage from './pages/Homepage'
+import ProductStore from './components/ProductStore'
 import Register from './components/Register'
 import Productos from './components/Productos'
 import './styles.css'
@@ -13,11 +13,11 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path='/productsStore' component={ProductsStore}/>
-        <AdminPanel/>
-        <Homepage/>
-        <Register/>
-        <Productos/>
+        <Route exact path="/" component={Homepage}/>
+        <Route path="/productStore" component={ProductStore}/>
+        <Route path="/adminPanel" component={AdminPanel}/> 
+        <Route path="/register" component={Register}/>
+        <Route path="/products" component={Productos}/>
         <Redirect to="/" />
       </Switch>
     </BrowserRouter>

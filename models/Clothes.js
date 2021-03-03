@@ -6,7 +6,7 @@ const clothesSchema = new mongoose.Schema({
   type: String,
   price: Number,
   description: String,
-  image: [{type: String, trim: true}]
+  image: [String]
 })
 
 const Clothes = mongoose.model('clothes', clothesSchema)

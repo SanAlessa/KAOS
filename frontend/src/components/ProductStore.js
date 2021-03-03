@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import CardClothing from './CardClothing'
+import CartPurchase from './CartPurchase'
 // import { connect } from 'react-redux'
 
-const CartPurchase = () => {
-
-    const [products, setProducts] = useState([
+const ProductStore = () => {
+    const products = [
         {
             "id": 1,
             "title": "Cat Tee Black T-Shirt",
@@ -56,7 +56,7 @@ const CartPurchase = () => {
             "stock": 9,
             "productPic": 'https://www.guantexindustrial.com.ar/710-large_default/remera-algodon-jersey-blanco-talle-xxl.jpg'
         },
-    ])
+    ]
     const [cart, setCart] = useState([])
     return(
         <>
@@ -85,4 +85,4 @@ const CartPurchase = () => {
 mapDispatchToProps = {
 
 }*/
-export default /*connect(mapStateToProps, mapDispatchToProps)*/(CartPurchase)
+export default /*connect(mapStateToProps, mapDispatchToProps)*/(ProductStore)

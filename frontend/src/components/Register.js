@@ -6,7 +6,6 @@ import userAction from '../redux/actions/userAction'
 import {Alert} from 'rsuite'
 import  'rsuite/dist/styles/rsuite-default.css'
 
-
  function Register({registerUser ,registerUserGoogle}) {
     const [nuevoUsuario, setNuevoUsuario] = useState({
         firstname:'',

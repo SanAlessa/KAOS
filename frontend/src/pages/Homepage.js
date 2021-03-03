@@ -2,14 +2,14 @@
 import { connect } from 'react-redux'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import '../styles/homepage.css'
-import HomeBanner from './HomeBanner'
+import HomeBanner from '../components/HomeBanner'
 import motto from '../assets/motto.png'
 import fotoPrueba from '../assets/fotoPrueba.jpeg'
 import backgroundCards from '../assets/aest1.jpg'
 import box1 from '../assets/box1.png'
 import box2 from '../assets/box2.png'
 import bannerRock from '../assets/rockIt.png'
+import '../styles/homepage.css'
 
 const Homepage = () => {
     const newSeason = ["1", "2", "3", "4", "5"]
