@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import GoogleLogin from 'react-google-login'
 import { AiOutlineEye  } from "react-icons/ai"
 import userAction from '../redux/actions/userAction'
+import {Alert} from 'rsuite'
+import  'rsuite/dist/styles/rsuite-default.css'
 
 
  function Register({registerUser ,registerUserGoogle}) {
@@ -10,7 +12,7 @@ import userAction from '../redux/actions/userAction'
         firstname:'',
         lastname:'',
         email:'',
-        password:''   
+        password:''
     })
     const [visible, setVisible] = useState(true)
     const [errores, setErrores] = useState([])
@@ -26,17 +28,17 @@ import userAction from '../redux/actions/userAction'
     }
     const validarUsuario = async e  => {
         e.preventDefault() 
-         if (nuevoUsuario.firstname === '' || nuevoUsuario.lastname === '' || nuevoUsuario.email === '' || nuevoUsuario.password === '' ) {
-         alert('Todos los campos deben estar completos')
-         const respuesta = await registerUser(nuevoUsuario)
-        }
+        const respuesta = await registerUser(nuevoUsuario)
+        if (nuevoUsuario.firstname === '' || nuevoUsuario.lastname === '' || nuevoUsuario.email === '' || nuevoUsuario.password === '' ) {
+            Alert.warning('Todos los campos deben estar completos',3000)
+         }
     }
 
     const responseGoogle = async (response) => {
         console.log(response)
 
         if (response.error) {
-            alert("Algo pasó...")
+            Alert.error("Algo pasó , vuelve a intentarlo...",3000)
         } else {
             const respuesta = await registerUserGoogle({
                 firstname: response.profileObj.name,
@@ -48,7 +50,7 @@ import userAction from '../redux/actions/userAction'
             if (respuesta && !respuesta.success) {
                 setErrores(respuesta.errores)
             } else {
-                alert("Su usuario fue creado correctamente")
+                Alert.success('Tu cuenta fue creada con exito',3000)
             }
         }
       }
