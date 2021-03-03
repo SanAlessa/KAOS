@@ -1,9 +1,12 @@
 import React from 'react'
+import AdminPanel from './pages/AdminPanel'
+import './styles.css'
+
 
 function App() {
   return (
     <>
-      <h1>HOLA</h1>
+      <AdminPanel/>
     </>
   );
 }
