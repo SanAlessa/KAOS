@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 
 const clothesSchema = new mongoose.Schema({
-  size: String,
+  size: [{size:String, stock:Number}],
   colour: String,
-  cloth: String,
+  type: String,
   price: Number,
-  stock: Number,
-  images: [String]
+  description: String,
+  image: [{type: String, trim: true}]
 })
 
 const Clothes = mongoose.model('clothes', clothesSchema)

@@ -4,24 +4,24 @@ import AdminPanel from './pages/AdminPanel'
 import Homepage from './components/Homepage'
 import ProductsStore from './components/ProductsStore'
 import Register from './components/Register'
+import Productos from './components/Productos'
 import './styles.css'
 import './styles/styles.css'
 
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Switch>
-            <Route exact path='/productsStore' component={ProductsStore}/>
-            <AdminPanel/>
-            <Homepage/>
-            <Register/>
-          <Redirect to="/" />
-        </Switch>
-      </BrowserRouter>
-    </>
-  );
+    <BrowserRouter>
+      <Switch>
+        <Route exact path='/productsStore' component={ProductsStore}/>
+        <AdminPanel/>
+        <Homepage/>
+        <Register/>
+        <Productos/>
+        <Redirect to="/" />
+      </Switch>
+    </BrowserRouter>
+  )
 }
 
 export default App;
