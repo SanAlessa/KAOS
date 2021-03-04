@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import CardClothing from './CardClothing'
 import CartPurchase from './CartPurchase'
 // import { connect } from 'react-redux'

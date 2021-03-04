@@ -17,14 +17,19 @@ router.route('/user/ls')
 
 router.route('/clothes/addClothes')
 .post(clothesController.addClothes)
+
 router.route('/clothes/getClothes')
 .get(clothesController.getClothes)
+
 router.route('/clothes/addStock')
 .post(clothesController.addToStock)
+
 router.route('/clothes/substractStock')
 .post(clothesController.substractToStock)
+
 router.route('/clothes/deleteClothes')
 .put(clothesController.deleteClothes)
+
 router.route('./clothes/modifyClothes')
 .post(clothesController.modifyClothes)
 
