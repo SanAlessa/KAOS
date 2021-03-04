@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react"
 
-const CardClothing = (props) => {
-    console.log(props)
-    const {id, title, description, availableSizes, category, price, stock, productPic} = props.product
+const CardClothing = ({product, products, cart, setCart}) => {
+    const {id, title, description, availableSizes, category, price, stock, productPic} =   product
+
+    // const products = props.products
+    // const cart = props.cart
+    // const setCart = props.setCart
 
     const addProduct = id => {
-        // const product = products.filter(product => product.id === id)
+        const product = products.filter(product => product.id === id)
+        setCart([...cart, ...product])
     }
+    console.log(cart)
     return(
         <>
         <div className='containerCardClothing'>
@@ -18,10 +23,16 @@ const CardClothing = (props) => {
             </div>
             <div className='containerDescription'><p>{description}</p></div>
             <div className='containerPrice'>{`$ ${price}`}</div>
-            <button type='button' onClick= {() => addProduct(id)}>Agregar al carrito</button>
+            {products ? (
+                <button type='button' onClick= {() => addProduct(id)}>Agregar al carrito</button>
+            )
+            :
+            <button type='button' onClick= {() => alert('Vas a eliminar un producto')}>Eliminar del carrito</button>
+            }
+            
+
         </div>
         </>
     )
 }
-
-export default CardClothing
+export default /*connect(null, mapDispatchToProps)*/(CardClothing)

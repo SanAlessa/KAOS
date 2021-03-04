@@ -60,15 +60,13 @@ const ProductStore = () => {
     const [cart, setCart] = useState([])
     return(
         <>
-        <div className='containerCartPurchase'>
+        <div className='containerProductsStore'>
             {products.map(product => {
                 return(
-                    <>
                         <CardClothing key={product.id} product={product} cart={cart} setCart={setCart} products ={products} />
-                        <CartPurchase cart={cart} setCart={setCart}/>
-                    </>
                 )
             })}
+        <CartPurchase cart={cart} setCart={setCart}/>
         </div>
         </>
     )
