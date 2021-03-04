@@ -19,7 +19,22 @@ router.route('/user/signin')
 router.route('/user/ls')
 .post(passport.authenticate('jwt', {session: false}), userController.logFromLS)
 
-// router.route('/clothes/add')
-// .post(clothesController.addClothes)
+router.route('/clothes/addClothes')
+.post(clothesController.addClothes)
+
+router.route('/clothes/getClothes')
+.get(clothesController.getClothes)
+
+router.route('/clothes/addStock')
+.post(clothesController.addToStock)
+
+router.route('/clothes/substractStock')
+.post(clothesController.substractToStock)
+
+router.route('/clothes/deleteClothes')
+.put(clothesController.deleteClothes)
+
+router.route('./clothes/modifyClothes')
+.post(clothesController.modifyClothes)
 
 module.exports = router
