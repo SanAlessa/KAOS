@@ -30,14 +30,16 @@ import  'rsuite/dist/styles/rsuite-default.css'
         const respuesta = await registerUser(nuevoUsuario)
         if (nuevoUsuario.firstname === '' || nuevoUsuario.lastname === '' || nuevoUsuario.email === '' || nuevoUsuario.password === '' ) {
             Alert.warning('Todos los campos deben estar completos',3000)
-         }
+         }else {
+            Alert.success('Tu cuenta fue creada con exito',4000)
+        }
     }
 
     const responseGoogle = async (response) => {
         console.log(response)
 
         if (response.error) {
-            Alert.error("Algo pasó , vuelve a intentarlo...",3000)
+            Alert.error("Algo pasó , vuelva a intentarlo...",4000)
         } else {
             const respuesta = await registerUserGoogle({
                 firstname: response.profileObj.name,
@@ -49,7 +51,7 @@ import  'rsuite/dist/styles/rsuite-default.css'
             if (respuesta && !respuesta.success) {
                 setErrores(respuesta.errores)
             } else {
-                Alert.success('Tu cuenta fue creada con exito',3000)
+                Alert.success('Tu cuenta fue creada con exito',4000)
             }
         }
       }
