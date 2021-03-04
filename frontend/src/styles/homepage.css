@@ -62,9 +62,6 @@ font-size: 5vh;
     width: 18%;
     height: 80%;
     border-radius: 1%;
-    /* background-image: url('../assets/fotoPrueba.jpeg');
-    background-position: center;
-    background-size: cover;  */
 }
 
 .main {
@@ -118,8 +115,12 @@ font-size: 5vh;
 }
 
 .superSaleBanner {
-    background-color: #1e1d20;
+    background-color: #93c2d1;
     width: 90%;
     height: 75%;
     margin-top: 2%;
+}
+.jeansBox {
+    height: 100%;
+    width: 50%;
 }

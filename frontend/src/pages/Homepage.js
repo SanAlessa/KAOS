@@ -3,9 +3,12 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/homepage.css'
 import HomeBanner from '../components/HomeBanner'
+import Footer from '../components/Footer'
 import fotoPrueba from '../assets/fotoPrueba.jpeg'
 import box1 from '../assets/box1.png'
 import box2 from '../assets/box2.png'
+import box3 from '../assets/box3.png'
+import box4 from '../assets/box4.png'
 
 const Homepage = () => {
     const newSeason = ["1", "2", "3", "4", "5"]
@@ -47,10 +50,14 @@ const Homepage = () => {
                     <p>FIND NEW TRENDS AND ROCK YOUR STYLE</p>
                 </div>
                 <div className="superSaleBanner">
+                    <img src={box3} className="jeansBox"></img>
+                    <img src={box4} className="jeansBox"></img>
 
                 </div>
 
             </div>
+            <Footer></Footer>
+            
         </>
     )
 }
