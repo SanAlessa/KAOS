@@ -2,21 +2,8 @@ const Clothes = require('../models/Clothes')
 
 const clothesController = {
   addClothes: async (req, res) => {
-    const {size, colour, type, price, description} = req.body
-    const {image} = req.files
-    const pic = image.name.split('.')
-    /* REVISAR ESTO PROBABLEMENTE ESTE COMO EL OGT */
-    var url = `../clothesimg/${req.user._id}${image.name}`
-    image.mv(`../clothesimg/${req.user._id}${image.name}`, error => {
-      if(error) {
-        return res.json({
-          success: false,
-          error,
-          mensaje:'No se puede agregar la imagen en este momento. Intente mas tarde'
-        })
-      }
-    })
-    const newClothes = new Clothes({size, description, colour, type, price, image:url})
+    const {stock, type, price, description} = req.body
+    const newClothes = new Clothes({stock, description, type, price})
     newClothes.save()
     .then(newClothes => {
       res.json({success: true, response: newClothes})})
@@ -32,22 +19,9 @@ const clothesController = {
     .catch(error => res.json({success: false, error}))
   },
   modifyClothes: async (req,res)=>{
-    const {id, price, stock} = req.body
-    const {image}=req.files
-    /* REVISAR ESTO PROBABLEMENTE ESTE COMO EL OGT */
-    var url = `../clothesimg/${req.user._id}${image.name}`
-    image.mv(`../clothesimg/${req.user._id}${image.name}`, error => {
-      if(error) {
-        return res.json({
-          success: false,
-          error,
-          mensaje:'No se puede agregar la imagen en este momento. Intente mas tarde'
-        })
-      }
-    })
-    /* REVISAR LO DE ARRIBA XD */
-    Clothes.findOneAndUpdate({_id:id}),
-    {$set: {price, image:url, 'size.$.stock':stock}}
+    const {id, price, quantity, idStock, idSize} = req.body
+    Clothes.findOneAndUpdate({_id:id, 'stock._id':idStock, 'size._id':idSize}),
+    {$set: {price, 'stock.$.size.$.quantity':quantity}}
   },
   deleteClothes: async (req,res)=>{
     const {id} = req.body
@@ -56,21 +30,20 @@ const clothesController = {
     .catch(error => res.json({success: false, error}))
   },
   addToStock: (req, res) => {
-    const {id, stock} = req.body
-    Clothes.findOneAndUpdate({_id:id},
-      {$inc: {'size.$.stock': +stock}},
+    const {id, quantity, idStock, idSize} = req.body
+    Clothes.findOneAndUpdate({_id:id, 'stock._id':idStock, 'size._id':idSize},
+      {$inc: {'stock.$.size.$.quantity': +quantity}},
       {new:true})
     .then(response => res.json({success: true, response}))
     .catch(error=> res.json({success:false, error}))
   },
   substractToStock: (req,res) =>{
-    const{id, stock} = req.body
-    Clothes.findOneAndUpdate({_id:id},
-      {$inc: {'size.$.stock': -stock}},
+    const{id, quantity, idStock, idSize} = req.body
+    Clothes.findOneAndUpdate({_id:id, 'stock._id':idStock, 'size._id':idSize},
+      {$inc: {'stock.$.size.$.quantity': -quantity}},
       {new:true})
     .then(response => res.json({success:true, response}))
     .catch(error => res.json({success:false, error}))
   }
 }
-
 module.exports = clothesController
