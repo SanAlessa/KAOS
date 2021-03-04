@@ -12,6 +12,11 @@ const initState = {
             ...state,
             loggedUser: action.payload
           }
+          case 'DISCONNECT_USER':
+            return {
+                ...state,
+                loggedUser: null
+              }
         default :
           return state
       }
