@@ -6,7 +6,7 @@ const AdminPanel =(props)=>{
   console.log(props)
   const [product, setProduct]=useState({
     stock:{color: '', images:[], size: []},
-    type: '', price: 0, description: ''
+    type: '', price: 0, description: '', sex: ''
   })
 
   const [image, setImage] = useState([])
@@ -52,6 +52,11 @@ const AdminPanel =(props)=>{
   }
   return(
     <div className="centerCenter" style={{flexDirection: 'column', justifyContent: 'space-between', margin: '5vh auto'}}>
+      <label htmlFor="sex">Sexo</label>
+      <select name="sex" id="sex" onChange={readInput}>
+        <option value="M">M</option>
+        <option value="H">H</option>
+      </select>
       <label htmlFor="type">type</label>
       <input type="text" name="type" id="type" onChange={readInput}/>
       <label htmlFor="description">Descripcion del Producto</label>
