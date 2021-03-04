@@ -72,7 +72,7 @@ html * {
   }
 
   /* styles CardClothing */
-.containerCartPurchase {
+.containerProductsStore {
   display: flex;
   flex-wrap: wrap;
   max-width: 100vw;
@@ -121,4 +121,10 @@ html * {
 .containerPrice{
   background-color: whitesmoke;
   height: 10%;
+}
+.containerCart{
+  background-color: #FF7FFF;
+  width: 40%;
+  display: flex;
+  flex-wrap: wrap;
 }
