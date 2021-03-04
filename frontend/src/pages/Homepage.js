@@ -1,15 +1,14 @@
-// import HeaderImg from '../Components/HeaderImg'
 import { connect } from 'react-redux'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import '../styles/homepage.css'
 import HomeBanner from '../components/HomeBanner'
-import motto from '../assets/motto.png'
+import Footer from '../components/Footer'
 import fotoPrueba from '../assets/fotoPrueba.jpeg'
-import backgroundCards from '../assets/aest1.jpg'
 import box1 from '../assets/box1.png'
 import box2 from '../assets/box2.png'
-import bannerRock from '../assets/rockIt.png'
-import '../styles/homepage.css'
+import box3 from '../assets/box3.png'
+import box4 from '../assets/box4.png'
 
 const Homepage = () => {
     const newSeason = ["1", "2", "3", "4", "5"]
@@ -19,10 +18,10 @@ const Homepage = () => {
             <HomeBanner></HomeBanner>
             <div className="main">
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <div className="motto" style={{ backgroundImage: `url(${motto})`, backgroundPosition: 'center', backgroundSize: 'cover' }}></div>
+                    <div className="motto"></div>
                     <p>NEW SEASON IS HERE!</p>
                 </div>
-                <div className="allCards" style={{ backgroundImage: `url(${backgroundCards})`, backgroundPosition: 'center' }}>
+                <div className="allCards">
                     {newSeason.map(card => {
                         return (
                             <div className="clothCard" style={{ backgroundImage: `url(${fotoPrueba})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
@@ -51,10 +50,14 @@ const Homepage = () => {
                     <p>FIND NEW TRENDS AND ROCK YOUR STYLE</p>
                 </div>
                 <div className="superSaleBanner">
+                    <img src={box3} className="jeansBox"></img>
+                    <img src={box4} className="jeansBox"></img>
 
                 </div>
 
             </div>
+            <Footer></Footer>
+            
         </>
     )
 }
