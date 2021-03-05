@@ -1,36 +1,18 @@
 import logo from '../assets/kaoswhite.png'
+import Drawer from './Drawer'
+import {Link} from 'react-router-dom'
+import {IoPersonCircleOutline} from 'react-icons/io5'
+import {FiShoppingCart} from 'react-icons/fi'
+ 
 
 const Header = () => {
     return (
         <div className="logoBanner">
-            <div className="menuHamb">
-
-                <nav class="navbar navbar-light navbar-1 white">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15"
-                        aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent15">
-
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Features</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
-                            </li>
-                        </ul>
-
-                    </div>
-
-                </nav>
-            </div>
-            <div className="logo"></div>
+         <Drawer/>
+         <Link to='/'className="logo"/>
             <div className="iconsHeader">
-                <i class="fas fa-user-circle fa-2x"></i>
-                <i class="fas fa-shopping-cart fa-2x"></i>
+                <Link to='signin' ><IoPersonCircleOutline style={{fontSize:'34',color:'black'}}/></Link>
+                <FiShoppingCart style={{fontSize:'29',color:'black'}}/>
             </div>
         </div>
     )
