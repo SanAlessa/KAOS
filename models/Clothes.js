@@ -6,6 +6,7 @@ const clothesSchema = new mongoose.Schema({
   type: String,
   price: Number,
   description: String,
+  name: String
 })
 
 const Clothes = mongoose.model('clothes', clothesSchema)
