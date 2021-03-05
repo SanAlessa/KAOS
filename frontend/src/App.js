@@ -4,7 +4,7 @@ import AdminPanel from './pages/AdminPanel'
 import Homepage from './pages/Homepage'
 import ProductStore from './components/ProductStore'
 import Register from './components/Register'
-import Productos from './components/Productos'
+import Product from './components/Product'
 import Header from './components/Header'
 import SignIn from './components/SignIn'
 import './styles.css'
@@ -20,7 +20,7 @@ function App() {
         <Route path="/productStore" component={ProductStore}/>
         <Route path="/adminPanel" component={AdminPanel}/> 
         <Route path="/register" component={Register}/>
-        <Route path="/products" component={Productos}/>
+        <Route path="/product/:id" component={Product}/>
         <Route path="/signIn" component={SignIn}/>
         <Redirect to="/" />
       </Switch>

@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
 
 const CardClothing = ({product, products, cart, setCart}) => {
-    const {id, title, description, availableSizes, category, price, stock, productPic} =   product
+    const {_id, title, description, availableSizes, category, price, stock, productPic} =   product
 
     // const products = props.products
     // const cart = props.cart
     // const setCart = props.setCart
 
     const addProduct = id => {
-        const product = products.filter(product => product.id === id)
+        const product = products.filter(product => product._id === id)
         setCart([...cart, ...product])
     }
     console.log(cart)
@@ -24,7 +24,7 @@ const CardClothing = ({product, products, cart, setCart}) => {
             <div className='containerDescription'><p>{description}</p></div>
             <div className='containerPrice'>{`$ ${price}`}</div>
             {products ? (
-                <button type='button' onClick= {() => addProduct(id)}>Agregar al carrito</button>
+                <button type='button' onClick= {() => addProduct(_id)}>Agregar al carrito</button>
             )
             :
             <button type='button' onClick= {() => alert('Vas a eliminar un producto')}>Eliminar del carrito</button>
