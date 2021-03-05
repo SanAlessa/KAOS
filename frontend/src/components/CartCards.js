@@ -42,8 +42,6 @@ const CartCards = ({product, products, cart, setCart}) => {
             :
             <button type='button' id= {id} onClick= {deleteProduct}>Eliminar del carrito</button>
             }
-            
-
         </div>
         </>
     )

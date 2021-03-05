@@ -58,6 +58,7 @@ const ProductStore = () => {
         },
     ]
     const [cart, setCart] = useState([])
+    console.log(cart)
     return(
         <>
         <div className='containerProductsStore'>

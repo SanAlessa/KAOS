@@ -6,7 +6,7 @@ const AdminPanel =(props)=>{
   const [colorStock, setColorStock] = useState({color: '', images:[], size: []})
   const [product, setProduct]=useState({
     stock:[],
-    type: '', price: 0, description: '', sex: '', name: ''
+    type: '', price: 0, description: '', sex: 'SEXO', name: ''
   })
 
   const [image, setImage] = useState([])
@@ -43,7 +43,12 @@ const AdminPanel =(props)=>{
 
   const send =(e)=>{
     e.preventDefault()
-    props.addClothes(product)
+    console.log(product)
+    setProduct({
+      stock:[],
+      type: '', price: 0, description: '', sex: 'SEXO', name: ''
+    })
+    // props.addClothes(product)
   }
 
   const enter=(e)=>{
@@ -65,9 +70,9 @@ const AdminPanel =(props)=>{
       <label htmlFor="name">Nombre</label>
       <input type="text" name="name" id="name" value={product.name} onChange={readInput}/>
       <label htmlFor="description">Descripcion del Producto</label>
-      <textarea name="description" id="description" cols="90" onChange={readInput}></textarea>
+      <textarea name="description" id="description" cols="90" value={product.description} onChange={readInput}></textarea>
       <label htmlFor="price">price</label>
-      <input type="number" name="price" id="price" onChange={readInput}/>
+      <input type="number" name="price" id="price" value={product.price} onChange={readInput}/>
       <div className="centerCenter" style={{marginTop: '10vh', flexDirection: 'column'}}>
         <label htmlFor="colour">Colour</label>
         <input type="text" name="colour" id="colour" value={colorStock.color} onChange={(e)=>setColorStock({...colorStock, color: e.target.value})}/>
