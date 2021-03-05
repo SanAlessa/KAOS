@@ -81,7 +81,7 @@ function SignIn({signIn, history ,loggedUser}) {
                     cookiePolicy={'single_host_origin'}
                 />
             </div>
-            <Link to='register'>Aun no tenes cuenta?,Registrate aqui!</Link>
+            <Link to='register'>Aun no tienes cuenta?,Registrate aqui!</Link>
 
     </div>
 

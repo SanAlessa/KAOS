@@ -32,7 +32,7 @@ export default class SimpleSlider extends Component {
               const fotito = require (`../assets/${foto.url}`)
               return(
                 <div key={foto.url}>
-                    <div style={{backgroundImage:`url("${fotito.default}")`,height:"100vh", width:"100vw",backgroundRepeat:'no-repeat',}}></div>
+                    <div style={{backgroundImage:`url("${fotito.default}")`,height:"100vh", width:"100vw",backgroundRepeat:'no-repeat', backgroundSize: 'contain'}}></div>
                 </div>       
               )
             })}
