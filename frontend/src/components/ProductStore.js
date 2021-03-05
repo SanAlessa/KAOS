@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import CardClothing from './CardClothing'
 import CartPurchase from './CartPurchase'
+import {Link} from 'react-router-dom'
 // import { connect } from 'react-redux'
 
 const ProductStore = () => {
     const products = [
         {
-            "id": 1,
+            "_id": 1,
             "title": "Cat Tee Black T-Shirt",
             "description": "4 MSL",
             "availableSizes": ["S", "XS"],
@@ -16,7 +17,7 @@ const ProductStore = () => {
             "productPic": 'https://www.guantexindustrial.com.ar/710-large_default/remera-algodon-jersey-blanco-talle-xxl.jpg'
         },
         {
-            "id": 2,
+            "_id": 2,
             "title": "Cat Tee Black T-Shirt",
             "description": "4 MSL",
             "availableSizes": ["S", "XS"],
@@ -26,7 +27,7 @@ const ProductStore = () => {
             "productPic": 'https://www.guantexindustrial.com.ar/710-large_default/remera-algodon-jersey-blanco-talle-xxl.jpg'
         },
         {
-            "id": 3,
+            "_id": 3,
             "title": "Cat Tee Black T-Shirt",
             "description": "4 MSL",
             "availableSizes": ["S", "XS"],
@@ -36,7 +37,7 @@ const ProductStore = () => {
             "productPic": 'https://www.guantexindustrial.com.ar/710-large_default/remera-algodon-jersey-blanco-talle-xxl.jpg'
         },
         {
-            "id": 4,
+            "_id": 4,
             "title": "Cat Tee Black T-Shirt",
             "description": "4 MSL",
             "availableSizes": ["S", "XS"],
@@ -46,7 +47,7 @@ const ProductStore = () => {
             "productPic": 'https://www.guantexindustrial.com.ar/710-large_default/remera-algodon-jersey-blanco-talle-xxl.jpg'
         },
         {
-            "id": 5,
+            "_id": 5,
             "title": "Cat Tee Black T-Shirt",
             "description": "4 MSL",
             "availableSizes": ["S", "XS"],
@@ -62,7 +63,7 @@ const ProductStore = () => {
         <div className='containerProductsStore'>
             {products.map(product => {
                 return(
-                        <CardClothing key={product.id} product={product} cart={cart} setCart={setCart} products ={products} />
+                        <Link to={`./product/${product._id}`}><CardClothing key={product.id} product={product} cart={cart} setCart={setCart} products ={products} /></Link>
                 )
             })}
         <CartPurchase cart={cart} setCart={setCart}/>
