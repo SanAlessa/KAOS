@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import CardClothing from './CardClothing'
+import CartCards from './CartCards'
 import CartPurchase from './CartPurchase'
 import {Link} from 'react-router-dom'
 // import { connect } from 'react-redux'
@@ -7,52 +7,52 @@ import {Link} from 'react-router-dom'
 const ProductStore = () => {
     const products = [
         {
-            "_id": 1,
-            "title": "Cat Tee Black T-Shirt",
+            "id": 1,
+            "title": "Cat Tee Black T-Shirt 1",
             "description": "4 MSL",
             "availableSizes": ["S", "XS"],
             "category": "Black with custom print",
-            "price": 10.9,
+            "price": 10.91,
             "stock": 9,
             "productPic": 'https://www.guantexindustrial.com.ar/710-large_default/remera-algodon-jersey-blanco-talle-xxl.jpg'
         },
         {
-            "_id": 2,
-            "title": "Cat Tee Black T-Shirt",
+            "id": 2,
+            "title": "Cat Tee Black T-Shirt 2",
             "description": "4 MSL",
             "availableSizes": ["S", "XS"],
             "category": "Black with custom print",
-            "price": 10.9,
+            "price": 10.92,
             "stock": 9,
             "productPic": 'https://www.guantexindustrial.com.ar/710-large_default/remera-algodon-jersey-blanco-talle-xxl.jpg'
         },
         {
-            "_id": 3,
-            "title": "Cat Tee Black T-Shirt",
+            "id": 3,
+            "title": "Cat Tee Black T-Shirt 3",
             "description": "4 MSL",
             "availableSizes": ["S", "XS"],
             "category": "Black with custom print",
-            "price": 10.9,
+            "price": 10.93,
             "stock": 9,
             "productPic": 'https://www.guantexindustrial.com.ar/710-large_default/remera-algodon-jersey-blanco-talle-xxl.jpg'
         },
         {
-            "_id": 4,
-            "title": "Cat Tee Black T-Shirt",
+            "id": 4,
+            "title": "Cat Tee Black T-Shirt 4",
             "description": "4 MSL",
             "availableSizes": ["S", "XS"],
             "category": "Black with custom print",
-            "price": 10.9,
+            "price": 10.94,
             "stock": 9,
             "productPic": 'https://www.guantexindustrial.com.ar/710-large_default/remera-algodon-jersey-blanco-talle-xxl.jpg'
         },
         {
-            "_id": 5,
-            "title": "Cat Tee Black T-Shirt",
+            "id": 5,
+            "title": "Cat Tee Black T-Shirt 5",
             "description": "4 MSL",
             "availableSizes": ["S", "XS"],
             "category": "Black with custom print",
-            "price": 10.9,
+            "price": 10.95,
             "stock": 9,
             "productPic": 'https://www.guantexindustrial.com.ar/710-large_default/remera-algodon-jersey-blanco-talle-xxl.jpg'
         },
