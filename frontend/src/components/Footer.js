@@ -21,11 +21,11 @@ const Footer = () => {
                         <NavLink to="/">Contacto</NavLink>
                     </div>
                     <div className="container__icons__social" >
-                        <div> <NavLink to="/" ><p>Whatsapp</p></NavLink></div>
-                        <div> <NavLink to="/" ><p>Instagram</p></NavLink></div>
-                        <div><NavLink to="/" ><p>Facebook</p></NavLink></div>
+                        <div> <NavLink to="/" ><i class="fab fa-whatsapp fa-3x"></i></NavLink></div>
+                        <div> <NavLink to="/" ><i class="fab fa-instagram fa-3x"></i></NavLink></div>
+                        <div><NavLink to="/" ><i class="fab fa-facebook fa-3x"></i></NavLink></div>
+                        <div><NavLink to="/" ><i class="fab fa-twitter fa-3x"></i></NavLink></div>
                     </div>
-
                 </div>
             </footer>
             <div className="all__reserved">
