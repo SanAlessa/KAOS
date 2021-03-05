@@ -1,20 +1,28 @@
 import { useEffect, useState } from "react"
 
-const CardClothing = ({product, products, cart, setCart}) => {
+const CartCards = ({product, products, cart, setCart}) => {
     const {id, title, description, availableSizes, category, price, stock, productPic} =   product
 
-    // const products = props.products
-    // const cart = props.cart
-    // const setCart = props.setCart
+    const [cantidad, setCantidad] = useState(1)
 
     const addProduct = id => {
         const product = products.filter(product => product.id === id)
         setCart([...cart, ...product])
     }
-    console.log(cart)
+    const deleteProduct = e => {
+        const newCart = cart.filter(product => product.id !== parseInt(e.target.id))
+        setCart(newCart)
+    }
+    const subQuantity = () => {
+        setCantidad((cantidad-1) < 1 ? (alert('No se pueden quitar más productos'), cantidad ): (cantidad-1))
+    }
+    const incQuantity = () => {
+        setCantidad((cantidad+1) > stock ? (alert('No hay más productos disponibles'), cantidad) : (cantidad+1))
+    }
+
     return(
         <>
-        <div className='containerCardClothing'>
+        <div className='containerCartCards'>
             <div className='containerPhotoClothing' style={{backgroundImage: `url(${productPic})`}}></div>
             <div className='containerTitle'>{title}</div>
             <div className='containerCategoryAndStock'>
@@ -23,11 +31,16 @@ const CardClothing = ({product, products, cart, setCart}) => {
             </div>
             <div className='containerDescription'><p>{description}</p></div>
             <div className='containerPrice'>{`$ ${price}`}</div>
+            <div className='containerQuantity'>
+                <div className='subQuantity' onClick ={subQuantity}>-</div>
+                <p>Cantidad: {cantidad}</p>
+                <div className='incQuantity' onClick ={incQuantity}>+</div>
+            </div>
             {products ? (
                 <button type='button' onClick= {() => addProduct(id)}>Agregar al carrito</button>
             )
             :
-            <button type='button' onClick= {() => alert('Vas a eliminar un producto')}>Eliminar del carrito</button>
+            <button type='button' id= {id} onClick= {deleteProduct}>Eliminar del carrito</button>
             }
             
 
@@ -35,4 +48,4 @@ const CardClothing = ({product, products, cart, setCart}) => {
         </>
     )
 }
-export default /*connect(null, mapDispatchToProps)*/(CardClothing)
+export default /*connect(null, mapDispatchToProps)*/(CartCards)
