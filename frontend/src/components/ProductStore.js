@@ -63,7 +63,7 @@ const ProductStore = () => {
         <div className='containerProductsStore'>
             {products.map(product => {
                 return(
-                        <Link to={`./product/${product._id}`}><CardClothing key={product.id} product={product} cart={cart} setCart={setCart} products ={products} /></Link>
+                        <CartCards from  key={product.id} product={product} cart={cart} setCart={setCart} products ={products} />
                 )
             })}
         <CartPurchase cart={cart} setCart={setCart}/>
