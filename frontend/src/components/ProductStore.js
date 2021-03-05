@@ -67,6 +67,7 @@ const ProductStore = () => {
             })}
         <CartPurchase cart={cart} setCart={setCart}/>
         </div>
+
         </>
     )
 }
