@@ -3,7 +3,7 @@ import Carrousel from './Carrousel'
 
 const HomeBanner = () => {
     return (
-        <Carrousel/>  
+        <Carrousel/> 
     )
 }
 

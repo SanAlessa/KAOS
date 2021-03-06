@@ -34,7 +34,7 @@ router.route('/clothes/substractStock')
 router.route('/clothes/deleteClothes')
 .put(clothesController.deleteClothes)
 
-router.route('./clothes/modifyClothes')
+router.route('/clothes/modifyClothes')
 .post(clothesController.modifyClothes)
 
 module.exports = router
