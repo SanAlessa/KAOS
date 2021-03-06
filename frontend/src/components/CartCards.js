@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react"
+import {connect} from 'react-redux'
+import purchaseAction from '../redux/actions/purchaseAction'
 
-const CartCards = ({product, products, cart, setCart}) => {
-    const {id, title, description, availableSizes, category, price, stock, productPic} =   product
+const CartCards = ({product, products, cart, setCart, addClothes}) => {
+
+    const {id, title, description, category, price, stock, productPic} = product
 
     const [cantidad, setCantidad] = useState(1)
 
     const addProduct = id => {
-        const product = products.filter(product => product._id === id)
+        const product = products.filter(product => product.id === id)
+        addClothes(product)
         setCart([...cart, ...product])
+        console.log(cart)
     }
     const deleteProduct = e => {
         const newCart = cart.filter(product => product.id !== parseInt(e.target.id))
@@ -46,4 +51,13 @@ const CartCards = ({product, products, cart, setCart}) => {
         </>
     )
 }
-export default /*connect(null, mapDispatchToProps)*/(CartCards)
+
+const mapDispatchToProps = {
+    checkout: purchaseAction.checkout,
+    addClothes: purchaseAction.addClothes,
+    deleteClothes: purchaseAction.deleteClothes,
+    incOne: purchaseAction.incOne,
+    substOne: purchaseAction.susbtOne
+}
+
+export default connect(null, mapDispatchToProps)(CartCards)

@@ -2,13 +2,10 @@ import { connect } from 'react-redux'
 import CartCards from './CartCards'
 import purchaseAction from '../redux/actions/purchaseAction'
 
-const CartPurchase = ({cart, setCart, cantidad, finalizePurchase}) => {
+const CartPurchase = ({cart, setCart, checkout}) => {
 
-    const checkout = () => {
-        finalizePurchase()
-    }
+    console.log(checkout)
 
-    console.log(cart)
     return(
         <>
             <div className='containerCart'>
@@ -19,19 +16,20 @@ const CartPurchase = ({cart, setCart, cantidad, finalizePurchase}) => {
                 {cart.map(productAdded => {
                 return(
                 <>
-                <CartCards key={productAdded.id} product={productAdded} cart={cart} setCart={setCart} />
+                <CartCards key={productAdded.id} product={productAdded} cart={cart} setCart={setCart}/>
                 </>
                 )})}
                 </>}
             </div>
-            <button     >Finaliza Compra</button>
+            <button >Finaliza Compra</button>
         </>
     )
 }
 
-const mapDispatchToProps = {
-    finalizePurchase: purchaseAction.finalizePurchase
+const mapStateToProps=state=> {
+    return {
+        checkout: state.purchaseR.checkout
+    }
 }
 
-
-export default connect(null, mapDispatchToProps)(CartPurchase)
+export default connect(mapStateToProps)(CartPurchase)
