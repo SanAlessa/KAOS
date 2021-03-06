@@ -158,3 +158,102 @@ html * {
   font-weight: bold;
   /* background-color: #FF7FFF; */
 }
+.containerContactInformation{
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #6CC8FC;
+}
+.containerBannerSection{
+  width: 100%;
+  height: 15%;
+
+}
+.containerFormSectionInformation{
+  width: 100%;
+  height: 85%;
+  background-color: #FF7FFF;
+  display: flex;
+  flex-direction: column;
+}
+.firstRowForm, .secondRowForm{
+margin-bottom: 5vw;
+display: flex;
+justify-content: space-evenly;
+}
+.containerCheckOut{
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #6CC8FC;
+}
+.containerContentCheckout{
+  background-color: antiquewhite;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.containerActionsCheckout{
+  background-color: brown;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.containerActionsCheckout a{
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  width: 30%;
+  background-color: blanchedalmond;
+}
+.containerActionsCheckout a:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: black
+}
+.containerContactInfo, .containerPayInfo{
+  width: 60%;
+  height: 80%;
+  background-color: #FF7FFF;
+  border: 1px solid black;
+  margin-left: 2vw;
+  margin-top: 2vw;
+}
+.containerPayInfo{
+  background-color: chartreuse;
+}
+.containerStateCheckOut{
+  display: flex;
+  align-items: center;
+  width: 50%;
+  background-color: blueviolet;
+}
+.containerStateCheckOut p {
+  font-size: 2vw;
+  margin: 0;
+  margin-right: 0.5vw;
+}
+.containerStateCheckOut a p{
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+}
+
+.containerCardPay{
+  width: 35%;
+  height: 20%;
+  margin-left: 2vw;
+  margin-top: 2vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+.containerCardPay:hover {
+  cursor: pointer;
+  box-shadow: 3px -3px 5px rgb(125, 125, 125);
+}
