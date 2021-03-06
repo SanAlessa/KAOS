@@ -4,7 +4,6 @@ import {connect}from 'react-redux'
 import AdminPanel from './pages/AdminPanel'
 import Homepage from './pages/Homepage'
 import ProductStore from './components/ProductStore'
-import Register from './components/Register'
 import Product from './components/Product'
 import Header from './components/Header'
 import SignIn from './components/SignIn'
@@ -23,9 +22,11 @@ if(loggedUser){
     <Route exact path="/" component={Homepage}/>
     <Route path="/productStore" component={ProductStore}/>
     <Route path="/adminPanel" component={AdminPanel}/> 
-    <Route path="/register" component={Register}/>
     <Route path="/product/:id" component={Product}/>
     <Route path="/signIn" component={SignIn}/>
+    <Route exact path='/buy' component={Buy} />
+    <Route exact path='/payment' component={Payment}/>
+    <Redirect to="/"/>
   </>
 }else if (localStorage.getItem('token')){
   logFromLS(localStorage.getItem('token'))
@@ -36,9 +37,11 @@ if(loggedUser){
     <Route exact path="/" component={Homepage}/>
     <Route path="/productStore" component={ProductStore}/>
     <Route path="/adminPanel" component={AdminPanel}/> 
-    <Route path="/register" component={Register}/>
     <Route path="/product/:id" component={Product}/>
     <Route path="/signIn" component={SignIn}/>
+    <Route exact path='/buy' component={Buy} />
+    <Route exact path='/payment' component={Payment}/>
+    <Redirect to="/"/>
   </>
 
 }
@@ -47,15 +50,6 @@ if(loggedUser){
       <Header></Header>
       <Switch>
         {routes}
-        {/* <Route exact path="/" component={Homepage}/>
-        <Route path="/productStore" component={ProductStore}/>
-        <Route exact path='/buy' component={Buy} />
-        <Route exact path='/payment' component={Payment}/>
-        <Route path="/adminPanel" component={AdminPanel}/> 
-        <Route path="/register" component={Register}/>
-        <Route path="/product/:id" component={Product}/>
-        <Route path="/signIn" component={SignIn}/> */}
-        <Redirect to="/" />
       </Switch>
     </BrowserRouter>
   )
