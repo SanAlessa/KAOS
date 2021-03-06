@@ -1,8 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { Drawer, ButtonToolbar, IconButton ,Icon } from 'rsuite'
-import '../../node_modules/rsuite/dist/styles/rsuite-default.css'
 import {FcMenu} from 'react-icons/fc'
 import logo from '../Backgrounds/logodrawer.png'
+import '../../node_modules/rsuite/dist/styles/rsuite-default.css'
+
 class MenuUser extends React.Component {
   constructor(props) {
     super(props);
@@ -44,9 +46,11 @@ class MenuUser extends React.Component {
           
           <Drawer.Body>
           <br/>
-          <h4>Mujer</h4>
+          <Link to="/ProductStore"><h4>Mujer</h4></Link>
+          
           <br/>
-           <h4>Hombre</h4>
+          <Link to="/ProductStore"><h4>Hombre</h4></Link>
+           
           </Drawer.Body>
           <Drawer.Footer>
           <div style={{backgroundImage:`url("${logo}")`,height:"15vh", width:"15vw",backgroundRepeat:'no-repeat', backgroundSize: 'contain'}}> 

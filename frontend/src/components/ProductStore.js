@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import CartCards from './CartCards'
 import CartPurchase from './CartPurchase'
 import {Link} from 'react-router-dom'
+import Footer from './Footer'
 // import { connect } from 'react-redux'
 
 const ProductStore = () => {
@@ -58,17 +59,19 @@ const ProductStore = () => {
         },
     ]
     const [cart, setCart] = useState([])
-    console.log(cart)
-    return(
+    return (
         <>
-        <div className='containerProductsStore'>
-            {products.map(product => {
-                return(
-                        <Link to={`/product/${product.id}`}><CartCards from  key={product.id} product={product} cart={cart} setCart={setCart} products ={products}/></Link>
-                )
-            })}
-        <CartPurchase cart={cart} setCart={setCart}/>
-        </div>
+            <div className="main">
+                <div className='containerProductsStore'>
+                    {products.map(product => {
+                        return (
+                            <Link to={`/product/${product.id}`}><CartCards from  key={product.id} product={product} cart={cart} setCart={setCart} products ={products}/></Link>
+                        )
+                    })}
+                    <CartPurchase cart={cart} setCart={setCart} />
+                </div>
+            </div>
+            {/* <Footer></Footer> */}
 
         </>
     )

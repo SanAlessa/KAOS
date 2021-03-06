@@ -6,32 +6,47 @@ import userAction from '../redux/actions/userAction';
 import { connect } from 'react-redux'
 import { Message } from 'rsuite'
 import { Link } from 'react-router-dom';
+import Footer from './Footer'
 import '../styles/log.css'
+import 'rsuite/dist/styles/rsuite-default.css'
 
-function SignIn({ signIn, history, loggedUser }) {
+function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle }) {
     const [visible, setVisible] = useState(true)
     const [errores, setErrores] = useState('')
-    const [usuario, setNuevoUsuario] = useState({
+    const [nuevoLogin, setNuevoLogin] = useState({
         email: '',
         password: ''
     })
 // console.log(loggedUser)
 
-
+    const [nuevoUsuario, setNuevoUsuario] = useState({
+        firstname: '',
+        lastname: '',
+        email: '',
+        password: ''
+    })
     const leerInput = e => {
         const valor = e.target.value
         const campo = e.target.name
+        setNuevoLogin({
+            ...nuevoLogin,
+            [campo]: valor
+        })
+    }
+    const registrar = e => {
+        const campo = e.target.name
+        var valor = e.target.value
         setNuevoUsuario({
-            ...usuario,
+            ...nuevoUsuario,
             [campo]: valor
         })
     }
     const validarUsuario = async e => {
         setErrores('')
-        if (usuario.email === '' || usuario.password === '') {
+        if (nuevoLogin.email === '' || nuevoLogin.password === '') {
             Alert.warning('Todos los campos son requeridos')
         } else {
-            const respuesta = await signIn(usuario)
+            const respuesta = await signIn(nuevoLogin)
             if (respuesta && !respuesta.success) {
                 setErrores(respuesta.mensaje)
             }
@@ -39,6 +54,16 @@ function SignIn({ signIn, history, loggedUser }) {
                     history.push('/')
                 }, 2500)
 
+        }
+    }
+
+    const validarRegistro = async e => {
+        e.preventDefault()
+        const respuesta = await registerUser(nuevoUsuario)
+        if (nuevoUsuario.firstname === '' || nuevoUsuario.lastname === '' || nuevoUsuario.email === '' || nuevoUsuario.password === '') {
+            Alert.warning('Todos los campos deben estar completos', 3000)
+        } else {
+            Alert.success('Tu cuenta fue creada con exito', 4000)
         }
     }
     const responseGoogle = async response => {
@@ -56,7 +81,28 @@ function SignIn({ signIn, history, loggedUser }) {
         }
     }
 
+    const responseGoogleReg = async (response) => {
+
+        if (response.error) {
+            Alert.error("Algo pasó , vuelva a intentarlo...", 4000)
+        } else {
+            const respuesta = await registerUserGoogle({
+                firstname: response.profileObj.name,
+                lastname: response.profileObj.familyName,
+                email: response.profileObj.email,
+                password: response.profileObj.googleId,
+
+            })
+            if (respuesta && !respuesta.success) {
+                setErrores(respuesta.errores)
+            } else {
+                Alert.success('Tu cuenta fue creada con exito', 4000)
+            }
+        }
+    }
+
     return (
+        <>
         <div className="main">
             <div className="logSign">
                 <div className="login">
@@ -68,7 +114,7 @@ function SignIn({ signIn, history, loggedUser }) {
                         <input className="inputsLog" type="text" name="email" placeholder="Ingrese su dirección de correo electrónico" onChange={leerInput} />
                     </div>
                     <div className="inputsDiv">
-                        <input className="inputsLog" style={{marginLeft:'1%'}} type={visible ? "password" : " text"} name="password" placeholder="Ingrese su contraseña" onChange={leerInput} />
+                        <input className="inputsLog" style={{ marginLeft: '1%' }} type={visible ? "password" : " text"} name="password" placeholder="Ingrese su contraseña" onChange={leerInput} />
                         <AiOutlineEye onClick={() => setVisible(!visible)} />
                     </div>
                     <button className="btnLog" onClick={validarUsuario}>Ingresar</button>
@@ -86,12 +132,40 @@ function SignIn({ signIn, history, loggedUser }) {
 
                 </div>
                 <div className="signUp">
-                    <p>AGREGAMOS ACÁ EL SIGN UP???</p>
-                    <p>☺</p>
+                    <h2>NO TENÉS CUENTA? REGISTRATE!</h2>
+                    <div>
+                        <input name='firstname' type='text' placeholder='Ingrese su nombre' onChange={registrar} />
+                    </div>
+                    <div>
+                        <input name='lastname' type='' placeholder='Ingrese su Apellido' onChange={registrar} />
+                    </div>
+                    <div>
+                        <input name='email' type='text' placeholder='Ingrese su dirección de correo electrónico' onChange={registrar} />
+                    </div>
+                    <div>
+                        <div className="inputDiv">
+                            <input name='password' type={visible ? 'password' : 'text'} placeholder='Elija su contraseña' onChange={registrar} />
+                            <AiOutlineEye onClick={() => setVisible(!visible)} />
+                        </div>
+
+                    </div>
+                    <button onClick={validarRegistro} className="btnLog" style={{height:'20%'}}>Enviar Registro</button>
+                    <div>
+                        <GoogleLogin
+                            clientId="56670268622-ujtfv11jtt2esb9qe4cgo4drut70tgu4.apps.googleusercontent.com"
+                            buttonText="Create Account"
+                            onSuccess={responseGoogleReg}
+                            onFailure={responseGoogleReg}
+                            cookiePolicy={'single_host_origin'}
+                        />
+                    </div>
 
                 </div>
             </div>
+            
         </div>
+        <Footer></Footer>
+        </>
     )
 }
 
@@ -101,7 +175,9 @@ const mapStateToProps = state => {
     }
 }
 const mapDispatchToProps = {
-    signIn: userAction.loginUser
+    signIn: userAction.loginUser,
+    registerUser: userAction.registerUser,
+    registerUserGoogle: userAction.registerUserGoogle
 
 }
 
