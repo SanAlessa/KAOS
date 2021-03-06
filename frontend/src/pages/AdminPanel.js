@@ -48,7 +48,7 @@ const AdminPanel =(props)=>{
       stock:[],
       type: '', price: 0, description: '', sex: 'SEXO', name: ''
     })
-    // props.addClothes(product)
+    props.addClothes(product)
   }
 
   const enter=(e)=>{
