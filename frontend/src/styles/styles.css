@@ -143,3 +143,18 @@ html * {
   justify-content: center;
   cursor: pointer;
 }
+.cajaPrueba{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: aqua;
+  width: 40%;
+}
+.pruebaFotitos{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  /* background-color: #FF7FFF; */
+}
