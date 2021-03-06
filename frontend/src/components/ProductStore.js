@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import CardClothing from './CardClothing'
 import CartPurchase from './CartPurchase'
+import Footer from './Footer'
 // import { connect } from 'react-redux'
 
 const ProductStore = () => {
@@ -57,16 +58,19 @@ const ProductStore = () => {
         },
     ]
     const [cart, setCart] = useState([])
-    return(
+    return (
         <>
-        <div className='containerProductsStore'>
-            {products.map(product => {
-                return(
-                        <CardClothing key={product.id} product={product} cart={cart} setCart={setCart} products ={products} />
-                )
-            })}
-        <CartPurchase cart={cart} setCart={setCart}/>
-        </div>
+            <div className="main">
+                <div className='containerProductsStore'>
+                    {products.map(product => {
+                        return (
+                            <CardClothing key={product.id} product={product} cart={cart} setCart={setCart} products={products} />
+                        )
+                    })}
+                    <CartPurchase cart={cart} setCart={setCart} />
+                </div>
+            </div>
+            {/* <Footer></Footer> */}
 
         </>
     )

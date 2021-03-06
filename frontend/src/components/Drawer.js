@@ -2,6 +2,8 @@ import React from 'react'
 import { Drawer, ButtonToolbar, IconButton ,Icon } from 'rsuite'
 import '../../node_modules/rsuite/dist/styles/rsuite-default.css'
 import {FcMenu} from 'react-icons/fc'
+import { Link } from 'react-router-dom';
+
 class MenuUser extends React.Component {
   constructor(props) {
     super(props);
@@ -43,9 +45,11 @@ class MenuUser extends React.Component {
           
           <Drawer.Body>
           <br/>
-          <h4>Mujer</h4>
+          <Link to="/ProductStore"><h4>Mujer</h4></Link>
+          
           <br/>
-           <h4>Hombre</h4>
+          <Link to="/ProductStore"><h4>Hombre</h4></Link>
+           
           </Drawer.Body>
           <Drawer.Footer>
           <h6>KAOS AW/2021--</h6>

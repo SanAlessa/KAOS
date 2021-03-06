@@ -22,11 +22,8 @@
     align-items: center;
 }
 .logo {
-    width: 15%;
+    width: 35%;
     height: 100%;
-    background-image: url('../assets/kaos.png');
-    background-position: center;
-    background-size: cover;
 }
 .navbar.navbar-1 .navbar-toggler-icon {
     background-image: url('https://mdbootstrap.com/img/svg/hamburger6.svg?color=000');
