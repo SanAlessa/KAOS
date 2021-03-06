@@ -21,7 +21,6 @@ export default class SimpleSlider extends Component {
       autoplaySpeed: 1600,
       fade: true ,
       pauseOnDotsHover:true,
-      //  dots: true,
     };
 
   return (

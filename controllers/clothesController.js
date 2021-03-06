@@ -2,8 +2,8 @@ const Clothes = require('../models/Clothes')
 
 const clothesController = {
   addClothes: async (req, res) => {
-    const {stock, type, price, description} = req.body
-    const newClothes = new Clothes({stock, description, type, price})
+    const {stock, sex, type, price, description} = req.body
+    const newClothes = new Clothes({stock, sex, description, type, price})
     newClothes.save()
     .then(newClothes => {res.json({success: true, response: newClothes})})
     .catch(errors => res.json({

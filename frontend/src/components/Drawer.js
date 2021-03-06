@@ -2,6 +2,7 @@ import React from 'react'
 import { Drawer, ButtonToolbar, IconButton ,Icon } from 'rsuite'
 import '../../node_modules/rsuite/dist/styles/rsuite-default.css'
 import {FcMenu} from 'react-icons/fc'
+import logo from '../Backgrounds/logodrawer.png'
 class MenuUser extends React.Component {
   constructor(props) {
     super(props);
@@ -48,7 +49,10 @@ class MenuUser extends React.Component {
            <h4>Hombre</h4>
           </Drawer.Body>
           <Drawer.Footer>
+          <div style={{backgroundImage:`url("${logo}")`,height:"15vh", width:"15vw",backgroundRepeat:'no-repeat', backgroundSize: 'contain'}}> 
+          </div>
           <h6>KAOS AW/2021--</h6>
+         
         </Drawer.Footer>
         </Drawer>
        

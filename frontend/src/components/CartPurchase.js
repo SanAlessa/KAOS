@@ -1,6 +1,13 @@
-import CardClothing from './CardClothing'
+import { connect } from 'react-redux'
+import CartCards from './CartCards'
+import purchaseAction from '../redux/actions/purchaseAction'
 
-const CartPurchase = ({cart, setCart}) => {
+const CartPurchase = ({cart, setCart, cantidad, finalizePurchase}) => {
+
+    const checkout = () => {
+        finalizePurchase()
+    }
+
     console.log(cart)
     return(
         <>
@@ -9,15 +16,22 @@ const CartPurchase = ({cart, setCart}) => {
                 {cart.length === 0 ? <p>Empezá a comprar</p> :
                 <>
                 <h2>Tu compra</h2>
-                {cart.map(productAdded => <CardClothing key={productAdded.id} product={productAdded} cart={cart} setCart={setCart} />)}
+                {cart.map(productAdded => {
+                return(
+                <>
+                <CartCards key={productAdded.id} product={productAdded} cart={cart} setCart={setCart} />
+                </>
+                )})}
                 </>}
             </div>
-            <button>Finaliza Compra</button>
+            <button     >Finaliza Compra</button>
         </>
     )
 }
 
-//  Acá va el dispatch substract Opción 2
+const mapDispatchToProps = {
+    finalizePurchase: purchaseAction.finalizePurchase
+}
 
 
-export default CartPurchase
+export default connect(null, mapDispatchToProps)(CartPurchase)
