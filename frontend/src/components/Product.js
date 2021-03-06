@@ -62,7 +62,7 @@ const Product = (props)=>{
                                 {visible ? color.length > 0 && color[0].size.map(size=><div>{size.size}</div>):oneProduct[0].stock[0].size.map(color => <div>{color.size}</div>)}
                             </div>
                         </div>
-                        <div style={{textAlign:"center"}}>Comprar</div>
+                        <div className='botonComprar' style={{textAlign:"center"}}>Comprar</div>
                         <div>
                             <p>Descripcion</p>
                             <p>{oneProduct[0].description}</p>
