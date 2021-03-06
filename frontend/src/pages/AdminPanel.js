@@ -6,7 +6,7 @@ const AdminPanel =(props)=>{
   const [colorStock, setColorStock] = useState({color: '', images:[], size: []})
   const [product, setProduct]=useState({
     stock:[],
-    type: '', price: 0, description: '', sex: 'SEXO', name: ''
+    type: '', price: 0, description: '', sex: 'SEXOgi', name: ''
   })
 
   const [image, setImage] = useState([])
