@@ -143,11 +143,20 @@ html * {
   justify-content: center;
   cursor: pointer;
 }
+/* ESTILOS MAURI */
 .cajaPrueba{
   display: flex;
   flex-wrap: wrap;
   background-color: aqua;
   width: 40%;
+}
+.botonComprar{
+  background-color: #6048a3;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  color: white;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 .pruebaFotitos{
   width: 50%;
@@ -158,6 +167,7 @@ html * {
   font-weight: bold;
   /* background-color: #FF7FFF; */
 }
+/* ESTILOS MAURI */
 .containerContactInformation{
   width: 100vw;
   height: 80vh;
