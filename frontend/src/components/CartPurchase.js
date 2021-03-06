@@ -24,7 +24,7 @@ const CartPurchase = ({cart, setCart, cantidad, finalizePurchase}) => {
                 )})}
                 </>}
             </div>
-            <button     >Finaliza Compra</button>
+            <button onClick={checkout}>Finaliza Compra</button>
         </>
     )
 }

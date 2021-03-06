@@ -1,7 +1,7 @@
 const purchaseAction = {
     finalizePurchase: () => {
         return async (dispatch, getState) => {
-            const response = axios.post()
+            return false
         }
     }
 }
