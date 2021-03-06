@@ -142,9 +142,5 @@ font-size: 5vh;
 
 .rs-btn-toolbar{
 border:1px solid rgba(0, 0, 0, 0.178);  
-border-radius: 7px;  
-}
-.rs-btn.rs-btn-icon{
-    padding-left:13px
-
+border-radius: 1vh;   
 }

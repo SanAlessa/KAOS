@@ -6,7 +6,7 @@ import userAction from '../redux/actions/userAction'
 import {Alert} from 'rsuite'
 import  'rsuite/dist/styles/rsuite-default.css'
 
- function Register({registerUser ,registerUserGoogle}) {
+ function Register({registerUser ,registerUserGoogle, history}) {
     const [nuevoUsuario, setNuevoUsuario] = useState({
         firstname:'',
         lastname:'',
@@ -32,6 +32,9 @@ import  'rsuite/dist/styles/rsuite-default.css'
             Alert.warning('Todos los campos deben estar completos',3000)
          }else {
             Alert.success('Tu cuenta fue creada con exito',4000)
+            setTimeout(() => {
+                history.push('/')
+            }, 2000)
         }
     }
 

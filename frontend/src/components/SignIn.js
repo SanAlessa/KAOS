@@ -9,13 +9,13 @@ import { Link } from 'react-router-dom';
 import '../styles/log.css'
 
 function SignIn({ signIn, history, loggedUser }) {
-    console.log(signIn)
     const [visible, setVisible] = useState(true)
     const [errores, setErrores] = useState('')
     const [usuario, setNuevoUsuario] = useState({
         email: '',
         password: ''
     })
+// console.log(loggedUser)
 
 
     const leerInput = e => {
@@ -26,7 +26,6 @@ function SignIn({ signIn, history, loggedUser }) {
             [campo]: valor
         })
     }
-    console.log(usuario)
     const validarUsuario = async e => {
         setErrores('')
         if (usuario.email === '' || usuario.password === '') {
@@ -36,25 +35,24 @@ function SignIn({ signIn, history, loggedUser }) {
             if (respuesta && !respuesta.success) {
                 setErrores(respuesta.mensaje)
             }
-            if (loggedUser !== null)
                 setTimeout(() => {
                     history.push('/')
-                }, 3000)
+                }, 2500)
 
         }
     }
     const responseGoogle = async response => {
         if (response.error) {
+            Alert.error("Algo pasó , vuelva a intentarlo...",4000)
         } else {
             const res = await signIn({
                 email: response.profileObj.email,
                 password: response.profileObj.googleId,
                 google: 'true'
-            }
-            )
-            if (res && !res.success) {
-                Alert.error('Intente nuevamente')
-            }
+            })
+            setTimeout(() => {
+                history.push('/')
+            }, 2500)
         }
     }
 
