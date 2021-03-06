@@ -27,9 +27,9 @@ class MenuUser extends React.Component {
 
     return (
       <div>
-          <ButtonToolbar>
+          <ButtonToolbar style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
         <IconButton
-            icon={<FcMenu icon="angle-right" />}
+            icon={<FcMenu icon="angle-right" style={{fontSize:'150%'}}/>}
             onClick={() => this.toggleDrawer('left')}
           />
           </ButtonToolbar>

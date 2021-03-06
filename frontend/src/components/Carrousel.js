@@ -3,7 +3,6 @@ import Slider from "react-slick"
 import ScrollBanner from './ScrollBanner'
 
 const fotos = [
-  { url:"homeBack.png"},
   { url:"homeBack1.png"},
   { url:"homeBack2.png"}
 ]
