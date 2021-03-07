@@ -33,13 +33,13 @@ const Product = (props)=>{
         props.checkout(product)
         setReload(!reload)
     }
-    console.log(images)
+
     return (
         <>
             <div className="mainProduct">
                 <div style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}>
                     <div className="cajaPrueba">
-                        {images.length > 0 && images.map((color, index) => <div className='pruebaFotitos' style={{ backgroundColor: `${index === 0 ? "blue" : index === 1 ? "red" : index === 2 ? "green" : index === 3 && "black"}` }}>{color}</div>)}
+                        {images.length > 0 && images.length === 1?  <div className='unaFotito' style={{ backgroundImage:`url(${images[0]})`}}>{/* {color} */}</div>: images.map((color, index) => <div className='pruebaFotitos' style={{ backgroundImage:`url(${color})`}}>{/* {color} */}</div>)}
                     </div>
                     <div className="detallesProduct">
                         <div className="precioDet">
@@ -47,13 +47,12 @@ const Product = (props)=>{
                             <p>{oneProduct[0].price}</p>
                             <div className="colores">
                                 <p>COLORES</p>
-                                <div style={{ display: "flex", justifyContent: "space-around", width: '45%'}}>
-                                    {oneProduct[0].stock.map(color => <div style={{ backgroundColor: `${color.color}`, width: "11%", height: "3vh" }} onClick={() => Click(color.color)}>{/* {color.color} */}</div>)}
+                                <div style={{ display: "flex", justifyContent: "space-around", width: '45%',}}>
+                                    {oneProduct[0].stock.map(color => <div style={{border:"1px solid black", backgroundColor: `${color.color}`, width: "11%", height: "3vh" }} onClick={() => Click(color.color)}>{/* {color.color} */}</div>)}
 
                                 </div>
                             </div>
                         </div>
-                        
                         <div>
                             <p>Talles</p>
                             <div style = {{display:"flex", justifyContent:'flex-start'}}>
