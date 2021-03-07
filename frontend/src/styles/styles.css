@@ -147,7 +147,7 @@ html * {
 .cajaPrueba{
   display: flex;
   flex-wrap: wrap;
-  background-color: aqua;
+  /* background-color: aqua; */
   width: 40%;
 }
 .botonComprar{
@@ -160,12 +160,38 @@ html * {
 }
 .pruebaFotitos{
   width: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   font-weight: bold;
   /* background-color: #FF7FFF; */
+}
+.containerCardCloth {
+  /* background-color: var(--primary-color); */
+  width: 26.4vw;
+   height: 80%;
+  /* border: 1px solid black; */
+  margin-bottom: 5vw;
+  margin-right: 3vw;
+}
+.containerCardClothPic{
+  background-color:red;
+  width: 100%;
+  height: 62vh;
+   /* background-position: center;  */
+  background-repeat: no-repeat;
+  background-size: 62vh ;
+}
+.containerCardClothName{ 
+ /*  background-color: yellowgreen; */
+  height: 5%;
+}
+.containerCardClothPrice{
+  background-color: whitesmoke;
+  height: 10%;
 }
 /* ESTILOS MAURI */
 .containerContactInformation{

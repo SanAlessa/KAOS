@@ -3,38 +3,14 @@ import {connect} from 'react-redux'
 import purchaseAction from "../redux/actions/purchaseAction"
 import CartPurchase from './CartPurchase'
 
-
 const Product = (props)=>{
     const [images,setImages]=useState([])
     const [color, setColor]= useState([])
     const [visible,setVisible]=useState(false)
     const [reload, setReload]=useState(false)
-    const products = [
-        {
-            stock: [
-                {color: "blue",
-                images:["imagenAzul1", "imagenAzul2", "imagenAzul3", "imagenAzul4"],
-                size:[{quantity:2, size: "Ll"}, {quantity:3, size: "S"}, {quantity:4, size: "M"}]},
-                {color: "green",
-                images:["imagenVerde1", "imagenVerde2", "imagenVerde3", "imagenVerde4"],
-                size:[{quantity:4, size: "L"}, {quantity:2, size: "S"}, {quantity:1, size: "M"}]},
-                {color: "red",
-                images:["imagenRojo1", "imagenRojo2", "imagenRojo3", "imagenRojo4"],
-                size:[{quantity:4, size: "XL"}, {quantity:2, size: "S"}, {quantity:1, size: "M"}]}
-            ],
-            name: "Remera 1",
-            type:"remera",
-            price:"$5000",
-            description:"Esta es la primera remera xd",
-
-            _id:1
-        }
-    ]
-
-    const url = parseInt(props.match.params.id)
     const [product, setProduct] = useState({id:url, name: products[0].name, image: '', price: products[0].price, description: products[0].description, color: '', size: '', quantity: 1})
-    const oneProduct= products.filter(product=>product._id === url)
-
+    const url = props.match.params.id
+    const oneProduct= props.clothes.filter(product=>product._id === url)
     useEffect(()=>{
         setImages(oneProduct[0].stock[0].images) 
     },[])
@@ -51,13 +27,13 @@ const Product = (props)=>{
         props.checkout(product)
         setReload(!reload)
     }
-    
+    console.log(images)
     return (
         <>
             <div>
                 <div style={{display:"flex", justifyContent:"space-evenly"}}>
                     <div className="cajaPrueba">
-                        {images.length>0 && images.map((color,index)=><div className='pruebaFotitos' style={{backgroundColor:`${index === 0 ? "blue" : index ===1 ? "red" : index === 2 ? "green" : index === 3 && "black"}`}}>{color}</div>)}
+                        {images.length>0 && images.map((color,index)=><div className='pruebaFotitos' style={{backgroundImage: `url(${color})`}}></div>)}
                     </div>
                     <div>
                         <p>{oneProduct[0].name}</p>
@@ -102,3 +78,10 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Product)
+const mapStateToProps = state => {
+    return {
+      clothes: state.clothesR.clothes
+    }
+  }
+  
+export default connect(mapStateToProps)(Product)
