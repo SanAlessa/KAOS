@@ -7,7 +7,7 @@ const CardClothing = ({product}) => {
         <>
         <div className='containerCardCloth'>
             <div className='containerCardClothPic' style={{backgroundImage: `url(${stock[0].images[0]})`}}></div>
-            <div className='containerCardClothName'>{name}</div>
+            <div className='containerCardClothName'>{name.toUpperCase()}</div>
             <div className='containerCardClothPrice'>{`$ ${price}`}</div>
         </div>
         </>

@@ -32,7 +32,9 @@ if(loggedUser){
   </>
 }else if (localStorage.getItem('token')){
   logFromLS(localStorage.getItem('token'))
-  .then(response => response && setReload(!reload))
+  .then(respuesta => {
+    if (respuesta === '/') setReload(!reload)
+})
 }else {
   routes = 
   <>
