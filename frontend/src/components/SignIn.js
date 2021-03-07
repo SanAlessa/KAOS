@@ -17,7 +17,7 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
         email: '',
         password: ''
     })
-// console.log(loggedUser)
+    // console.log(loggedUser)
 
     const [nuevoUsuario, setNuevoUsuario] = useState({
         firstname: '',
@@ -50,9 +50,9 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
             if (respuesta && !respuesta.success) {
                 setErrores(respuesta.mensaje)
             }
-                setTimeout(() => {
-                    history.push('/')
-                }, 2500)
+            setTimeout(() => {
+                history.push('/')
+            }, 2500)
 
         }
     }
@@ -68,7 +68,7 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
     }
     const responseGoogle = async response => {
         if (response.error) {
-            Alert.error("Algo pasó , vuelva a intentarlo...",4000)
+            Alert.error("Algo pasó , vuelva a intentarlo...", 4000)
         } else {
             const res = await signIn({
                 email: response.profileObj.email,
@@ -103,68 +103,70 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
 
     return (
         <>
-        <div className="main">
-            <div className="logSign">
-                <div className="login">
+            <div className="main">
+                <div className="logSign">
+                    <div className="login">
 
-                    <h2>INICIAR SESIÓN</h2>
-                    {errores !== '' && <Message type='info' description={errores} style={{ marginBottom: '2vh' }} />}
+                        <h2>INICIAR SESIÓN</h2>
+                        {errores !== '' && <Message type='info' description={errores} style={{ marginBottom: '2vh' }} />}
 
-                    <div className="inputsDiv">
-                        <input className="inputsLog" type="text" name="email" placeholder="Ingrese su dirección de correo electrónico" onChange={leerInput} />
-                    </div>
-                    <div className="inputsDiv">
-                        <input className="inputsLog" style={{ marginLeft: '1%' }} type={visible ? "password" : " text"} name="password" placeholder="Ingrese su contraseña" onChange={leerInput} />
-                        <AiOutlineEye onClick={() => setVisible(!visible)} />
-                    </div>
-                    <button className="btnLog" onClick={validarUsuario}>Ingresar</button>
-                    <div>
-                        <GoogleLogin
-                            clientId="844411322334-bc3sorc4j8lcrmosuddqcab17jf1fs41.apps.googleusercontent.com"
-                            buttonText="Iniciar sesión con Google"
-                            onSuccess={responseGoogle}
-                            onFailure={responseGoogle}
-                            cookiePolicy={'single_host_origin'}
-                            className="googleBtn"
-                        />
-                    </div>
-                    <Link to='register'>Aún no tenés cuenta? Registrate aquí!</Link>
-
-                </div>
-                <div className="signUp">
-                    <h2>NO TENÉS CUENTA? REGISTRATE!</h2>
-                    <div>
-                        <input name='firstname' type='text' placeholder='Ingrese su nombre' onChange={registrar} />
-                    </div>
-                    <div>
-                        <input name='lastname' type='' placeholder='Ingrese su Apellido' onChange={registrar} />
-                    </div>
-                    <div>
-                        <input name='email' type='text' placeholder='Ingrese su dirección de correo electrónico' onChange={registrar} />
-                    </div>
-                    <div>
-                        <div className="inputDiv">
-                            <input name='password' type={visible ? 'password' : 'text'} placeholder='Elija su contraseña' onChange={registrar} />
+                        <div className="inputsDiv">
+                            <input className="inputsLog" type="text" name="email" placeholder="Ingrese su dirección de correo electrónico" onChange={leerInput} />
+                        </div>
+                        <div className="inputsDiv">
+                            <input className="inputsLog" style={{ marginLeft: '1%' }} type={visible ? "password" : " text"} name="password" placeholder="Ingrese su contraseña" onChange={leerInput} />
                             <AiOutlineEye onClick={() => setVisible(!visible)} />
+                        </div>
+                        <div>
+                            <button className="btnLog" onClick={validarUsuario}>Ingresar</button>
+                            <div>
+                                <GoogleLogin
+                                    clientId="844411322334-bc3sorc4j8lcrmosuddqcab17jf1fs41.apps.googleusercontent.com"
+                                    buttonText="Iniciar sesión con Google"
+                                    onSuccess={responseGoogle}
+                                    onFailure={responseGoogle}
+                                    cookiePolicy={'single_host_origin'}
+                                    className="googleBtn"
+                                />
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div className="signUp">
+                        <h2>NO TENÉS CUENTA? REGISTRATE!</h2>
+                        <div>
+                            <input name='firstname' type='text' placeholder='Ingrese su nombre' onChange={registrar} />
+                        </div>
+                        <div>
+                            <input name='lastname' type='' placeholder='Ingrese su Apellido' onChange={registrar} />
+                        </div>
+                        <div>
+                            <input name='email' type='text' placeholder='Ingrese su dirección de correo electrónico' onChange={registrar} />
+                        </div>
+                        <div>
+                            <div className="inputDiv">
+                                <input name='password' type={visible ? 'password' : 'text'} placeholder='Elija su contraseña' onChange={registrar} />
+                                <AiOutlineEye onClick={() => setVisible(!visible)} />
+                            </div>
+
+                        </div>
+                        <button onClick={validarRegistro} className="btnLog" style={{ height: '20%' }}>Enviar Registro</button>
+                        <div>
+                            <GoogleLogin
+                                clientId="56670268622-ujtfv11jtt2esb9qe4cgo4drut70tgu4.apps.googleusercontent.com"
+                                buttonText="Create Account"
+                                onSuccess={responseGoogleReg}
+                                onFailure={responseGoogleReg}
+                                cookiePolicy={'single_host_origin'}
+                            />
                         </div>
 
                     </div>
-                    <button onClick={validarRegistro} className="btnLog" style={{height:'20%'}}>Enviar Registro</button>
-                    <div>
-                        <GoogleLogin
-                            clientId="56670268622-ujtfv11jtt2esb9qe4cgo4drut70tgu4.apps.googleusercontent.com"
-                            buttonText="Create Account"
-                            onSuccess={responseGoogleReg}
-                            onFailure={responseGoogleReg}
-                            cookiePolicy={'single_host_origin'}
-                        />
-                    </div>
-
                 </div>
+
             </div>
-            
-        </div>
-        <Footer></Footer>
+            <Footer></Footer>
         </>
     )
 }
