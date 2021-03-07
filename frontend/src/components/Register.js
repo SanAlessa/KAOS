@@ -54,25 +54,24 @@ import  'rsuite/dist/styles/rsuite-default.css'
             if (respuesta && !respuesta.success) {
                 setErrores(respuesta.errores)
             } else {
-                Alert.success('Tu cuenta fue creada con exito',4000)
+                Alert.success('Tu cuenta fue creada con exito , inicia sesion para ver todas las promociones que tenemos para vos',4000)
             }
         }
       }
     return (
     <div>
         <div>
-            <h2>Ingresá tus datos</h2>
-            <div>
+            <div className='divInput'>
                 <input name='firstname' type='text' placeholder='Ingrese su nombre' onChange={leerInput} />
             </div>
-            <div>
+            <div className='divInput'>
                 <input name='lastname' type='' placeholder='Ingrese su Apellido' onChange={leerInput} />
             </div>
-            <div>
+            <div  className='divInput'>
                 <input name='email' type='text' placeholder='Ingrese su dirección de correo electrónico' onChange={leerInput} />
             </div>
+            <div  className='divInput'>
             <div>
-            <div className="inputDiv">
                         <input name='password' type={visible ? 'password' : 'text'} placeholder='Elija su contraseña' onChange={leerInput}  />
                         <AiOutlineEye onClick={() => setVisible(!visible)} />
             </div>
@@ -81,7 +80,7 @@ import  'rsuite/dist/styles/rsuite-default.css'
             <div>
             <GoogleLogin 
                     clientId="56670268622-ujtfv11jtt2esb9qe4cgo4drut70tgu4.apps.googleusercontent.com"
-                    buttonText="Create Account"
+                    buttonText="Crear una cuenta con Googleeeeeeeeeeeeeeeeeeeeee"
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}

@@ -6,7 +6,7 @@ import logo from '../assets/kaoswhite.png'
 const Footer = () => {
     return (
         <>
-            <footer>
+            <footer className="footer">
 
                 <div>
                     <NavLink to="/" className="brand">
