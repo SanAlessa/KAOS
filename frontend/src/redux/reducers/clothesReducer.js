@@ -9,6 +9,11 @@ const clothesReducer =(state = initState, action) =>{
         ...state,
         clothes: action.payload
       }
+    case 'GET_CLOTHES':
+      return {
+        ...state,
+        clothes:action.payload
+      }
     default:
       return state
   }

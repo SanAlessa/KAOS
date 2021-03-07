@@ -10,7 +10,7 @@
     box-shadow: -10px 10px rgba(110, 64, 107, 0.671);
 }
 
-.login, .signUp {
+.login {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -54,6 +54,15 @@
 }
 .btnLog:hover{
     background-color: rgba(121, 78, 121, 0.952);
+}
+
+.signUp {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 80%;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .signUp div {

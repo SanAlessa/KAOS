@@ -1,74 +1,27 @@
-import React, { useState } from 'react'
-import CartCards from './CartCards'
+import React, { useState, useEffect } from 'react'
+import CardClothing from './CardClothing'
 import CartPurchase from './CartPurchase'
 import {Link} from 'react-router-dom'
 import Footer from './Footer'
-// import { connect } from 'react-redux'
+import clothesActions from '../redux/actions/clothesActions'
+import { PromiseProvider } from 'mongoose'
+import { connect } from 'react-redux'
 
-const ProductStore = () => {
-    const products = [
-        {
-            "id": 1,
-            "title": "Cat Tee Black T-Shirt 1",
-            "description": "4 MSL",
-            "availableSizes": ["S", "XS"],
-            "category": "Black with custom print",
-            "price": 10.91,
-            "stock": 9,
-            "productPic": 'https://www.guantexindustrial.com.ar/710-large_default/remera-algodon-jersey-blanco-talle-xxl.jpg'
-        },
-        {
-            "id": 2,
-            "title": "Cat Tee Black T-Shirt 2",
-            "description": "4 MSL",
-            "availableSizes": ["S", "XS"],
-            "category": "Black with custom print",
-            "price": 10.92,
-            "stock": 9,
-            "productPic": 'https://www.guantexindustrial.com.ar/710-large_default/remera-algodon-jersey-blanco-talle-xxl.jpg'
-        },
-        {
-            "id": 3,
-            "title": "Cat Tee Black T-Shirt 3",
-            "description": "4 MSL",
-            "availableSizes": ["S", "XS"],
-            "category": "Black with custom print",
-            "price": 10.93,
-            "stock": 9,
-            "productPic": 'https://www.guantexindustrial.com.ar/710-large_default/remera-algodon-jersey-blanco-talle-xxl.jpg'
-        },
-        {
-            "id": 4,
-            "title": "Cat Tee Black T-Shirt 4",
-            "description": "4 MSL",
-            "availableSizes": ["S", "XS"],
-            "category": "Black with custom print",
-            "price": 10.94,
-            "stock": 9,
-            "productPic": 'https://www.guantexindustrial.com.ar/710-large_default/remera-algodon-jersey-blanco-talle-xxl.jpg'
-        },
-        {
-            "id": 5,
-            "title": "Cat Tee Black T-Shirt 5",
-            "description": "4 MSL",
-            "availableSizes": ["S", "XS"],
-            "category": "Black with custom print",
-            "price": 10.95,
-            "stock": 9,
-            "productPic": 'https://www.guantexindustrial.com.ar/710-large_default/remera-algodon-jersey-blanco-talle-xxl.jpg'
-        },
-    ]
+const ProductStore = (props) => {
+    
+    useEffect(async()=>{
+        await props.getClothes()
+    }, [])
     const [cart, setCart] = useState([])
     return (
         <>
             <div className="main">
                 <div className='containerProductsStore'>
-                    {products.map(product => {
+                    {props.clothes.map(product => {
                         return (
-                            <Link to={`/product/${product.id}`}><CartCards from  key={product.id} product={product} cart={cart} setCart={setCart} products ={products}/></Link>
+                            <Link to={`/product/${product._id}`}><CardClothing from  key={product.id} product={product} cart={cart} setCart={setCart} products ={product}/></Link>
                         )
                     })}
-                    <CartPurchase cart={cart} setCart={setCart} />
                 </div>
             </div>
             {/* <Footer></Footer> */}
@@ -78,14 +31,13 @@ const ProductStore = () => {
 }
 
 
-/* ----- Connect to Redux ----- */
-/*mapStateToProps = state => {
-    return{
-
+const mapStateToProps = state => {
+    return {
+      clothes: state.clothesR.clothes
     }
-}
-
-mapDispatchToProps = {
-
-}*/
-export default /*connect(mapStateToProps, mapDispatchToProps)*/(ProductStore)
+  }
+  
+  const mapDispatchToProps = {
+    getClothes: clothesActions.getClothes
+  }
+export default connect(mapStateToProps, mapDispatchToProps)(ProductStore)

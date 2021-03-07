@@ -1,52 +1,40 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import {connect} from 'react-redux'
 import purchaseAction from '../redux/actions/purchaseAction'
 
-const CartCards = ({product, products, cart, setCart, addClothes}) => {
+const CartCards = ({product, incOne, substOne, deleteClothes}) => {
 
-    const {id, title, description, category, price, stock, productPic} = product
+    const {id, name, description, price, stock, image} = product
 
     const [cantidad, setCantidad] = useState(1)
 
-    const addProduct = id => {
-        const product = products.filter(product => product.id === id)
-        addClothes(product)
-        setCart([...cart, ...product])
-        console.log(cart)
-    }
     const deleteProduct = e => {
-        const newCart = cart.filter(product => product.id !== parseInt(e.target.id))
-        setCart(newCart)
+        deleteClothes(product)
     }
+
     const subQuantity = () => {
         setCantidad((cantidad-1) < 1 ? (alert('No se pueden quitar más productos'), cantidad ): (cantidad-1))
+        substOne(product)
     }
+
     const incQuantity = () => {
         setCantidad((cantidad+1) > stock ? (alert('No hay más productos disponibles'), cantidad) : (cantidad+1))
+        incOne(product)
     }
 
     return(
         <>
-        <div className='containerCartCards'>
-            <div className='containerPhotoClothing' style={{backgroundImage: `url(${productPic})`}}></div>
-            <div className='containerTitle'>{title}</div>
-            <div className='containerCategoryAndStock'>
-                <div className='containerCategory'>{category}</div>
-                <div className='containerStock'>{`Stock: ${stock}`}</div>
-            </div>
+        <div className='containerCartCards' style={{width: '15vw', margin: '10vw'}}>
+            <div className='containerPhotoClothing' style={{backgroundImage: `url(${image})`}}></div>
+            <div className='containerTitle'>{name}</div>
             <div className='containerDescription'><p>{description}</p></div>
             <div className='containerPrice'>{`$ ${price}`}</div>
-            <div className='containerQuantity'>
+            <div className='containerQuantity' style={{width: '20vw'}}>
                 <div className='subQuantity' onClick ={subQuantity}>-</div>
                 <p>Cantidad: {cantidad}</p>
                 <div className='incQuantity' onClick ={incQuantity}>+</div>
             </div>
-            {products ? (
-                <button type='button' onClick= {() => addProduct(id)}>Agregar al carrito</button>
-            )
-            :
             <button type='button' id= {id} onClick= {deleteProduct}>Eliminar del carrito</button>
-            }
         </div>
         </>
     )
@@ -54,10 +42,9 @@ const CartCards = ({product, products, cart, setCart, addClothes}) => {
 
 const mapDispatchToProps = {
     checkout: purchaseAction.checkout,
-    addClothes: purchaseAction.addClothes,
     deleteClothes: purchaseAction.deleteClothes,
     incOne: purchaseAction.incOne,
-    substOne: purchaseAction.susbtOne
+    substOne: purchaseAction.substOne
 }
 
 export default connect(null, mapDispatchToProps)(CartCards)

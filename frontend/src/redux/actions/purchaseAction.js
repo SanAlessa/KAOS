@@ -1,22 +1,36 @@
 
 const purchaseAction = {
-    checkout: (cart) => {
-        console.log(cart)
+    checkout: (clothes) => {
         return (dispatch, getState) => {
+            var cart = getState().purchaseR.checkout
+            cart.push(clothes)
             dispatch({type: 'CHECKOUT', payload: cart})
         }
     },
-    addClothes:(product)=>{
-        return(dispatch, getState) => {
-            dispatch({type: 'ADD_PRODUCT', payload: product})
+
+    incOne:(product) => {
+        return (dispatch, getState) => {
+            var cart = getState().purchaseR.checkout
+            cart.map(toModify => (toModify.color && toModify.size) === (product.color && product.size) && toModify.quantity++)
+            dispatch({type: 'CHECKOUT', payload: cart})
         }
     },
-    deleteClothes:(product)=>{
-        return(getState)=>{
-            
+
+    substOne:(product) => {
+        return (dispatch, getState) => {
+            var cart = getState().purchaseR.checkout
+            cart.map(toModify => (toModify.color && toModify.size) === (product.color && product.size) && toModify.quantity--)
+            dispatch({type: 'CHECKOUT', payload: cart})
+        }
+    },
+
+    deleteClothes:(product) => {
+        console.log(product)
+        return (dispatch, getState)=>{
+            var cart = getState().purchaseR.checkout.filter(toModify => (toModify.color && toModify.size) !== (product.color && product.size))
+            dispatch({type: 'CHECKOUT', payload: cart})
         }
     }
-
 }
 
 export default purchaseAction

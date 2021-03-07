@@ -4,11 +4,12 @@ const initState = {
 
 const purchaseReducer = (state=initState, action) => {
   switch(action.type){
-    case 'ADD_PRODUCT':
-      return {
-        ...state,
-        checkout: action.payload
-      }
+    case 'CHECKOUT': 
+    localStorage.setItem('cart', JSON.stringify(action.payload))
+    return {
+      ...state,
+      checkout: action.payload
+    }
     default: 
       return state
   }
