@@ -1,7 +1,8 @@
 .logSign {
     display: flex;
-    width: 90%;
+    width: 95%;
     height:70%; 
+    margin-bottom:10vh;
     align-items: center;
     background-image: url('../assets/login.png');
     background-size: cover;
@@ -33,15 +34,26 @@
 
 .login div input, .signUp div input {
     width: 60%;
-    height: 25%;
+    height: 5vh;
+    text-align: center;
+    border: 1px solid rgb(121, 78, 121);
+
 }
 
 .btnLog {
+    display: flex;
     width: 30%;
     height: 10%;
+    padding: 1.5vh;
     background-color: rgba(121, 78, 121, 0.767);
     color: white;
     border-radius: 3%;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(121, 78, 121);
+}
+.btnLog:hover{
+    background-color: rgba(121, 78, 121, 0.952);
 }
 
 .signUp {
@@ -56,8 +68,155 @@
 .signUp div {
     height: 100% !important;
 }
-.signUp div input {
-    height: 35% !important;
+
+.googlediv{
+margin-top: 1vh;}
+
+.btngoogle{
+    
+    width: 12vw!important;
+    text-align: center!important;
+    height: 9vh!important;
 }
+.eye{
+    position: absolute;
+    /* top: 16%; */
+    right: 13%;
+    color:  rgba(15, 12, 12, 0.671);
+    font-size: 1.5rem;
+    
+  }
+  .eye1{
+    position: absolute;
+    right: 60%;
+    color:  rgba(15, 12, 12, 0.671);
+    font-size: 1.5rem;
+  }
 
 
+  /* ---------------------------RESPONSIVE--------------------- */
+  @media(max-width: 900px){
+    .logSign {
+        display: flex;
+        flex-direction: column;
+        width: 95%!important;
+        height:100%; 
+        margin-bottom:1vh;
+        align-items: center;
+        background-image: url('../assets/login.png');
+        background-size: cover;
+        background-position: center;
+        box-shadow: -5px 5px rgba(110, 64, 107, 0.671);
+    }
+    .btnLog {
+        width: 68%;
+        height: 4%;
+        padding: 1.5vh;
+        background-color: rgba(121, 78, 121, 0.767);
+        color: white;
+        border-radius: 3%;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgb(121, 78, 121);}
+
+
+    .login div input, .signUp div input {
+            width: 100%;
+            height: 3.5vh;
+            text-align: center;
+            border: 1px solid rgb(121, 78, 121);
+            font-size: 1.4rem;
+    }
+    .login, .signUp {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        height: 100%;
+        align-items: center;
+        margin-bottom: 2vh;
+    }
+
+
+/* RESPONSIVE----------------------------------- */
+    @media(max-width: 500px){
+        #root{
+    overflow-x: hidden;
+  }
+        .login div input, .signUp div input {
+            width: 100%;
+            height: 5vh;
+            text-align: center;
+            border: 1px solid rgb(121, 78, 121);
+            font-size: 0.9rem;
+    }
+
+    .footer{
+            display: flex!important;
+            justify-content: space-around;
+            border-top: 1px solid white;
+            align-items: center;
+            padding: 1vh!important;
+            min-height: 20px ;
+        }
+        
+    }
+    .container__items__footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1vh;
+        margin: 1vh;
+    } 
+    .all__reserved{
+        text-align: center;
+        background-color: #1a0752c0;
+        padding: 0.2vh;
+    }
+    
+    .login div, .signUp div {
+        width: 100%;
+        height: 1%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0.5vh;
+    }
+    .eye{
+        position: relative;
+        /* top: 16%; */
+        right: 15%;
+        color:  rgba(15, 12, 12, 0.671);
+        font-size: 1.1rem;
+        margin-left: -4vw;
+        
+      }
+      .eye1{
+        position: relative;
+        right: 15%;
+        color:  rgba(15, 12, 12, 0.671);
+        font-size: 1.1rem;
+        margin-left: -4vw;
+
+      }
+      .btngoogle{
+    
+        width: 40vw!important;
+        text-align: center!important;
+        height: 10yvh!important;
+        margin-top: 3vh;
+        font-size: 0.7rem!important;
+    }
+    .login h2, .signUp h2 {
+        color: rgba(117, 10, 117, 0.671);
+        text-shadow: -2px 2px rgb(255 255 255 / 67%);
+        font-size: 1.2rem;
+    }
+    .iconsHeader {
+        height: 10%;
+        width: 80%;
+    }
+    .logo{
+        margin-left: 17vw;
+    }
+   
+}
