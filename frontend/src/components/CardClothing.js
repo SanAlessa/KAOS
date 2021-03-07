@@ -1,38 +1,40 @@
 import { useEffect, useState } from "react"
 
-const CardClothing = ({product, products, cart, setCart}) => {
-    const {id, title, description, availableSizes, category, price, stock, productPic} =   product
+const CardClothing = ({product}) => {
+    const {name, stock,price} = product
 
-    // const products = props.products
-    // const cart = props.cart
-    // const setCart = props.setCart
-
-    const addProduct = id => {
-        const product = products.filter(product => product.id === id)
-        setCart([...cart, ...product])
-    }
-    console.log(cart)
     return(
         <>
-        <div className='containerCardClothing'>
-            <div className='containerPhotoClothing' style={{backgroundImage: `url(${productPic})`}}></div>
-            <div className='containerTitle'>{title}</div>
-            <div className='containerCategoryAndStock'>
-                <div className='containerCategory'>{category}</div>
-                <div className='containerStock'>{`Stock: ${stock}`}</div>
-            </div>
-            <div className='containerDescription'><p>{description}</p></div> 
-            <div className='containerPrice'>{`$ ${price}`}</div>
-            {products ? (
-                <button type='button' onClick= {() => addProduct(id)}>Agregar al carrito</button>
-            )
-            :
-            <button type='button' onClick= {() => alert('Vas a eliminar un producto')}>Eliminar del carrito</button>
-            }
-            
-
+        <div className='containerCardCloth'>
+            <div className='containerCardClothPic' style={{backgroundImage: `url(${stock[0].images[0]})`}}></div>
+            <div className='containerCardClothName'>{name}</div>
+            <div className='containerCardClothPrice'>{`$ ${price}`}</div>
         </div>
         </>
     )
 }
-export default /*connect(null, mapDispatchToProps)*/(CardClothing)
+/* .containerCartCards {
+  background-color: var(--primary-color);
+  width: 27vw;
+   height: 75%;
+  border: 1px solid black;
+  margin-bottom: 5vw;
+  margin-right: 3vw;
+} */
+/* .containerPhotoClothing{
+  background-color:red;
+  width: 100%;
+  height: 60vh;
+   background-position: center; 
+  background-repeat: no-repeat;
+  background-size: 60vh ;
+} */
+/* .containerTitle{ 
+  background-color: yellowgreen;
+  height: 5%;
+} */
+/* .containerPrice{
+  background-color: whitesmoke;
+  height: 10%;
+} */
+export default CardClothing
