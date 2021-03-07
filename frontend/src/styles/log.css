@@ -129,9 +129,9 @@ margin-top: 1vh;}
 
 
 /* RESPONSIVE----------------------------------- */
-    @media(max-width: 500px){
+    /* @media(max-width: 500px){ */
         #root{
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
   }
         .login div input, .signUp div input {
             width: 100%;
@@ -150,7 +150,7 @@ margin-top: 1vh;}
             min-height: 20px ;
         }
         
-    }
+    X
     .container__items__footer{
         display: flex;
         flex-direction: column;
