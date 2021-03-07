@@ -6,7 +6,7 @@ const AdminPanel =(props)=>{
   const [colorStock, setColorStock] = useState({color: '', images:[], size: []})
   const [product, setProduct]=useState({
     stock:[],
-    type: '', price: 0, description: '', sex: 'SEXOgi', name: ''
+    type: '', price: 0, description: '', sex: 'SEXO', name: ''
   })
 
   const [image, setImage] = useState([])
@@ -27,16 +27,20 @@ const AdminPanel =(props)=>{
       setImage('')
     }else{
       colorStock.images.push(image)
+      console.log(colorStock)
       setImage('')
     }
   }
 
   const handleSize =()=>{
     colorStock.size.push(size)
+    console.log(colorStock.size)
+    setSize({size: 'Talle', quantity: 0})
   }
   
   const handleColorStock=()=>{
     product.stock.push(colorStock)
+    console.log(colorStock)
     setColorStock({color: '', images:[], size: []})
     setSize({size: 'Talle', quantity: 0})
   }
@@ -51,11 +55,6 @@ const AdminPanel =(props)=>{
     props.addClothes(product)
   }
 
-  const enter=(e)=>{
-    if(e.key==='Enter'){
-      send()
-    }
-  }
 
   return(
     <div className="centerCenter" style={{flexDirection: 'column', justifyContent: 'space-between', margin: '5vh auto'}}>
@@ -90,10 +89,10 @@ const AdminPanel =(props)=>{
       </select>
       <label htmlFor="stock">Stock</label>
       <input type="number" name="stock" id="stock" value={size.quantity} onChange={(e)=> setSize({...size, quantity: e.target.value})}/>
-      <button onClick={handleSize}>Añadir Stock</button>
+      <button style={{margin: '2vh'}} onClick={handleSize}>Añadir Stock</button>
       </div>
-      <button onClick={handleColorStock}>Agregar Nuevo Color</button>
-      <button onKeyPress={enter} onClick={send}>CARGAR</button>
+      <button style={{margin: '2vh'}} onClick={handleColorStock}>Agregar Color</button>
+      <button style={{margin: '2vh'}} onClick={send}>CARGAR</button>
     </div>
   )
 }
