@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { connect } from "react-redux"
-import clothesActions from '../redux/actions/clothesActions'
 
 const Product = (props)=>{
     const [images,setImages]=useState([])
@@ -19,7 +18,7 @@ const Product = (props)=>{
         setVisible(true)
         alert(`hiciste click en ${value}`)
     }
-    console.log(images)
+
     return (
         <>
             <div>
@@ -34,10 +33,8 @@ const Product = (props)=>{
                             <p>Colores</p>
                             <div style = {{display:"flex", justifyContent:"space-around",}}>
                             {oneProduct[0].stock.map(color=><div style={{backgroundColor:`${color.color}`, width:"20%", height:"6vh"}} onClick={()=>Click(color.color)}>{/* {color.color} */}</div>)}
-
                             </div>
                         </div>
-                        
                         <div>
                             <p>Talles</p>
                             <div style = {{display:"flex", justifyContent:"space-around"}}>
