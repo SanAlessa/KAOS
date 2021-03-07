@@ -17,7 +17,7 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
         email: '',
         password: ''
     })
-    // console.log(loggedUser)
+// console.log(loggedUser)
 
     const [nuevoUsuario, setNuevoUsuario] = useState({
         firstname: '',
@@ -68,7 +68,7 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
     }
     const responseGoogle = async response => {
         if (response.error) {
-            Alert.error("Algo pasó , vuelva a intentarlo...", 4000)
+            Alert.error("Algo pasó , vuelva a intentarlo...",4000)
         } else {
             const res = await signIn({
                 email: response.profileObj.email,
@@ -146,20 +146,6 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
                             <input className="inputsLog" name='password' type={visible ? 'password' : 'text'} placeholder='Elija su contraseña' onChange={registrar} />
                             <AiOutlineEye className='eye' onClick={() => setVisible(!visible)} />
                         </div>
-                        <div>
-                            <button className="btnLog" onClick={validarUsuario}>Ingresar</button>
-                            <div>
-                                <GoogleLogin
-                                    clientId="844411322334-bc3sorc4j8lcrmosuddqcab17jf1fs41.apps.googleusercontent.com"
-                                    buttonText="Iniciar sesión con Google"
-                                    onSuccess={responseGoogle}
-                                    onFailure={responseGoogle}
-                                    cookiePolicy={'single_host_origin'}
-                                    className="googleBtn"
-                                />
-                            </div>
-                        </div>
-
 
                     </div>
                     <button onClick={validarRegistro} className="btnLog" style={{height:'20%'}}>Enviar Registro</button>
@@ -174,11 +160,11 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
                         />
                     </div>
 
-                    </div>
                 </div>
-
             </div>
-            <Footer></Footer>
+            
+        </div>
+        <Footer></Footer>
         </>
     )
 }
