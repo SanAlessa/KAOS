@@ -4,7 +4,6 @@ import {connect}from 'react-redux'
 import AdminPanel from './pages/AdminPanel'
 import Homepage from './pages/Homepage'
 import ProductStore from './components/ProductStore'
-import Register from './components/Register'
 import Product from './components/Product'
 import Header from './components/Header'
 import SignIn from './components/SignIn'
@@ -20,12 +19,16 @@ const [reload , setReload]=useState(false)
 if(loggedUser){
   var routes = 
   <>
+    <Switch>
     <Route exact path="/" component={Homepage}/>
     <Route path="/productStore" component={ProductStore}/>
     <Route path="/adminPanel" component={AdminPanel}/> 
-    <Route path="/register" component={Register}/>
     <Route path="/product/:id" component={Product}/>
     <Route path="/signIn" component={SignIn}/>
+    <Route exact path='/buy' component={Buy} />
+    <Route exact path='/payment' component={Payment}/>
+    <Redirect to="/"/>
+    </Switch>
   </>
 }else if (localStorage.getItem('token')){
   logFromLS(localStorage.getItem('token'))
@@ -33,30 +36,23 @@ if(loggedUser){
 }else {
   routes = 
   <>
+    <Switch>
     <Route exact path="/" component={Homepage}/>
     <Route path="/productStore" component={ProductStore}/>
     <Route path="/adminPanel" component={AdminPanel}/> 
-    <Route path="/register" component={Register}/>
     <Route path="/product/:id" component={Product}/>
     <Route path="/signIn" component={SignIn}/>
+    <Route path ='/buy' component={Buy} />
+    <Route path ='/payment' component={Payment}/>
+    <Redirect to="/"/>
+    </Switch>
   </>
 
 }
   return (
     <BrowserRouter>
       <Header></Header>
-      <Switch>
         {routes}
-        {/* <Route exact path="/" component={Homepage}/>
-        <Route path="/productStore" component={ProductStore}/>
-        <Route exact path='/buy' component={Buy} />
-        <Route exact path='/payment' component={Payment}/>
-        <Route path="/adminPanel" component={AdminPanel}/> 
-        <Route path="/register" component={Register}/>
-        <Route path="/product/:id" component={Product}/>
-        <Route path="/signIn" component={SignIn}/> */}
-        <Redirect to="/" />
-      </Switch>
     </BrowserRouter>
   )
 }

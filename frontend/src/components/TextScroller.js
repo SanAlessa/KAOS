@@ -6,17 +6,16 @@ const TextScroller = ({ text }) => {
 
   const scrolling = useSpring({
     from: { transform: "translate(100%,0)" },
-    to: { transform: "translate(-100%,0)" },
-    config: { duration: 9000 },
+    to: { transform: "translate(-50%,0)" },
+    config: { duration: 19000 },
     reset: true,
-    //reverse: key % 2 == 0,
     onRest: () => {
       setKey(key + 1);
     }
   });
 
   return (
-      <div key={key}>
+      <div key={key} style={{width: '99vw', overflow: 'hidden'}}>
         <animated.div style={scrolling}>{text}</animated.div>
       </div>)
 

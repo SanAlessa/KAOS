@@ -46,7 +46,7 @@ const userAction = {
                 Alert.success("Bienvenido " + respuesta.data.response.firstname + "!")
                 return ({success: true})
             }catch(error){
-                return({success: false, response: error})
+                return({success: false, respuesta: error})
               }
         }
     },

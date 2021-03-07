@@ -3,7 +3,6 @@ import {API} from '../../API'
 
 const clothesActions = {
   addClothes: (product) =>{
-    console.log(product)
     return async (dispatch) => {
       try{
         const response = await axios.post(`${API}/clothes/addClothes`, product)
