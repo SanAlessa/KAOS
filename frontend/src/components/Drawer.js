@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { Drawer, ButtonToolbar, IconButton ,Icon } from 'rsuite'
-import {FcMenu} from 'react-icons/fc'
+import { Drawer } from 'rsuite'
+import {IoMenu} from 'react-icons/io5'
 import logo from '../Backgrounds/logodrawer.png'
 import '../../node_modules/rsuite/dist/styles/rsuite-default.css'
 
@@ -9,7 +9,7 @@ class MenuUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: false
+      show: false,
     };
     this.close = this.close.bind(this);
     this.toggleDrawer = this.toggleDrawer.bind(this);
@@ -24,21 +24,15 @@ class MenuUser extends React.Component {
   }
 
   render() {
-
     return (
       <div>
-          <ButtonToolbar style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-        <IconButton
-            icon={<FcMenu icon="angle-right" style={{fontSize:'150%'}}/>}
-            onClick={() => this.toggleDrawer('left')}
-          />
-          </ButtonToolbar>
+        <IoMenu style={{fontSize:'180%', marginLeft: '2vw', color: 'red', cursor: 'pointer'}} className='menu' icon="angle-right" onClick={() => this.toggleDrawer('left')}/>
         <Drawer
           className="drawer"
           placement={this.state.placement}
           show={this.state.show}
           onHide={this.close}
-          
+          size={'xs'}
         >
           <Drawer.Header>
             <Drawer.Title>KAOS LANZAMIENTO AW/2021 </Drawer.Title>
@@ -46,10 +40,10 @@ class MenuUser extends React.Component {
           
           <Drawer.Body>
           <br/>
-          <Link to="/ProductStore"><h4>Mujer</h4></Link>
+          <Link to="/ProductStore" onClick={()=>this.close()} ><h4>Mujer</h4></Link>
           
           <br/>
-          <Link to="/ProductStore"><h4>Hombre</h4></Link>
+          <Link to="/ProductStore" onClick={()=>this.close()}><h4>Hombre</h4></Link>
            
           </Drawer.Body>
           <Drawer.Footer>

@@ -24,7 +24,6 @@
 }
 .logo {
     width: 35%;
-    height: 100%;
 }
 .navbar.navbar-1 .navbar-toggler-icon {
     background-image: url('https://mdbootstrap.com/img/svg/hamburger6.svg?color=000');
@@ -136,6 +135,11 @@ font-size: 5vh;
     color: black;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+.menu {
+    color: black !important
+}
+
 .banner{
     background-color:  #ff7fff6b;;
     margin-top:-8vh!important;

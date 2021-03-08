@@ -1,5 +1,6 @@
 const initState = {
-  checkout: []
+  checkout: [],
+  reload: false
 }
 
 const purchaseReducer = (state=initState, action) => {
@@ -10,6 +11,11 @@ const purchaseReducer = (state=initState, action) => {
       ...state,
       checkout: action.payload
     }
+    case 'RELOAD':
+      return {
+        ...state,
+        reload: action.payload
+      }
     default: 
       return state
   }

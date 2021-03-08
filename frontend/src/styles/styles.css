@@ -162,13 +162,24 @@ html * {
 .pruebaFotitos{
   width: 50%;
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   font-weight: bold;
-  /* background-color: #FF7FFF; */
+  background-color: #FF7FFF;
+}
+.unaFotito{
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
 }
 .containerCardCloth {
   /* background-color: var(--primary-color); */
@@ -190,6 +201,7 @@ html * {
  /*  background-color: yellowgreen; */
   height: 5%;
 }
+
 .containerCardClothPrice{
   background-color: whitesmoke;
   height: 10%;
