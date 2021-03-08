@@ -17,7 +17,7 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
         email: '',
         password: ''
     })
-    // console.log(loggedUser)
+// console.log(loggedUser)
 
     const [nuevoUsuario, setNuevoUsuario] = useState({
         firstname: '',
@@ -68,7 +68,7 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
     }
     const responseGoogle = async response => {
         if (response.error) {
-            Alert.error("Algo pasó , vuelva a intentarlo...", 4000)
+            Alert.error("Algo pasó , vuelva a intentarlo...",4000)
         } else {
             const res = await signIn({
                 email: response.profileObj.email,
@@ -160,11 +160,11 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
                             />
                         </div>
 
-                    </div>
                 </div>
-
             </div>
-            <Footer></Footer>
+            
+        </div>
+        <Footer></Footer>
         </>
     )
 }
