@@ -79,6 +79,7 @@ html * {
   flex-wrap: wrap;
   max-width: 100vw;
   height: 100vh;
+  
 }
 .containerCartCards {
   background-color: var(--primary-color);
@@ -189,7 +190,7 @@ html * {
   margin-right: 3vw;
 }
 .containerCardClothPic{
-  background-color:red;
+  /* background-color:red; */
   width: 100%;
   height: 62vh;
    /* background-position: center;  */
@@ -303,4 +304,55 @@ justify-content: space-evenly;
 .containerCardPay:hover {
   cursor: pointer;
   box-shadow: 3px -3px 5px rgb(125, 125, 125);
+}
+
+ /* ---------------------------RESPONSIVE-------------------------------------------------------------*/
+ @media(max-width: 800px){
+  .containerProductsStore {
+    width: 50vw;
+  }
+  
+  .containerCardClothPic{
+    width: 65vw;
+    height: 40vh;
+    background-position: top;
+    background-size: cover;
+    border: 1px solid rgba(0, 0, 0, 0.205);
+  }
+  .containerCardCloth {
+    width: 70vw;
+    height: 50vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   justify-content: space-between;
+ margin-bottom: 9vh;
+}
+  .containerCardCloth :hover{
+    box-shadow: 7px -7px 6px rgb(125, 125, 125);
+    transition: 500ms ease;
+  }
+
+
+  .containerCardClothName{
+    color:black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 500;
+    margin-bottom: 1vh;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+  .containerCardClothPrice{
+    color: black;
+    font-weight: 500;
+    padding: 0.5vh;
+    
+  }
+  .containerProductsStore a:hover{
+    /* text-decoration: none;
+    box-shadow: 7px -7px 6px rgb(125, 125, 125);
+    transition: 500ms ease; */
+
+  }
 }

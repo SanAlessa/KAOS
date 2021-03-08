@@ -3,8 +3,10 @@ import Slider from "react-slick"
 import ScrollBanner from './ScrollBanner'
 
 const fotos = [
+  { url:"homeBack.png"},
   { url:"homeBack1.png"},
   { url:"homeBack2.png"}
+
 ]
 
 export default class SimpleSlider extends Component {
@@ -29,7 +31,7 @@ export default class SimpleSlider extends Component {
             {fotos.map(foto => {
               const fotito = require (`../assets/${foto.url}`)
               return(
-                <div key={foto.url}>
+                <div key={foto.url} className="carrusel">
                     <div style={{backgroundImage:`url("${fotito.default}")`,height:"100vh", width:"100vw",backgroundRepeat:'no-repeat', backgroundSize: 'contain'}}></div>
                 </div>       
               )

@@ -24,7 +24,7 @@ const ProductStore = (props) => {
                     })}
                 </div>
             </div>
-            {/* <Footer></Footer> */}
+            {/* <Footer/> */}
 
         </>
     )

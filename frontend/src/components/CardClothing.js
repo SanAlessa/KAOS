@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Footer } from "rsuite"
 
 const CardClothing = ({product}) => {
     const {name, stock,price} = product
@@ -9,7 +10,8 @@ const CardClothing = ({product}) => {
             <div className='containerCardClothPic' style={{backgroundImage: `url(${stock[0].images[0]})`}}></div>
             <div className='containerCardClothName'>{name}</div>
             <div className='containerCardClothPrice'>{`$ ${price}`}</div>
-        </div>
+        </div>  
+        
         </>
     )
 }

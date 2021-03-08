@@ -19,7 +19,7 @@ const Homepage = () => {
             <div className="main">
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <div className="motto"></div>
-                    <p>NEW SEASON IS HERE!</p>
+                    <p className="title">NEW SEASON IS HERE!</p>
                 </div>
                 <div className="allCards">
                     {newSeason.map(card => {
