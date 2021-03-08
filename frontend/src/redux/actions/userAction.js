@@ -11,7 +11,7 @@ const userAction = {
                 dispatch({
                         type: 'REGISTER_USER' ,
                         payload: respuesta.data
-                })
+                })  
             }
             catch(error){
               console.log(error)
@@ -22,6 +22,7 @@ const userAction = {
         return async (dispatch , getState) => {
             try{
                 const respuesta = await axios.post(`${API}/user/signup`, nuevoUsuario)
+                console.log(respuesta)
                 dispatch({
                         type: 'REGISTER_USER' ,
                         payload: respuesta.data
@@ -36,6 +37,7 @@ const userAction = {
         return async (dispatch, getState) => {
             try{
                 const respuesta = await axios.post('https://kaos-challenge.herokuapp.com/api/user/signin', usuario)
+                console.log(respuesta)
                 if(!respuesta.data.success) {
                     return respuesta.data
                 }

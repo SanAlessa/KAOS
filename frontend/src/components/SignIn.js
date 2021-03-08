@@ -60,9 +60,14 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
     const validarRegistro = async e => {
         e.preventDefault()
         const respuesta = await registerUser(nuevoUsuario)
+       console.log(nuevoUsuario.email)
+        
         if (nuevoUsuario.firstname === '' || nuevoUsuario.lastname === '' || nuevoUsuario.email === '' || nuevoUsuario.password === '') {
             Alert.warning('Todos los campos deben estar completos', 3000)
-        } else {
+        } else if (nuevoUsuario === nuevoUsuario) {
+            Alert.error("Tu email ya se encuentra registrado",3000)
+           
+        }else{
             Alert.success('Tu cuenta fue creada con exito', 4000)
         }
     }
@@ -83,24 +88,22 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
 
     const responseGoogleReg = async (response) => {
 
-        if (response.error) {
-            Alert.error("Algo pasó , vuelva a intentarlo...", 4000)
+        if (response === response) {
+            Alert.error("Tu email ya se encuentra registrado",3000)
         } else {
             const respuesta = await registerUserGoogle({
                 firstname: response.profileObj.name,
                 lastname: response.profileObj.familyName,
                 email: response.profileObj.email,
                 password: response.profileObj.googleId,
-
             })
             if (respuesta && !respuesta.success) {
-                setErrores(respuesta.errores)
+                setErrores(respuesta.errores)               
             } else {
                 Alert.success('Tu cuenta fue creada con exito', 4000)
             }
         }
     }
-
     return (
         <>
         <div className="main">
@@ -128,7 +131,6 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
                             className='btngoogle'
                             />
                     </div>
-
                 </div>
                 <div className="signUp">
                     <h2>NO TENÉS CUENTA? REGISTRATE!</h2>
