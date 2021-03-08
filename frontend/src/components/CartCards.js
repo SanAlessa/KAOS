@@ -2,7 +2,7 @@ import { useState } from "react"
 import {connect} from 'react-redux'
 import purchaseAction from '../redux/actions/purchaseAction'
 
-const CartCards = ({product, incOne, substOne, deleteClothes}) => {
+const CartCards = ({product, incOne, substOne, deleteClothes, deleteTheProduct}) => {
 
     const {id, name, description, price, stock, image} = product
 
@@ -10,6 +10,7 @@ const CartCards = ({product, incOne, substOne, deleteClothes}) => {
 
     const deleteProduct = e => {
         deleteClothes(product)
+    
     }
 
     const subQuantity = () => {

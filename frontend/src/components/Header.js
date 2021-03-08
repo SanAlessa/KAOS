@@ -1,11 +1,21 @@
 import logo from '../assets/kaos.png'
 import Drawer from './Drawer'
+import {connect} from 'react-redux'
 import { Link } from 'react-router-dom'
 import { IoPersonCircleOutline } from 'react-icons/io5'
-import { FiShoppingCart } from 'react-icons/fi'
+import Cart from './Cart'
+import { useEffect } from 'react'
+
+const Header = (props) => {
+    console.log(props)
 
 
-const Header = () => {
+    useEffect(()=>{
+        console.log(props.cart)
+
+    },[props.cart.length])
+
+
     return (
         <div className="logoBanner">
             <Drawer />
@@ -14,10 +24,16 @@ const Header = () => {
             </Link>
             <div className="iconsHeader">
                 <Link to='signin' ><IoPersonCircleOutline style={{ fontSize: '34', color: 'black' }} /></Link>
-                <FiShoppingCart style={{ fontSize: '29', color: 'black' }} />
+                <Cart cart={props.cart}/>
             </div>
         </div>
     )
 }
 
-export default Header
+const mapStateToProps =state=> {
+    return {
+      cart: state.purchaseR.checkout
+    }
+  }
+
+export default connect(mapStateToProps)(Header)

@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 import CartCards from './CartCards'
 
-const CartPurchase = ({products, reload}) => {
-
+const CartPurchase = ({products, reload, deleteProduct, checkout}) => {
+    console.log(checkout)
     return(
         <>
             <div className='containerCart'>
