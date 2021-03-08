@@ -4,16 +4,12 @@ import {connect} from 'react-redux'
 import { Link } from 'react-router-dom'
 import { IoPersonCircleOutline } from 'react-icons/io5'
 import Cart from './Cart'
-import { useEffect } from 'react'
+import { useEffect} from 'react'
 
 const Header = (props) => {
-    console.log(props)
-
 
     useEffect(()=>{
-        console.log(props.cart)
-
-    },[props.cart.length])
+    },[props.reload])
 
 
     return (
@@ -23,8 +19,8 @@ const Header = (props) => {
                 <img src={logo} className="logo"></img>
             </Link>
             <div className="iconsHeader">
-                <Link to='signin' ><IoPersonCircleOutline style={{ fontSize: '34', color: 'black' }} /></Link>
-                <Cart cart={props.cart}/>
+                <Link to='/signin' ><IoPersonCircleOutline style={{ fontSize: '2.2rem', color: 'black' }} /></Link>
+                <Cart cart={props.cart} />
             </div>
         </div>
     )
@@ -32,7 +28,8 @@ const Header = (props) => {
 
 const mapStateToProps =state=> {
     return {
-      cart: state.purchaseR.checkout
+      cart: state.purchaseR.checkout,
+      reload: state.purchaseR.reload
     }
   }
 

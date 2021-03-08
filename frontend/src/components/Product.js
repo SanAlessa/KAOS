@@ -11,7 +11,8 @@ const Product = (props)=>{
     const [images,setImages]=useState([])
     const [color, setColor]= useState([])
     const [visible,setVisible]=useState(false)
-    const [reload, setReload]=useState(false)
+    console.log(props.reload)
+    console.log(props.cart)
     const url = props.match.params.id
     const oneProduct= props.clothes.filter(product=>product._id === url)
     const [product, setProduct] = useState({id:url, name: oneProduct[0].name, image: oneProduct[0].stock[0].images[0], price: oneProduct[0].price, description: oneProduct[0].description, color: oneProduct[0].stock[0].color, size: '', quantity: 1})
@@ -31,7 +32,7 @@ const Product = (props)=>{
 
     const addToCart =()=>{
         props.checkout(product)
-        setReload(!reload)
+        props.forceReload(!props.reload)
     }
 
     return (
@@ -83,7 +84,6 @@ const Product = (props)=>{
                 </div>
 
             </div>
-            <CartPurchase products={props.cart} reload={reload} />
             <Footer></Footer>
         </>
     )
@@ -92,12 +92,14 @@ const Product = (props)=>{
 const mapStateToProps=state=>{
     return {
         cart: state.purchaseR.checkout,
-        clothes: state.clothesR.clothes
+        clothes: state.clothesR.clothes,
+        reload : state.purchaseR.reload
     }
 }
 
 const mapDispatchToProps = {
-    checkout: purchaseAction.checkout
+    checkout: purchaseAction.checkout,
+    forceReload: purchaseAction.forceReload
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Product)

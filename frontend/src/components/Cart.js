@@ -6,10 +6,11 @@ import * as GrIcons from 'react-icons/gr'
 
 import '../styles/Navbar.css';
 import { IconContext } from 'react-icons';
+import CartPurchase from './CartPurchase';
+import { connect } from 'react-redux';
 
-function Navbar() {
+function Navbar(props) {
   const [sidebar, setSidebar] = useState(false);
-
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
@@ -21,13 +22,14 @@ function Navbar() {
           </Link>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-          <ul className='nav-menu-items' onClick={showSidebar}>
+          <ul className='nav-menu-items'>
             <li className='navbar-toggle'>
-              <Link to='#' className='menu-bars'>
-                <AiIcons.AiOutlineClose />
-              </Link>
+              <h2 style={{margin: '0'}}>TU CARRITO</h2>
+                <AiIcons.AiOutlineClose onClick={showSidebar} style={{marginRight: '2vw', fontSize: '1.5rem', cursor: 'pointer'}}/>
             </li>
-
+            <li>
+              <CartPurchase products={props.cart}/>
+            </li>
           </ul>
         </nav>
       </IconContext.Provider>
@@ -35,4 +37,11 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+const mapStateToProps=state=> {
+  return {
+    cart: state.purchaseR.checkout,
+    reload: state.purchaseR.reload
+  }
+}
+
+export default connect(mapStateToProps)(Navbar);

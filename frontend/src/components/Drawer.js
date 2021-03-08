@@ -26,7 +26,7 @@ class MenuUser extends React.Component {
   render() {
     return (
       <div>
-        <IoMenu style={{fontSize:'180%', marginLeft: '2vw', color: 'red'}} className='menu' icon="angle-right" onClick={() => this.toggleDrawer('left')}/>
+        <IoMenu style={{fontSize:'180%', marginLeft: '2vw', color: 'red', cursor: 'pointer'}} className='menu' icon="angle-right" onClick={() => this.toggleDrawer('left')}/>
         <Drawer
           className="drawer"
           placement={this.state.placement}
@@ -40,10 +40,10 @@ class MenuUser extends React.Component {
           
           <Drawer.Body>
           <br/>
-          <Link to="/ProductStore"><h4>Mujer</h4></Link>
+          <Link to="/ProductStore" onClick={()=>this.close()} ><h4>Mujer</h4></Link>
           
           <br/>
-          <Link to="/ProductStore"><h4>Hombre</h4></Link>
+          <Link to="/ProductStore" onClick={()=>this.close()}><h4>Hombre</h4></Link>
            
           </Drawer.Body>
           <Drawer.Footer>
