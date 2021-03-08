@@ -120,7 +120,7 @@ const Product = (props) => {
                 </div>
 
             </div>
-            <CartPurchase products={props.cart} reload={reload} />
+            {/* <CartPurchase products={props.cart} reload={reload} /> */}
             <Footer></Footer>
         </>
     )
