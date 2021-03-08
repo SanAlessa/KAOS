@@ -94,19 +94,19 @@ margin-top: 1vh;}
   }
 
 
-  /* ---------------------------RESPONSIVE--------------------- */
+  /* ---------------------------RESPONSIVE-------------------------------------------------------------*/
   @media(max-width: 900px){
     .logSign {
         display: flex;
         flex-direction: column;
-        width: 95%!important;
+        width: 98%!important;
         height:100%; 
         margin-bottom:1vh;
         align-items: center;
         background-image: url('../assets/login.png');
         background-size: cover;
         background-position: center;
-        box-shadow: -5px 5px rgba(110, 64, 107, 0.671);
+        box-shadow: -3px 3px rgba(110, 64, 107, 0.445);
     }
     .btnLog {
         width: 68%;
@@ -137,11 +137,7 @@ margin-top: 1vh;}
     }
 
 
-/* RESPONSIVE----------------------------------- */
-    /* @media(max-width: 500px){ */
-        #root{
-    /* overflow-x: hidden; */
-  }
+
         .login div input, .signUp div input {
             width: 100%;
             height: 5vh;
@@ -217,6 +213,21 @@ margin-top: 1vh;}
     }
     .logo{
         margin-left: 17vw;
+    }
+    .rs-drawer-content{
+        background-color: rgba(255, 255, 255, 0.89)!important;
+        width: 35vw!important;
+       
+    }
+    .container__items__footer{
+        font-size: 1vh;
+    }
+    .main {
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
    
 }
