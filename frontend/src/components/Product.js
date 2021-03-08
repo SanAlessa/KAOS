@@ -5,6 +5,9 @@ import CartPurchase from './CartPurchase'
 import Footer from './Footer'
 import '../styles/product.css'
 import fotoPrueba from '../assets/style.jpg'
+import remeras from '../assets/remeras.png'
+import camisas from '../assets/camisas.png'
+import buzos from '../assets/buzos.png'
 
 
 const Product = (props) => {
@@ -16,6 +19,16 @@ const Product = (props) => {
     const oneProduct = props.clothes.filter(product => product._id === url)
     const [product, setProduct] = useState({ id: url, name: oneProduct[0].name, image: '', price: oneProduct[0].price, description: oneProduct[0].description, color: '', size: '', quantity: 1 })
     const newSeason = ["1", "2", "3", "4", "5"]
+    const otros = [{
+        "foto": '../assets/camisas.png',
+        "descripcion": "CAMISAS"
+    }, {
+        "foto": "../assets/remeras.png",
+        "descripcion": "REMERAS"
+    }, {
+        "foto": '../assets/buzos.png',
+        "descripcion": "BUZOS"
+    }]
 
     useEffect(() => {
         setImages(oneProduct[0].stock[0].images)
@@ -83,8 +96,27 @@ const Product = (props) => {
                         )
                     })}
                 </div>
-                <div style={{ height: '50%' }}>
-
+                <div className="otros" style={{ height: '50%', width: '100%' }}>
+                    <div style={{width:'33%', height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+                        <img src={camisas} style={{width:'70%', height:'90%'}}></img>
+                        <p style={{width:'100%', textAlign:'center'}}>CAMISAS</p>
+                    </div>
+                    <div style={{width:'33%', height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+                        <img src={remeras} style={{width:'70%', height:'90%'}}></img>
+                        <p style={{width:'100%', textAlign:'center'}}>REMERAS</p>
+                    </div >
+                    <div style={{width:'33%', height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+                        <img src={buzos} style={{width:'70%', height:'90%'}}></img>
+                        <p style={{width:'100%', textAlign:'center'}}>BUZOS</p>
+                    </div>
+                    {/* {otros.map(categoría => {
+                        return (
+                            <div style={{width:'33%', height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+                                <img src={categoría.foto} style={{width:'70%', height:'90%'}}></img>
+                                <p style={{width:'100%', textAlign:'center'}}>{categoría.descripcion}</p>
+                            </div>
+                        )
+                    })} */}
                 </div>
 
             </div>
