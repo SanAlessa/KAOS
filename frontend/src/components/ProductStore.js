@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import CardClothing from './CardClothing'
-import CartPurchase from './CartPurchase'
 import {Link} from 'react-router-dom'
 import Footer from './Footer'
 import clothesActions from '../redux/actions/clothesActions'
@@ -8,7 +7,7 @@ import { PromiseProvider } from 'mongoose'
 import { connect } from 'react-redux'
 
 const ProductStore = (props) => {
-    
+    console.log(props.clothes)
     useEffect(async()=>{
         await props.getClothes()
     }, [])
@@ -19,7 +18,13 @@ const ProductStore = (props) => {
                 <div className='containerProductsStore'>
                     {props.clothes.map(product => {
                         return (
-                            <Link to={`/product/${product._id}`}><CardClothing from  key={product.id} product={product} cart={cart} setCart={setCart} products ={product}/></Link>
+                            
+                            <div className='containerCardMapping'>
+                            <Link to={`/product/${product._id}`}>
+                                <CardClothing from  key={product.id} product={product} cart={cart} setCart={setCart} products ={product}/>
+                            </Link>
+                            </div>
+                            
                         )
                     })}
                 </div>

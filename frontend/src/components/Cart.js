@@ -27,8 +27,11 @@ function Navbar(props) {
               <h2 style={{margin: '0'}}>TU CARRITO</h2>
                 <AiIcons.AiOutlineClose onClick={showSidebar} style={{marginRight: '2vw', fontSize: '1.5rem', cursor: 'pointer'}}/>
             </li>
-            <li>
+            <li className='containerCartPurchaseSide'>
               <CartPurchase products={props.cart}/>
+            </li>
+            <li className='containerButtonCheckOut'>
+            <button className='buttonCheckout'>Finalizar Compra</button>
             </li>
           </ul>
         </nav>

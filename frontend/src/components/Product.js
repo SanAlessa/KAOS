@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { connect } from 'react-redux'
 import purchaseAction from "../redux/actions/purchaseAction"
-import CartPurchase from './CartPurchase'
 import Footer from './Footer'
 import '../styles/product.css'
 import fotoPrueba from '../assets/style.jpg'
@@ -40,9 +39,9 @@ const Product = (props) => {
         setVisible(true)
         setProduct({ ...product, image: colorFilter[0].images[0], color: value })
     }
-
     const addToCart = () => {
         props.checkout(product)
+        console.log(product)
         props.forceReload(!props.reload)
     }
 
