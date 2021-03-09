@@ -19,7 +19,6 @@ const Product = (props) => {
     const url = props.match.params.id
     const oneProduct = props.clothes.filter(product => product._id === url)
     const [product, setProduct] = useState({ id: url, name: oneProduct[0].name, image: '', price: oneProduct[0].price, description: oneProduct[0].description, color: '', size: '', quantity: 1 })
-    const newSeason = ["1", "2", "3", "4", "5"]
     const otros = [{
         "foto": '../assets/camisas.png',
         "descripcion": "CAMISAS"
@@ -54,7 +53,7 @@ const Product = (props) => {
             <div className="mainProduct">
                 <div style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}>
                     <div className="cajaPrueba">
-                        {images.length > 0 && images.length === 1?  <div className='unaFotito' style={{ backgroundImage:`url(${images[0]})`}}>{/* {color} */}</div>: images.map((color, index) => <div className='pruebaFotitos' style={{ backgroundImage:`url(${color})`}}>{/* {color} */}</div>)}
+                        {images.length > 0 && images.length === 1 ? <div className='unaFotito' style={{ backgroundImage: `url(${images[0]})` }}>{/* {color} */}</div> : images.map((color, index) => <div className='pruebaFotitos' style={{ backgroundImage: `url(${color})` }}>{/* {color} */}</div>)}
                     </div>
                     <div className="detallesProduct">
                         <div className="precioDet">
@@ -63,15 +62,15 @@ const Product = (props) => {
                             <div className="colores">
                                 <p>COLORES</p>
                                 <div style={{ display: "flex", justifyContent: "flex-start", width: '60%', height: '70%' }}>
-                                    {oneProduct[0].stock.map(color => <div style={{ backgroundColor: `${color.color}`, width: "9%", height: "85%", borderRadius: '100%', marginRight: '2%' }} onClick={() => Click(color.color)}>{/* {color.color} */}</div>)}
+                                    {oneProduct[0].stock.map(color => <div style={{ backgroundColor: `${color.color}`, width: "9%", height: "85%", borderRadius: '100%', marginRight: '2%' , cursor:'pointer'}} onClick={() => Click(color.color)}>{/* {color.color} */}</div>)}
 
                                 </div>
                             </div>
                             <div>
                                 <p>TALLES</p>
                                 <div style={{ display: "flex", justifyContent: 'flex-start' }}>
-                                    {visible ? color.length > 0 && color[0].size.map(size => <div style={{ cursor: 'pointer', width: '10%', marginLeft: '5%' }} onClick={() => setProduct({ ...product, size: size.size })}>{size.size}</div>)
-                                        : oneProduct[0].stock[0].size.map(color => <div style={{ width: '10%', marginLeft: '5%', cursor: 'pointer' }} onClick={() => setProduct({ ...product, size: color.size })}>{color.size}</div>)}
+                                    {visible ? color.length > 0 && color[0].size.map(size => <div className="talles" onClick={() => setProduct({ ...product, size: size.size })}>{size.size}</div>)
+                                        : oneProduct[0].stock[0].size.map(color => <div className="talles" onClick={() => setProduct({ ...product, size: color.size })}>{color.size}</div>)}
                                 </div>
                             </div>
                         </div>
@@ -93,23 +92,25 @@ const Product = (props) => {
                 <div className="cardsProducts">
                     {props.lastClothes.map(card => {
                         return (
-                            <Link className="clothCard" to={`/product/${card._id}`}><div className="clothCard" style={{ backgroundImage: `url(${card.stock[0].images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
-                            </div></Link>
+                            // <Link className="clothCard" to={`/product/${card._id}`}>
+                                <div className="clothCard" style={{ backgroundImage: `url(${card.stock[0].images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+                                </div>
+                            // </Link>
                         )
                     })}
                 </div>
-                <div className="otros" style={{ height: '50%', width: '100%' }}>
-                    <div style={{width:'33%', height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
-                        <img src={camisas} style={{width:'70%', height:'90%'}}></img>
-                        <p style={{width:'100%', textAlign:'center'}}>CAMISAS</p>
+                <div className="otros" style={{ height: '30%', width: '100%' }}>
+                    <div style={{ width: '33%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                        <img src={camisas} style={{ width: '40%', height: '90%' }}></img>
+                        <p style={{ width: '100%', textAlign: 'center' }}>CAMISAS</p>
                     </div>
-                    <div style={{width:'33%', height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
-                        <img src={remeras} style={{width:'70%', height:'90%'}}></img>
-                        <p style={{width:'100%', textAlign:'center'}}>REMERAS</p>
+                    <div style={{ width: '33%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                        <img src={remeras} style={{ width: '40%', height: '90%' }}></img>
+                        <p style={{ width: '100%', textAlign: 'center' }}>REMERAS</p>
                     </div >
-                    <div style={{width:'33%', height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
-                        <img src={buzos} style={{width:'70%', height:'90%'}}></img>
-                        <p style={{width:'100%', textAlign:'center'}}>BUZOS</p>
+                    <div style={{ width: '33%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                        <img src={buzos} style={{ width: '40%', height: '90%' }}></img>
+                        <p style={{ width: '100%', textAlign: 'center' }}>BUZOS</p>
                     </div>
                     {/* {otros.map(categoría => {
                         return (
@@ -132,7 +133,7 @@ const mapStateToProps = state => {
     return {
         cart: state.purchaseR.checkout,
         clothes: state.clothesR.clothes,
-        reload : state.purchaseR.reload,
+        reload: state.purchaseR.reload,
         lastClothes: state.clothesR.lastClothes
     }
 }
