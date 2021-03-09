@@ -1,8 +1,7 @@
 import { connect } from 'react-redux'
 import CartCards from './CartCards'
 
-const CartPurchase = ({products, reload}) => {
-
+const CartPurchase = ({products, deleteProduct, checkout}) => {
     return(
         <>
             <div className='containerCart'>
@@ -21,7 +20,9 @@ const CartPurchase = ({products, reload}) => {
 
 const mapStateToProps=state=> {
     return {
-        checkout: state.purchaseR.checkout
+        checkout: state.purchaseR.checkout,
+        reload: state.purchaseR.reload
+
     }
 }
 

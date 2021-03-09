@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import clothesActions from '../redux/actions/clothesActions'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/homepage.css'
@@ -10,7 +11,14 @@ import box2 from '../assets/box2.png'
 import box3 from '../assets/box3.png'
 import box4 from '../assets/box4.png'
 
-const Homepage = () => {
+const Homepage = (props) => {
+    useEffect(() => {
+        props.getClothes()
+    }, [])
+
+
+
+    console.log(props.lastClothes)
     const newSeason = ["1", "2", "3", "4", "5"]
 
     return (
@@ -19,12 +27,12 @@ const Homepage = () => {
             <div className="main">
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <div className="motto"></div>
-                    <p>NEW SEASON IS HERE!</p>
+                    <p className="title">NEW SEASON IS HERE!</p>
                 </div>
                 <div className="allCards">
-                    {newSeason.map(card => {
+                    {props.lastClothes.map(card => {
                         return (
-                            <div className="clothCard" style={{ backgroundImage: `url(${fotoPrueba})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+                            <div className="clothCard" style={{ backgroundImage: `url(${card.stock[0].images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
                             </div>
                         )
                     })}
@@ -57,9 +65,19 @@ const Homepage = () => {
 
             </div>
             <Footer></Footer>
-            
+
         </>
     )
 }
 
-export default Homepage;
+const mapStateToProps = (state) => {
+    return {
+        lastClothes: state.clothesR.lastClothes
+    };
+};
+
+const mapDispatchToProps = {
+    getClothes: clothesActions.getClothes
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Homepage);

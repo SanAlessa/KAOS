@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { connect } from 'react-redux'
 import purchaseAction from "../redux/actions/purchaseAction"
+import clothesActions from '../redux/actions/clothesActions'
 import CartPurchase from './CartPurchase'
 import Footer from './Footer'
 import '../styles/product.css'
@@ -8,13 +9,13 @@ import fotoPrueba from '../assets/style.jpg'
 import remeras from '../assets/remeras.png'
 import camisas from '../assets/camisas.png'
 import buzos from '../assets/buzos.png'
+import { Link } from "react-router-dom"
 
 
 const Product = (props) => {
     const [images, setImages] = useState([])
     const [color, setColor] = useState([])
     const [visible, setVisible] = useState(false)
-    const [reload, setReload] = useState(false)
     const url = props.match.params.id
     const oneProduct = props.clothes.filter(product => product._id === url)
     const [product, setProduct] = useState({ id: url, name: oneProduct[0].name, image: '', price: oneProduct[0].price, description: oneProduct[0].description, color: '', size: '', quantity: 1 })
@@ -32,6 +33,7 @@ const Product = (props) => {
 
     useEffect(() => {
         setImages(oneProduct[0].stock[0].images)
+        props.getClothes()
     }, [])
 
     const Click = (value) => {
@@ -44,15 +46,15 @@ const Product = (props) => {
 
     const addToCart = () => {
         props.checkout(product)
-        setReload(!reload)
+        props.forceReload(!props.reload)
     }
-    console.log(images)
+
     return (
         <>
             <div className="mainProduct">
                 <div style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}>
                     <div className="cajaPrueba">
-                        {images.length > 0 && images.map((color, index) => <div className='pruebaFotitos' style={{ backgroundColor: `${index === 0 ? "blue" : index === 1 ? "red" : index === 2 ? "green" : index === 3 && "black"}` }}>{color}</div>)}
+                        {images.length > 0 && images.length === 1?  <div className='unaFotito' style={{ backgroundImage:`url(${images[0]})`}}>{/* {color} */}</div>: images.map((color, index) => <div className='pruebaFotitos' style={{ backgroundImage:`url(${color})`}}>{/* {color} */}</div>)}
                     </div>
                     <div className="detallesProduct">
                         <div className="precioDet">
@@ -89,10 +91,10 @@ const Product = (props) => {
                     <p>NEW SEASON IS HERE!</p>
                 </div>
                 <div className="cardsProducts">
-                    {newSeason.map(card => {
+                    {props.lastClothes.map(card => {
                         return (
-                            <div className="clothCard" style={{ backgroundImage: `url(${fotoPrueba})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
-                            </div>
+                            <Link className="clothCard" to={`/product/${card._id}`}><div className="clothCard" style={{ backgroundImage: `url(${card.stock[0].images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+                            </div></Link>
                         )
                     })}
                 </div>
@@ -129,12 +131,16 @@ const Product = (props) => {
 const mapStateToProps = state => {
     return {
         cart: state.purchaseR.checkout,
-        clothes: state.clothesR.clothes
+        clothes: state.clothesR.clothes,
+        reload : state.purchaseR.reload,
+        lastClothes: state.clothesR.lastClothes
     }
 }
 
 const mapDispatchToProps = {
-    checkout: purchaseAction.checkout
+    checkout: purchaseAction.checkout,
+    forceReload: purchaseAction.forceReload,
+    getClothes: clothesActions.getClothes
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product)

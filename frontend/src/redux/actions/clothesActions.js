@@ -7,7 +7,6 @@ const clothesActions = {
       try{
         const response = await axios.post(`${API}/clothes/addClothes`, product)
         dispatch({type: 'ADD_CLOTHES', payload: response.data.response})
-        console.log(response.data)
       }catch(error){
         console.log(error)
       }
