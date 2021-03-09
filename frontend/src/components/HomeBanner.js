@@ -4,6 +4,7 @@ import CartCards from './CartCards';
 
 const HomeBanner = () => {
     return (
+        
         <>
         <Carrousel/> 
         </>
