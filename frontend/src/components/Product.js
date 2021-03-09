@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react"
 import { connect } from 'react-redux'
 import purchaseAction from "../redux/actions/purchaseAction"
-import CartPurchase from './CartPurchase'
 import Footer from './Footer'
 import '../styles/product.css'
 import fotoPrueba from '../assets/style.jpg'
@@ -13,41 +12,41 @@ import Loader from "./Loader"
 
 
 const Product = (props) => {
-  const [images, setImages] = useState([])
-  const [color, setColor] = useState([])
-  const [visible, setVisible] = useState(false)
-  const url = props.match.params.id
-  const oneProduct = props.clothes.filter(product => product._id === url)
-  const [product, setProduct] = useState({ id: url, name: oneProduct[0].name, image: '', price: oneProduct[0].price, description: oneProduct[0].description, color: '', size: '', quantity: 1 })
-  const newSeason = ["1", "2", "3", "4", "5"]
-  const otros = [{
-    "foto": '../assets/camisas.png',
-    "descripcion": "CAMISAS"
-  }, {
-    "foto": "../assets/remeras.png",
-    "descripcion": "REMERAS"
-  }, {
-    "foto": '../assets/buzos.png',
-    "descripcion": "BUZOS"
-  }]
+    const [images, setImages] = useState([])
+    const [color, setColor] = useState([])
+    const [visible, setVisible] = useState(false)
+    const url = props.match.params.id
+    const oneProduct = props.clothes.filter(product => product._id === url)
+    const [product, setProduct] = useState({ id: url, name: oneProduct[0].name, image: '', price: oneProduct[0].price, description: oneProduct[0].description, color: '', size: '', quantity: 1 })
+    const newSeason = ["1", "2", "3", "4", "5"]
+    const otros = [{
+        "foto": '../assets/camisas.png',
+        "descripcion": "CAMISAS"
+    }, {
+        "foto": "../assets/remeras.png",
+        "descripcion": "REMERAS"
+    }, {
+        "foto": '../assets/buzos.png',
+        "descripcion": "BUZOS"
+    }]
 
-  useEffect(() => {
-    setImages(oneProduct[0].stock[0].images)
-  }, [])
-  
+    useEffect(() => {
+        setImages(oneProduct[0].stock[0].images)
+    }, [])
 
-  const Click = (value) => {
-    var colorFilter = oneProduct[0].stock.filter(color => color.color === value)
-    setColor(colorFilter)
-    setImages(colorFilter[0].images)
-    setVisible(true)
-    setProduct({ ...product, image: colorFilter[0].images[0], color: value })
-  }
+    const Click = (value) => {
+        var colorFilter = oneProduct[0].stock.filter(color => color.color === value)
+        setColor(colorFilter)
+        setImages(colorFilter[0].images)
+        setVisible(true)
+        setProduct({ ...product, image: colorFilter[0].images[0], color: value })
+    }
+    const addToCart = () => {
+        props.checkout(product)
+        console.log(product)
+        props.forceReload(!props.reload)
+    }
 
-  const addToCart = () => {
-    props.checkout(product)
-    props.forceReload(!props.reload)
-  }
   
   return (
     <>
