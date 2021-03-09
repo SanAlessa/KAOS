@@ -16,7 +16,7 @@ const Footer = () => {
                 <div className="container__items__footer">
                     <div className="linksFooter">
                         <NavLink to="/">Home</NavLink>
-                        <NavLink to="/">Tienda</NavLink>
+                        <NavLink to="/ProductStore">Tienda</NavLink>
                         <NavLink to="/">SuperSale</NavLink>
                         <NavLink to="/">Contacto</NavLink>
                     </div>
@@ -26,6 +26,9 @@ const Footer = () => {
                         <div><NavLink to="/" ><i class="fab fa-facebook fa-3x"></i></NavLink></div>
                         <div><NavLink to="/" ><i class="fab fa-twitter fa-3x"></i></NavLink></div>
                     </div>
+                </div>
+                <div style={{width:'30%'}}>
+
                 </div>
             </footer>
             <div className="all__reserved">

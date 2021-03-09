@@ -5,14 +5,15 @@ const CardClothing = ({product}) => {
     const {name, stock,price} = product
 
     return(
-        <>
         <div className='containerCardCloth'>
-            <div className='containerCardClothPic' style={{backgroundImage: `url(${stock[0].images[0]})`}}></div>
+            <div className='containerCardClothPic'>
+              <div className='CardClothPicBG firstImage'  style={{backgroundImage: `url(${stock[0].images[0]})`}}></div>
+              <div className='CardClothPicBG secondImage' style={{backgroundImage: `url(${stock[0].images[1]})`}}></div>
+            </div>
+
             <div className='containerCardClothName'>{name.toUpperCase()}</div>
             <div className='containerCardClothPrice'>{`$ ${price}`}</div>
-        </div>  
-        
-        </>
+        </div>
     )
 }
 /* .containerCartCards {
