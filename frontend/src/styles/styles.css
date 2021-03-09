@@ -105,6 +105,7 @@ html * {
 .buttonDeletePurchase:hover{
   background-color: red;
   color: white;
+  font-weight: 600;
   transition: 350ms ease;
 }
 .containerCartCards {
@@ -141,7 +142,7 @@ html * {
   padding-left: 0.5vw;
   padding-top: 0.5vw;
 }
-.containerPrice{
+.containerPrice, .containerSize{
   font-size: 1vw;
   padding-left: 0.5vw;
 }
@@ -204,17 +205,38 @@ div.containerCart h2{
 
 .containerQuantity{
   display: flex;
+  align-self: center;
   align-items: center;
   width: 100%;
-  justify-content: space-evenly;
-  background-color: rgb(148, 253, 218);
+  justify-content: center;
+  /* border: 1px solid rgba(255, 0, 255, 0.25); */
+  margin-bottom: 0.5vw;
+}
+.containerQuantity p{
+  margin: 0;
 }
 .subQuantity, .incQuantity{
-  background-color: chartreuse;
   width: 20%;
   display: flex;
   justify-content: center;
+  border: 1px solid rgba(255, 0, 255, 0.15);
   cursor: pointer;
+}
+.subQuantity:hover, .incQuantity:hover{
+  background-color: rgba(255, 0, 255, 0.55);
+  color: whitesmoke;
+  font-weight: bold;
+  transform: scale(1.05);
+  transition: 400ms ease;
+}
+.quantity{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(255, 0, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 0, 255, 0.15);
 }
 .containerQuantity p{
   font-size: 1vw;
@@ -285,6 +307,7 @@ div.containerCart h2{
   color: black;
 }
 .containerCardMapping{
+  height: 72vh;
   margin-bottom: 2vw;
   box-shadow: 0 0 20px 0 #00000040;
 }
@@ -431,6 +454,7 @@ justify-content: space-evenly;
 }
 .buttonCheckout:hover{
   box-shadow: inset 265px 0 0 0 rgb(80, 145, 62);
+  transform: scale(1.1);
   color: whitesmoke;
 }
 
