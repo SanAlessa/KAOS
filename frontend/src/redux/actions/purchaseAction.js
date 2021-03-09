@@ -33,6 +33,13 @@ const purchaseAction = {
         }
     },
 
+    getCart: (cart) => {
+        return (dispatch, getState) => {
+            var forcedCart = JSON.parse(cart)
+            dispatch({type: 'CHECKOUT', payload: forcedCart})
+        }
+    },
+
     forceReload:(reload) => {
         console.log(reload)
         return (dispatch) => {

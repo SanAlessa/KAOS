@@ -24,11 +24,11 @@ function Navbar(props) {
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items'>
             <li className='navbar-toggle'>
-              <h2 style={{margin: '0'}}>TU CARRITO</h2>
-                <AiIcons.AiOutlineClose onClick={showSidebar} style={{marginRight: '2vw', fontSize: '1.5rem', cursor: 'pointer'}}/>
+              <h2 style={{ margin: '0' }}>TU CARRITO</h2>
+              <AiIcons.AiOutlineClose onClick={showSidebar} style={{ marginRight: '2vw', fontSize: '1.5rem', cursor: 'pointer' }} />
             </li>
             <li>
-              <CartPurchase products={props.cart}/>
+              <CartPurchase products={props.cart} />
             </li>
           </ul>
         </nav>
@@ -37,7 +37,7 @@ function Navbar(props) {
   );
 }
 
-const mapStateToProps=state=> {
+const mapStateToProps = state => {
   return {
     cart: state.purchaseR.checkout,
     reload: state.purchaseR.reload

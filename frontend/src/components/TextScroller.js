@@ -15,12 +15,9 @@ const TextScroller = ({ text }) => {
   });
 
   return (
-      <div key={key} style={{width: '99vw', overflow: 'hidden'}}>
-        <animated.div style={scrolling}>{text}</animated.div>
-      </div>)
-
- 
-  
+    <div key={key} style={{ width: '99vw', overflow: 'hidden' }}>
+      <animated.div style={scrolling}>{text}</animated.div>
+    </div>)
 }
 
 export default TextScroller;

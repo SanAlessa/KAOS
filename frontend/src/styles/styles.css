@@ -4,14 +4,20 @@ html * {
   box-sizing: border-box;
 }
 
-:root {
-    --primary-color: #6048a3;
-    --secondary-color: #FF7FFF;
-    --background-color: #FFFF;
-    --terciary-color: #3f7fe9;
-    --active-color: #6CC8FC;
+#root {
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  min-height: 100vh;
 }
+:root{
+  --primary-color: #6048a3;
+  --secondary-color: #FF7FFF;
+  --background-color: #FFFF;
+  --terciary-color: #3f7fe9;
+  --active-color: #6CC8FC;
 
+}
 /* CSS GENERALES  */
 .centerCenter {
   display: flex;

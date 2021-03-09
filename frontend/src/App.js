@@ -10,10 +10,10 @@ import SignIn from './components/SignIn'
 import Buy from './components/Buy'
 import Payment from './components/Payment'
 import userAction from './redux/actions/userAction'
-import './styles.css'
+import purchaseAction from './redux/actions/purchaseAction'
 import './styles/styles.css'
 
-function App({loggedUser,logFromLS}) {
+function App({loggedUser,logFromLS, getCart}) {
 const [reload , setReload]=useState(false)
 
 if(loggedUser){
@@ -32,9 +32,8 @@ if(loggedUser){
   </>
 }else if (localStorage.getItem('token')){
   logFromLS(localStorage.getItem('token'))
-  .then(respuesta => {
-    if (respuesta === '/') setReload(!reload)
-})
+  .then(response=> response && setReload(!reload))
+  if(localStorage.getItem('cart')) getCart(localStorage.getItem('cart'))
 }else {
   routes = 
   <>
@@ -64,6 +63,7 @@ const mapStateToProps = state =>{
   }
 }
 const mapDispatchToProps = {
-  logFromLS: userAction.logFromLS
+  logFromLS: userAction.logFromLS,
+  getCart: purchaseAction.getCart
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App)

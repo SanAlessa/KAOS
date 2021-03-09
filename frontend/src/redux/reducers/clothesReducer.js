@@ -1,5 +1,5 @@
 const initState= {
-  clothes:[]
+  clothes:[],
 }
 
 const clothesReducer =(state = initState, action) =>{
@@ -12,7 +12,7 @@ const clothesReducer =(state = initState, action) =>{
     case 'GET_CLOTHES':
       return {
         ...state,
-        clothes:action.payload
+        clothes:action.payload,
       }
     default:
       return state

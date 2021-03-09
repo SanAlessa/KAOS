@@ -3,11 +3,11 @@ import Carrousel from './Carrousel'
 import CartCards from './CartCards';
 
 const HomeBanner = () => {
-    return (
-        <>
-        <Carrousel/> 
-        </>
-    )
+  return (
+    <>
+      <Carrousel />
+    </>
+  )
 }
 
 export default HomeBanner
