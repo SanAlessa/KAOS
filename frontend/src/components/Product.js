@@ -91,14 +91,14 @@ const Product = (props) => {
           <p>NEW SEASON IS HERE!</p>
         </div>
         <div className="cardsProducts">
-          {props.lastClothes.map(card => {
-            return (
-              // <Link className="clothCard" to={`/product/${card._id}`}>
-              <div className="clothCard" style={{ backgroundImage: `url(${card.stock[0].images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
-              </div>
-              // </Link>
-            )
-          })}
+                    {props.lastClothes.map(card => {
+                        return (
+                            <Link className="clothCardLink" to={`/product/${card._id}`}>
+                                <div className="clothCard" style={{ backgroundImage: `url(${card.stock[0].images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+                                </div>
+                            </Link>
+                        )
+                    })}
         </div>
         <div className="otros" style={{ height: '30%', width: '100%' }}>
           <div style={{ width: '33%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>

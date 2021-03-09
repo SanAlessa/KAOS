@@ -15,10 +15,10 @@ const Footer = () => {
                 </div>
                 <div className="container__items__footer">
                     <div className="linksFooter">
-                        <NavLink to="/">Home</NavLink>
-                        <NavLink to="/ProductStore">Tienda</NavLink>
-                        <NavLink to="/">SuperSale</NavLink>
-                        <NavLink to="/">Contacto</NavLink>
+                        <NavLink to="/">HOME</NavLink>
+                        <NavLink to="/ProductStore">STORE</NavLink>
+                        <NavLink to="/">SUPERSALE</NavLink>
+                        <NavLink to="/">CONTACT</NavLink>
                     </div>
                     <div className="container__icons__social" >
                         <div> <NavLink to="/" ><i class="fab fa-whatsapp fa-3x"></i></NavLink></div>
