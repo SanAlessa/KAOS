@@ -15,10 +15,6 @@ const Homepage = (props) => {
     useEffect(() => {
         props.getClothes()
     }, [])
-
-
-
-    console.log(props.lastClothes)
     const newSeason = ["1", "2", "3", "4", "5"]
 
     return (

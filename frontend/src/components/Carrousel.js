@@ -3,15 +3,9 @@ import Slider from "react-slick"
 import ScrollBanner from './ScrollBanner'
 
 const fotos = [
-<<<<<<< HEAD
   { url: "homeBack.png" },
   { url: "homeBack1.png" },
   { url: "homeBack2.png" }
-
-=======
-  { url:"homeBack1.png"},
-  { url:"homeBack2.png"}
->>>>>>> ab7c142b027cec307a47ad5df6b823ea3c7f1079
 ]
 
 export default class SimpleSlider extends Component {
