@@ -12,6 +12,7 @@ import box4 from '../assets/box4.png'
 
 const Homepage = () => {
     const newSeason = ["1", "2", "3", "4", "5"]
+     
 
     return (
         <>
@@ -35,12 +36,12 @@ const Homepage = () => {
                 <div className="sectionsDiv">
                     <div className="boxes" style={{ backgroundImage: `url(${box1})`, backgroundPosition: 'center', backgroundSize: 'cover' }}></div>
                     <div className="info">
-                        <p>Acá iría un textito...</p>
+                        <p>OLVIDA LAS REGLAS....SI TE GUSTA,ÚSALO.</p>
                     </div>
                 </div>
                 <div className="sectionsDiv">
                     <div className="info">
-                        <p>Acá iría otro textito...</p>
+                        <p>LAS MODAS PASAN , EL ESTILO ES ETERNO</p>
                     </div>
                     <div className="boxes" style={{ backgroundImage: `url(${box2})`, backgroundPosition: 'center', backgroundSize: 'cover' }}></div>
                 </div>
@@ -63,3 +64,24 @@ const Homepage = () => {
 }
 
 export default Homepage;
+
+
+// { url:"foto1.jpeg"},
+// { url:"foto2.jpeg"},
+// { url:"foto3.jpeg"}, 
+// { url:"foto4.jpg"},
+// { url:"foto5.jpg"}
+// {fotos.map(foto => {
+//     const fotito = require (`../assets/${foto.url}`)
+//     return(
+//       <div key={foto.url} className="carrusel">
+//           <div style={{backgroundImage:`url("${fotito.default}")`,height:"100vh", width:"100vw",backgroundRepeat:'no-repeat', backgroundSize: 'contain'}}></div>
+//       </div>       
+//     )
+//   })}
+//   {newSeason.map(card => {
+//     return (
+//         <div className="clothCard" style={{ backgroundImage: `url(${card.default})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+//         </div>
+//     )
+// })}
