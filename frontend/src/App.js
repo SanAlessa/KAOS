@@ -33,6 +33,7 @@ if(loggedUser){
 }else if (localStorage.getItem('token')){
   logFromLS(localStorage.getItem('token'))
   .then(respuesta => {
+    console.log(respuesta)
     if (respuesta === '/') setReload(!reload)
 })
 }else {

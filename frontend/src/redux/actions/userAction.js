@@ -59,7 +59,7 @@ const userAction = {
                         Authorization: `Bearer ${token}`
                     }
                 })
-                dispatch({type: 'LOG_USER', payload:{response:{...respuesta.data.response}}})
+                dispatch({type: 'LOGIN_USER', payload:{response:{...respuesta.data.response}}})
             }
             catch(error){
                 if(error.response.status=== 401){
