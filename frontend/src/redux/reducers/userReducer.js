@@ -3,11 +3,6 @@ const initState = {
 }
 const userReducer = (state = initState, action) => {
   switch (action.type) {
-    case 'REGISTER_USER':
-      return {
-        ...state,
-        loggedUser: action.payload
-      }
     case 'LOGIN_USER':
       localStorage.setItem('token', action.payload.response.token)
       return {
