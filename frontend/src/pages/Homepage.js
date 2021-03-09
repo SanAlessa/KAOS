@@ -16,6 +16,7 @@ const Homepage = (props) => {
         props.getClothes()
     }, [])
     const newSeason = ["1", "2", "3", "4", "5"]
+     
 
     return (
         <>
@@ -39,12 +40,12 @@ const Homepage = (props) => {
                 <div className="sectionsDiv">
                     <div className="boxes" style={{ backgroundImage: `url(${box1})`, backgroundPosition: 'center', backgroundSize: 'cover' }}></div>
                     <div className="info">
-                        <p>Acá iría un textito...</p>
+                        <p>OLVIDA LAS REGLAS....SI TE GUSTA,ÚSALO.</p>
                     </div>
                 </div>
                 <div className="sectionsDiv">
                     <div className="info">
-                        <p>Acá iría otro textito...</p>
+                        <p>LAS MODAS PASAN , EL ESTILO ES ETERNO</p>
                     </div>
                     <div className="boxes" style={{ backgroundImage: `url(${box2})`, backgroundPosition: 'center', backgroundSize: 'cover' }}></div>
                 </div>

@@ -22,10 +22,10 @@
     justify-content: space-evenly;
     align-items: center;
 }
-/* Linea comentada para evitar deformación de logo en header
+Linea comentada para evitar deformación de logo en header
 .logo {
-    width: 35%;
-} */
+    width: 40%;
+}
 .navbar.navbar-1 .navbar-toggler-icon {
     background-image: url('https://mdbootstrap.com/img/svg/hamburger6.svg?color=000');
     }
@@ -88,6 +88,7 @@ font-size: 5vh;
 }
 
 .info {
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,6 +96,9 @@ font-size: 5vh;
     width: 50%;
     height: 80%;
     background-color: #bd9bd1ce;
+    border: 1px solid rgba(0, 0, 0, 0.247);
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .bannerFrase {
@@ -151,7 +155,14 @@ font-size: 5vh;
 border:1px solid rgba(0, 0, 0, 0.178);  
 border-radius: 1vh;   
 }
-
+.linksHeader{
+    display: flex;
+    font-weight: bold;
+    margin-left: 2vw;
+}
+.linksHeader div{
+    margin-right: 2vw;
+}
 
 
   /* ---------------------------RESPONSIVE-------------------------------------------------------------*/

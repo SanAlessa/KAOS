@@ -477,10 +477,5 @@ justify-content: space-evenly;
     padding: 0.5vh;
     
   }
-  .containerProductsStore a:hover{
-    /* text-decoration: none;
-    box-shadow: 7px -7px 6px rgb(125, 125, 125);
-    transition: 500ms ease; */
 
-  }
 }

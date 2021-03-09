@@ -12,20 +12,31 @@ const Header = (props) => {
   }, [props.reload])
 
 
-  return (
-    <div className="logoBanner">
-      <Drawer />
-      <Link to='/' style={{ display: 'flex', justifyContent: 'center', height: '80%' }}>
-        <img src={logo} className="logo"></img>
-      </Link>
-      <div className="iconsHeader">
-        {props.loggedUser && <h5>Hola {props.loggedUser.firstname.split(' ', 1)}!</h5>}
-        <Link to='/signin' ><IoPersonCircleOutline style={{ fontSize: '2.2rem', color: 'black' }} /></Link>
-        <Cart cart={props.cart} />
-      </div>
-      {/* <button onClick={() => props.disconnectUser()}>desconectar</button> */}
-    </div>
-  )
+    if(props.loggedUser){
+        var links = 
+        <div className="linksHeader">
+            <Link  to = "/adminPanel">ADMIN</Link>
+            <div>Bienvenido {props.loggedUser.firstname}!</div>
+            <Link to = "/"  onClick={()=> props.disconnectUser()}>Cerrar Sesion</Link>
+        </div> 
+    }
+  
+    return (
+        <div className="logoBanner">
+            <Drawer />
+            <Link to='/' style={{ display: 'flex', justifyContent: 'center', height: '90%' ,width:'50%'}}>
+                <img src={logo} className="logo"></img>
+            </Link>
+            <div>
+            {links}
+            </div>
+            <div className="iconsHeader">
+                <Link to='/signin' ><IoPersonCircleOutline style={{ fontSize: '2.2rem', color: 'black' }} /></Link>
+                <Cart cart={props.cart} />
+            </div>
+
+        </div>
+    )
 }
 
 const mapStateToProps = state => {
