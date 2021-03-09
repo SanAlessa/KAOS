@@ -53,6 +53,7 @@ const Product = (props) => {
 
   return (
     <>
+      <div style={{display: 'flex', flexDirection: 'column'}}>
       <div className="mainProduct">
         <div style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}>
           <div className="cajaPrueba">
@@ -80,11 +81,11 @@ const Product = (props) => {
 
           </div>
         </div>
-      </div>
       <div className='botonComprar' onClick={addToCart} style={{ textAlign: "center" }}>Comprar</div>
       <div>
         <p>DESCRIPCIÓN:</p>
         <p>{oneProduct[0].description}</p>
+      </div>
       </div>
       <div className="mainProduct">
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -124,6 +125,7 @@ const Product = (props) => {
         </div>
 
 
+      </div>
       </div>
       {/* <CartPurchase products={props.cart} reload={reload} /> */}
       <Footer></Footer>

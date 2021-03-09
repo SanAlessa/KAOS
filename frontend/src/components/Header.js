@@ -7,7 +7,6 @@ import Cart from './Cart'
 import { useEffect } from 'react'
 import userAction from '../redux/actions/userAction'
 const Header = (props) => {
-  console.log(props.loggedUser.firstname.split(' ', 1))
   useEffect(() => {
   }, [props.reload])
 
