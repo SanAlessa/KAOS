@@ -329,9 +329,17 @@ div.containerCart h2{
 }
 .containerFiltro{
   width: 20vw;
-  background-color: #FF7FFF;
+  border:1px solid black;
+  /* background-color: #FF7FFF; */
   margin-top: 5vh;
   margin-bottom: 2vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  text-align: center;
+}
+.containerFiltro p {
+  cursor: pointer;
+  font-size: 1.5vw;
 }
 .boxProductStore{
   /* height: 100%; */

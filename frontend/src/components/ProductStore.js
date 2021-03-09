@@ -13,9 +13,9 @@ const ProductStore = (props) => {
       categorias.push(cloth.type)
     }
     })
+    const [cart, setCart] = useState([])
     const [filtro, setFiltro]=useState([])
     const [sexo,setSexo]=useState('')
-    const [cart, setCart] = useState([])
     const [orden,setOrden]=useState('')
     const [verdad,setVerdad]=useState(false)
     
