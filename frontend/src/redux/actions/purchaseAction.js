@@ -26,7 +26,9 @@ const purchaseAction = {
     },
 
     deleteClothes:(product) => {
+        console.log(product)
         return (dispatch, getState)=>{
+            console.log(getState().purchaseR.checkout.filter(toModify=> console.log(toModify.color)))
             var cart = getState().purchaseR.checkout.filter(toModify => (toModify.color && toModify.size) !== (product.color && product.size))
             console.log(cart)
             dispatch({type: 'CHECKOUT', payload: cart})

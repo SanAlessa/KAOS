@@ -27,7 +27,8 @@ const CartCards = ({product, incOne, substOne, deleteClothes, images, deleteTheP
             <div className='containerClothingCard'>
                 <div className='containerPhotoClothing' style={{backgroundImage: `url(${image})`}}></div>
                 <div className='containerDataClothing'>
-                    <div className='containerTitle'>{name} / Size: {size}</div>
+                    <div className='containerTitle'>{name}</div>
+                    <div>Talle: {size}</div>
                     <div className='containerPrice'>{`$ ${price}`}</div>
                     <div className='containerQuantity'>
                         <div className='subQuantity' onClick ={subQuantity}>-</div>
