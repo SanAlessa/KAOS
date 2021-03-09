@@ -12,6 +12,7 @@ import camisas from '../assets/camisas.png'
 import buzos from '../assets/buzos.png'
 import Loader from "./Loader"
 import { Link } from "react-router-dom"
+import uuid from 'react-uuid'
 
 
 const Product = (props) => {
@@ -20,8 +21,7 @@ const Product = (props) => {
   const [visible, setVisible] = useState(false)
   const url = props.match.params.id
   const oneProduct = props.clothes.filter(product => product._id === url)
-  console.log(oneProduct[0].stock[0].color)
-  const [product, setProduct] = useState({ id: url, name: oneProduct[0].name, image: oneProduct[0].stock[0].images[0], 
+  const [product, setProduct] = useState({ id: '', name: oneProduct[0].name, image: oneProduct[0].stock[0].images[0], 
     price: oneProduct[0].price, description: oneProduct[0].description, color: oneProduct[0].stock[0].color, size: '', quantity: 1 })
   const otros = [{
     "foto": '../assets/camisas.png',
@@ -44,11 +44,10 @@ const Product = (props) => {
     setColor(colorFilter)
     setImages(colorFilter[0].images)
     setVisible(true)
-    setProduct({ ...product, image: colorFilter[0].images[0], color: value })
+    setProduct({ ...product, id:uuid(), image: colorFilter[0].images[0], color: value })
   }
   const addToCart = () => {
     props.checkout(product)
-    console.log(product)
     props.forceReload(!props.reload)
   }
 
