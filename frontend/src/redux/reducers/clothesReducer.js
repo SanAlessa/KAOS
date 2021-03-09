@@ -1,5 +1,6 @@
 const initState= {
   clothes:[],
+  lastClothes:[]
 }
 
 const clothesReducer =(state = initState, action) =>{
@@ -13,6 +14,7 @@ const clothesReducer =(state = initState, action) =>{
       return {
         ...state,
         clothes:action.payload,
+        lastClothes: action.payload.slice(action.payload.length - 5, action.payload.length)
       }
     default:
       return state
