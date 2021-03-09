@@ -55,7 +55,13 @@ font-size: 5vh;
 }
 
 .clothCard {
-    background-color: yellow;
+    width: 100%;
+    height: 100%;
+    border-radius: 1%;
+}
+
+.clothCardLink {
+    background-color: rgb(214, 139, 204);
     width: 18%;
     height: 80%;
     border-radius: 1%;

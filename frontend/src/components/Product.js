@@ -92,10 +92,10 @@ const Product = (props) => {
                 <div className="cardsProducts">
                     {props.lastClothes.map(card => {
                         return (
-                            // <Link className="clothCard" to={`/product/${card._id}`}>
+                            <Link className="clothCardLink" to={`/product/${card._id}`}>
                                 <div className="clothCard" style={{ backgroundImage: `url(${card.stock[0].images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
                                 </div>
-                            // </Link>
+                            </Link>
                         )
                     })}
                 </div>

@@ -32,8 +32,10 @@ const Homepage = (props) => {
                 <div className="allCards">
                     {props.lastClothes.map(card => {
                         return (
-                            <div className="clothCard" style={{ backgroundImage: `url(${card.stock[0].images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
-                            </div>
+                            <Link to={`/product/${card._id}`} className="clothCardLink">
+                                <div className="clothCard" style={{ backgroundImage: `url(${card.stock[0].images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+                                </div>
+                            </Link>
                         )
                     })}
                 </div>
