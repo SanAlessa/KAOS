@@ -33,10 +33,34 @@
     height: 60%;
     justify-content: space-evenly;
 }
-.talles {
+.color {
+    width: 9%; 
+    height: 85%; 
+    border-radius: 100%; 
+    margin-right: 2%;
     cursor: pointer;
-    width: 10%;
-    height:5%;
+    border: solid 2px rgba(61, 61, 61, 0.5)
+}
+
+.talles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width:8%;
+    font-weight: bolder;
+    color: white;
+    border-radius: 50px;
+    height:30%;
+    background-color: hotpink;
+    margin: 1vw;
+}
+.talles:active {
+    background-color: rgb(66, 66, 66);
+}
+
+.talles:focus {
+    background-color: rgb(66, 66, 66);
 }
 
 .botonComprar {
