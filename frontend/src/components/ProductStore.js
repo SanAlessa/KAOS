@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import CardClothing from './CardClothing'
 import {Link} from 'react-router-dom'
-import Footer from './Footer'
 import clothesActions from '../redux/actions/clothesActions'
 import { connect } from 'react-redux'
 import Loader from './Loader'
@@ -14,26 +13,30 @@ const ProductStore = (props) => {
     }
     })
     const [cart, setCart] = useState([])
+    
     const [filtro, setFiltro]=useState([])
     const [sexo,setSexo]=useState('')
     const [orden,setOrden]=useState('')
     const [verdad,setVerdad]=useState(false)
-    
+    const [vista,setVista]=useState(false)
     
     useEffect(() => {
+      window.scrollTo(0,0)
       fetch()
     }, [])
     
     const fetch = async () => {
       await props.getClothes()
     }
-
+    console.log(props.location)
     useEffect(()=>{
         setFiltro(props.clothes)
+        props.location.state && filtradoCategoria(props.location.state)
+        console.log(props.location)
     },[props.clothes])
     
     if (props.clothes.length === 0) {
-      return <Loader />
+      return <Loader/>
     }
 
     const filtradoSexo = (value)=>{
@@ -63,7 +66,7 @@ const ProductStore = (props) => {
         if(sexo ===''){
             setFiltro(props.clothes.filter(item=>item.type===value))
         }else if (sexo!=='' && orden === ''){
-            setFiltro(props.clothes.filter(item=>item.sex===sexo && item.type===value))
+            setFiltro(filtrito)
         }else if (sexo!=='' && orden === "Mayor"){
             setFiltro(filtrito.sort((a,b)=> b.price - a.price))
         }else if(sexo!=='' && orden === "Menor"){
@@ -87,7 +90,13 @@ const ProductStore = (props) => {
             <div className="boxProductStore">
                 <div className='containerFiltro'>
                     <div>
-                        <h2>Filtro</h2>
+                        <div className="firstContFiltro">
+                            <h2>Filtro</h2>
+                            <div className='boxIconsFiltro'>
+                                <p className='icono1' onClick={()=>setVista(true)}><i class="fas fa-th-list"></i></p>
+                                <p className='icono2' onClick={()=>setVista(false)}><i class="fas fa-th"></i></p>
+                            </div>
+                        </div>
                         <p onClick={()=>filtradoAll()}>Todos los productos</p>
                         <p onClick={()=>filtradoSexo("H")}>Hombres</p>
                         <p onClick={()=>filtradoSexo("M")}>Mujeres</p>
@@ -99,19 +108,17 @@ const ProductStore = (props) => {
                     </div>
                     <div>
                         <h2>Categoria</h2>
-                        {categorias.map(categoria=><p onClick={()=>filtradoCategoria(`${categoria}`)}>{categoria}</p>)}
+                        {categorias.map(categoria=><p key={`${categoria}1`} onClick={()=>filtradoCategoria(`${categoria}`)}>{categoria}</p>)}
                     </div>
                 </div>
-                <div className='containerProductsStore'>
+                <div className={!vista ? 'containerProductsStore': 'containerProductsStore2'}>
                     {filtro.map(product => {
-                        return (
-                            
+                        return (                            
                             <div className='containerCardMapping'>
                             <Link to={`/product/${product._id}`}>
-                                <CardClothing from  key={product.id} product={product} cart={cart} setCart={setCart} products ={product}/>
+                                <CardClothing from  key={product._id} product={product} cart={cart} setCart={setCart} products ={product}/>
                             </Link>
                             </div>
-                            
                         )
                     })}
                 </div>

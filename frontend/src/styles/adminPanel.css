@@ -1,0 +1,17 @@
+.adminPanel {
+  box-shadow: 1px 1px 2px 2px rgba(16,16,16,0.5);
+  width: 50vw;
+  height: 100vh;
+}
+.adminPanel h2 {
+  margin-top: 2vh;
+  margin-bottom: 0;
+}
+.adminPanel label {
+  margin-right: 0.5vw;
+}
+.adminPanel button {
+  background-color: #6048a3;
+  color: white;
+  padding: 0.5vw
+}

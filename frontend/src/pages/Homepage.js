@@ -1,11 +1,10 @@
 import { connect } from 'react-redux'
 import clothesActions from '../redux/actions/clothesActions'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/homepage.css'
 import HomeBanner from '../components/HomeBanner'
 import Footer from '../components/Footer'
-import fotoPrueba from '../assets/fotoPrueba.jpeg'
 import box1 from '../assets/box1.png'
 import box2 from '../assets/box2.png'
 import box3 from '../assets/box3.png'
@@ -15,7 +14,8 @@ const Homepage = (props) => {
     useEffect(() => {
         props.getClothes()
     }, [])
-    const newSeason = ["1", "2", "3", "4", "5"]
+    // const newSeason = ["1", "2", "3", "4", "5"]
+    // Linea comentada por Fabi, sin uso
      
 
     return (

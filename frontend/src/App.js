@@ -12,6 +12,7 @@ import Payment from './components/Payment'
 import userAction from './redux/actions/userAction'
 import purchaseAction from './redux/actions/purchaseAction'
 import './styles/styles.css'
+import UserProfile from './components/UserProfile'
 
 function App({loggedUser,logFromLS, getCart}) {
 const [reload , setReload]=useState(false)
@@ -22,11 +23,12 @@ if(loggedUser){
     <Switch>
     <Route exact path="/" component={Homepage}/>
     <Route path="/productStore" component={ProductStore}/>
+    {/* if(loggedUser.admin)  */}
     <Route path="/adminPanel" component={AdminPanel}/> 
     <Route path="/product/:id" component={Product}/>
-    <Route path="/signIn" component={SignIn}/>
     <Route exact path='/buy' component={Buy} />
     <Route exact path='/payment' component={Payment}/>
+    <Route exact path ='/userprofile' component={UserProfile} />
     <Redirect to="/"/>
     </Switch>
   </>
@@ -39,12 +41,12 @@ if(loggedUser){
   <>
     <Switch>
     <Route exact path="/" component={Homepage}/>
-    <Route path="/productStore" component={ProductStore}/>
     <Route path="/adminPanel" component={AdminPanel}/> 
+    <Route exact path ='/userprofile' component={UserProfile} />
+
+    <Route path="/productStore" component={ProductStore}/>
     <Route path="/product/:id" component={Product}/>
     <Route path="/signIn" component={SignIn}/>
-    <Route path ='/buy' component={Buy} />
-    <Route path ='/payment' component={Payment}/>
     <Redirect to="/"/>
     </Switch>
   </>

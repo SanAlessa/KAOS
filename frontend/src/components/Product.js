@@ -19,6 +19,7 @@ const Product = (props) => {
     const [images, setImages] = useState([])
     const [color, setColor] = useState([])
     const [visible, setVisible] = useState(false)
+    const [background, setBackground] = useState('black')
     const url = props.match.params.id
     const oneProduct = props.clothes.filter(product => product._id === url)
     const [product, setProduct] = useState({
@@ -37,9 +38,9 @@ const Product = (props) => {
     }]
 
     useEffect(() => {
+        window.scrollTo(0,0)
         setImages(oneProduct[0].stock[0].images)
-        props.getClothes()
-    }, [])
+    }, [url])
 
     const Click = (value) => {
         var colorFilter = oneProduct[0].stock.filter(color => color.color === value)
@@ -52,6 +53,7 @@ const Product = (props) => {
         props.checkout(product)
         props.forceReload(!props.reload)
     }
+
 
     return (
         <>
@@ -105,18 +107,27 @@ const Product = (props) => {
                         })}
                     </div>
                     <div className="otros" style={{ height: '30%', width: '100%' }}>
-                        <div style={{ width: '33%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                        <Link to={{pathname: '/productStore', state: 'Camisas'}}>
+                        <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <img src={camisas} style={{ width: '40%', height: '90%' }}></img>
                             <p style={{ width: '100%', textAlign: 'center' }}>CAMISAS</p>
                         </div>
-                        <div style={{ width: '33%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                        </Link>
+                        <Link to={{pathname: '/productStore', state: 'Remeras'}}>
+
+                        <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <img src={remeras} style={{ width: '40%', height: '90%' }}></img>
                             <p style={{ width: '100%', textAlign: 'center' }}>REMERAS</p>
                         </div >
-                        <div style={{ width: '33%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                        </Link>
+
+                        <Link to={{pathname: '/productStore', state: 'Buzos'}}>
+                        <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                             <img src={buzos} style={{ width: '40%', height: '90%' }}></img>
                             <p style={{ width: '100%', textAlign: 'center' }}>BUZOS</p>
                         </div>
+                        </Link>
+
                         {/* {otros.map(categoría => {
                         return (
                             <div style={{width:'33%', height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>

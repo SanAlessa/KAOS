@@ -1,6 +1,5 @@
 import React from "react";
 import TextScroller from "./TextScroller";
-import foto from "../assets/box4.png"
 
 function ScrollBanner() {
   return (

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import clothesActions from '../redux/actions/clothesActions'
+import '../styles/adminPanel.css'
 
 const AdminPanel =(props)=>{
   const [colorStock, setColorStock] = useState({color: '', images:[], size: []})
@@ -20,7 +21,6 @@ const AdminPanel =(props)=>{
       [prop]: value
     })
   }
-
   const handleImages =()=>{
     if(image.trim() === ''){
       alert('ups se te olvido cargar la imagen')
@@ -40,7 +40,6 @@ const AdminPanel =(props)=>{
   
   const handleColorStock=()=>{
     product.stock.push(colorStock)
-    console.log(colorStock)
     setColorStock({color: '', images:[], size: []})
     setSize({size: 'Talle', quantity: 0})
   }
@@ -57,42 +56,58 @@ const AdminPanel =(props)=>{
 
 
   return(
-    <div className="centerCenter" style={{flexDirection: 'column', justifyContent: 'space-between', margin: '5vh auto'}}>
-      <label htmlFor="Sex">Sexo</label>
-      <select name="sex" id="sex" value={product.sex} onChange={readInput}>
-       <option disabled selected>SEXO</option>
-       <option value="M">M</option>
-       <option value="H">H</option>
-      </select>
-      <label htmlFor="type">Tipo</label>
-      <input type="text" name="type" id="type" value={product.type} onChange={readInput}/>
-      <label htmlFor="name">Nombre</label>
-      <input type="text" name="name" id="name" value={product.name} onChange={readInput}/>
-      <label htmlFor="description">Descripcion del Producto</label>
-      <textarea name="description" id="description" cols="90" value={product.description} onChange={readInput}></textarea>
-      <label htmlFor="price">price</label>
-      <input type="number" name="price" id="price" value={product.price} onChange={readInput}/>
-      <div className="centerCenter" style={{marginTop: '10vh', flexDirection: 'column'}}>
-        <label htmlFor="colour">Colour</label>
-        <input type="text" name="colour" id="colour" value={colorStock.color} onChange={(e)=>setColorStock({...colorStock, color: e.target.value})}/>
-        <label htmlFor="images">Imagenes</label>
-        <input type="text" name="images" id="image" value={image} onChange={(e)=>setImage(e.target.value)}/>
-        <button onClick={handleImages}>CARGAR IMAGEN</button>
-      {product.stock.images && product.stock.images.map(url=> <div style={{width:'20vw', height: '20vh', backgroundPosition: 'cover', backgroundImage: `url('${url}')`}}></div>)}
-      <select name="size" id="size" value={size.size} onChange={(e)=> setSize({...size, size: e.target.value})}>
-        <option disabled selected>Talle</option>
-        <option value="S">S</option>
-        <option value="M">M</option>
-        <option value="L">L</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
-      </select>
-      <label htmlFor="stock">Stock</label>
-      <input type="number" name="stock" id="stock" value={size.quantity} onChange={(e)=> setSize({...size, quantity: e.target.value})}/>
-      <button style={{margin: '2vh'}} onClick={handleSize}>Añadir Stock</button>
+    <div className="centerCenter adminPanel" style={{flexDirection: 'column', justifyContent: 'space-between', margin: '5vh auto'}}>
+      <h2>Carga de prendas!</h2>
+      <div style={{display: 'flex', justifyContent: 'space-evenly', width: '80%', marginTop: '1vh'}}>
+        <div><label htmlFor="Sex">Genero:</label>
+          <select name="sex" id="sex" value={product.sex} onChange={readInput}>
+          <option disabled selected>Sexo</option>
+          <option value="M">M</option>
+          <option value="H">H</option>
+          </select></div>
+        <div><label htmlFor="type">Tipo:</label>
+          <input type="text" name="type" id="type" value={product.type} placeholder="Bermuda, Remera, etc" style={{textAlign: 'center'}} onChange={readInput}/></div>
+        <div><label htmlFor="name">Nombre:</label>
+          <input type="text" name="name" id="name" value={product.name} placeholder="Bermuda Flight" style={{textAlign: 'center'}} onChange={readInput}/></div>
       </div>
-      <button style={{margin: '2vh'}} onClick={handleColorStock}>Agregar Color</button>
-      <button style={{margin: '2vh'}} onClick={send}>CARGAR</button>
+      <div className="displayFlex" style={{alignItems: 'center'}}>
+      <label htmlFor="description" style={{marginTop: '2vh'}}>Descripcion del Producto:</label>
+      <textarea name="description" id="description" cols="60" rows="5" value={product.description} style={{resize: 'none'}} onChange={readInput}></textarea>
+      </div>
+      <div className="centerCenter" style={{marginTop: '2vh', justifyContent: 'space-around', width: '80%'}}>
+        <div><label htmlFor="price" style={{marginTop: '2vh'}}>Precio de venta:</label>
+      <input type="number" name="price" id="price" value={product.price} onChange={readInput}/></div>
+        <div><label htmlFor="colour">Color:</label>
+        <input type="text" name="colour" id="colour" value={colorStock.color} placeholder="Color de la prenda" style={{textAlign: 'center'}} onChange={(e)=>setColorStock({...colorStock, color: e.target.value})}/></div>
+      </div>
+      <div style={{display: 'flex', width: '50%', justifyContent: 'space-evenly', alignItems: 'center'}}>
+        <label htmlFor="images">Imagenes:</label>
+        <input type="text" name="images" id="image" placeholder="Dirección de la imagen" style={{textAlign: 'center'}} value={image} onChange={(e)=>setImage(e.target.value)}/>
+        <button onClick={handleImages}>Cargar Imagen</button>
+      </div>
+        {colorStock.images.length > 0 && 
+        <div style={{width: '25vw', height: '25vh', display: 'flex', flexWrap: 'wrap'}}>
+          {colorStock.images.map(url=> <div style={{margin: 'auto', width:'10vw', height: '10vh', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' ,backgroundImage: `url('${url}')`}}></div>)}
+        </div>}
+      <div style={{width: '50%', justifyContent: 'space-around', display: 'flex', alignItems: 'center'}}>
+        <div>
+          <select name="size" id="size" value={size.size} onChange={(e)=> setSize({...size, size: e.target.value})}>
+            <option disabled selected>Talle</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="stock">Stock</label>
+          <input type="number" name="stock" id="stock" value={size.quantity} onChange={(e)=> setSize({...size, quantity: e.target.value})}/>
+        </div>
+        <button onClick={handleSize}>Añadir Stock</button>
+      </div>
+        <button onClick={handleColorStock}>Agregar Color</button>
+      <button style={{marginTop: '-4vh', marginBottom: '2vh'}}onClick={send}>Finalizar Carga</button>
     </div>
   )
 }

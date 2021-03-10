@@ -5,8 +5,8 @@ const Loader =()=>{
     <div style={{display: 'flex', flex: '1', justifyContent: 'center', alignItems: 'center'}}>
     <div id="f1_container">
       <div id="f1_card">
-        <div class="front face"></div>
-        <div class="back face"></div>
+        <div className="front face"></div>
+        <div className="back face"></div>
       </div>
     </div>
     </div>
