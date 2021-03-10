@@ -19,7 +19,7 @@ const Product = (props) => {
     const [images, setImages] = useState([])
     const [color, setColor] = useState([])
     const [visible, setVisible] = useState(false)
-    const [background, setBackground] = useState('black')
+    const [id, setId] = useState('')
     const url = props.match.params.id
     const oneProduct = props.clothes.filter(product => product._id === url)
     const [product, setProduct] = useState({
@@ -54,7 +54,6 @@ const Product = (props) => {
         props.forceReload(!props.reload)
     }
 
-
     return (
         <>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -70,15 +69,21 @@ const Product = (props) => {
                                 <div className="colores">
                                     <p>COLORES</p>
                                     <div style={{ display: "flex", justifyContent: "flex-start", width: '25vw', height: '5vh' }}>
-                                        {oneProduct[0].stock.map(color => <div className="color" style={{ backgroundColor: `${color.color}`}} onClick={() => Click(color.color)}>{/* {color.color} */}</div>)}
+                                        {oneProduct[0].stock.map(color => <div className="color" style={{ backgroundColor: color.color}} onClick={() => Click(color.color)}>{/* {color.color} */}</div>)}
 
                                     </div>
                                 </div>
                                 <div style={{height:'30%'}}>
                                     <p>TALLES</p>
                                     <div style={{ display: "flex", justifyContent: 'flex-start', height:'100%'}}>
-                                        {visible ? color.length > 0 && color[0].size.map(size => <div  className="talles" onClick={() => setProduct({ ...product, id: uuid(), size: size.size })}>{size.size}</div>)
-                                            : oneProduct[0].stock[0].size.map(color => <div className="talles" onClick={() => setProduct({ ...product, id: uuid(), size: color.size })}>{color.size}</div>)}
+                                        {visible ? color.length > 0 && color[0].size.map(size => <div  className="talles" id={size.size} style={{backgroundColor: id=== size.size&& "#6048a3"}} onClick={(e) => {
+                                            setId(e.target.id)
+                                            setProduct({ ...product, id: uuid(), size: color.size })
+                                        }}>{size.size}</div>)
+                                            : oneProduct[0].stock[0].size.map(color => <div className="talles" id={color.size} style={{backgroundColor: id=== color.size&& "#6048a3"}} onClick={(e) =>{
+                                                setId(e.target.id)
+                                                setProduct({ ...product, id: uuid(), size: color.size })
+                                            } }>{color.size}</div>)}
                                     </div>
                                 </div>
                             </div>

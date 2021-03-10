@@ -13,6 +13,8 @@ import userAction from './redux/actions/userAction'
 import purchaseAction from './redux/actions/purchaseAction'
 import './styles/styles.css'
 import UserProfile from './components/UserProfile'
+import SendEmail from './components/SendEmail'
+import ForgotPassword from './components/ForgotPassword'
 
 function App({loggedUser,logFromLS, getCart}) {
 const [reload , setReload]=useState(false)
@@ -43,7 +45,8 @@ if(loggedUser){
     <Route exact path="/" component={Homepage}/>
     <Route path="/adminPanel" component={AdminPanel}/> 
     <Route exact path ='/userprofile' component={UserProfile} />
-
+    <Route path='/send-email' component={SendEmail}/>
+    <Route path='/reset-password/:email' component={ForgotPassword}/>
     <Route path="/productStore" component={ProductStore}/>
     <Route path="/product/:id" component={Product}/>
     <Route path="/signIn" component={SignIn}/>
