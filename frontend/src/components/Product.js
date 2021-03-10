@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react"
 import { connect } from 'react-redux'
 import purchaseAction from "../redux/actions/purchaseAction"
@@ -13,6 +12,8 @@ import buzos from '../assets/buzos.png'
 import Loader from "./Loader"
 import { Link } from "react-router-dom"
 import uuid from 'react-uuid'
+import { Alert } from 'rsuite'
+import 'rsuite/dist/styles/rsuite-default.css'
 
 
 const Product = (props) => {
@@ -38,7 +39,7 @@ const Product = (props) => {
     }]
 
     useEffect(() => {
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0)
         setImages(oneProduct[0].stock[0].images)
     }, [url])
 
@@ -58,7 +59,7 @@ const Product = (props) => {
     return (
         <>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <div className="mainProduct" style={{ height: '100vh'}}>
+                <div className="mainProduct" style={{ height: '100vh' }}>
                     <div style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}>
                         <div className="cajaPrueba">
                             {images.length > 0 && images.length === 1 ? <div className='unaFotito' style={{ backgroundImage: `url(${images[0]})` }}>{/* {color} */}</div> : images.map((color, index) => <div className='pruebaFotitos' style={{ backgroundImage: `url(${color})` }}>{/* {color} */}</div>)}
@@ -70,16 +71,19 @@ const Product = (props) => {
                                 <div className="colores">
                                     <p>COLORES</p>
                                     <div style={{ display: "flex", justifyContent: "flex-start", width: '25vw', height: '5vh' }}>
-                                        {oneProduct[0].stock.map(color => <div className="color" style={{ backgroundColor: `${color.color}`}} onClick={() => Click(color.color)}>{/* {color.color} */}</div>)}
+                                        {oneProduct[0].stock.map(color => <div className="color" style={{ backgroundColor: `${color.color}` }} onClick={() => Click(color.color)}>{/* {color.color} */}</div>)}
 
                                     </div>
                                 </div>
-                                <div style={{height:'30%'}}>
-                                    <p>TALLES</p>
-                                    <div style={{ display: "flex", justifyContent: 'flex-start', height:'100%'}}>
-                                        {visible ? color.length > 0 && color[0].size.map(size => <div  className="talles" onClick={() => setProduct({ ...product, id: uuid(), size: size.size })}>{size.size}</div>)
-                                            : oneProduct[0].stock[0].size.map(color => <div className="talles" onClick={() => setProduct({ ...product, id: uuid(), size: color.size })}>{color.size}</div>)}
+                                <div style={{ height: '30%' }}>
+                                    <div style={{ display: 'flex', flexDirection: 'column' }} >
+                                        <p>TALLES</p>
+                                        <div style={{ display: "flex", justifyContent: 'flex-start', height: '100%' }}>
+                                            {visible ? color.length > 0 && color[0].size.map(size => <div className="talles" onClick={() => setProduct({ ...product, id: uuid(), size: size.size })}>{size.size}</div>)
+                                                : oneProduct[0].stock[0].size.map(color => <div className="talles" onClick={() => setProduct({ ...product, id: uuid(), size: color.size })}>{color.size}</div>)}
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
                             <button className='botonComprar' onClick={addToCart} style={{ textAlign: "center" }}>Comprar</button>
@@ -92,7 +96,7 @@ const Product = (props) => {
                     </div>
 
                 </div>
-                <div className="mainProduct" style={{height:'100vh'}}>
+                <div className="mainProduct" style={{ height: '100vh' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <p>NEW SEASON IS HERE!</p>
                     </div>
@@ -107,25 +111,25 @@ const Product = (props) => {
                         })}
                     </div>
                     <div className="otros" style={{ height: '30%', width: '100%' }}>
-                        <Link to={{pathname: '/productStore', state: 'Camisas'}}>
-                        <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                            <img src={camisas} style={{ width: '40%', height: '90%' }}></img>
-                            <p style={{ width: '100%', textAlign: 'center' }}>CAMISAS</p>
-                        </div>
+                        <Link to={{ pathname: '/productStore', state: 'Camisas' }}>
+                            <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                                <img src={camisas} style={{ width: '40%', height: '90%' }}></img>
+                                <p style={{ width: '100%', textAlign: 'center' }}>CAMISAS</p>
+                            </div>
                         </Link>
-                        <Link to={{pathname: '/productStore', state: 'Remeras'}}>
+                        <Link to={{ pathname: '/productStore', state: 'Remeras' }}>
 
-                        <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                            <img src={remeras} style={{ width: '40%', height: '90%' }}></img>
-                            <p style={{ width: '100%', textAlign: 'center' }}>REMERAS</p>
-                        </div >
+                            <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                                <img src={remeras} style={{ width: '40%', height: '90%' }}></img>
+                                <p style={{ width: '100%', textAlign: 'center' }}>REMERAS</p>
+                            </div >
                         </Link>
 
-                        <Link to={{pathname: '/productStore', state: 'Buzos'}}>
-                        <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                            <img src={buzos} style={{ width: '40%', height: '90%' }}></img>
-                            <p style={{ width: '100%', textAlign: 'center' }}>BUZOS</p>
-                        </div>
+                        <Link to={{ pathname: '/productStore', state: 'Buzos' }}>
+                            <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                                <img src={buzos} style={{ width: '40%', height: '90%' }}></img>
+                                <p style={{ width: '100%', textAlign: 'center' }}>BUZOS</p>
+                            </div>
                         </Link>
 
                         {/* {otros.map(categoría => {
