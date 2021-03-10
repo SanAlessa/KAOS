@@ -5,7 +5,6 @@ const purchaseAction = {
             var cart = getState().purchaseR.checkout
             cart.push(clothes)
             dispatch({type: 'CHECKOUT', payload: cart})
-            console.log(cart)
         }
     },
 
@@ -26,10 +25,8 @@ const purchaseAction = {
     },
 
     deleteClothes:(product) => {
-        console.log(product)
         return (dispatch, getState)=>{
             var cart = getState().purchaseR.checkout.filter(toModify => (toModify.id  !== product.id))
-            console.log(cart)
             dispatch({type: 'CHECKOUT', payload: cart})
         }
     },
@@ -42,7 +39,6 @@ const purchaseAction = {
     },
 
     forceReload:(reload) => {
-        console.log(reload)
         return (dispatch) => {
             dispatch({type: 'RELOAD', payload: reload})
         }

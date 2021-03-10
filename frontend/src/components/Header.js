@@ -11,7 +11,6 @@ import {Dropdown}  from 'react-bootstrap'
 const Header = (props) => {
   useEffect(() => {
   }, [props.reload])  
-
     if(props.loggedUser){
         var links = 
         <div className="linksHeader">
@@ -45,7 +44,10 @@ const Header = (props) => {
                     <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-                <Cart cart={props.cart} />
+                <div style={{display: 'flex'}}>
+                  <Cart cart={props.cart} />
+                  <h5>{props.cart.length}</h5>
+                </div>
             </div>
 
         </div>

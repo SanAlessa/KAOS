@@ -12,7 +12,10 @@ import { connect } from 'react-redux';
 function Navbar(props) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-  console.log(props)
+  if(props.cart.length > 0){
+    var prices = props.cart.map(price=> price.price*price.quantity)
+    var totalPrice = prices.reduce((a, b)=> a + b)
+  }
   return (
     <>
       <IconContext.Provider value={{ color: 'black' }}>
@@ -31,7 +34,7 @@ function Navbar(props) {
               <CartPurchase products={props.cart}/>
             </li>
             <li className='containerTotal'>
-              <h3>TOTAL: $</h3>
+              <h3>TOTAL: $ {totalPrice}</h3>
             </li>
             <li className='containerButtonCheckOut'>
             <button className='buttonCheckout'>Finalizar Compra</button>

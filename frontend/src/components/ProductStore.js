@@ -28,11 +28,9 @@ const ProductStore = (props) => {
     const fetch = async () => {
       await props.getClothes()
     }
-    console.log(props.location)
     useEffect(()=>{
         setFiltro(props.clothes)
         props.location.state && filtradoCategoria(props.location.state)
-        console.log(props.location)
     },[props.clothes])
     
     if (props.clothes.length === 0) {

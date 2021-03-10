@@ -22,10 +22,16 @@ const Product = (props) => {
     const [background, setBackground] = useState('black')
     const url = props.match.params.id
     const oneProduct = props.clothes.filter(product => product._id === url)
+    console.log(oneProduct)
     const [product, setProduct] = useState({
         id: '', name: oneProduct[0].name, image: oneProduct[0].stock[0].images[0],
-        price: oneProduct[0].price, description: oneProduct[0].description, color: oneProduct[0].stock[0].color, size: '', quantity: 1
+        price: oneProduct[0].price, description: oneProduct[0].description, 
+        color: oneProduct[0].stock[0].color, size: '', quantity: 1,
     })
+    console.log(product)
+
+    // console.log(oneProduct[0].stock) 
+
     const otros = [{
         "foto": '../assets/camisas.png',
         "descripcion": "CAMISAS"
@@ -36,10 +42,21 @@ const Product = (props) => {
         "foto": '../assets/buzos.png',
         "descripcion": "BUZOS"
     }]
+    
+    useEffect(()=>{
+        return()=>{
+            setProduct({
+                id: '', name: '', image: '',
+                price: '', description: '', 
+                color: '', size: '', quantity: 1,
+            })
+        }
+    },[])
 
     useEffect(() => {
         window.scrollTo(0,0)
         setImages(oneProduct[0].stock[0].images)
+        console.log(product)
     }, [url])
 
     const Click = (value) => {
@@ -50,6 +67,12 @@ const Product = (props) => {
         setProduct({ ...product, image: colorFilter[0].images[0], color: value })
     }
     const addToCart = () => {
+        var productFiltered = props.cart.find(cloth=> cloth.name+cloth.color+cloth.size === product.name+product.color+product.size )
+        if(productFiltered){
+            var condition = (productFiltered.name+productFiltered.color+productFiltered.size) 
+            props.cart.map(cart=>(condition === (cart.name+cart.color+cart.size)) && cart.quantity++)
+            props.forceReload(!props.reload)
+        }else
         props.checkout(product)
         props.forceReload(!props.reload)
     }
