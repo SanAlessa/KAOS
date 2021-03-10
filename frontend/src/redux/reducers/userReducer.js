@@ -1,22 +1,23 @@
 const initState = {
-    loggedUser: null
-  }
-  
-  const userReducer = (state = initState, action) =>{
-      switch(action.type){
-        case 'REGISTER_USER' :
-          return{
-            
-            ...state,
-            loggedUser: action.payload
-          }
-          case 'DISCONNECT_USER':
-            return {
-                ...state,
-                loggedUser: null
-              }
-        default :
-          return state
+  loggedUser: null
+}
+const userReducer = (state = initState, action) => {
+  switch (action.type) {
+    case 'LOGIN_USER':
+      console.log(action.payload)
+      localStorage.setItem('token', action.payload.response.token)
+      return {
+        ...state,
+        loggedUser: action.payload.response
       }
+    case 'DISCONNECT_USER':
+      localStorage.clear()
+      return {
+        ...state,
+        loggedUser: null
+      }
+    default:
+      return state
   }
-  export default userReducer
+}
+export default userReducer

@@ -6,7 +6,7 @@ import logo from '../assets/kaoswhite.png'
 const Footer = () => {
     return (
         <>
-            <footer>
+            <footer className="footer">
 
                 <div>
                     <NavLink to="/" className="brand">
@@ -15,16 +15,19 @@ const Footer = () => {
                 </div>
                 <div className="container__items__footer">
                     <div className="linksFooter">
-                        <NavLink to="/">Home</NavLink>
-                        <NavLink to="/">Tienda</NavLink>
-                        <NavLink to="/">SuperSale</NavLink>
-                        <NavLink to="/">Contacto</NavLink>
+                        <NavLink to="/">HOME</NavLink>
+                        <NavLink to="/ProductStore">STORE</NavLink>
+                        <NavLink to="/">SUPERSALE</NavLink>
+                        <NavLink to="/">CONTACT</NavLink>
                     </div>
                     <div className="container__icons__social" >
-                        <div> <NavLink to="/" ><p>Whatsapp</p></NavLink></div>
-                        <div> <NavLink to="/" ><p>Instagram</p></NavLink></div>
-                        <div><NavLink to="/" ><p>Facebook</p></NavLink></div>
+                        <div> <NavLink to="/" ><i className="fab fa-whatsapp fa-3x"></i></NavLink></div>
+                        <div> <NavLink to="/" ><i className="fab fa-instagram fa-3x"></i></NavLink></div>
+                        <div><NavLink to="/" ><i className="fab fa-facebook fa-3x"></i></NavLink></div>
+                        <div><NavLink to="/" ><i className="fab fa-twitter fa-3x"></i></NavLink></div>
                     </div>
+                </div>
+                <div style={{width:'30%'}}>
 
                 </div>
             </footer>

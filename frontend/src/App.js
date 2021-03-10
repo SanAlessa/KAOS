@@ -1,31 +1,71 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
+import {connect}from 'react-redux'
 import AdminPanel from './pages/AdminPanel'
 import Homepage from './pages/Homepage'
 import ProductStore from './components/ProductStore'
-import Register from './components/Register'
-import Productos from './components/Productos'
+import Product from './components/Product'
 import Header from './components/Header'
 import SignIn from './components/SignIn'
-import './styles.css'
+import Buy from './components/Buy'
+import Payment from './components/Payment'
+import userAction from './redux/actions/userAction'
+import purchaseAction from './redux/actions/purchaseAction'
 import './styles/styles.css'
+import UserProfile from './components/UserProfile'
 
+function App({loggedUser,logFromLS, getCart}) {
+const [reload , setReload]=useState(false)
 
-function App() {
+if(loggedUser){
+  var routes = 
+  <>
+    <Switch>
+    <Route exact path="/" component={Homepage}/>
+    <Route path="/productStore" component={ProductStore}/>
+    {/* if(loggedUser.admin)  */}
+    <Route path="/adminPanel" component={AdminPanel}/> 
+    <Route path="/product/:id" component={Product}/>
+    <Route exact path='/buy' component={Buy} />
+    <Route exact path='/payment' component={Payment}/>
+    <Route exact path ='/userprofile' component={UserProfile} />
+    <Redirect to="/"/>
+    </Switch>
+  </>
+}else if (localStorage.getItem('token')){
+  logFromLS(localStorage.getItem('token'))
+  .then(response=> response && setReload(!reload))
+  if(localStorage.getItem('cart')) getCart(localStorage.getItem('cart'))
+}else {
+  routes = 
+  <>
+    <Switch>
+    <Route exact path="/" component={Homepage}/>
+    <Route path="/adminPanel" component={AdminPanel}/> 
+    <Route exact path ='/userprofile' component={UserProfile} />
+
+    <Route path="/productStore" component={ProductStore}/>
+    <Route path="/product/:id" component={Product}/>
+    <Route path="/signIn" component={SignIn}/>
+    <Redirect to="/"/>
+    </Switch>
+  </>
+
+}
   return (
     <BrowserRouter>
       <Header></Header>
-      <Switch>
-        <Route exact path="/" component={Homepage}/>
-        <Route path="/productStore" component={ProductStore}/>
-        <Route path="/adminPanel" component={AdminPanel}/> 
-        <Route path="/register" component={Register}/>
-        <Route path="/products" component={Productos}/>
-        <Route path="/signIn" component={SignIn}/>
-        <Redirect to="/" />
-      </Switch>
+        {routes}
     </BrowserRouter>
   )
 }
-
-export default App;
+const mapStateToProps = state =>{
+  return{
+    loggedUser:state.userR.loggedUser
+  }
+}
+const mapDispatchToProps = {
+  logFromLS: userAction.logFromLS,
+  getCart: purchaseAction.getCart
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App)

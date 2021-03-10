@@ -10,7 +10,7 @@ const validator = {
           "string.min": "Tu apellido debe contener al menos 2 letras",
       }),
       email: Joi.string().trim().required().email({tlds: {allow: false}}).message({
-          "string.email": "Por favor escribe una direccion de correo valida"
+          "string.email": "Por favor escribe una dirección de correo válida"
       }),
       password: Joi.string().trim().required().pattern(/(?=.*\d)/).min(5).message({
           "string.min": "Tu contraseña debe contener al menos 5 caracteres",

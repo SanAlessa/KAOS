@@ -1,23 +1,29 @@
-import CardClothing from './CardClothing'
+import { connect } from 'react-redux'
+import CartCards from './CartCards'
 
-const CartPurchase = ({cart, setCart}) => {
-    console.log(cart)
+const CartPurchase = ({products, deleteProduct, checkout}) => {
     return(
         <>
             <div className='containerCart'>
-                <h1>CartPurchase</h1>
-                {cart.length === 0 ? <p>Empezá a comprar</p> :
+                { products && products.length === 0 ? <p>Empezá a comprar</p> :
                 <>
                 <h2>Tu compra</h2>
-                {cart.map(productAdded => <CardClothing key={productAdded.id} product={productAdded} cart={cart} setCart={setCart} />)}
-                </>}
+                <div className ='containerPurchase'>
+                    {products &&  products.length > 0 && products.map(product => <CartCards key={product.id} product={product} />)}
+                </div>
+                </>
+                }
             </div>
-            <button>Finaliza Compra</button>
         </>
     )
 }
 
-//  Acá va el dispatch substract Opción 2
+const mapStateToProps = state => {
+  return {
+    checkout: state.purchaseR.checkout,
+    reload: state.purchaseR.reload
 
+  }
+}
 
-export default CartPurchase
+export default connect(mapStateToProps)(CartPurchase)

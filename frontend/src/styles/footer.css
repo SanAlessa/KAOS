@@ -5,6 +5,7 @@ footer{
     align-items: center;
     padding: 5px!important;
     min-height: 250px ;
+    width: 100%;
 }
 
 footer{
@@ -22,6 +23,10 @@ footer div:nth-child(2) img{
 footer a{
     color: white;
     font-weight: 0.5em;
+    text-decoration: none !important;
+}
+a:hover {
+    color: hotpink !important;
 }
 
 
@@ -29,7 +34,10 @@ footer a{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+    width: 30%;
 }
+
 
 .linksFooter {
     width: 50%;
@@ -44,6 +52,7 @@ footer a{
     flex-direction: row;
     justify-content: space-evenly;
     margin-top: 1em;
+    width: 60%;
 }
 
 .all__reserved{

@@ -1,39 +1,68 @@
-import logo from '../assets/kaoswhite.png'
+import logo from '../assets/kaos.png'
+import Drawer from './Drawer'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { IoPersonCircleOutline } from 'react-icons/io5'
+import Cart from './Cart'
+import { useEffect } from 'react'
+import userAction from '../redux/actions/userAction'
+import {Dropdown}  from 'react-bootstrap'
 
-const Header = () => {
+const Header = (props) => {
+  useEffect(() => {
+  }, [props.reload])  
+    if(props.loggedUser){
+        var links = 
+        <div className="linksHeader">
+            {/* <Link  to = "/adminPanel">ADMIN</Link> */}
+            <div>Bienvenido {props.loggedUser.firstname.split(' ', 1)}!</div>
+            <Link to = "/"  onClick={()=> props.disconnectUser()}>Cerrar Sesion</Link>
+        </div> 
+    }
+  
     return (
         <div className="logoBanner">
-            <div className="menuHamb">
-
-                <nav class="navbar navbar-light navbar-1 white">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15"
-                        aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent15">
-
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Features</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
-                            </li>
-                        </ul>
-
-                    </div>
-
-                </nav>
+            <Drawer />
+            <Link to='/' style={{ display: 'flex', justifyContent: 'center', height: '90%' ,width:'50%'}}>
+                <img src={logo} className="logo"></img>
+            </Link>
+            <div>
+            {links}
             </div>
-            <div className="logo"></div>
             <div className="iconsHeader">
-                <i class="fas fa-user-circle fa-2x"></i>
-                <i class="fas fa-shopping-cart fa-2x"></i>
+                {/* <Link to='/signin' > */}
+                  {/* </Link> */}
+                <Dropdown >
+                  <Dropdown.Toggle style={{backgroundColor: 'transparent', color: 'black', border: 'none'}} variant="success" id="dropdown-basic">
+                  <IoPersonCircleOutline style={{ fontSize: '2.2rem', color: 'black' }} />
+
+
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+                <div style={{display: 'flex'}}>
+                  <Cart cart={props.cart} />
+                  <h5>{props.cart.length}</h5>
+                </div>
             </div>
+
         </div>
     )
 }
 
-export default Header
+const mapStateToProps = state => {
+  return {
+    loggedUser: state.userR.loggedUser,
+    cart: state.purchaseR.checkout,
+    reload: state.purchaseR.reload
+  }
+}
+const mapDispatchToProps = {
+  disconnectUser: userAction.disconnectUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

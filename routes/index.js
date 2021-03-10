@@ -4,6 +4,7 @@ const userController = require('../controllers/userController')
 const clothesController = require('../controllers/clothesController')
 const validator = require ('../controllers/validator')
 const passport = require('passport')
+const purchaseController = require('../controllers/purchaseController')
 require('../config/passport')
 
 router.route('/users')
@@ -34,7 +35,11 @@ router.route('/clothes/substractStock')
 router.route('/clothes/deleteClothes')
 .put(clothesController.deleteClothes)
 
-router.route('./clothes/modifyClothes')
+router.route('/clothes/modifyClothes')
 .post(clothesController.modifyClothes)
+
+router.route('/purchase')
+.post(purchaseController.newPurchase)
+
 
 module.exports = router

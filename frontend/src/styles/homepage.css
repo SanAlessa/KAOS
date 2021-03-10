@@ -12,8 +12,9 @@
     justify-content: space-between;
     align-items: center;
     width:100%;
-    height: 10%;
+    height: 13%; /*Linea modificada como sugerencia por Fabi*/
 }
+
 .iconsHeader {
     height: 100%;
     width: 10%;
@@ -22,11 +23,7 @@
     align-items: center;
 }
 .logo {
-    width: 15%;
-    height: 100%;
-    background-image: url('../assets/kaos.png');
-    background-position: center;
-    background-size: cover;
+    width: 30%;
 }
 .navbar.navbar-1 .navbar-toggler-icon {
     background-image: url('https://mdbootstrap.com/img/svg/hamburger6.svg?color=000');
@@ -51,25 +48,31 @@ font-size: 5vh;
     align-items: center;
     background-color: purple;
     width: 100%;
-    height: 800%;
+    height: 80%;
     background-image: url('../assets/aest1.jpg');
     background-position: center;
     background-size: cover; 
 }
 
 .clothCard {
-    background-color: yellow;
+    width: 100%;
+    height: 100%;
+    border-radius: 1%;
+}
+
+.clothCardLink {
+    background-color: rgb(214, 139, 204);
     width: 18%;
     height: 80%;
     border-radius: 1%;
 }
 
 .main {
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 .main h1 p {
@@ -90,6 +93,7 @@ font-size: 5vh;
 }
 
 .info {
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,6 +101,9 @@ font-size: 5vh;
     width: 50%;
     height: 80%;
     background-color: #bd9bd1ce;
+    border: 1px solid rgba(0, 0, 0, 0.247);
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .bannerFrase {
@@ -110,7 +117,12 @@ font-size: 5vh;
 }
 
 .bannerFrase p {
-    font-size: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 300;
     text-shadow: 8px 8px #ae97eb85;
 }
 
@@ -123,4 +135,141 @@ font-size: 5vh;
 .jeansBox {
     height: 100%;
     width: 50%;
+}
+.rs-drawer-content{
+    background-color: rgba(255, 255, 255, 0.952)!important;
+    width: 25vw!important;
+}
+.rs-drawer-content h4{
+    font-size: 1.5rem;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.menu {
+    color: black !important
+}
+
+.banner{
+    background-color:  #ff7fff6b;;
+    margin-top:-8vh!important;
+    
+}
+
+.rs-btn-toolbar{
+border:1px solid rgba(0, 0, 0, 0.178);  
+border-radius: 1vh;   
+}
+.linksHeader{
+    display: flex;
+    font-weight: bold;
+    margin-left: 2vw;
+}
+.linksHeader div{
+    margin-right: 2vw;
+}
+
+
+  /* ---------------------------RESPONSIVE-------------------------------------------------------------*/
+  @media(max-width: 800px){
+    .banner {
+        display: none;
+        }   
+    .carrusel{
+        margin-bottom:-70vh;
+    }
+    .motto {
+        width: 60vw;
+        height: 10vh;
+        background-image: url('../assets/motto.png');
+        background-position: center;
+        background-size: cover; 
+    }
+    .title {
+        font-size: 1rem;
+    }
+    .allCards {
+        width: 99%;
+        height: 40%;
+    }
+    .bannerFrase {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 98%;
+        height: 10%;
+        background-color: #6048a3b9;
+        color: mintcream;
+        margin-bottom: 4vh;
+        margin-top: 8vh;
+    }
+    .bannerFrase p {
+        font-size: 1rem;    
+    }
+    .superSaleBanner {
+        background-color: #93c2d1;
+        width: 98%;
+        height: 38%;   
+    }
+
+    .boxes {
+        width:90%;
+         height: 100%; 
+        background-color: lightseagreen;
+        margin: 0.2vh;
+    }
+    .main {
+        height: 100%!important;
+        display: flex;
+      ;
+    }
+   
+    .info {
+        width: 98%;
+        height: 15%;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+        background-color: #bd9bd1ce;
+        border: 1px solid grey;
+    }
+    .jeansBox {
+        height: 90%;
+        width: 50%;
+    }
+    .info p{
+    font-size: 1rem;
+    text-align: center;
+    }
+    .rs-drawer-content h4{
+        font-size: 1rem;
+        color: black;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .rs-drawer-content h6{
+        font-size: 0.8rem;
+    }
+    .rs-drawer-title{
+    font-size: 0.2rem;
+    }
+    .rs-drawer-content{
+        width: 55vw!important;
+    }
+    .rs-drawer-title{
+        font-size: 0.8rem!important;
+    }
+    .sectionsDiv {
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        width: 98%;
+        /* height: 98%; */
+    }
+    .clothCard {
+        width: 18%;
+        height: 60%;
+        border-radius: 2%;
+    }
+
+   
+
 }
