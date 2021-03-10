@@ -80,7 +80,7 @@ const Product = (props) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='botonComprar' onClick={addToCart} style={{ textAlign: "center" }}>Comprar</div>
+                            <button className='botonComprar' onClick={addToCart} style={{ textAlign: "center" }}>Comprar</button>
                             <div>
                                 <p>DESCRIPCIÓN:</p>
                                 <p>{oneProduct[0].description}</p>
