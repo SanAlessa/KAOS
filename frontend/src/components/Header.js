@@ -6,10 +6,11 @@ import { IoPersonCircleOutline } from 'react-icons/io5'
 import Cart from './Cart'
 import { useEffect } from 'react'
 import userAction from '../redux/actions/userAction'
+import {Dropdown}  from 'react-bootstrap'
+
 const Header = (props) => {
   useEffect(() => {
-  }, [props.reload])
-
+  }, [props.reload])  
 
     if(props.loggedUser){
         var links = 
@@ -30,7 +31,20 @@ const Header = (props) => {
             {links}
             </div>
             <div className="iconsHeader">
-                <Link to='/signin' ><IoPersonCircleOutline style={{ fontSize: '2.2rem', color: 'black' }} /></Link>
+                {/* <Link to='/signin' > */}
+                  {/* </Link> */}
+                <Dropdown >
+                  <Dropdown.Toggle style={{backgroundColor: 'transparent', color: 'black', border: 'none'}} variant="success" id="dropdown-basic">
+                  <IoPersonCircleOutline style={{ fontSize: '2.2rem', color: 'black' }} />
+
+
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
                 <Cart cart={props.cart} />
             </div>
 

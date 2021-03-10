@@ -23,9 +23,9 @@ if(loggedUser){
     <Switch>
     <Route exact path="/" component={Homepage}/>
     <Route path="/productStore" component={ProductStore}/>
+    {/* if(loggedUser.admin)  */}
     <Route path="/adminPanel" component={AdminPanel}/> 
     <Route path="/product/:id" component={Product}/>
-    <Route path="/signIn" component={SignIn}/>
     <Route exact path='/buy' component={Buy} />
     <Route exact path='/payment' component={Payment}/>
     <Route exact path ='/userprofile' component={UserProfile} />
@@ -41,13 +41,12 @@ if(loggedUser){
   <>
     <Switch>
     <Route exact path="/" component={Homepage}/>
-    <Route path="/productStore" component={ProductStore}/>
     <Route path="/adminPanel" component={AdminPanel}/> 
+    <Route exact path ='/userprofile' component={UserProfile} />
+
+    <Route path="/productStore" component={ProductStore}/>
     <Route path="/product/:id" component={Product}/>
     <Route path="/signIn" component={SignIn}/>
-    <Route path ='/buy' component={Buy} />
-    <Route path ='/payment' component={Payment}/>
-    <Route exact path ='/userprofile' component={UserProfile} />
     <Redirect to="/"/>
     </Switch>
   </>

@@ -18,17 +18,19 @@ const ProductStore = (props) => {
     const [orden,setOrden]=useState('')
     const [verdad,setVerdad]=useState(false)
     
-    
     useEffect(() => {
+      window.scrollTo(0,0)
       fetch()
     }, [])
     
     const fetch = async () => {
       await props.getClothes()
     }
-
+    console.log(props.location)
     useEffect(()=>{
         setFiltro(props.clothes)
+        props.location.state && filtradoCategoria(props.location.state)
+        console.log(props.location)
     },[props.clothes])
     
     if (props.clothes.length === 0) {
@@ -103,14 +105,12 @@ const ProductStore = (props) => {
                 </div>
                 <div className='containerProductsStore'>
                     {filtro.map(product => {
-                        return (
-                            
+                        return (                            
                             <div className='containerCardMapping'>
                             <Link to={`/product/${product._id}`}>
                                 <CardClothing from  key={product._id} product={product} cart={cart} setCart={setCart} products ={product}/>
                             </Link>
                             </div>
-                            
                         )
                     })}
                 </div>

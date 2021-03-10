@@ -18,7 +18,7 @@ export default class SimpleSlider extends Component {
       rows: 1,
       slidesPerRow: 1,
       autoplay: true,
-      autoplaySpeed: 1600,
+      autoplaySpeed: 2500,
       fade: true,
       pauseOnDotsHover: true,
     };
