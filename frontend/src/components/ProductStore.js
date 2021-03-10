@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import CardClothing from './CardClothing'
 import {Link} from 'react-router-dom'
-import Footer from './Footer'
 import clothesActions from '../redux/actions/clothesActions'
 import { connect } from 'react-redux'
 import Loader from './Loader'
@@ -99,7 +98,7 @@ const ProductStore = (props) => {
                     </div>
                     <div>
                         <h2>Categoria</h2>
-                        {categorias.map(categoria=><p onClick={()=>filtradoCategoria(`${categoria}`)}>{categoria}</p>)}
+                        {categorias.map(categoria=><p key={`${categoria}1`} onClick={()=>filtradoCategoria(`${categoria}`)}>{categoria}</p>)}
                     </div>
                 </div>
                 <div className='containerProductsStore'>
@@ -108,7 +107,7 @@ const ProductStore = (props) => {
                             
                             <div className='containerCardMapping'>
                             <Link to={`/product/${product._id}`}>
-                                <CardClothing from  key={product.id} product={product} cart={cart} setCart={setCart} products ={product}/>
+                                <CardClothing from  key={product._id} product={product} cart={cart} setCart={setCart} products ={product}/>
                             </Link>
                             </div>
                             

@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 function Navbar(props) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-
+  console.log(props)
   return (
     <>
       <IconContext.Provider value={{ color: 'black' }}>
@@ -29,6 +29,9 @@ function Navbar(props) {
             </li>
             <li className='containerCartPurchaseSide'>
               <CartPurchase products={props.cart}/>
+            </li>
+            <li className='containerTotal'>
+              <h3>TOTAL: $</h3>
             </li>
             <li className='containerButtonCheckOut'>
             <button className='buttonCheckout'>Finalizar Compra</button>
