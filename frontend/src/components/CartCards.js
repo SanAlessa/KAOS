@@ -2,9 +2,8 @@ import { useState } from "react"
 import { connect } from 'react-redux'
 import purchaseAction from '../redux/actions/purchaseAction'
 
-const CartCards = ({product, incOne, substOne, deleteClothes, images, deleteTheProduct, reload, forceReload}) => {
-    const {id, name, description, price, stock, image, size} = product
-
+const CartCards = ({product, incOne, substOne, deleteClothes, images, deleteTheProduct, reload, forceReload }) => {
+    const {id, name, price, stock, image, size} = product
     const [cantidad, setCantidad] = useState(1)
 
     const deleteProduct = e => {

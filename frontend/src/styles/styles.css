@@ -241,6 +241,100 @@ div.containerCart h2{
 .containerQuantity p{
   font-size: 1vw;
 }
+
+.containerTotal{
+  background-color: #6CC8FC;
+  display: flex;
+  align-items: center;
+  height: 8%;
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+}
+.containerTotal h3{
+  font-size: 2vw;
+  margin: 0;
+  
+  font-style: normal;
+}
+.containerUserProfile{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 88.3vh;
+  padding: 3vw;
+}
+.containerUserProfileCentered{
+  display: flex;
+  width: 80%;
+  height: 100%;  
+  box-shadow: 0 0 20px black;
+}
+.containerUserInfo{
+  background-color: #9743db96;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 40%;
+  height: 100%;  
+  transition: linear all 500ms;
+}
+.containerUserInfo:hover {
+  background-color: #632aff6c;
+  transition: linear all 500ms;
+}
+.containerUserInfo h1{
+  font-size: 3vw;
+  margin-bottom: 1vw;
+}
+.containerUserInfo h2{
+  font-size: 1.75vw;
+  margin: 0;
+  margin-top: 1vw;
+}
+.containerUserInfo h3{
+  font-size: 1.1vw;
+  width: 90%;
+  color: rgba(125, 125, 125, 0.8);
+  border-top: 1px solid rgba(125, 125, 125, 0.8);
+}
+.containerUserInfo h4{
+  height: 10%;
+  color: #1a0752c0;
+  margin-top: 1vw;
+  font-size: 1.1vw;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 500ms ease
+}
+.containerUserInfo h4:hover{
+  font-size: 1.2vw;
+  font-weight: bold;
+  color:white;
+  transition: 500ms ease
+}
+.containerUserPurchase{
+  
+  padding: 3vw;
+  background-color: #bd9bd1ce;
+  width: 70%;
+  height: 100%;
+  transition: linear all 500ms;
+}
+.containerUserPurchase:hover{
+  background-color: #dbb8f0ce;
+  transition: linear all 500ms;
+}
+.containerTitleUserPurchase{
+  
+  display: flex;
+  justify-content: center;
+}
+.containerTitleUserPurchase h2{
+    font-size: 3vw;
+}
 /* ESTILOS MAURI */
 
 .cajaPrueba{

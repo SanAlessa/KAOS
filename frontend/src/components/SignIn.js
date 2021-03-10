@@ -63,13 +63,12 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
 
     if (nuevoUsuario.firstname === '' || nuevoUsuario.lastname === '' || nuevoUsuario.email === '' || nuevoUsuario.password === '') {
       Alert.warning('Todos los campos deben estar completos', 3000)
-    } else if (nuevoUsuario === nuevoUsuario) {
-      Alert.error("Tu email ya se encuentra registrado", 3000)
-
     } else {
       Alert.success('Tu cuenta fue creada con exito', 4000)
     }
-  }
+    
+    }
+  
   const responseGoogle = async response => {
     if (response.error) {
       Alert.error("Algo pasó , vuelva a intentarlo...", 4000)
@@ -86,10 +85,6 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
   }
 
   const responseGoogleReg = async (response) => {
-
-    if (response === response) {
-      Alert.error("Tu email ya se encuentra registrado", 3000)
-    } else {
       const respuesta = await registerUserGoogle({
         firstname: response.profileObj.name,
         lastname: response.profileObj.familyName,
@@ -101,7 +96,7 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
       } else {
         Alert.success('Tu cuenta fue creada con exito', 4000)
       }
-    }
+    
   }
   return (
     <>
