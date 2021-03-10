@@ -432,7 +432,7 @@ div.containerCart h2{
   height: 10%; */
 }
 .containerFiltro{
-  width: 20vw;
+  width: 15vw;
   /* background-color: #FF7FFF; */
   display: flex;
   flex-direction: column;
@@ -442,7 +442,7 @@ div.containerCart h2{
   margin-top: 1vh;
  /*  margin-bottom: 2vh; */
   padding-top: 1vh;
-  padding-left: 2vw;
+  /* padding-left: 2vw; */
   padding-right: 1vw;
   /* text-align: center; */
 }
