@@ -23,16 +23,16 @@ const Product = (props) => {
   const oneProduct = props.clothes.filter(product => product._id === url)
   const [product, setProduct] = useState({ id: '', name: oneProduct[0].name, image: oneProduct[0].stock[0].images[0], 
     price: oneProduct[0].price, description: oneProduct[0].description, color: oneProduct[0].stock[0].color, size: '', quantity: 1 })
-  const otros = [{
-    "foto": '../assets/camisas.png',
-    "descripcion": "CAMISAS"
-  }, {
-    "foto": "../assets/remeras.png",
-    "descripcion": "REMERAS"
-  }, {
-    "foto": '../assets/buzos.png',
-    "descripcion": "BUZOS"
-  }]
+  // const otros = [{
+  //   "foto": '../assets/camisas.png',
+  //   "descripcion": "CAMISAS"
+  // }, {
+  //   "foto": "../assets/remeras.png",
+  //   "descripcion": "REMERAS"
+  // }, {
+  //   "foto": '../assets/buzos.png',
+  //   "descripcion": "BUZOS"
+  // }]
 
   useEffect(() => {
     setImages(oneProduct[0].stock[0].images)
