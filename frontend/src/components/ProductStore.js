@@ -13,10 +13,12 @@ const ProductStore = (props) => {
     }
     })
     const [cart, setCart] = useState([])
+    
     const [filtro, setFiltro]=useState([])
     const [sexo,setSexo]=useState('')
     const [orden,setOrden]=useState('')
     const [verdad,setVerdad]=useState(false)
+    const [vista,setVista]=useState(false)
     
     useEffect(() => {
       window.scrollTo(0,0)
@@ -34,7 +36,7 @@ const ProductStore = (props) => {
     },[props.clothes])
     
     if (props.clothes.length === 0) {
-      return <Loader />
+      return <Loader/>
     }
 
     const filtradoSexo = (value)=>{
@@ -64,7 +66,7 @@ const ProductStore = (props) => {
         if(sexo ===''){
             setFiltro(props.clothes.filter(item=>item.type===value))
         }else if (sexo!=='' && orden === ''){
-            setFiltro(props.clothes.filter(item=>item.sex===sexo && item.type===value))
+            setFiltro(filtrito)
         }else if (sexo!=='' && orden === "Mayor"){
             setFiltro(filtrito.sort((a,b)=> b.price - a.price))
         }else if(sexo!=='' && orden === "Menor"){
@@ -88,7 +90,13 @@ const ProductStore = (props) => {
             <div className="boxProductStore">
                 <div className='containerFiltro'>
                     <div>
-                        <h2>Filtro</h2>
+                        <div className="firstContFiltro">
+                            <h2>Filtro</h2>
+                            <div className='boxIconsFiltro'>
+                                <p className='icono1' onClick={()=>setVista(true)}><i class="fas fa-th-list"></i></p>
+                                <p className='icono2' onClick={()=>setVista(false)}><i class="fas fa-th"></i></p>
+                            </div>
+                        </div>
                         <p onClick={()=>filtradoAll()}>Todos los productos</p>
                         <p onClick={()=>filtradoSexo("H")}>Hombres</p>
                         <p onClick={()=>filtradoSexo("M")}>Mujeres</p>
@@ -103,7 +111,7 @@ const ProductStore = (props) => {
                         {categorias.map(categoria=><p key={`${categoria}1`} onClick={()=>filtradoCategoria(`${categoria}`)}>{categoria}</p>)}
                     </div>
                 </div>
-                <div className='containerProductsStore'>
+                <div className={!vista ? 'containerProductsStore': 'containerProductsStore2'}>
                     {filtro.map(product => {
                         return (                            
                             <div className='containerCardMapping'>
