@@ -6,7 +6,6 @@ import { IoPersonCircleOutline } from 'react-icons/io5'
 import Cart from './Cart'
 import { useEffect } from 'react'
 import userAction from '../redux/actions/userAction'
-
 const Header = (props) => {
   useEffect(() => {
   }, [props.reload])
@@ -15,8 +14,8 @@ const Header = (props) => {
     if(props.loggedUser){
         var links = 
         <div className="linksHeader">
-            <Link  to = "/adminPanel">ADMIN</Link>
-            <div>Bienvenido {props.loggedUser.firstname}!</div>
+            {/* <Link  to = "/adminPanel">ADMIN</Link> */}
+            <div>Bienvenido {props.loggedUser.firstname.split(' ', 1)}!</div>
             <Link to = "/"  onClick={()=> props.disconnectUser()}>Cerrar Sesion</Link>
         </div> 
     }

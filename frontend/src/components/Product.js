@@ -44,7 +44,7 @@ const Product = (props) => {
     setColor(colorFilter)
     setImages(colorFilter[0].images)
     setVisible(true)
-    setProduct({ ...product, id:uuid(), image: colorFilter[0].images[0], color: value })
+    setProduct({ ...product, image: colorFilter[0].images[0], color: value })
   }
   const addToCart = () => {
     props.checkout(product)
@@ -53,6 +53,7 @@ const Product = (props) => {
 
   return (
     <>
+      <div style={{display: 'flex', flexDirection: 'column'}}>
       <div className="mainProduct">
         <div style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}>
           <div className="cajaPrueba">
@@ -72,33 +73,33 @@ const Product = (props) => {
               <div>
                 <p>TALLES</p>
                 <div style={{ display: "flex", justifyContent: 'flex-start' }}>
-                  {visible ? color.length > 0 && color[0].size.map(size => <div className="talles" onClick={() => setProduct({ ...product, size: size.size })}>{size.size}</div>)
-                    : oneProduct[0].stock[0].size.map(color => <div className="talles" onClick={() => setProduct({ ...product, size: color.size })}>{color.size}</div>)}
+                  {visible ? color.length > 0 && color[0].size.map(size => <div className="talles" onClick={() => setProduct({ ...product, id:uuid(), size: size.size })}>{size.size}</div>)
+                    : oneProduct[0].stock[0].size.map(color => <div className="talles" onClick={() => setProduct({ ...product, id:uuid(), size: color.size })}>{color.size}</div>)}
                 </div>
               </div>
             </div>
 
           </div>
         </div>
-      </div>
       <div className='botonComprar' onClick={addToCart} style={{ textAlign: "center" }}>Comprar</div>
       <div>
         <p>DESCRIPCIÓN:</p>
         <p>{oneProduct[0].description}</p>
+      </div>
       </div>
       <div className="mainProduct">
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <p>NEW SEASON IS HERE!</p>
         </div>
         <div className="cardsProducts">
-          {props.lastClothes.map(card => {
-            return (
-              // <Link className="clothCard" to={`/product/${card._id}`}>
-              <div className="clothCard" style={{ backgroundImage: `url(${card.stock[0].images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
-              </div>
-              // </Link>
-            )
-          })}
+                    {props.lastClothes.map(card => {
+                        return (
+                            <Link className="clothCardLink" to={`/product/${card._id}`}>
+                                <div className="clothCard" style={{ backgroundImage: `url(${card.stock[0].images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+                                </div>
+                            </Link>
+                        )
+                    })}
         </div>
         <div className="otros" style={{ height: '30%', width: '100%' }}>
           <div style={{ width: '33%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
@@ -124,6 +125,7 @@ const Product = (props) => {
         </div>
 
 
+      </div>
       </div>
       {/* <CartPurchase products={props.cart} reload={reload} /> */}
       <Footer></Footer>
