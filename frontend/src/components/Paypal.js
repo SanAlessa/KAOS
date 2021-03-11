@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react'
+import {connect} from 'react-redux'
+import purchaseAction from '../redux/actions/purchaseAction'
 
-const Paypal =({total})=>{
+const Paypal =({total, sendPurchase, loggedUser})=>{
   console.log(total.toFixed(2))
   const paypal = useRef()
   useEffect(()=>{
@@ -11,9 +13,9 @@ const Paypal =({total})=>{
           purchase_units: [{description: "Compra", amount: {value: total.toFixed(2), currency_code: "USD"}}],
         })},
         onApprove: (data, actions) => {
-          const order = actions.order.capture()
+          actions.order.capture()
           alert('Compra Finalizada')
-          console.log(order)
+          sendPurchase(loggedUser.token)
         },
         onError: (error)=>{
           alert('algo fallo')
@@ -26,4 +28,16 @@ const Paypal =({total})=>{
   )
 }
 
-export default Paypal
+const mapStateToProps =state => {
+  return {
+    loggedUser: state.userR.loggedUser,
+  }
+}
+
+
+const mapDispatchToProps = {
+  sendPurchase: purchaseAction.sendPurchase
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Paypal)

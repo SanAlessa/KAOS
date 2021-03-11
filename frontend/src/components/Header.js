@@ -24,7 +24,7 @@ const Header = (props) => {
         <div className="logoBanner">
             <Drawer />
             <Link to='/' style={{ display: 'flex', justifyContent: 'center', height: '90%' ,width:'50%'}}>
-                <img src={logo} className="logo"></img>
+                <img src={logo} className="logo" alt="logo"></img>
             </Link>
             <div>
             {links}

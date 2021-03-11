@@ -1,7 +1,8 @@
 const initState = {
   checkout: [],
   reload: false,
-  total: 0
+  total: 0,
+  newPurchase: []
 }
 
 const purchaseReducer = (state=initState, action) => {
@@ -21,6 +22,12 @@ const purchaseReducer = (state=initState, action) => {
       return {
         ...state,
         total: action.payload
+      }
+    case 'NEW_PURCHASE':
+      console.log(action.payload)
+      return {
+        ...state,
+        newPurchase: action.payload
       }
     default: 
       return state

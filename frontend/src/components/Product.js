@@ -2,17 +2,16 @@ import { useEffect, useState } from "react"
 import { connect } from 'react-redux'
 import purchaseAction from "../redux/actions/purchaseAction"
 import clothesActions from '../redux/actions/clothesActions'
-import CartPurchase from './CartPurchase'
 import Footer from './Footer'
 import '../styles/product.css'
-import fotoPrueba from '../assets/style.jpg'
+// import fotoPrueba from '../assets/style.jpg'
 import remeras from '../assets/remeras.png'
 import camisas from '../assets/camisas.png'
 import buzos from '../assets/buzos.png'
-import Loader from "./Loader"
+// import Loader from "./Loader"
 import { Link } from "react-router-dom"
 import uuid from 'react-uuid'
-import { Alert } from 'rsuite'
+// import { Alert } from 'rsuite'
 import 'rsuite/dist/styles/rsuite-default.css'
 
 
@@ -128,21 +127,21 @@ const Product = (props) => {
                     <div className="otros" style={{ height: '30%', width: '100%' }}>
                         <Link to={{ pathname: '/productStore', state: 'Camisas' }}>
                             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                                <img src={camisas} style={{ width: '40%', height: '90%' }}></img>
+                                <img src={camisas} style={{ width: '40%', height: '90%' }} alt="camisas"></img>
                                 <p style={{ width: '100%', textAlign: 'center' }}>CAMISAS</p>
                             </div>
                         </Link>
                         <Link to={{ pathname: '/productStore', state: 'Remeras' }}>
 
                             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                                <img src={remeras} style={{ width: '40%', height: '90%' }}></img>
+                                <img src={remeras} style={{ width: '40%', height: '90%' }} alt="remeras"></img>
                                 <p style={{ width: '100%', textAlign: 'center' }}>REMERAS</p>
                             </div >
                         </Link>
 
                         <Link to={{ pathname: '/productStore', state: 'Buzos' }}>
                             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                                <img src={buzos} style={{ width: '40%', height: '90%' }}></img>
+                                <img src={buzos} style={{ width: '40%', height: '90%' }} alt="buzos"></img>
                                 <p style={{ width: '100%', textAlign: 'center' }}>BUZOS</p>
                             </div>
                         </Link>

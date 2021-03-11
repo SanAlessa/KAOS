@@ -1,8 +1,15 @@
+import { useEffect } from 'react'
 import { connect } from 'react-redux'
+import purchaseAction from '../redux/actions/purchaseAction'
 import CartCards from './CartCards'
 
-const UserProfile = ({loggedUser}) => {
-    const { firstname, lastname, email } = loggedUser
+const UserProfile = ({loggedUser, getPurchases, newPurchase}) => {
+    const { firstname, lastname, email, id } = loggedUser
+    
+    useEffect(()=>{
+        getPurchases(id)
+    },[])
+
     return(
         <div className='containerUserProfile'>
             <div className='containerUserProfileCentered'>
@@ -18,7 +25,11 @@ const UserProfile = ({loggedUser}) => {
                 </div>
                 <div className='containerUserPurchase'>
                     <div className='containerTitleUserPurchase'>
-                        <h2>Tus compras en KAOS</h2>
+                        {newPurchase.length > 0 ? <div>
+                            <h2>Tus compras en KAOS</h2>
+                            {newPurchase.map(purchase=> <h1>hola</h1>)}
+                            </div>
+                            : <h2>Aun no realizaste compras!</h2>}
                     </div>
                     <div className='userPurchase'>
                     </div>
@@ -30,7 +41,13 @@ const UserProfile = ({loggedUser}) => {
 
 const mapStateToProps = state => {
     return{
-        loggedUser: state.userR.loggedUser
+        loggedUser: state.userR.loggedUser,
+        newPurchase: state.purchaseR.newPurchase
     }
 }
-export default connect(mapStateToProps)(UserProfile)
+
+const mapDispatchToProps={
+    getPurchases: purchaseAction.getPurchases
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)

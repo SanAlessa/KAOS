@@ -10,7 +10,7 @@ const Footer = () => {
 
                 <div>
                     <NavLink to="/" className="brand">
-                        <img src={logo} style={{width:'50%'}}></img>
+                        <img src={logo} style={{width:'50%'}} alt="Logo"></img>
                         </NavLink>
                 </div>
                 <div className="container__items__footer">

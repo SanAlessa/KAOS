@@ -7,23 +7,24 @@ import Loader from './Loader'
 
 const ProductStore = (props) => {
   const categorias=[]
-  props.clothes.map(cloth=>{
+  props.clothes.map(cloth => {
     if(!categorias.includes(cloth.type)){
       categorias.push(cloth.type)
     }
-    })
+  })
     const [cart, setCart] = useState([])
     const [filtro, setFiltro]=useState([])
     const [sexo,setSexo]=useState('')
     const [orden,setOrden]=useState('')
     const [verdad,setVerdad]=useState(false)
     const [vista,setVista]=useState(false)
+    const [location, setLocation]=useState('')
     
     useEffect(() => {
       window.scrollTo(0,0)
       fetch()
       return()=>{
-          props.location.state= undefined
+        console.log('se fue')
       }
     }, [])
     
@@ -34,7 +35,9 @@ const ProductStore = (props) => {
     useEffect(()=>{
         setFiltro(props.clothes)
         console.log(props.location.state)
-        if(props.location.state) filtradoCategoria(props.location.state)
+        if(props.location.state){
+            filtradoCategoria(props.location.state)
+        }
 
     },[props.clothes])
     
@@ -64,7 +67,7 @@ const ProductStore = (props) => {
         }
         setSexo('')
     }
-    const filtradoCategoria=(value)=>{
+    function filtradoCategoria(value){
         const filtrito = props.clothes.filter(item=>item.sex===sexo && item.type===value)
         if(sexo ===''){
             setFiltro(props.clothes.filter(item=>item.type===value))

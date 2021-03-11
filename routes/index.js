@@ -44,7 +44,10 @@ router.route('/clothes/modifyClothes')
 .post(clothesController.modifyClothes)
 
 router.route('/purchase')
-.post(purchaseController.newPurchase)
+.post(passport.authenticate('jwt', {session: false}), purchaseController.newPurchase)
+
+router.route('/getPurchases')
+.post(purchaseController.getPurchases)
 
 
 module.exports = router
