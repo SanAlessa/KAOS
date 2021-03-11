@@ -46,7 +46,7 @@ const userController = {
     logFromLS: async (req, res) => {
       console.log(req.user)
         res.json({success: true, response: 
-            {token: req.body.token, firstname: req.user.firstname, lastname: req.user.lastname, email: req.user.email, id:req.user._id, rol: 'ROL'}})
+            {token: req.body.token, firstname: req.user.firstname, lastname: req.user.lastname, email: req.user.email, id:req.user._id, rol: req.user.rol}})
     },
 
     addAdmin: async (req, res)=>{
