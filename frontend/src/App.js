@@ -14,6 +14,7 @@ import purchaseAction from './redux/actions/purchaseAction'
 import './styles/styles.css'
 import UserProfile from './components/UserProfile'
 import SendEmail from './components/SendEmail'
+import Success from './components/Success'
 import ForgotPassword from './components/ForgotPassword'
 
 function App({loggedUser,logFromLS, getCart}) {
@@ -48,7 +49,7 @@ if(loggedUser){
     
     <Route exact path='/buy' component={Buy} />
     <Route exact path='/payment' component={Payment}/>
-
+    <Route exact path= '/success' component={Success}/>
     <Route path='/send-email' component={SendEmail}/>
     <Route path='/reset-password/:email' component={ForgotPassword}/>
     <Route path="/productStore" component={ProductStore}/>
