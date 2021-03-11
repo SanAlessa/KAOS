@@ -14,39 +14,69 @@ import uuid from 'react-uuid'
 // import { Alert } from 'rsuite'
 import 'rsuite/dist/styles/rsuite-default.css'
 
-
 const Product = (props) => {
     const [images, setImages] = useState([])
+    const [prueba,setPrueba]=useState([])
+    const [selected, setSelected]= useState ()
     const [color, setColor] = useState([])
     const [visible, setVisible] = useState(false)
     const [id, setId] = useState('')
     const url = props.match.params.id
-    const oneProduct = props.clothes.filter(product => product._id === url)
-    const [product, setProduct] = useState({
-    id: '', name: oneProduct[0].name, image: oneProduct[0].stock[0].images[0],
-    price: oneProduct[0].price, description: oneProduct[0].description, 
-    color: oneProduct[0].stock[0].color, size: '', quantity: 1, stock: 0
-    })
-    var colorSelected = oneProduct[0].stock.find(stock=> stock.color === product.color)
-    var sizeSelected = colorSelected.size.find(size=> size.size === product.size && size)
-    if(sizeSelected) var realStock = sizeSelected.quantity
+    const oneProduct = props.oneCloth.filter(product => product._id === url)
+    const [product, setProduct] = useState({})
+
+  
+    console.log(selected)
+    if(selected) var realStock = selected.quantity
+    useEffect(()=>{
+        fetch()
+        /* setPrueba(props.oneCloth) */
+    }, [])
+    const fetch = async () => {
+        await props.getOne(url)
+        await props.getClothes()
+      }
 
     useEffect(() => {
         setProduct({...product, stock:realStock})
     }, [realStock])
 
     useEffect(() => {
-        setProduct({
-            id: '', name: oneProduct[0].name, image: oneProduct[0].stock[0].images[0],
-            price: oneProduct[0].price, description: oneProduct[0].description, 
-            color: oneProduct[0].stock[0].color, size: '', quantity: 1, stock: 0
-        })
+        if(props.oneCloth.length>0){
+            setProduct({
+                id: '', name: props.oneCloth[0].name, image: props.oneCloth[0].stock[0].images[0],
+                price: props.oneCloth[0].price, description: props.oneCloth[0].description, 
+                color: props.oneCloth[0].stock[0].color, size: '', quantity: 1, stock: 0
+            })
+        }
         window.scrollTo(0,0)
-        setImages(oneProduct[0].stock[0].images)
+        
     }, [url])
 
+    useEffect(()=>{
+        if(product.name){
+            setPrueba(props.oneCloth[0].stock.filter(stock=> stock.color === product.color))
+            console.log(prueba)
+        }
+        if (prueba.length > 0){
+            setSelected(prueba[0].size.find(size=> size.size === product.size && size))
+        }
+    },[product])
+    
+    useEffect(()=>{
+        if(props.oneCloth.length >0){
+            setProduct({
+                id: '', name: props.oneCloth[0].name, image: props.oneCloth[0].stock[0].images[0],
+                price: props.oneCloth[0].price, description: props.oneCloth[0].description,
+                color: props.oneCloth[0].stock[0].color, size: '', quantity: 1, stock: 0 
+            })
+            setImages(props.oneCloth[0].stock[0].images)
+            
+        }
+    },[props.oneCloth])
+
     const Click = (value) => {
-        var colorFilter = oneProduct[0].stock.filter(color => color.color === value)
+        var colorFilter = props.oneCloth[0].stock.filter(color => color.color === value)
         setColor(colorFilter)
         setImages(colorFilter[0].images)
         setVisible(true)
@@ -67,13 +97,14 @@ const Product = (props) => {
 
     return (
         <>
+            {oneProduct.length === 0 ? <Loader/> : 
+            <>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-                {/* <div className="mainProduct" style={{ height: '100vh'}}>
-                    <div className="mainProduct1" style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}> */}
+                
                 <div className="mainProduct" style={{ height: '100vh' }}>
                     <div style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}>
                         <div className="cajaPrueba">
-                            {images.length > 0 && images.length === 1 ? <div className='unaFotito' style={{ backgroundImage: `url(${images[0]})` }}>{/* {color} */}</div> : images.map((color, index) => <div className='pruebaFotitos' style={{ backgroundImage: `url(${color})` }}>{/* {color} */}</div>)}
+                            {images.length > 0 && images.length === 1 ? <div className='unaFotito' style={{ backgroundImage: `url(${images[0]})` }}>{/* {color} */}</div> : images.map((color, index) => <div className='pruebaFotitos' style={{ backgroundImage: `url(${color})` }}></div>)}
                         </div>
                         <div className="detallesProduct">
                             <div className="precioDet">
@@ -82,7 +113,7 @@ const Product = (props) => {
                                 <div className="colores">
                                     <p className="titulos">COLORES</p>
                                     <div style={{ display: "flex", justifyContent: "flex-start", width: '25vw', height: '5vh' }}>
-                                        {oneProduct[0].stock.map(color => <div className="color" style={{ backgroundColor: color.color}} onClick={() => Click(color.color)}>{/* {color.color} */}</div>)}
+                                        {oneProduct[0].stock.map(color => <div className="color" style={{ backgroundColor: color.color}} onClick={() => Click(color.color)}></div>)}
 
                                     </div>
                                 </div>
@@ -93,7 +124,7 @@ const Product = (props) => {
                                             setId(e.target.id)
                                             setProduct({ ...product, id: uuid(), size: size.size })
                                         }}>{size.size}</div>)
-                                            : oneProduct[0].stock[0].size.map(color => <div className="talles" id={color.size} style={{backgroundColor: id=== color.size&& "#6048a3"}} onClick={(e) =>{
+                                            : props.oneCloth[0].stock[0].size.map(color => <div className="talles" id={color.size} style={{backgroundColor: id=== color.size&& "#6048a3"}} onClick={(e) =>{
                                                 setId(e.target.id)
                                                 setProduct({ ...product, id: uuid(), size: color.size })
                                             } }>{color.size}</div>)}
@@ -149,8 +180,9 @@ const Product = (props) => {
                     </div>
                 </div>
             </div>
-            {/* <CartPurchase products={props.cart} reload={reload} /> */}
             <Footer></Footer>
+            </>
+            }
         </>
     )
 }
@@ -160,14 +192,16 @@ const mapStateToProps = state => {
         cart: state.purchaseR.checkout,
         clothes: state.clothesR.clothes,
         reload: state.purchaseR.reload,
-        lastClothes: state.clothesR.lastClothes
+        lastClothes: state.clothesR.lastClothes,
+        oneCloth:state.clothesR.oneCloth
     }
 }
 
 const mapDispatchToProps = {
     checkout: purchaseAction.checkout,
     forceReload: purchaseAction.forceReload,
-    getClothes: clothesActions.getClothes
+    getClothes: clothesActions.getClothes,
+    getOne: clothesActions.getOne
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product)
