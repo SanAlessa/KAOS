@@ -31,6 +31,9 @@ router.route('/clothes/addClothes')
 router.route('/clothes/getClothes')
 .get(clothesController.getClothes)
 
+router.route('/clothes/getOne/:id')
+.get(clothesController.getOne)
+
 router.route('/clothes/addStock')
 .post(clothesController.addToStock)
 
