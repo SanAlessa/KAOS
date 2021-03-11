@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import userAction from '../redux/actions/userAction'
+import Footer from './Footer'
 /* import Swal from 'sweetalert2' */
 
 const ForgotPassword = (props) => {
@@ -58,6 +59,7 @@ const ForgotPassword = (props) => {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </>
     )
 }
