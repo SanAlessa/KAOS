@@ -96,6 +96,12 @@ html * {
   flex-wrap: wrap;
   width: 80vw;
 }
+
+.containerCarousel {
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 1vw;
+}
 .containerPurchase{
   width: 100%;
   height: 90%;
@@ -205,6 +211,7 @@ div.containerCart h{
 }
 .firstImage:hover{
   opacity: 0;
+  transition: all linear 500ms
 }
 .secondImage {
   top: -101.6%;
@@ -213,6 +220,7 @@ div.containerCart h{
 }
 .secondImage:hover{
   opacity: 1;
+  transition: all linear 500ms
 }
 
 /* Fin Test Hover */
@@ -615,9 +623,29 @@ justify-content: space-evenly;
 }
 
  /* ---------------------------RESPONSIVE-------------------------------------------------------------*/
- @media(max-width: 700px){
+ /* @media(max-width: 700px){ */
+ @media(max-width: 1400px){
+  .containerCarousel{
+    height: 70vh;
+  }
+}
+ @media(max-width: 1200px){
+  .containerCarousel{
+    height: 70vh;
+  }
+}
+ @media(max-width: 1000px){
+  .containerCarousel{
+    height: 40vh;
+  }
+}
+
+ @media(max-width: 800px){
   .containerProductsStore {
     width: 50vw;
+  }
+  .containerCarousel{
+    height: 40vh;
   }
   
   .containerCardClothPic{
@@ -753,4 +781,16 @@ justify-content: space-evenly;
   /* margin-right: 8vw; */
 }
 
+}
+
+@media(max-width: 600px){
+  .containerCarousel{
+    height: 25vh;
+  }
+}
+
+@media(max-width: 400px){
+  .containerCarousel{
+    height: 20vh;
+  }
 }

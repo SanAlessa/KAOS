@@ -33,7 +33,6 @@ const Product = (props) => {
     if(sizeSelected) var realStock = sizeSelected.quantity
 
     useEffect(() => {
-<<<<<<< HEAD
         setProduct({...product, stock:realStock})
     }, [realStock])
 
@@ -44,9 +43,6 @@ const Product = (props) => {
             color: oneProduct[0].stock[0].color, size: '', quantity: 1, stock: 0
         })
         window.scrollTo(0,0)
-=======
-        window.scrollTo(0, 0)
->>>>>>> b67e0b2dfb30eec4533d6d84778b5a64cdebdd61
         setImages(oneProduct[0].stock[0].images)
     }, [url])
 
