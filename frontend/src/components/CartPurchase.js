@@ -3,7 +3,6 @@ import CartCards from './CartCards'
 import {BiPurchaseTagAlt} from 'react-icons/bi'
 
 const CartPurchase = ({products, deleteProduct, checkout}) => {
-    console.log(checkout)
     return(
         <>
             <div className='containerCart'>

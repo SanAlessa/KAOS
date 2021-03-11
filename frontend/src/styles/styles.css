@@ -96,6 +96,12 @@ html * {
   flex-wrap: wrap;
   width: 80vw;
 }
+
+.containerCarousel {
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 1vw;
+}
 .containerPurchase{
   width: 100%;
   height: 90%;
@@ -205,6 +211,7 @@ div.containerCart h{
 }
 .firstImage:hover{
   opacity: 0;
+  transition: all linear 500ms
 }
 .secondImage {
   top: -101.6%;
@@ -213,6 +220,7 @@ div.containerCart h{
 }
 .secondImage:hover{
   opacity: 1;
+  transition: all linear 500ms
 }
 
 /* Fin Test Hover */
@@ -258,9 +266,10 @@ div.containerCart h{
 }
 
 .containerTotal{
-  background-color: #6CC8FC;
+  background-color: #ff7fff6b;
   display: flex;
   align-items: center;
+  text-align: center;
   height: 8%;
   padding-left: 1.5vw;
   padding-right: 1.5vw;
@@ -599,24 +608,44 @@ justify-content: space-evenly;
   margin-top: 0.5vw;
   font-size: 1.5  vw;
   padding: 0.5vw;
-  /* background-color: rgb(80, 145, 62); */
-  border: 1px solid rgb(80, 145, 62);
+  /* background-color: #6048a3; */
+  border: 1px solid #6048a3;
   width: 65%;
-  color:  rgb(80, 145, 62);
+  color:  #6048a3;
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px;
   transition: ease 0.3s;
 }
 .buttonCheckout:hover{
-  box-shadow: inset 265px 0 0 0 rgb(80, 145, 62);
+  box-shadow: inset 265px 0 0 0 #6048a3;
   transform: scale(1.1);
   color: whitesmoke;
 }
 
  /* ---------------------------RESPONSIVE-------------------------------------------------------------*/
- @media(max-width: 700px){
+ /* @media(max-width: 700px){ */
+ @media(max-width: 1400px){
+  .containerCarousel{
+    height: 70vh;
+  }
+}
+ @media(max-width: 1200px){
+  .containerCarousel{
+    height: 70vh;
+  }
+}
+ @media(max-width: 1000px){
+  .containerCarousel{
+    height: 40vh;
+  }
+}
+
+ @media(max-width: 800px){
   .containerProductsStore {
     width: 50vw;
+  }
+  .containerCarousel{
+    height: 40vh;
   }
   
   .containerCardClothPic{
@@ -770,4 +799,16 @@ justify-content: space-evenly;
   align-items: center!important;
 }
 
+}
+
+@media(max-width: 600px){
+  .containerCarousel{
+    height: 25vh;
+  }
+}
+
+@media(max-width: 400px){
+  .containerCarousel{
+    height: 20vh;
+  }
 }

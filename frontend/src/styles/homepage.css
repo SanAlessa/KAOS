@@ -4,7 +4,6 @@
     align-items: flex-start;
     background-color: palevioletred;
     width: 100%;
-    height: 90%;
 }
 
 .logoBanner {
@@ -168,16 +167,19 @@ border-radius: 1vh;
 .linksHeader div{
     margin-right: 2vw;
 }
-
+/* CARRUSEL */
+.divCarru {
+    height: 100%;
+}
 
   /* ---------------------------RESPONSIVE-------------------------------------------------------------*/
   @media(max-width: 700px){
     .banner {
         display: none;
         }   
-    .carrusel{
+    /* .carrusel{
         margin-bottom:-70vh;
-    }
+    } */
     .motto {
         width: 60vw;
         height: 10vh;

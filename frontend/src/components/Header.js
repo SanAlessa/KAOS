@@ -11,7 +11,6 @@ import {Dropdown}  from 'react-bootstrap'
 const Header = (props) => {
   useEffect(() => {
   }, [props.reload])  
-
     if(props.loggedUser){
         var links = 
         <div className="linksHeader">
@@ -35,17 +34,18 @@ const Header = (props) => {
                   {/* </Link> */}
                 <Dropdown >
                   <Dropdown.Toggle style={{backgroundColor: 'transparent', color: 'black', border: 'none'}} variant="success" id="dropdown-basic">
-                  <IoPersonCircleOutline className='menu-bars2' style={{ fontSize: '2.2rem', color: 'black' }} />
-
-
+                  <IoPersonCircleOutline style={{ fontSize: '2.2rem', color: 'black' }} />
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    <Dropdown.Item href="#/action-1">Home</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Shop</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Sign In/Sign Up</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-                <Cart cart={props.cart} />
+                <div style={{display: 'flex', marginRight: '1vw'}}>
+                  <Cart cart={props.cart} />
+                  <h5>{props.cart.length}</h5>
+                </div>
             </div>
 
         </div>

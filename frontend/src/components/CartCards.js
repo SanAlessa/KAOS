@@ -1,23 +1,25 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { connect } from 'react-redux'
 import purchaseAction from '../redux/actions/purchaseAction'
 
-const CartCards = ({product, incOne, substOne, deleteClothes, images, deleteTheProduct, reload, forceReload }) => {
-    const {id, name, price, stock, image, size} = product
-    const [cantidad, setCantidad] = useState(1)
+const CartCards = ({product, incOne, substOne, deleteClothes, reload, forceReload}) => {
+    var {id, name, price, stock, image, size, quantity} = product
+    const [cantidad, setCantidad] = useState(quantity)
+    useEffect(()=>{
+    },[reload])
 
     const deleteProduct = e => {
         deleteClothes(product)
     }
 
     const subQuantity = () => {
-        setCantidad((cantidad-1) < 1 ? (alert('No se pueden quitar más productos'), cantidad ): (cantidad-1))
-        substOne(product)
+        setCantidad((cantidad-1) < 1 ? (deleteProduct()) : (substOne(product), cantidad-1))
+        forceReload(!reload)
     }
 
     const incQuantity = () => {
-        setCantidad((cantidad+1) > stock ? (alert('No hay más productos disponibles'), cantidad) : (cantidad+1))
-        incOne(product)
+        setCantidad((cantidad+1) > stock ? (alert('No hay más productos disponibles'), cantidad) : (incOne(product), cantidad+1))
+        forceReload(!reload)
     }
 
     return(
@@ -27,10 +29,10 @@ const CartCards = ({product, incOne, substOne, deleteClothes, images, deleteTheP
                 <div className='containerDataClothing'>
                     <div className='containerTitle'>{name}</div>
                     <div className='containerSize'>Talle: {size}</div>
-                    <div className='containerPrice'>{`$ ${price*cantidad}`}</div>
+                    <div className='containerPrice'>{`$ ${price*quantity}`}</div>
                     <div className='containerQuantity'>
                         <div className='subQuantity' onClick ={subQuantity}>-</div>
-                        <p className='quantity'>Cantidad: {cantidad}</p>
+                        <p className='quantity'>Cantidad: {quantity}</p>
                         <div className='incQuantity' onClick ={incQuantity}>+</div>
                     </div>
                 </div>

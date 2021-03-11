@@ -23,8 +23,7 @@ export default class SimpleSlider extends Component {
     };
 
     return (
-      <>
-        <div>
+        <div className='containerCarousel'>
           <Slider {...settings}>
             {fotos.map(foto => {
               const fotito = require(`../assets/${foto.url}`)
@@ -34,16 +33,12 @@ export default class SimpleSlider extends Component {
                 </div>
               )
             })}
-
           </Slider>
           <div className="banner">
             <ScrollBanner />
           </div>
 
         </div>
-
-
-      </>
     )
   }
 }

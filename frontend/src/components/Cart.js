@@ -8,11 +8,15 @@ import '../styles/Navbar.css';
 import { IconContext } from 'react-icons';
 import CartPurchase from './CartPurchase';
 import { connect } from 'react-redux';
+import purchaseAction from '../redux/actions/purchaseAction';
 
 function Navbar(props) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-  console.log(props)
+  if(props.cart.length > 0){
+    var prices = props.cart.map(price=> price.price*price.quantity)
+    var totalPrice = prices.reduce((a, b)=> a + b)
+  }
   return (
     <>
       <IconContext.Provider value={{ color: 'black' }}>
@@ -26,16 +30,18 @@ function Navbar(props) {
             <li className='navbar-toggle'>
             <AiIcons.AiOutlineClose onClick={showSidebar} style={{ marginRight: '2vw', fontSize: '1.5rem', cursor: 'pointer' }} className='tituloCarrito' />
            </li>
-            <h6 className='containerCart' style={{ margin: '0' }}></h6>
-
             <li className='containerCartPurchaseSide'>
               <CartPurchase products={props.cart}/>
             </li>
             <li className='containerTotal'>
+<<<<<<< HEAD
               <h3 className='titulo4'>TOTAL: $</h3>
+=======
+              <h3>TOTAL: $ {totalPrice && totalPrice.toFixed(3)}</h3>
+>>>>>>> 48dd24934326ac0a432c4daa84131c0758fb0bbf
             </li>
             <li className='containerButtonCheckOut'>
-            <button className='buttonCheckout'>Finalizar Compra</button>
+            <Link to="/buy"><button className='buttonCheckout' onClick={()=>props.addTotal(totalPrice)}>Finalizar Compra</button></Link>
             </li>
           </ul>
         </nav>
@@ -51,4 +57,8 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Navbar);
+const mapDispatchToProps={
+  addTotal: purchaseAction.addTotal
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
