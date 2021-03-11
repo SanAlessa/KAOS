@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import * as GrIcons from 'react-icons/gr'
-
-import '../styles/Navbar.css';
 import { IconContext } from 'react-icons';
 import CartPurchase from './CartPurchase';
 import { connect } from 'react-redux';
 import purchaseAction from '../redux/actions/purchaseAction';
+import {BiPurchaseTagAlt} from 'react-icons/bi'
+import '../styles/Navbar.css';
+
 
 function Navbar(props) {
   const [sidebar, setSidebar] = useState(false);
@@ -27,6 +28,7 @@ function Navbar(props) {
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items'>
             <li className='navbar-toggle'>
+            <h6 className="titulo3"><BiPurchaseTagAlt/> TU COMPRA</h6>
             <AiIcons.AiOutlineClose onClick={showSidebar} style={{ marginRight: '2vw', fontSize: '1.5rem', cursor: 'pointer' }} className='tituloCarrito' />
            </li>
             <li className='containerCartPurchaseSide'>

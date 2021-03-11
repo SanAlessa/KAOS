@@ -94,6 +94,10 @@
     background-color: white;
   }
 .links{
-   padding:  1vw;
-   color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 2vw;
+  padding:  1vw;
+  color: black;
 }

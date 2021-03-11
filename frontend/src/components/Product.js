@@ -8,10 +8,10 @@ import '../styles/product.css'
 import remeras from '../assets/remeras.png'
 import camisas from '../assets/camisas.png'
 import buzos from '../assets/buzos.png'
-// import Loader from "./Loader"
+import Loader from "./Loader"
 import { Link } from "react-router-dom"
 import uuid from 'react-uuid'
-// import { Alert } from 'rsuite'
+import { Alert } from 'rsuite'
 import 'rsuite/dist/styles/rsuite-default.css'
 
 const Product = (props) => {
@@ -25,12 +25,9 @@ const Product = (props) => {
     const oneProduct = props.oneCloth.filter(product => product._id === url)
     const [product, setProduct] = useState({})
 
-  
-    console.log(selected)
     if(selected) var realStock = selected.quantity
     useEffect(()=>{
         fetch()
-        /* setPrueba(props.oneCloth) */
     }, [])
     const fetch = async () => {
         await props.getOne(url)

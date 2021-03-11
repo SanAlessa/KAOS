@@ -16,38 +16,29 @@ const Header = (props) => {
 
         var links = 
         <div className="linksHeader">
-           <div>
-            
+          <Link to="/userProfile">
+          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-around', width: '6vw'}}>
+          <IoPersonCircleOutline style={{ fontSize: '2.2rem', color: 'black'}} />                                      
+            <h6 style={{margin: 0}}className="saludo">{props.loggedUser.firstname.split(' ', 1)}</h6>
           </div>
-          <div>
-            <h6 className="saludo">{props.loggedUser.firstname.split(' ', 1)}</h6>
-            <NavLink  to = "/" className="saludo1"  onClick={()=> props.disconnectUser(Alert.info('Hasta la proxima',2000)) }>EXIT</NavLink>
-          </div>
+          </Link>
          
         </div> 
     }
       return (
         <div className="logoBanner">
-            {/* <Drawer /> */}
-            <Link to='/' style={{ display: 'flex', justifyContent: 'center', height: '90%' ,width:'50%'}}>
+            <div style={{ display: 'flex', height: '90%' ,width:'50%', marginLeft: '2vw'}}>
+            <Link to='/'>
                 <img src={logo} className="logo" alt="logo"></img>
             </Link>
+            </div>
             <div className="links">
                 <Link  className="links"to ="/">HOME</Link>
                 <Link className="links" to ="/productStore">SHOP</Link>
                 <NavLink className="links" to ="/signIn">SIGN IN/SIGN UP</NavLink>
-                
-            </div>
-            <div className="logout">
                 {links}
-             </div>
-            <div className="iconsHeader">
-                <IoPersonCircleOutline style={{ fontSize: '2.2rem', color: 'black' }} />
-                                         
-                <div style={{display: 'flex', marginRight: '1vw'}}>
-                    <Cart cart={props.cart} />
-                    <h5>{props.cart.length}</h5>
-                </div>
+                <Cart cart={props.cart} />
+                <h5>{props.cart.length}</h5>
             </div>
         </div>
     )
