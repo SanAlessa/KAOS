@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { IoAlertSharp } from 'react-icons/io5'
 import { Alert } from 'rsuite'
 import { API } from '../../API'
 
@@ -69,6 +70,27 @@ const userAction = {
       }
     }
   },
+  resetPassword: (email)=> {
+    return async (dispatch) => {
+        try{
+            const response = await axios.post(`http://localhost:4000/api/user/reset-password`, {email})
+            dispatch({type: 'RESET_PASSWORD'})
+            console.log(response)
+        }catch(error){
+            alert("error padre")
+        }
+    }
+}, 
+newPassword: (email, password) => {
+  return async(dispatch) => {
+      try{
+          const response = await axios.put(`http://localhost:4000/api/user/reset-password`, {email, password})
+          dispatch({type: 'CHANGE_PASSWORD'})
+      }catch(error){
+          alert("error en el coso")
+      }
+  }
+},
   disconnectUser: () => {
     return (dispatch, getState) => {
       dispatch({ type: 'DISCONNECT_USER' })

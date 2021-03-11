@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {Link} from 'react-router-dom'
 import { Alert } from 'rsuite'
 import GoogleLogin from 'react-google-login'
 import { AiOutlineEye } from "react-icons/ai"
@@ -125,7 +126,7 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
                 className='btngoogle'
               />
             </div>
-
+            <Link to='/send-email'><p>Rec Pass</p></Link>
           </div>
           <div className="signUp">
             <h2>NO TENÉS CUENTA? REGISTRATE!</h2>
