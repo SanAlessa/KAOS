@@ -13,7 +13,6 @@ const ProductStore = (props) => {
     }
     })
     const [cart, setCart] = useState([])
-    
     const [filtro, setFiltro]=useState([])
     const [sexo,setSexo]=useState('')
     const [orden,setOrden]=useState('')
@@ -23,16 +22,20 @@ const ProductStore = (props) => {
     useEffect(() => {
       window.scrollTo(0,0)
       fetch()
+      return()=>{
+          props.location.state= undefined
+      }
     }, [])
     
     const fetch = async () => {
       await props.getClothes()
     }
-    console.log(props.location)
+
     useEffect(()=>{
         setFiltro(props.clothes)
-        props.location.state && filtradoCategoria(props.location.state)
-        console.log(props.location)
+        console.log(props.location.state)
+        if(props.location.state) filtradoCategoria(props.location.state)
+
     },[props.clothes])
     
     if (props.clothes.length === 0) {
@@ -91,24 +94,24 @@ const ProductStore = (props) => {
                 <div className='containerFiltro'>
                     <div>
                         <div className="firstContFiltro">
-                            <h2>Filtro</h2>
+                            <h2 className="titulos2">Filtro</h2>
                             <div className='boxIconsFiltro'>
                                 <p className='icono1' onClick={()=>setVista(true)}><i class="fas fa-th-list"></i></p>
                                 <p className='icono2' onClick={()=>setVista(false)}><i class="fas fa-th"></i></p>
                             </div>
                         </div>
-                        <p onClick={()=>filtradoAll()}>Todos los productos</p>
-                        <p onClick={()=>filtradoSexo("H")}>Hombres</p>
-                        <p onClick={()=>filtradoSexo("M")}>Mujeres</p>
+                        <p className="titulos1" onClick={()=>filtradoAll()}>Todos los productos</p>
+                        <p className="titulos1" onClick={()=>filtradoSexo("H")}>Hombres</p>
+                        <p className="titulos1" onClick={()=>filtradoSexo("M")}>Mujeres</p>
                     </div>
                     <div>
-                        <h2>Precio</h2>
-                        <p onClick={()=>sortFilter("Mayor")}>Mayor precio</p>
-                        <p onClick={()=>sortFilter("Menor")}>Menor precio</p>
+                        <h2 className="titulos2">Precio</h2>
+                        <p className="titulos1" onClick={()=>sortFilter("Mayor")}>Mayor precio</p>
+                        <p className="titulos1" onClick={()=>sortFilter("Menor")}>Menor precio</p>
                     </div>
                     <div>
-                        <h2>Categoria</h2>
-                        {categorias.map(categoria=><p key={`${categoria}1`} onClick={()=>filtradoCategoria(`${categoria}`)}>{categoria}</p>)}
+                        <h2 className="titulos2">Categoria</h2>
+                        {categorias.map(categoria=><p className="titulos1" key={`${categoria}1`} onClick={()=>filtradoCategoria(`${categoria}`)}>{categoria}</p>)}
                     </div>
                 </div>
                 <div className={!vista ? 'containerProductsStore': 'containerProductsStore2'}>

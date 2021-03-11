@@ -11,13 +11,12 @@ import {Dropdown}  from 'react-bootstrap'
 const Header = (props) => {
   useEffect(() => {
   }, [props.reload])  
-
     if(props.loggedUser){
         var links = 
         <div className="linksHeader">
             {/* <Link  to = "/adminPanel">ADMIN</Link> */}
-            <div>Bienvenido {props.loggedUser.firstname.split(' ', 1)}!</div>
-            <Link to = "/"  onClick={()=> props.disconnectUser()}>Cerrar Sesion</Link>
+            <div className="saludo"> Bienvenido {props.loggedUser.firstname.split(' ', 1)}!</div>
+            <Link to = "/" className="saludo1"  onClick={()=> props.disconnectUser()}>Cerrar Sesion</Link>
         </div> 
     }
   
@@ -36,16 +35,17 @@ const Header = (props) => {
                 <Dropdown >
                   <Dropdown.Toggle style={{backgroundColor: 'transparent', color: 'black', border: 'none'}} variant="success" id="dropdown-basic">
                   <IoPersonCircleOutline style={{ fontSize: '2.2rem', color: 'black' }} />
-
-
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    <Dropdown.Item href="#/action-1">Home</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Shop</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Sign In/Sign Up</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-                <Cart cart={props.cart} />
+                <div style={{display: 'flex', marginRight: '1vw'}}>
+                  <Cart cart={props.cart} />
+                  <h5>{props.cart.length}</h5>
+                </div>
             </div>
 
         </div>

@@ -28,6 +28,7 @@
     right: 0;
     transition: 350ms;
     z-index: 2;
+    background-color: white;
   }
   
   .nav-text {
@@ -90,4 +91,5 @@
     height: 80%;
     flex-direction: column;
     align-items: center;
+    background-color: white;
   }
