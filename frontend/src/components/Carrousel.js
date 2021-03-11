@@ -3,7 +3,6 @@ import Slider from "react-slick"
 import ScrollBanner from './ScrollBanner'
 
 const fotos = [
-  { url: "homeBack.png" },
   { url: "homeBack1.png" },
   { url: "homeBack2.png" }
 ]
@@ -18,14 +17,14 @@ export default class SimpleSlider extends Component {
       rows: 1,
       slidesPerRow: 1,
       autoplay: true,
-      autoplaySpeed: 2500,
+      autoplaySpeed: 1600,
       fade: true,
       pauseOnDotsHover: true,
     };
 
     return (
       <>
-        <div className="divCarru">
+        <div>
           <Slider {...settings}>
             {fotos.map(foto => {
               const fotito = require(`../assets/${foto.url}`)
@@ -35,11 +34,15 @@ export default class SimpleSlider extends Component {
                 </div>
               )
             })}
+
           </Slider>
           <div className="banner">
             <ScrollBanner />
           </div>
+
         </div>
+
+
       </>
     )
   }
