@@ -1,14 +1,16 @@
-import { connect } from 'react-redux'
 import CartCards from './CartCards'
-import {BiPurchaseTagAlt} from 'react-icons/bi'
-
-const CartPurchase = ({products, deleteProduct, checkout}) => {
+import {FaShoppingBag} from 'react-icons/fa'
+import {Link} from 'react-router-dom'
+const CartPurchase = ({products}) => {
     return(
         <>
             <div className='containerCart'>
-                { products && products.length === 0 ? <h6>Empezá a comprar</h6> :
+                { products && products.length === 0 ? 
+                <div style={{width: '80%', margin: 'auto'}}>
+                    <h4 className='titulo5'>Aún no hay productos seleccionados! Empieza a comprar ahora! →<Link to="/productStore"><FaShoppingBag style={{marginLeft: '1vw', color: '#6048a3'}}/></Link></h4> 
+                </div> 
+                :
                 <>
-                <h6 className="titulo3"><BiPurchaseTagAlt/> TU COMPRA</h6>
                 <div className ='containerPurchase'>
                     {products &&  products.length > 0 && products.map(product => <CartCards key={product.id} product={product} />)}
                 </div>
@@ -19,12 +21,4 @@ const CartPurchase = ({products, deleteProduct, checkout}) => {
     )
 }
 
-const mapStateToProps = state => {
-  return {
-    checkout: state.purchaseR.checkout,
-    reload: state.purchaseR.reload
-
-  }
-}
-
-export default connect(mapStateToProps)(CartPurchase)
+export default (CartPurchase)

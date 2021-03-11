@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import userAction from '../redux/actions/userAction'
 import Footer from './Footer'
-import Swal from 'sweetalert2'
 
 
 const SendEmail = (props) => {
@@ -15,7 +14,7 @@ const SendEmail = (props) => {
     const validateUser = async e => { // function that runs when you click the create user button
         e.preventDefault() //prevent reloading the page
         if (checkIfInputsAreEmpty) {
-            alert("error 1")
+            alert("Por favor ingresá un mail válido")
             return true
         }
         setErrores([])
@@ -24,7 +23,7 @@ const SendEmail = (props) => {
         if (respuesta && !respuesta.success) {
             setErrores(respuesta.errores.details)
         } else {
-            alert("listo el pollo")
+            alert("Se ha enviado un correo electrónico a tu cuenta")
             setVisible(true)
         }
     }
@@ -44,9 +43,6 @@ const SendEmail = (props) => {
                         </div>
                     </div>
                 </div>
-                {/* <div style={{height:"50vh", width:"60vw"}}>
-            {/* {errores.map(error => alert(error))} */}
-                {/* </div> */}
             </div>
             <Footer></Footer>
         </>

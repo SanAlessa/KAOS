@@ -2,10 +2,9 @@ import { useEffect, useState } from "react"
 import { connect } from 'react-redux'
 import purchaseAction from "../redux/actions/purchaseAction"
 import clothesActions from '../redux/actions/clothesActions'
-import CartPurchase from './CartPurchase'
 import Footer from './Footer'
 import '../styles/product.css'
-import fotoPrueba from '../assets/style.jpg'
+// import fotoPrueba from '../assets/style.jpg'
 import remeras from '../assets/remeras.png'
 import camisas from '../assets/camisas.png'
 import buzos from '../assets/buzos.png'
@@ -52,7 +51,6 @@ const Product = (props) => {
     useEffect(()=>{
         if(product.name){
             setPrueba(props.oneCloth[0].stock.filter(stock=> stock.color === product.color))
-            console.log(prueba)
         }
         if (prueba.length > 0){
             setSelected(prueba[0].size.find(size=> size.size === product.size && size))
@@ -88,6 +86,7 @@ const Product = (props) => {
         }else
         props.checkout(product)
         props.forceReload(!props.reload)
+        Alert.success("Producto agregado al carrito", 4000)
     }
 
     return (
@@ -99,7 +98,8 @@ const Product = (props) => {
                 <div className="mainProduct" style={{ height: '100vh' }}>
                     <div style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}>
                         <div className="cajaPrueba">
-                            {images.length > 0 && images.length === 1 ? <div className='unaFotito' style={{ backgroundImage: `url(${images[0]})` }}>{/* {color} */}</div> : images.map((color, index) => <div className='pruebaFotitos' style={{ backgroundImage: `url(${color})` }}></div>)}
+                            {images.length > 0 && images.length === 1 ? <div className='unaFotito' style={{ backgroundImage: `url(${images[0]})` }}></div> 
+                            : images.map((color, index) => <div key={uuid()} className='pruebaFotitos' style={{ backgroundImage: `url(${color})` }}></div>)}
                         </div>
                         <div className="detallesProduct">
                             <div className="precioDet">
@@ -108,18 +108,18 @@ const Product = (props) => {
                                 <div className="colores">
                                     <p className="titulos">COLORES</p>
                                     <div style={{ display: "flex", justifyContent: "flex-start", width: '25vw', height: '5vh' }}>
-                                        {oneProduct[0].stock.map(color => <div className="color" style={{ backgroundColor: color.color}} onClick={() => Click(color.color)}></div>)}
+                                        {oneProduct[0].stock.map(color => <div key={uuid()} className="color" style={{ backgroundColor: color.color}} onClick={() => Click(color.color)}></div>)}
 
                                     </div>
                                 </div>
                                 <div style={{height:'30%'}}>
                                     <p className="titulos">TALLES</p>
                                     <div style={{ display: "flex", justifyContent: 'flex-start', height:'100%'}}>
-                                        {visible ? color.length > 0 && color[0].size.map(size => <div  className="talles" id={size.size} style={{backgroundColor: id=== size.size&& "#6048a3"}} onClick={(e) => {
+                                        {visible ? color.length > 0 && color[0].size.map(size => <div key={uuid()} className="talles" id={size.size} style={{backgroundColor: id=== size.size&& "#6048a3"}} onClick={(e) => {
                                             setId(e.target.id)
                                             setProduct({ ...product, id: uuid(), size: size.size })
                                         }}>{size.size}</div>)
-                                            : props.oneCloth[0].stock[0].size.map(color => <div className="talles" id={color.size} style={{backgroundColor: id=== color.size&& "#6048a3"}} onClick={(e) =>{
+                                            : props.oneCloth[0].stock[0].size.map(color => <div key={uuid()} className="talles" id={color.size} style={{backgroundColor: id=== color.size&& "#6048a3"}} onClick={(e) =>{
                                                 setId(e.target.id)
                                                 setProduct({ ...product, id: uuid(), size: color.size })
                                             } }>{color.size}</div>)}
@@ -127,7 +127,7 @@ const Product = (props) => {
 
                                 </div>
                             </div>
-                            <button className='botonComprar' onClick={addToCart} style={{ textAlign: "center" }}>Comprar</button>
+                            <button className='botonComprar' onClick={addToCart} style={{ textAlign: "center" }}>Añadir al carrito</button>
                             <div>
                                 <p className="titulos">DESCRIPCIÓN:</p>
                                 <p className="descripcion">{oneProduct[0].description}</p>
@@ -144,7 +144,7 @@ const Product = (props) => {
                     <div className="cardsProducts">
                         {props.lastClothes.map(card => {
                             return (
-                                <Link className="clothCardLink" to={`/product/${card._id}`}>
+                                <Link className="clothCardLink" to={`/product/${card._id}`} key={card._id}>
                                     <div className="clothCard" style={{ backgroundImage: `url(${card.stock[0].images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
                                     </div>
                                 </Link>
@@ -154,21 +154,21 @@ const Product = (props) => {
                     <div className="otros" style={{ height: '30%', width: '100%' }}>
                         <Link to={{ pathname: '/productStore', state: 'Camisas' }}>
                             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                                <img src={camisas} style={{ width: '40%', height: '90%' }}></img>
+                                <img src={camisas} style={{ width: '40%', height: '90%' }} alt="camisas"></img>
                                 <p style={{ width: '100%', textAlign: 'center' }}>CAMISAS</p>
                             </div>
                         </Link>
                         <Link to={{ pathname: '/productStore', state: 'Remeras' }}>
 
                             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                                <img src={remeras} style={{ width: '40%', height: '90%' }}></img>
+                                <img src={remeras} style={{ width: '40%', height: '90%' }} alt="remeras"></img>
                                 <p style={{ width: '100%', textAlign: 'center' }}>REMERAS</p>
                             </div >
                         </Link>
 
                         <Link to={{ pathname: '/productStore', state: 'Buzos' }}>
                             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                                <img src={buzos} style={{ width: '40%', height: '90%' }}></img>
+                                <img src={buzos} style={{ width: '40%', height: '90%' }} alt="buzos"></img>
                                 <p style={{ width: '100%', textAlign: 'center' }}>BUZOS</p>
                             </div>
                         </Link>

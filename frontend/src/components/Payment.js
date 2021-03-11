@@ -21,7 +21,6 @@ const Payment = (props) => {
         </div>
         <div className='containerCartCheckout'>
         <CartPurchase products={props.cart}/>
-
         </div>
       </div>
     </div>

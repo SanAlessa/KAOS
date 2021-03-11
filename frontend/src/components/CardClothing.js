@@ -1,6 +1,5 @@
 const CardClothing = ({product}) => {
     const {name, stock,price} = product
-
     return(
         <div className='containerCardCloth'>
             <div className='containerCardClothPic'>

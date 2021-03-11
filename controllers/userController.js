@@ -40,14 +40,22 @@ const userController = {
         }
         var token = jwt.sign({...userExists}, process.env.SECRET_KEY, {})
         return res.json({success: true, response: 
-            {token, firstname: userExists.firstname, email: userExists.email, lastname: userExists.lastname, id: userExists._id, rol: userExists.rol}})
+            {token, firstname: userExists.firstname, email: userExists.email, lastname: userExists.lastname, id: userExists._id,  rol: userExists.rol}})
     },
 
     logFromLS: async (req, res) => {
+      console.log(req.user)
         res.json({success: true, response: 
-            {token: req.body.token, firstname: req.user.firstname, lastname: req.user.lastname, email: req.user.email, id:req.user._id}})
+            {token: req.body.token, firstname: req.user.firstname, lastname: req.user.lastname, email: req.user.email, id:req.user._id, rol: 'ROL'}})
     },
 
+    addAdmin: async (req, res)=>{
+      User.findOneAndUpdate({_id:req.user._id},
+        {$set: {rol: 'admin'}},
+        {new: true})
+      .then(response => res.json({success: true, response}))
+      .catch(error => res.json({success: false, error}))
+    }
 }
 
 module.exports = userController

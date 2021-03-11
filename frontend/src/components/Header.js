@@ -1,12 +1,10 @@
 import logo from '../assets/kaos.png'
-import Drawer from './Drawer'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link , NavLink} from 'react-router-dom'
 import { IoPersonCircleOutline } from 'react-icons/io5'
 import Cart from './Cart'
 import { useEffect } from 'react'
 import userAction from '../redux/actions/userAction'
-import {Dropdown}  from 'react-bootstrap'
 
 const Header = (props) => {
   useEffect(() => {
@@ -14,40 +12,29 @@ const Header = (props) => {
     if(props.loggedUser){
         var links = 
         <div className="linksHeader">
-            {/* <Link  to = "/adminPanel">ADMIN</Link> */}
-            <div className="saludo"> Bienvenido {props.loggedUser.firstname.split(' ', 1)}!</div>
-            <Link to = "/" className="saludo1"  onClick={()=> props.disconnectUser()}>Cerrar Sesion</Link>
+          <Link to="/userProfile">
+          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-around', width: '6vw'}}>
+          <IoPersonCircleOutline style={{ fontSize: '2.2rem', color: 'black'}} />                                      
+            <h6 style={{margin: 0}}className="saludo">{props.loggedUser.firstname.split(' ', 1)}</h6>
+          </div>
+          </Link>
         </div> 
     }
-  
-    return (
+      return (
         <div className="logoBanner">
-            <Drawer />
-            <Link to='/' style={{ display: 'flex', justifyContent: 'center', height: '90%' ,width:'50%'}}>
-                <img src={logo} className="logo"></img>
+            <div style={{ display: 'flex', height: '90%' ,width:'50%', marginLeft: '2vw'}}>
+            <Link to='/'>
+                <img src={logo} className="logo" alt="logo"></img>
             </Link>
-            <div>
-            {links}
             </div>
-            <div className="iconsHeader">
-                {/* <Link to='/signin' > */}
-                  {/* </Link> */}
-                <Dropdown >
-                  <Dropdown.Toggle style={{backgroundColor: 'transparent', color: 'black', border: 'none'}} variant="success" id="dropdown-basic">
-                  <IoPersonCircleOutline style={{ fontSize: '2.2rem', color: 'black' }} />
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Home</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Shop</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Sign In/Sign Up</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-                <div style={{display: 'flex', marginRight: '1vw'}}>
-                  <Cart cart={props.cart} />
-                  <h5>{props.cart.length}</h5>
-                </div>
+            <div className="links">
+                <Link  className="links"to ="/">HOME</Link>
+                <Link className="links" to ="/productStore">SHOP</Link>
+                {!props.loggedUser && <NavLink className="links" to ="/signIn">SIGN IN/SIGN UP</NavLink>}
+                {links}
+                <Cart cart={props.cart} />
+                <h5>{props.cart.length}</h5>
             </div>
-
         </div>
     )
 }
