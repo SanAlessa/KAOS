@@ -19,44 +19,29 @@ const Product = (props) => {
     const [images, setImages] = useState([])
     const [color, setColor] = useState([])
     const [visible, setVisible] = useState(false)
-    const [background, setBackground] = useState('black')
     const url = props.match.params.id
     const oneProduct = props.clothes.filter(product => product._id === url)
-    console.log(oneProduct)
     const [product, setProduct] = useState({
-        id: '', name: oneProduct[0].name, image: oneProduct[0].stock[0].images[0],
-        price: oneProduct[0].price, description: oneProduct[0].description, 
-        color: oneProduct[0].stock[0].color, size: '', quantity: 1,
+    id: '', name: oneProduct[0].name, image: oneProduct[0].stock[0].images[0],
+    price: oneProduct[0].price, description: oneProduct[0].description, 
+    color: oneProduct[0].stock[0].color, size: '', quantity: 1, stock: 0
     })
-    console.log(product)
-
-    // console.log(oneProduct[0].stock) 
-
-    const otros = [{
-        "foto": '../assets/camisas.png',
-        "descripcion": "CAMISAS"
-    }, {
-        "foto": "../assets/remeras.png",
-        "descripcion": "REMERAS"
-    }, {
-        "foto": '../assets/buzos.png',
-        "descripcion": "BUZOS"
-    }]
-    
-    useEffect(()=>{
-        return()=>{
-            setProduct({
-                id: '', name: '', image: '',
-                price: '', description: '', 
-                color: '', size: '', quantity: 1,
-            })
-        }
-    },[])
+    var colorSelected = oneProduct[0].stock.find(stock=> stock.color === product.color)
+    var sizeSelected = colorSelected.size.find(size=> size.size === product.size && size)
+    if(sizeSelected) var realStock = sizeSelected.quantity
 
     useEffect(() => {
+        setProduct({...product, stock:realStock})
+    }, [realStock])
+
+    useEffect(() => {
+        setProduct({
+            id: '', name: oneProduct[0].name, image: oneProduct[0].stock[0].images[0],
+            price: oneProduct[0].price, description: oneProduct[0].description, 
+            color: oneProduct[0].stock[0].color, size: '', quantity: 1, stock: 0
+        })
         window.scrollTo(0,0)
         setImages(oneProduct[0].stock[0].images)
-        console.log(product)
     }, [url])
 
     const Click = (value) => {
@@ -66,6 +51,7 @@ const Product = (props) => {
         setVisible(true)
         setProduct({ ...product, image: colorFilter[0].images[0], color: value })
     }
+
     const addToCart = () => {
         var productFiltered = props.cart.find(cloth=> cloth.name+cloth.color+cloth.size === product.name+product.color+product.size )
         if(productFiltered){
@@ -76,7 +62,6 @@ const Product = (props) => {
         props.checkout(product)
         props.forceReload(!props.reload)
     }
-
 
     return (
         <>
@@ -150,18 +135,7 @@ const Product = (props) => {
                             <p style={{ width: '100%', textAlign: 'center' }}>BUZOS</p>
                         </div>
                         </Link>
-
-                        {/* {otros.map(categoría => {
-                        return (
-                            <div style={{width:'33%', height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
-                                <img src={categoría.foto} style={{width:'70%', height:'90%'}}></img>
-                                <p style={{width:'100%', textAlign:'center'}}>{categoría.descripcion}</p>
-                            </div>
-                        )
-                    })} */}
                     </div>
-
-
                 </div>
             </div>
             {/* <CartPurchase products={props.cart} reload={reload} /> */}

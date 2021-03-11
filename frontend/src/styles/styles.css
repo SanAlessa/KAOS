@@ -254,9 +254,10 @@ div.containerCart h2{
 }
 
 .containerTotal{
-  background-color: #6CC8FC;
+  background-color: #ff7fff6b;
   display: flex;
   align-items: center;
+  text-align: center;
   height: 8%;
   padding-left: 1.5vw;
   padding-right: 1.5vw;
@@ -595,16 +596,16 @@ justify-content: space-evenly;
   margin-top: 0.5vw;
   font-size: 1.5  vw;
   padding: 0.5vw;
-  /* background-color: rgb(80, 145, 62); */
-  border: 1px solid rgb(80, 145, 62);
+  /* background-color: #6048a3; */
+  border: 1px solid #6048a3;
   width: 65%;
-  color:  rgb(80, 145, 62);
+  color:  #6048a3;
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px;
   transition: ease 0.3s;
 }
 .buttonCheckout:hover{
-  box-shadow: inset 265px 0 0 0 rgb(80, 145, 62);
+  box-shadow: inset 265px 0 0 0 #6048a3;
   transform: scale(1.1);
   color: whitesmoke;
 }

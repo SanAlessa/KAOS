@@ -43,6 +43,9 @@ if(loggedUser){
     <Route exact path="/" component={Homepage}/>
     <Route path="/adminPanel" component={AdminPanel}/> 
     <Route exact path ='/userprofile' component={UserProfile} />
+    
+    <Route exact path='/buy' component={Buy} />
+    <Route exact path='/payment' component={Payment}/>
 
     <Route path="/productStore" component={ProductStore}/>
     <Route path="/product/:id" component={Product}/>

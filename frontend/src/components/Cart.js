@@ -8,6 +8,7 @@ import '../styles/Navbar.css';
 import { IconContext } from 'react-icons';
 import CartPurchase from './CartPurchase';
 import { connect } from 'react-redux';
+import purchaseAction from '../redux/actions/purchaseAction';
 
 function Navbar(props) {
   const [sidebar, setSidebar] = useState(false);
@@ -34,10 +35,10 @@ function Navbar(props) {
               <CartPurchase products={props.cart}/>
             </li>
             <li className='containerTotal'>
-              <h3>TOTAL: $ {totalPrice}</h3>
+              <h3>TOTAL: $ {totalPrice && totalPrice.toFixed(3)}</h3>
             </li>
             <li className='containerButtonCheckOut'>
-            <button className='buttonCheckout'>Finalizar Compra</button>
+            <Link to="/buy"><button className='buttonCheckout' onClick={()=>props.addTotal(totalPrice)}>Finalizar Compra</button></Link>
             </li>
           </ul>
         </nav>
@@ -53,4 +54,8 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Navbar);
+const mapDispatchToProps={
+  addTotal: purchaseAction.addTotal
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

@@ -7,7 +7,7 @@ const CartCards = ({product, incOne, substOne, deleteClothes, reload, forceReloa
     const [cantidad, setCantidad] = useState(quantity)
     useEffect(()=>{
     },[reload])
-    
+    console.log(product)
     const deleteProduct = e => {
         deleteClothes(product)
     }
@@ -18,7 +18,7 @@ const CartCards = ({product, incOne, substOne, deleteClothes, reload, forceReloa
     }
 
     const incQuantity = () => {
-        setCantidad((cantidad+1) > 5 ? (alert('No hay más productos disponibles'), cantidad) : (incOne(product), cantidad+1))
+        setCantidad((cantidad+1) > stock ? (alert('No hay más productos disponibles'), cantidad) : (incOne(product), cantidad+1))
         forceReload(!reload)
     }
 

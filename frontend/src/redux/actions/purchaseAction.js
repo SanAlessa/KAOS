@@ -42,6 +42,12 @@ const purchaseAction = {
         return (dispatch) => {
             dispatch({type: 'RELOAD', payload: reload})
         }
+    },
+
+    addTotal: (total)=>{
+        return(dispatch)=>{
+            dispatch({type: 'TOTAL', payload: total})
+        }
     }
 }
 
