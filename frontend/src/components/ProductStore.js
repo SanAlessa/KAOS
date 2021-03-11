@@ -6,23 +6,23 @@ import { connect } from 'react-redux'
 import Loader from './Loader'
 
 const ProductStore = (props) => {
-  const categorias=[]
-  props.clothes.map(cloth => {
-    if(!categorias.includes(cloth.type)){
-      categorias.push(cloth.type)
-    }
-  })
     const [cart, setCart] = useState([])
+    const [nuevoFiltro, setNuevoFiltro] = useState([])
+    const [categorias, setCategorias] = useState ([])
     const [filtro, setFiltro]=useState([])
     const [sexo,setSexo]=useState('')
     const [orden,setOrden]=useState('')
     const [verdad,setVerdad]=useState(false)
     const [vista,setVista]=useState(false)
+
     
     useEffect(() => {
       window.scrollTo(0,0)
       fetch()
     }, [])
+    useEffect(()=>{
+        setCategorias(new Array(...new Set(nuevoFiltro.map(articulo => articulo.type))))
+    },[nuevoFiltro])
     
     const fetch = async () => {
       await props.getClothes()
@@ -30,9 +30,8 @@ const ProductStore = (props) => {
 
     useEffect(()=>{
         setFiltro(props.clothes)
-        if(props.location.state){
-            filtradoCategoria(props.location.state)
-        }
+        setNuevoFiltro(props.clothes)
+        if(props.location.state) filtradoCategoria(props.location.state)
 
     },[props.clothes])
     
@@ -109,7 +108,7 @@ const ProductStore = (props) => {
                     </div>
                     <div>
                         <h2 className="titulos2">Categoria</h2>
-                        {categorias.map(categoria=><p className="titulos1" key={`${categoria}1`} onClick={()=>filtradoCategoria(`${categoria}`)}>{categoria}</p>)}
+                        {categorias.length > 0 && categorias.map(categoria=><p className="titulos1" key={`${categoria}1`} onClick={()=>filtradoCategoria(`${categoria}`)}>{categoria}</p>)}
                     </div>
                 </div>
                 <div className={!vista ? 'containerProductsStore': 'containerProductsStore2'}>

@@ -25,11 +25,8 @@ const Product = (props) => {
     const oneProduct = props.oneCloth.filter(product => product._id === url)
     const [product, setProduct] = useState({})
 
-
     if(selected) var realStock = selected.quantity
-    useEffect(()=>{
-        fetch()
-    }, [])
+
     const fetch = async () => {
         await props.getOne(url)
         await props.getClothes()
@@ -40,6 +37,7 @@ const Product = (props) => {
     }, [realStock])
 
     useEffect(() => {
+        fetch()
         if(props.oneCloth.length>0){
             setProduct({
                 id: '', name: props.oneCloth[0].name, image: props.oneCloth[0].stock[0].images[0],
@@ -47,7 +45,7 @@ const Product = (props) => {
                 color: props.oneCloth[0].stock[0].color, size: '', quantity: 1, stock: 0
             })
         }
-        window.scrollTo(0,0)
+        window.scrollTo(0,0) 
     }, [url])
 
     useEffect(()=>{
