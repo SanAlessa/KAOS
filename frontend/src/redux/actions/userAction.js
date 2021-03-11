@@ -58,6 +58,7 @@ const userAction = {
             Authorization: `Bearer ${token}`
           }
         })
+        console.log(response)
         dispatch({ type: 'LOGIN_USER', payload: { response: { ...response.data.response } } })
       }
       catch (error) {
@@ -69,12 +70,47 @@ const userAction = {
       }
     }
   },
+  resetPassword: (email)=> {
+    return async (dispatch) => {
+        try{
+            const response = await axios.post(`http://localhost:4000/api/user/reset-password`, {email})
+            dispatch({type: 'RESET_PASSWORD'})
+            console.log(response)
+        }catch(error){
+            alert("error padre")
+        }
+    }
+}, 
+newPassword: (email, password) => {
+  return async(dispatch) => {
+      try{
+          const response = await axios.put(`http://localhost:4000/api/user/reset-password`, {email, password})
+          dispatch({type: 'CHANGE_PASSWORD'})
+      }catch(error){
+          alert("error en el coso")
+      }
+  }
+},
   disconnectUser: () => {
     return (dispatch, getState) => {
       dispatch({ type: 'DISCONNECT_USER' })
     }
   },
 
+  addAdmin:(token)=>{
+    return async (dispatch, getState)=>{
+      try{
+        const response = await axios.post(`http://localhost:4000/api/addAdmin`, {token}, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        console.log(response)
+      }catch (error){
+        console.log(error)
+      }
+    }
+  }
 
 }
 export default userAction

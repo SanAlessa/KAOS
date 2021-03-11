@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import CartPurchase from './CartPurchase'
+import uuid from 'react-uuid'
 
-const Buy = () => {
-
+const Buy = (props) => {
+  console.log(props.total)
   const [country, setCountry] = useState([])
 
   const fetchCountries = async () => {
@@ -28,7 +31,7 @@ const Buy = () => {
             {country.map(country => {
               return (
                 <>
-                  <option value={country.value}>{country.name}</option>
+                  <option key={uuid()} value={country.value}>{country.name}</option>
                 </>
               )
             })
@@ -38,14 +41,22 @@ const Buy = () => {
           <input type='text' placeholder='Indicanos la dirección'></input>
           <input type='text' placeholder='Indicanos el código postal'></input>
           <input type='text' placeholder='Indicanos el teléfono de contacto'></input>
-          <Link to='payment'><div>Elegir Método de Pago</div></Link>
+          <Link to={{pathname:"/payment", state: 'que onda?'}}><div>Elegir Método de Pago</div></Link>
         </div>
         <div className='containerCartCheckout'>
-
+          <CartPurchase products={props.cart}/>
         </div>
       </div>
     </div>
   )
 }
 
-export default Buy
+const mapStateToProps=state=>{
+  return{
+    total: state.purchaseR.total,
+    cart: state.purchaseR.checkout,
+  }
+}
+
+
+export default connect(mapStateToProps)(Buy)

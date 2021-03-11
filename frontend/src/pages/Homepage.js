@@ -14,10 +14,7 @@ const Homepage = (props) => {
     useEffect(() => {
         props.getClothes()
     }, [])
-    // const newSeason = ["1", "2", "3", "4", "5"]
-    // Linea comentada por Fabi, sin uso
-     
-
+ 
     return (
         <>
             <HomeBanner></HomeBanner>
@@ -29,7 +26,7 @@ const Homepage = (props) => {
                 <div className="allCards">
                     {props.lastClothes.map(card => {
                         return (
-                            <Link to={`/product/${card._id}`} className="clothCardLink">
+                            <Link to={`/product/${card._id}`} key={card._id} className="clothCardLink">
                                 <div className="clothCard" style={{ backgroundImage: `url(${card.stock[0].images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
                                 </div>
                             </Link>
@@ -57,8 +54,8 @@ const Homepage = (props) => {
                     <p>FIND NEW TRENDS AND ROCK YOUR STYLE</p>
                 </div>
                 <div className="superSaleBanner">
-                    <img src={box3} className="jeansBox"></img>
-                    <img src={box4} className="jeansBox"></img>
+                    <img src={box3} className="jeansBox" alt={box3}></img>
+                    <img src={box4} className="jeansBox" alt={box4}></img>
 
                 </div>
 

@@ -1,6 +1,11 @@
+import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Paypal from './Paypal'
+import CartPurchase from './CartPurchase'
 
-const Payment = () => {
+const Payment = (props) => {
+  console.log(props.total)
   return (
     <div className='containerCheckOut'>
       <div className='containerStateCheckOut'>
@@ -10,19 +15,26 @@ const Payment = () => {
       <div className='containerContentCheckout'>
         <div className='containerActionsCheckout'>
           <div className='containerPayInfo'>
-            <div className='containerCardPay' style={{ backgroundImage: `url(https://1000marcas.net/wp-content/uploads/2019/12/PayPal-Logo.png)` }}></div>
+          <Paypal total={props.total}/>
           </div>
           <Link><div>Finalizar Compra</div></Link>
         </div>
         <div className='containerCartCheckout'>
-
+        <CartPurchase products={props.cart}/>
         </div>
       </div>
     </div>
   )
 }
 
-export default Payment
+const mapStateToProps=state=>{
+  return{
+    total: state.purchaseR.total,
+    cart: state.purchaseR.checkout
 
-// style={{backgroundImage:`url(https://i.pinimg.com/originals/fc/48/6e/fc486ebb189bd9b1bfbfe7fd1f70316d.jpg)`, width: '100%', height:'100%'}}
+  }
+}
+
+export default connect(mapStateToProps) (Payment)
+
 

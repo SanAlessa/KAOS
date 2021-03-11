@@ -7,7 +7,7 @@ const CartCards = ({product, incOne, substOne, deleteClothes, reload, forceReloa
     const [cantidad, setCantidad] = useState(quantity)
     useEffect(()=>{
     },[reload])
-    
+
     const deleteProduct = e => {
         deleteClothes(product)
     }
@@ -18,7 +18,7 @@ const CartCards = ({product, incOne, substOne, deleteClothes, reload, forceReloa
     }
 
     const incQuantity = () => {
-        setCantidad((cantidad+1) > 5 ? (alert('No hay más productos disponibles'), cantidad) : (incOne(product), cantidad+1))
+        setCantidad((cantidad+1) > stock ? (alert('No hay más productos disponibles'), cantidad) : (incOne(product), cantidad+1))
         forceReload(!reload)
     }
 
@@ -29,10 +29,10 @@ const CartCards = ({product, incOne, substOne, deleteClothes, reload, forceReloa
                 <div className='containerDataClothing'>
                     <div className='containerTitle'>{name}</div>
                     <div className='containerSize'>Talle: {size}</div>
-                    <div className='containerPrice'>{`$ ${price*cantidad}`}</div>
+                    <div className='containerPrice'>{`$ ${price*quantity}`}</div>
                     <div className='containerQuantity'>
                         <div className='subQuantity' onClick ={subQuantity}>-</div>
-                        <p className='quantity'>Cantidad: {cantidad}</p>
+                        <p className='quantity'>Cantidad: {quantity}</p>
                         <div className='incQuantity' onClick ={incQuantity}>+</div>
                     </div>
                 </div>
