@@ -34,11 +34,7 @@ function Navbar(props) {
               <CartPurchase products={props.cart}/>
             </li>
             <li className='containerTotal'>
-<<<<<<< HEAD
-              <h3 className='titulo4'>TOTAL: $</h3>
-=======
               <h3>TOTAL: $ {totalPrice && totalPrice.toFixed(3)}</h3>
->>>>>>> 48dd24934326ac0a432c4daa84131c0758fb0bbf
             </li>
             <li className='containerButtonCheckOut'>
             <Link to="/buy"><button className='buttonCheckout' onClick={()=>props.addTotal(totalPrice)}>Finalizar Compra</button></Link>
