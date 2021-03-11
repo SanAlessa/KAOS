@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { Drawer } from 'rsuite'
+import {connect} from 'react-redux'
 import { IoMenu } from 'react-icons/io5'
+import userAction from '../redux/actions/userAction'
 import logo from '../Backgrounds/logodrawer.png'
 import '../../node_modules/rsuite/dist/styles/rsuite-default.css'
 
@@ -10,9 +12,12 @@ class MenuUser extends React.Component {
     super(props);
     this.state = {
       show: false,
+      loggedUser:this.props.loggedUser
     };
     this.close = this.close.bind(this);
     this.toggleDrawer = this.toggleDrawer.bind(this);
+    this.loggedUser = this.props.loggedUser
+    console.log(this.props)
   }
   close() {
     this.setState({
@@ -22,7 +27,7 @@ class MenuUser extends React.Component {
   toggleDrawer(placement) {
     this.setState({ placement, show: true });
   }
-
+  
   render() {
     return (
       <div>
@@ -43,7 +48,7 @@ class MenuUser extends React.Component {
             <Link to="/ProductStore" onClick={() => this.close()} ><h4>Shop</h4></Link>
 
             <br />
-            <Link to="/signin" onClick={() => this.close()}><h4>Sign In</h4></Link>
+            {this.state.loggedUser ? <h1 onClick={()=> this.props.logOut()}>hola</h1> : <Link to="/signin" onClick={() => this.close()}><h4>Sign In</h4></Link>}
 
           </Drawer.Body>
           <Drawer.Footer>
@@ -61,5 +66,14 @@ class MenuUser extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return{
+      loggedUser: state.userR.loggedUser
+  }
+}
 
-export default (MenuUser)
+const mapDispatchToProps = { // map the actions
+  logOut: userAction.disconnectUser //mapDispachToProps object that has an action value
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MenuUser)

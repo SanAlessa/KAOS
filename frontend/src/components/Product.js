@@ -78,7 +78,7 @@ const Product = (props) => {
                                     <div style={{ display: "flex", justifyContent: 'flex-start', height:'100%'}}>
                                         {visible ? color.length > 0 && color[0].size.map(size => <div  className="talles" id={size.size} style={{backgroundColor: id=== size.size&& "#6048a3"}} onClick={(e) => {
                                             setId(e.target.id)
-                                            setProduct({ ...product, id: uuid(), size: color.size })
+                                            setProduct({ ...product, id: uuid(), size: size.size })
                                         }}>{size.size}</div>)
                                             : oneProduct[0].stock[0].size.map(color => <div className="talles" id={color.size} style={{backgroundColor: id=== color.size&& "#6048a3"}} onClick={(e) =>{
                                                 setId(e.target.id)
