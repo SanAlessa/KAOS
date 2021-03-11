@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from 'react'
 import {connect} from 'react-redux'
 import purchaseAction from '../redux/actions/purchaseAction'
+import '../styles/log.css'
+import 'rsuite/dist/styles/rsuite-default.css'
+import { Alert } from 'rsuite'
 
 const Paypal =({total, sendPurchase, loggedUser})=>{
   console.log(total.toFixed(2))
@@ -14,17 +17,17 @@ const Paypal =({total, sendPurchase, loggedUser})=>{
         })},
         onApprove: (data, actions) => {
           actions.order.capture()
-          alert('Compra Finalizada')
+          Alert.success("Compra exitosa!")
           sendPurchase(loggedUser.token)
         },
         onError: (error)=>{
-          alert('algo fallo')
+          Alert.warning("Hubo un error en el pago, intente nuevamente")
           console.log(error)
         }
     }).render(paypal.current)
   })
   return(
-    <div ref={paypal}></div>
+    <div className="paypal" ref={paypal}></div>
   )
 }
 
