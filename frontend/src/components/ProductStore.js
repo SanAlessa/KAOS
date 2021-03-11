@@ -13,7 +13,6 @@ const ProductStore = (props) => {
     }
     })
     const [cart, setCart] = useState([])
-    
     const [filtro, setFiltro]=useState([])
     const [sexo,setSexo]=useState('')
     const [orden,setOrden]=useState('')
@@ -23,14 +22,20 @@ const ProductStore = (props) => {
     useEffect(() => {
       window.scrollTo(0,0)
       fetch()
+      return()=>{
+          props.location.state= undefined
+      }
     }, [])
     
     const fetch = async () => {
       await props.getClothes()
     }
+
     useEffect(()=>{
         setFiltro(props.clothes)
-        props.location.state && filtradoCategoria(props.location.state)
+        console.log(props.location.state)
+        if(props.location.state) filtradoCategoria(props.location.state)
+
     },[props.clothes])
     
     if (props.clothes.length === 0) {

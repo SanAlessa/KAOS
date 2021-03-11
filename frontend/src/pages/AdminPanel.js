@@ -107,6 +107,7 @@ const AdminPanel = (props) => {
           <button onClick={handleSize}>Añadir Stock</button>
         </div>
         <button onClick={handleColorStock}>Agregar Color</button>
+        <p style={{fontSize: '1rem'}}>Una vez que agregaste todos los colores finaliza la carga!</p>
         <button style={{ marginTop: '-4vh', marginBottom: '2vh' }} onClick={send}>Finalizar Carga</button>
       </div>
     </div>

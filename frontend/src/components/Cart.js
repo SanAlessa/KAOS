@@ -30,8 +30,6 @@ function Navbar(props) {
             <li className='navbar-toggle'>
             <AiIcons.AiOutlineClose onClick={showSidebar} style={{ marginRight: '2vw', fontSize: '1.5rem', cursor: 'pointer' }} className='tituloCarrito' />
            </li>
-            <h6 className='containerCart' style={{ margin: '0' }}></h6>
-
             <li className='containerCartPurchaseSide'>
               <CartPurchase products={props.cart}/>
             </li>

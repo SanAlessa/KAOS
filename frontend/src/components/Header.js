@@ -42,7 +42,7 @@ const Header = (props) => {
                     <Dropdown.Item href="#/action-3">Sign In/Sign Up</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-                <div style={{display: 'flex'}}>
+                <div style={{display: 'flex', marginRight: '1vw'}}>
                   <Cart cart={props.cart} />
                   <h5>{props.cart.length}</h5>
                 </div>

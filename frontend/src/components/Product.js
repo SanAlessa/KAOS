@@ -127,21 +127,21 @@ const Product = (props) => {
                     </div>
                     <div className="otros" style={{ height: '30%', width: '100%' }}>
                         <Link to={{ pathname: '/productStore', state: 'Camisas' }}>
-                            <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                                 <img src={camisas} style={{ width: '40%', height: '90%' }}></img>
                                 <p style={{ width: '100%', textAlign: 'center' }}>CAMISAS</p>
                             </div>
                         </Link>
                         <Link to={{ pathname: '/productStore', state: 'Remeras' }}>
 
-                            <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                                 <img src={remeras} style={{ width: '40%', height: '90%' }}></img>
                                 <p style={{ width: '100%', textAlign: 'center' }}>REMERAS</p>
                             </div >
                         </Link>
 
                         <Link to={{ pathname: '/productStore', state: 'Buzos' }}>
-                            <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                                 <img src={buzos} style={{ width: '40%', height: '90%' }}></img>
                                 <p style={{ width: '100%', textAlign: 'center' }}>BUZOS</p>
                             </div>

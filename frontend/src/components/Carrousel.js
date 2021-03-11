@@ -34,9 +34,9 @@ export default class SimpleSlider extends Component {
               )
             })}
           </Slider>
-          {/* <div className="banner">
+          <div className="banner">
             <ScrollBanner />
-          </div> */}
+          </div>
 
         </div>
     )
