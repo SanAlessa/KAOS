@@ -18,14 +18,10 @@ const ProductStore = (props) => {
     const [orden,setOrden]=useState('')
     const [verdad,setVerdad]=useState(false)
     const [vista,setVista]=useState(false)
-    const [location, setLocation]=useState('')
     
     useEffect(() => {
       window.scrollTo(0,0)
       fetch()
-      return()=>{
-        console.log('se fue')
-      }
     }, [])
     
     const fetch = async () => {
@@ -34,7 +30,6 @@ const ProductStore = (props) => {
 
     useEffect(()=>{
         setFiltro(props.clothes)
-        console.log(props.location.state)
         if(props.location.state){
             filtradoCategoria(props.location.state)
         }
@@ -99,8 +94,8 @@ const ProductStore = (props) => {
                         <div className="firstContFiltro">
                             <h2 className="titulos2">Filtro</h2>
                             <div className='boxIconsFiltro'>
-                                <p className='icono1' onClick={()=>setVista(true)}><i class="fas fa-th-list"></i></p>
-                                <p className='icono2' onClick={()=>setVista(false)}><i class="fas fa-th"></i></p>
+                                <p className='icono1' onClick={()=>setVista(true)}><i className="fas fa-th-list"></i></p>
+                                <p className='icono2' onClick={()=>setVista(false)}><i className="fas fa-th"></i></p>
                             </div>
                         </div>
                         <p className="titulos1" onClick={()=>filtradoAll()}>Todos los productos</p>
@@ -120,7 +115,7 @@ const ProductStore = (props) => {
                 <div className={!vista ? 'containerProductsStore': 'containerProductsStore2'}>
                     {filtro.map(product => {
                         return (                            
-                            <div className='containerCardMapping'>
+                            <div className='containerCardMapping' key={product._id}>
                             <Link to={`/product/${product._id}`}>
                                 <CardClothing from  key={product._id} product={product} cart={cart} setCart={setCart} products ={product}/>
                             </Link>

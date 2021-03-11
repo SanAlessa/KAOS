@@ -28,17 +28,19 @@ function Navbar(props) {
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items'>
             <li className='navbar-toggle'>
-            <h6 className="titulo3"><BiPurchaseTagAlt/> TU COMPRA</h6>
+            <h5 className="titulo3" style={{margin: 0, marginLeft: '2vw'}}><BiPurchaseTagAlt/> TU COMPRA</h5>
             <AiIcons.AiOutlineClose onClick={showSidebar} style={{ marginRight: '2vw', fontSize: '1.5rem', cursor: 'pointer' }} className='tituloCarrito' />
            </li>
             <li className='containerCartPurchaseSide'>
               <CartPurchase products={props.cart}/>
             </li>
             <li className='containerTotal'>
-              <h3>TOTAL: $ {totalPrice && totalPrice.toFixed(3)}</h3>
+              <h4>TOTAL: $ {totalPrice && totalPrice.toFixed(3)}</h4>
             </li>
             <li className='containerButtonCheckOut'>
-            <Link to="/buy"><button className='buttonCheckout' onClick={()=>props.addTotal(totalPrice)}>Finalizar Compra</button></Link>
+            <Link to="/buy"><button className='buttonCheckout' onClick={()=>{
+              props.addTotal(totalPrice)
+              showSidebar()}}>Finalizar Compra</button></Link>
             </li>
           </ul>
         </nav>

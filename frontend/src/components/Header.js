@@ -1,13 +1,10 @@
 import logo from '../assets/kaos.png'
-import Drawer from './Drawer'
 import { connect } from 'react-redux'
 import { Link , NavLink} from 'react-router-dom'
 import { IoPersonCircleOutline } from 'react-icons/io5'
 import Cart from './Cart'
 import { useEffect } from 'react'
 import userAction from '../redux/actions/userAction'
-import {Dropdown}  from 'react-bootstrap'
-import { Alert } from 'rsuite'
 
 const Header = (props) => {
   useEffect(() => {

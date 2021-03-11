@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import purchaseAction from '../redux/actions/purchaseAction'
-import CartCards from './CartCards'
 import Footer from './Footer'
 
 const UserProfile = ({ loggedUser, getPurchases, newPurchase }) => {
@@ -24,6 +23,7 @@ const UserProfile = ({ loggedUser, getPurchases, newPurchase }) => {
                         <h2>{email}</h2>
                         <h3>Tu dirección de correo</h3>
                         <h4>Quiero cambiar mi contraseña</h4>
+                        <h4>Solicitar Acceso de Admin</h4>
                     </div>
                     <div className='containerUserPurchase'>
                         <div className='containerTitleUserPurchase'>

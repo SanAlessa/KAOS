@@ -4,7 +4,6 @@ const initState = {
 const userReducer = (state = initState, action) => {
   switch (action.type) {
     case 'LOGIN_USER':
-      console.log(action.payload)
       localStorage.setItem('token', action.payload.response.token)
       return {
         ...state,

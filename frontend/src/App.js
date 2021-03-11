@@ -25,7 +25,7 @@ if(loggedUser){
     <Switch>
     <Route exact path="/" component={Homepage}/>
     <Route path="/productStore" component={ProductStore}/>
-    {/* if(loggedUser.admin)  */}
+    {/* if(loggedUser.rol === 'admin')  */}
     <Route path="/adminPanel" component={AdminPanel}/> 
     <Route path="/product/:id" component={Product}/>
     <Route exact path='/buy' component={Buy} />

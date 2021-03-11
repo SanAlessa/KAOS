@@ -52,5 +52,8 @@ router.route('/purchase')
 router.route('/getPurchases')
 .post(purchaseController.getPurchases)
 
+router.route('/addAdmin')
+.post(passport.authenticate('jwt', {session: false}), userController.addAdmin)
+
 
 module.exports = router

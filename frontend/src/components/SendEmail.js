@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import userAction from '../redux/actions/userAction'
 import Footer from './Footer'
-import Swal from 'sweetalert2'
 
 
 const SendEmail = (props) => {

@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { IoAlertSharp } from 'react-icons/io5'
 import { Alert } from 'rsuite'
 import { API } from '../../API'
 
@@ -97,6 +96,20 @@ newPassword: (email, password) => {
     }
   },
 
+  addAdmin:(token)=>{
+    return async (dispatch, getState)=>{
+      try{
+        const response = await axios.post(`http://localhost:4000/api/addAdmin`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        console.log(response)
+      }catch (error){
+        console.log(error)
+      }
+    }
+  }
 
 }
 export default userAction
