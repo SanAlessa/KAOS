@@ -21,7 +21,6 @@ const UserProfile = ({loggedUser}) => {
                         <h2>Tus compras en KAOS</h2>
                     </div>
                     <div className='userPurchase'>
-                        <CartCards />
                     </div>
                 </div>
             </div>
