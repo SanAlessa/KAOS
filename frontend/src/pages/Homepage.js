@@ -14,10 +14,7 @@ const Homepage = (props) => {
     useEffect(() => {
         props.getClothes()
     }, [])
-    // const newSeason = ["1", "2", "3", "4", "5"]
-    // Linea comentada por Fabi, sin uso
-     
-
+ 
     return (
         <>
             <HomeBanner></HomeBanner>

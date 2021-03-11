@@ -154,6 +154,9 @@ font-size: 5vh;
     margin-top:-8vh!important;
     
 }
+.logout{
+   
+}
 
 .rs-btn-toolbar{
 border:1px solid rgba(0, 0, 0, 0.178);  
@@ -161,12 +164,10 @@ border-radius: 1vh;
 }
 .linksHeader{
     display: flex;
-    font-weight: bold;
-    margin-left: 2vw;
+    color: black;
 }
-.linksHeader div{
-    margin-right: 2vw;
-}
+
+
 /* CARRUSEL */
 .divCarru {
     height: 100%;

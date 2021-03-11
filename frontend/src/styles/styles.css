@@ -704,7 +704,7 @@ justify-content: space-evenly;
 
   }
   .titulo3{
-    /* margin-right: 28vw; */
+    margin-right: 25vw;
     margin-bottom: 4vh;
     font-weight: 900;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -777,8 +777,26 @@ justify-content: space-evenly;
 .navbar-toggle{
   background-color: rgb(226, 220, 226);
 }
-.containerCartCards{
-  /* margin-right: 8vw; */
+.buttonCheckout{
+  margin-right: 20vw;
+  width:25vw;
+  font-weight: bold;
+}
+.containerTotal{
+  font-weight: 600;
+  color: white;
+  background-color: rgb(62, 0, 121);
+}
+
+.titulo4{
+  font-size: 1rem!important;
+  font-weight: bolder;
+}
+.titulo5{
+  font-size: 2rem!important;
+  text-align: center!important;
+  justify-content: center!important;
+  align-items: center!important;
 }
 
 }
