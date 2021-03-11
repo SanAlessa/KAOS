@@ -59,15 +59,13 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
 
   const validarRegistro = async e => {
     e.preventDefault()
-    const respuesta = await registerUser(nuevoUsuario)
-    console.log(nuevoUsuario.email)
-
     if (nuevoUsuario.firstname === '' || nuevoUsuario.lastname === '' || nuevoUsuario.email === '' || nuevoUsuario.password === '') {
       Alert.warning('Todos los campos deben estar completos', 3000)
-    } else {
-      Alert.success('Tu cuenta fue creada con exito', 4000)
+    } else{
+      const respuesta = await registerUser(nuevoUsuario)
+      console.log("hola")
+      console.log(respuesta)
     }
-    
     }
   
   const responseGoogle = async response => {

@@ -5,7 +5,6 @@ import Paypal from './Paypal'
 import CartPurchase from './CartPurchase'
 
 const Payment = (props) => {
-  console.log(props.total)
   return (
     <div className='containerCheckOut'>
       <div className='containerStateCheckOut'>

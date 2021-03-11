@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import userAction from '../redux/actions/userAction'
 import Footer from './Footer'
+import { Alert } from 'rsuite'
 /* import Swal from 'sweetalert2' */
 
 const ForgotPassword = (props) => {
@@ -24,16 +25,16 @@ const ForgotPassword = (props) => {
     const changePassword = async e => { // function that runs when you click the create user button
         e.preventDefault() //prevent reloading the page
         if (checkIfInputsAreEmpty) {
-            alert('Debe ingresar una nueva contraseña')
+            Alert.success("Debe ingresar una nueva contraseña", 3000)
             return true
         } else if (usuario.password !== usuario.newPassword) {
-            alert('las contraseñas no coinciden')
+            Alert.success("Las contraseñas no coinciden", 3000)
         } else {
             const respuesta = await props.newPassword(email, usuario.password)
             if (respuesta && !respuesta.success) {
-                alert("algo salio mal linea 34")
+                Alert.warning("Ups! Algo salio mal, intentelo nuevamente mas tarde", 3000)
             } else {
-                alert("cambio contraseña linea 36")
+                Alert.success("Contraseña cambiada con exito!", 3000)
             }
         }
     }
