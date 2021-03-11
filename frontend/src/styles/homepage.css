@@ -168,7 +168,10 @@ border-radius: 1vh;
 .linksHeader div{
     margin-right: 2vw;
 }
-
+/* CARRUSEL */
+.divCarru {
+    height: 100%;
+}
 
   /* ---------------------------RESPONSIVE-------------------------------------------------------------*/
   @media(max-width: 700px){

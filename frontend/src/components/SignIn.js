@@ -126,7 +126,7 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
                 className='btngoogle'
               />
             </div>
-            <Link to='/send-email'><p>Rec Pass</p></Link>
+            <Link to='/send-email'><p>Olvidé mi contraseña</p></Link>
           </div>
           <div className="signUp">
             <h2>NO TENÉS CUENTA? REGISTRATE!</h2>

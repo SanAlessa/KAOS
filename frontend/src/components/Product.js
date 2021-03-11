@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react"
 import { connect } from 'react-redux'
 import purchaseAction from "../redux/actions/purchaseAction"
@@ -13,6 +12,8 @@ import buzos from '../assets/buzos.png'
 import Loader from "./Loader"
 import { Link } from "react-router-dom"
 import uuid from 'react-uuid'
+import { Alert } from 'rsuite'
+import 'rsuite/dist/styles/rsuite-default.css'
 
 
 const Product = (props) => {
@@ -32,6 +33,7 @@ const Product = (props) => {
     if(sizeSelected) var realStock = sizeSelected.quantity
 
     useEffect(() => {
+<<<<<<< HEAD
         setProduct({...product, stock:realStock})
     }, [realStock])
 
@@ -42,6 +44,9 @@ const Product = (props) => {
             color: oneProduct[0].stock[0].color, size: '', quantity: 1, stock: 0
         })
         window.scrollTo(0,0)
+=======
+        window.scrollTo(0, 0)
+>>>>>>> b67e0b2dfb30eec4533d6d84778b5a64cdebdd61
         setImages(oneProduct[0].stock[0].images)
     }, [url])
 
@@ -67,8 +72,10 @@ const Product = (props) => {
     return (
         <>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <div className="mainProduct" style={{ height: '100vh'}}>
-                    <div className="mainProduct1" style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}>
+                {/* <div className="mainProduct" style={{ height: '100vh'}}>
+                    <div className="mainProduct1" style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}> */}
+                <div className="mainProduct" style={{ height: '100vh' }}>
+                    <div style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}>
                         <div className="cajaPrueba">
                             {images.length > 0 && images.length === 1 ? <div className='unaFotito' style={{ backgroundImage: `url(${images[0]})` }}>{/* {color} */}</div> : images.map((color, index) => <div className='pruebaFotitos' style={{ backgroundImage: `url(${color})` }}>{/* {color} */}</div>)}
                         </div>
@@ -95,9 +102,10 @@ const Product = (props) => {
                                                 setProduct({ ...product, id: uuid(), size: color.size })
                                             } }>{color.size}</div>)}
                                     </div>
+
                                 </div>
                             </div>
-                            <div className='botonComprar' onClick={addToCart} style={{ textAlign: "center" }}>Comprar</div>
+                            <button className='botonComprar' onClick={addToCart} style={{ textAlign: "center" }}>Comprar</button>
                             <div>
                                 <p className="titulos">DESCRIPCIÓN:</p>
                                 <p className="descripcion">{oneProduct[0].description}</p>
@@ -107,7 +115,7 @@ const Product = (props) => {
                     </div>
 
                 </div>
-                <div className="mainProduct" style={{height:'100vh'}}>
+                <div className="mainProduct" style={{ height: '100vh' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <p className="tituloMedio">NEW SEASON IS HERE!</p>
                     </div>
@@ -122,25 +130,25 @@ const Product = (props) => {
                         })}
                     </div>
                     <div className="otros" style={{ height: '30%', width: '100%' }}>
-                        <Link to={{pathname: '/productStore', state: 'Camisas'}}>
-                        <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                            <img src={camisas} style={{ width: '40%', height: '90%' }}></img>
-                            <p style={{ width: '100%', textAlign: 'center' }}>CAMISAS</p>
-                        </div>
+                        <Link to={{ pathname: '/productStore', state: 'Camisas' }}>
+                            <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                                <img src={camisas} style={{ width: '40%', height: '90%' }}></img>
+                                <p style={{ width: '100%', textAlign: 'center' }}>CAMISAS</p>
+                            </div>
                         </Link>
-                        <Link to={{pathname: '/productStore', state: 'Remeras'}}>
+                        <Link to={{ pathname: '/productStore', state: 'Remeras' }}>
 
-                        <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                            <img src={remeras} style={{ width: '40%', height: '90%' }}></img>
-                            <p style={{ width: '100%', textAlign: 'center' }}>REMERAS</p>
-                        </div >
+                            <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                                <img src={remeras} style={{ width: '40%', height: '90%' }}></img>
+                                <p style={{ width: '100%', textAlign: 'center' }}>REMERAS</p>
+                            </div >
                         </Link>
 
-                        <Link to={{pathname: '/productStore', state: 'Buzos'}}>
-                        <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                            <img src={buzos} style={{ width: '40%', height: '90%' }}></img>
-                            <p style={{ width: '100%', textAlign: 'center' }}>BUZOS</p>
-                        </div>
+                        <Link to={{ pathname: '/productStore', state: 'Buzos' }}>
+                            <div style={{ width: '35vw', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                                <img src={buzos} style={{ width: '40%', height: '90%' }}></img>
+                                <p style={{ width: '100%', textAlign: 'center' }}>BUZOS</p>
+                            </div>
                         </Link>
                     </div>
                 </div>
