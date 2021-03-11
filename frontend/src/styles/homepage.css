@@ -171,7 +171,7 @@ border-radius: 1vh;
 
 
   /* ---------------------------RESPONSIVE-------------------------------------------------------------*/
-  @media(max-width: 800px){
+  @media(max-width: 700px){
     .banner {
         display: none;
         }   
@@ -218,11 +218,7 @@ border-radius: 1vh;
         background-color: lightseagreen;
         margin: 0.2vh;
     }
-    .main {
-        height: 100%!important;
-        display: flex;
-      ;
-    }
+
    
     .info {
         width: 98%;

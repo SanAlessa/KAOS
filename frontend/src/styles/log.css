@@ -222,12 +222,5 @@ margin-top: 1vh;}
     .container__items__footer{
         font-size: 1vh;
     }
-    .main {
-        height: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-   
+
 }
