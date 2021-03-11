@@ -99,7 +99,7 @@ newPassword: (email, password) => {
   addAdmin:(token)=>{
     return async (dispatch, getState)=>{
       try{
-        const response = await axios.post(`http://localhost:4000/api/addAdmin`, {
+        const response = await axios.post(`http://localhost:4000/api/addAdmin`, {token}, {
           headers: {
             Authorization: `Bearer ${token}`
           }
