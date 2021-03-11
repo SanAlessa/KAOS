@@ -32,6 +32,7 @@ if(loggedUser){
     <Route exact path='/buy' component={Buy} />
     <Route exact path='/payment' component={Payment}/>
     <Route exact path ='/userprofile' component={UserProfile} />
+    <Route path='/reset-password/:email' component={ForgotPassword}/>
     <Redirect to="/"/>
     </Switch>
   </>

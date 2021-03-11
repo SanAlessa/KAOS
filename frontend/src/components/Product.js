@@ -76,7 +76,7 @@ const Product = (props) => {
         setVisible(true)
         setProduct({ ...product, image: colorFilter[0].images[0], color: value })
     }
-
+    console.log(product)
     const addToCart = () => {
         var productFiltered = props.cart.find(cloth=> cloth.name+cloth.color+cloth.size === product.name+product.color+product.size )
         if(productFiltered){
@@ -86,6 +86,7 @@ const Product = (props) => {
         }else
         props.checkout(product)
         props.forceReload(!props.reload)
+        
         Alert.success("Producto agregado al carrito", 4000)
     }
 
