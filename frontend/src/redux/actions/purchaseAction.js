@@ -57,7 +57,7 @@ const purchaseAction = {
         return async (dispatch, getState)=>{
             var purchase = getState().purchaseR.checkout
             try {
-                const response = await axios.post(`http://localhost:4000/api/purchase`, purchase, {
+                const response = await axios.post(`${API}/purchase`, purchase, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -74,7 +74,7 @@ const purchaseAction = {
         console.log(id)
         return async(dispatch)=>{
             try {
-                const response = await axios.post('http://localhost:4000/api/getPurchases', {id} )
+                const response = await axios.post(`${API}/getPurchases`, {id} )
                 dispatch({type: 'NEW_PURCHASE', payload: response.data.response})
                 console.log(response)
             }catch(error){

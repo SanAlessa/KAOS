@@ -35,7 +35,7 @@ const userAction = {
   loginUser: (usuario) => {
     return async (dispatch, getState) => {
       try {
-        const respuesta = await axios.post('https://kaos-challenge.herokuapp.com/api/user/signin', usuario)
+        const respuesta = await axios.post(`${API}/user/signin`, usuario)
         if (!respuesta.data.success) {
           return respuesta.data
         }
@@ -53,7 +53,7 @@ const userAction = {
   logFromLS: (token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post('https://kaos-challenge.herokuapp.com/api/user/ls', { token }, {
+        const response = await axios.post(`${API}/user/ls`, { token }, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -73,7 +73,7 @@ const userAction = {
   resetPassword: (email)=> {
     return async (dispatch) => {
         try{
-            const response = await axios.post(`http://localhost:4000/api/user/reset-password`, {email})
+            const response = await axios.post(`${API}/user/reset-password`, {email})
             dispatch({type: 'RESET_PASSWORD'})
             console.log(response)
         }catch(error){
@@ -84,7 +84,7 @@ const userAction = {
 newPassword: (email, password) => {
   return async(dispatch) => {
       try{
-          const response = await axios.put(`http://localhost:4000/api/user/reset-password`, {email, password})
+          const response = await axios.put(`${API}/user/reset-password`, {email, password})
           dispatch({type: 'CHANGE_PASSWORD'})
       }catch(error){
           alert("error en el coso")
@@ -100,7 +100,7 @@ newPassword: (email, password) => {
   addAdmin:(token)=>{
     return async (dispatch, getState)=>{
       try{
-        const response = await axios.post(`http://localhost:4000/api/addAdmin`, {token}, {
+        const response = await axios.post(`${API}/addAdmin`, {token}, {
           headers: {
             Authorization: `Bearer ${token}`
           }
