@@ -40,10 +40,10 @@ class MenuUser extends React.Component {
 
           <Drawer.Body>
             <br />
-            <Link to="/ProductStore" onClick={() => this.close()} ><h4>Mujer</h4></Link>
+            <Link to="/ProductStore" onClick={() => this.close()} ><h4>Shop</h4></Link>
 
             <br />
-            <Link to="/ProductStore" onClick={() => this.close()}><h4>Hombre</h4></Link>
+            <Link to="/signin" onClick={() => this.close()}><h4>Sign In</h4></Link>
 
           </Drawer.Body>
           <Drawer.Footer>
