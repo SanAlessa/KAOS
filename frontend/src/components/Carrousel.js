@@ -17,7 +17,7 @@ export default class SimpleSlider extends Component {
       rows: 1,
       slidesPerRow: 1,
       autoplay: true,
-      autoplaySpeed: 2500,
+      autoplaySpeed: 1600,
       fade: true,
       pauseOnDotsHover: true,
     };
@@ -33,6 +33,7 @@ export default class SimpleSlider extends Component {
                 </div>
               )
             })}
+
           </Slider>
           <div className="banner">
             <ScrollBanner />

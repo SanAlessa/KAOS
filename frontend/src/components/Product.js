@@ -62,6 +62,7 @@ const Product = (props) => {
         }else
         props.checkout(product)
         props.forceReload(!props.reload)
+        Alert.success("Producto agregado al carrito", 4000)
     }
 
     return (
