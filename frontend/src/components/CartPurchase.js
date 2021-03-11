@@ -7,7 +7,7 @@ const CartPurchase = ({products, deleteProduct, checkout}) => {
     return(
         <>
             <div className='containerCart'>
-                { products && products.length === 0 ? <h6>Empezá a comprar</h6> :
+                { products && products.length === 0 ? <h6 className='titulo5'>Empezá a comprar</h6> :
                 <>
                 <h6 className="titulo3"><BiPurchaseTagAlt/> TU COMPRA</h6>
                 <div className ='containerPurchase'>

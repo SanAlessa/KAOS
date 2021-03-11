@@ -32,7 +32,7 @@ function Navbar(props) {
               <CartPurchase products={props.cart}/>
             </li>
             <li className='containerTotal'>
-              <h3>TOTAL: $</h3>
+              <h3 className='titulo4'>TOTAL: $</h3>
             </li>
             <li className='containerButtonCheckOut'>
             <button className='buttonCheckout'>Finalizar Compra</button>
