@@ -10,7 +10,6 @@ const Header = (props) => {
   useEffect(() => {
   }, [props.reload])  
     if(props.loggedUser){
-
         var links = 
         <div className="linksHeader">
           <Link to="/userProfile">
@@ -19,7 +18,6 @@ const Header = (props) => {
             <h6 style={{margin: 0}}className="saludo">{props.loggedUser.firstname.split(' ', 1)}</h6>
           </div>
           </Link>
-         
         </div> 
     }
       return (
@@ -32,7 +30,7 @@ const Header = (props) => {
             <div className="links">
                 <Link  className="links"to ="/">HOME</Link>
                 <Link className="links" to ="/productStore">SHOP</Link>
-                <NavLink className="links" to ="/signIn">SIGN IN/SIGN UP</NavLink>
+                {!props.loggedUser && <NavLink className="links" to ="/signIn">SIGN IN/SIGN UP</NavLink>}
                 {links}
                 <Cart cart={props.cart} />
                 <h5>{props.cart.length}</h5>

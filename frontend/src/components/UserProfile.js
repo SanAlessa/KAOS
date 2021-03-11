@@ -6,11 +6,11 @@ import Footer from './Footer'
 
 const UserProfile = ({ loggedUser, getPurchases, newPurchase, addAdmin }) => {
     const { firstname, lastname, email, id } = loggedUser
-
+    console.log(loggedUser)
     useEffect(() => {
         getPurchases(id)
     }, [])
-
+    console.log(loggedUser)
     return (
         <>
             <div className='containerUserProfile'>
@@ -24,7 +24,9 @@ const UserProfile = ({ loggedUser, getPurchases, newPurchase, addAdmin }) => {
                         <h2>{email}</h2>
                         <h3>Tu dirección de correo</h3>
                         <h4>Quiero cambiar mi contraseña</h4>
+                        {(loggedUser.rol !== 'admin' || !loggedUser.rol) && 
                         <h4 onClick={()=>addAdmin(loggedUser.token)}>Solicitar Acceso de Admin</h4>
+                        }
                     </div>
                     <div className='containerUserPurchase'>
                         <div className='containerTitleUserPurchase'>

@@ -58,6 +58,7 @@ const userAction = {
             Authorization: `Bearer ${token}`
           }
         })
+        console.log(response)
         dispatch({ type: 'LOGIN_USER', payload: { response: { ...response.data.response } } })
       }
       catch (error) {

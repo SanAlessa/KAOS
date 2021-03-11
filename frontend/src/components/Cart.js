@@ -15,7 +15,7 @@ function Navbar(props) {
   const showSidebar = () => setSidebar(!sidebar);
   if(props.cart.length > 0){
     var prices = props.cart.map(price=> price.price*price.quantity)
-    var totalPrice = prices.reduce((a, b)=> a + b)
+    var totalPrice = prices.reduce((a, b)=> a + b).toFixed(2)
   }
   return (
     <>
@@ -35,7 +35,7 @@ function Navbar(props) {
               <CartPurchase products={props.cart}/>
             </li>
             <li className='containerTotal'>
-              <h4>TOTAL: $ {totalPrice && totalPrice.toFixed(3)}</h4>
+              <h4>TOTAL: $ {totalPrice}</h4>
             </li>
             <li className='containerButtonCheckOut'>
             <Link to="/buy"><button className='buttonCheckout' onClick={()=>{
