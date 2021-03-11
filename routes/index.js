@@ -31,6 +31,9 @@ router.route('/clothes/addClothes')
 router.route('/clothes/getClothes')
 .get(clothesController.getClothes)
 
+router.route('/clothes/getOne/:id')
+.get(clothesController.getOne)
+
 router.route('/clothes/addStock')
 .post(clothesController.addToStock)
 
@@ -44,7 +47,13 @@ router.route('/clothes/modifyClothes')
 .post(clothesController.modifyClothes)
 
 router.route('/purchase')
-.post(purchaseController.newPurchase)
+.post(passport.authenticate('jwt', {session: false}), purchaseController.newPurchase)
+
+router.route('/getPurchases')
+.post(purchaseController.getPurchases)
+
+router.route('/addAdmin')
+.post(passport.authenticate('jwt', {session: false}), userController.addAdmin)
 
 
 module.exports = router

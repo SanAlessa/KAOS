@@ -7,7 +7,7 @@ import Footer from './Footer'
 const ForgotPassword = (props) => {
     const email = props.match.params.email
     const [usuario, setUsuario] = useState({ password: '', newPassword: '' })
-    const [errores, setErrores] = useState([])
+    // const [errores, setErrores] = useState([])
     const [visible, setVisible] = useState(false)
 
     const readInput = e => { //receive the event

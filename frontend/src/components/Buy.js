@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import CartPurchase from './CartPurchase'
+import uuid from 'react-uuid'
 
 const Buy = (props) => {
   console.log(props.total)
@@ -30,7 +31,7 @@ const Buy = (props) => {
             {country.map(country => {
               return (
                 <>
-                  <option value={country.value}>{country.name}</option>
+                  <option key={uuid()} value={country.value}>{country.name}</option>
                 </>
               )
             })

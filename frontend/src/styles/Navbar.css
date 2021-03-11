@@ -73,6 +73,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid black;
   }
   .nav-menu-items li{
     list-style-type: none;
@@ -93,3 +94,11 @@
     align-items: center;
     background-color: white;
   }
+.links{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 2vw;
+  padding:  1vw;
+  color: black;
+}

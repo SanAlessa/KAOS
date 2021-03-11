@@ -48,6 +48,10 @@ const userController = {
             {token: req.body.token, firstname: req.user.firstname, lastname: req.user.lastname, email: req.user.email, id:req.user._id}})
     },
 
+    addAdmin: (req, res)=>{
+        User.findById(req.user.id)
+        console.log(User)
+    }
 }
 
 module.exports = userController
