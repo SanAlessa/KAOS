@@ -67,7 +67,7 @@ const Product = (props) => {
         <>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <div className="mainProduct" style={{ height: '100vh'}}>
-                    <div style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}>
+                    <div className="mainProduct1" style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}>
                         <div className="cajaPrueba">
                             {images.length > 0 && images.length === 1 ? <div className='unaFotito' style={{ backgroundImage: `url(${images[0]})` }}>{/* {color} */}</div> : images.map((color, index) => <div className='pruebaFotitos' style={{ backgroundImage: `url(${color})` }}>{/* {color} */}</div>)}
                         </div>
@@ -76,14 +76,14 @@ const Product = (props) => {
                                 <p className="tituloPrenda">{oneProduct[0].name.toUpperCase()}</p>
                                 <p className="precio">${oneProduct[0].price}</p>
                                 <div className="colores">
-                                    <p>COLORES</p>
+                                    <p className="titulos">COLORES</p>
                                     <div style={{ display: "flex", justifyContent: "flex-start", width: '25vw', height: '5vh' }}>
                                         {oneProduct[0].stock.map(color => <div className="color" style={{ backgroundColor: `${color.color}`}} onClick={() => Click(color.color)}>{/* {color.color} */}</div>)}
 
                                     </div>
                                 </div>
                                 <div style={{height:'30%'}}>
-                                    <p>TALLES</p>
+                                    <p className="titulos">TALLES</p>
                                     <div style={{ display: "flex", justifyContent: 'flex-start', height:'100%'}}>
                                         {visible ? color.length > 0 && color[0].size.map(size => <div  className="talles" onClick={() => setProduct({ ...product, id: uuid(), size: size.size })}>{size.size}</div>)
                                             : oneProduct[0].stock[0].size.map(color => <div className="talles" onClick={() => setProduct({ ...product, id: uuid(), size: color.size })}>{color.size}</div>)}
@@ -92,8 +92,8 @@ const Product = (props) => {
                             </div>
                             <div className='botonComprar' onClick={addToCart} style={{ textAlign: "center" }}>Comprar</div>
                             <div>
-                                <p>DESCRIPCIÓN:</p>
-                                <p>{oneProduct[0].description}</p>
+                                <p className="titulos">DESCRIPCIÓN:</p>
+                                <p className="descripcion">{oneProduct[0].description}</p>
                             </div>
 
                         </div>
@@ -102,7 +102,7 @@ const Product = (props) => {
                 </div>
                 <div className="mainProduct" style={{height:'100vh'}}>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <p>NEW SEASON IS HERE!</p>
+                        <p className="tituloMedio">NEW SEASON IS HERE!</p>
                     </div>
                     <div className="cardsProducts">
                         {props.lastClothes.map(card => {

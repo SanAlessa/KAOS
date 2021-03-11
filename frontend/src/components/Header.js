@@ -15,8 +15,8 @@ const Header = (props) => {
         var links = 
         <div className="linksHeader">
             {/* <Link  to = "/adminPanel">ADMIN</Link> */}
-            <div>Bienvenido {props.loggedUser.firstname.split(' ', 1)}!</div>
-            <Link to = "/"  onClick={()=> props.disconnectUser()}>Cerrar Sesion</Link>
+            <div className="saludo"> Bienvenido {props.loggedUser.firstname.split(' ', 1)}!</div>
+            <Link to = "/" className="saludo1"  onClick={()=> props.disconnectUser()}>Cerrar Sesion</Link>
         </div> 
     }
   
@@ -34,7 +34,7 @@ const Header = (props) => {
                   {/* </Link> */}
                 <Dropdown >
                   <Dropdown.Toggle style={{backgroundColor: 'transparent', color: 'black', border: 'none'}} variant="success" id="dropdown-basic">
-                  <IoPersonCircleOutline style={{ fontSize: '2.2rem', color: 'black' }} />
+                  <IoPersonCircleOutline className='menu-bars2' style={{ fontSize: '2.2rem', color: 'black' }} />
 
 
                   </Dropdown.Toggle>

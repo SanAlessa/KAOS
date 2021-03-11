@@ -28,9 +28,10 @@ function Navbar(props) {
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items'>
             <li className='navbar-toggle'>
-              <h2 style={{ margin: '0' }}>TU CARRITO</h2>
-              <AiIcons.AiOutlineClose onClick={showSidebar} style={{ marginRight: '2vw', fontSize: '1.5rem', cursor: 'pointer' }} />
-            </li>
+            <AiIcons.AiOutlineClose onClick={showSidebar} style={{ marginRight: '2vw', fontSize: '1.5rem', cursor: 'pointer' }} className='tituloCarrito' />
+           </li>
+            <h6 className='containerCart' style={{ margin: '0' }}></h6>
+
             <li className='containerCartPurchaseSide'>
               <CartPurchase products={props.cart}/>
             </li>
