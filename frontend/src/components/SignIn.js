@@ -50,28 +50,21 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
       if (respuesta && !respuesta.success) {
         respuesta.errores.map(respuesta=>Alert.error(respuesta.message))
       }
-      setTimeout(() => {
-        history.push('/')
-      }, 4000)
 
     }
   }
 
   const validarRegistro = async e => {
     e.preventDefault()
-    
-    
     if (nuevoUsuario.firstname === '' || nuevoUsuario.lastname === '' || nuevoUsuario.email === '' || nuevoUsuario.password === '') {
       Alert.warning('Todos los campos deben estar completos', 3000)
     } 
     const respuesta = await registerUser(nuevoUsuario)
     if(respuesta && !respuesta.success){
-
-      Alert.error(respuesta.errors[0].message)
+      respuesta.errores.map(respuesta=>Alert.error(respuesta.message))
     }else {
-      Alert.success('Tu cuenta fue creada con exito', 4000)
+      Alert.success('Tu cuenta fue creada con exito', 10000)
     }
-    
   }
   
   const responseGoogle = async response => {
