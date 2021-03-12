@@ -6,7 +6,9 @@
   "scripts": {
     "test": "mocha signupexitoso.spec.js --reporter mochawesome",
     "start": "node ./server.js",
-    "dev": "nodemon ./server.js"
+    "dev": "nodemon ./server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
