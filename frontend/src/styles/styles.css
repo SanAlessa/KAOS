@@ -377,6 +377,7 @@ div.containerCart h{
     font-size: 3vw;
 }
 /* ESTILOS MAURI */
+/* ESTILOS DE LAS CARDHISTORYPURCHASE DE FABI */
 .containerCartCheckout{
   width: 40%;
   height: 100%;
@@ -410,7 +411,7 @@ transition: 300ms ease
 background-color: #866ccc60;
 transition: 300ms ease;
 }
-
+/* ESTILOS DE LAS CARDHISTORYPURCHASE DE FABI */
 .cajaPrueba{
   display: flex;
   flex-wrap: wrap;
