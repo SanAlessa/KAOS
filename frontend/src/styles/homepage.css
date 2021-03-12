@@ -105,15 +105,14 @@ font-size: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: mintcream;
+    color: rgb(255, 255, 255);
     width: 50%;
     height: 80%;
     background-color: #bd9bd1ce;
-    border: 1px solid rgba(0, 0, 0, 0.247);
+    box-shadow: -5px 5px rgba(65, 40, 65, 0.37);
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
-
 .bannerFrase {
     display: flex;
     justify-content: center;
