@@ -8,7 +8,6 @@ import Product from './components/Product'
 import Header from './components/Header'
 import SignIn from './components/SignIn'
 import Buy from './components/Buy'
-import Payment from './components/Payment'
 import userAction from './redux/actions/userAction'
 import purchaseAction from './redux/actions/purchaseAction'
 import './styles/styles.css'
@@ -28,7 +27,6 @@ if(loggedUser){
     {loggedUser.rol === 'admin' && <Route path="/adminPanel" component={AdminPanel}/>}
     <Route path="/product/:id" component={Product}/>
     <Route exact path='/buy' component={Buy} />
-    <Route exact path='/payment' component={Payment}/>
     <Route exact path ='/userprofile' component={UserProfile} />
     <Redirect to="/"/>
     </Switch>

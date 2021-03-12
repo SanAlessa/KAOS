@@ -60,10 +60,11 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
       Alert.warning('Todos los campos deben estar completos', 3000)
     } 
     const respuesta = await registerUser(nuevoUsuario)
+    console.log(respuesta)
     if(respuesta && !respuesta.success){
-      respuesta.errores.map(respuesta=>Alert.error(respuesta.message))
+      respuesta.errors.map(respuesta=>Alert.error(respuesta.message))
     }else {
-      Alert.success('Tu cuenta fue creada con exito', 10000)
+      Alert.success('Tu cuenta fue creada con exito', 20000)
     }
   }
   

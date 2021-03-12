@@ -2,10 +2,15 @@
 const { Builder, By, Key, until } = require('selenium-webdriver')
 const assert = require('assert')
 
-describe('signup-exitoso', function() {
+describe('Test SignUp Exitoso', function() {
   this.timeout(30000)
   let driver
   let vars
+  const data = [
+    {test: 'SIGNUP EXITOSO', nombre: 'Juan', apellido: 'Marquez', mail: 'juanmitaa1@gmail.com', password: 'Juan123', mensaje: 'Tu cuenta fue creada con exito'},
+    {test: 'SIGNUP ERRONEO - PW', nombre: 'Juan', apellido: 'Marquez', mail: 'juanm1@gmail.com', password: 'Juanc', mensaje: 'La contraseña debe contener al menos 5 caracteres'},
+    {test: 'SIGNUP ERRONEO - MAIL EXISTENTE', nombre: 'Juan', apellido: 'Marquez', mail: 'juanm@gmail.com', password: 'Juan123', mensaje: 'Este email ya se encuentra en uso!'}
+  ]
   beforeEach(async function() {
     driver = await new Builder().forBrowser('chrome').build()
     vars = {}
@@ -13,19 +18,33 @@ describe('signup-exitoso', function() {
   afterEach(async function() {
     await driver.quit();
   })
-  it('signup-exitoso', async function() {
-    await driver.get("http://localhost:3000/")
-    await driver.manage().window().setRect(1936, 1056)
-    await driver.findElement(By.linkText("SIGN IN")).click()
-    await driver.findElement(By.name("firstname")).click()
-    await driver.findElement(By.name("firstname")).sendKeys("Santiago")
-    await driver.findElement(By.name("lastname")).click()
-    await driver.findElement(By.name("lastname")).sendKeys("Perez")
-    await driver.findElement(By.css("div:nth-child(4) > .inputsLog")).click()
-    await driver.findElement(By.css("div:nth-child(4) > .inputsLog")).sendKeys("santiperez@gmail.com")
-    await driver.findElement(By.css("div:nth-child(1) > .inputsLog")).click()
-    await driver.findElement(By.css("div:nth-child(1) > .inputsLog")).sendKeys("saanti123")
-    await driver.findElement(By.css(".btnLog:nth-child(6)")).click()
-    assert(await driver.findElement(By.css(".rs-alert-item-content > div")).isSelected())
+  data.map(test=> {
+    it(test.test, async function() {
+      await driver.get("http://localhost:3000/")
+      await driver.manage().window().maximize()
+      await driver.findElement(By.linkText("SIGN IN")).click()
+      await driver.sleep(1000)
+      await driver.findElement(By.name("firstname")).click()
+      await driver.sleep(1000)
+      await driver.findElement(By.name("firstname")).sendKeys(test.nombre)
+      await driver.sleep(1000)
+      await driver.findElement(By.name("lastname")).click()
+      await driver.sleep(1000)
+      await driver.findElement(By.name("lastname")).sendKeys(test.apellido)
+      await driver.sleep(1000)
+      await driver.findElement(By.css("div:nth-child(4) > .inputsLog")).click()
+      await driver.sleep(1000)
+      await driver.findElement(By.css("div:nth-child(4) > .inputsLog")).sendKeys(test.mail)
+      await driver.sleep(1000)
+      await driver.findElement(By.css("div:nth-child(1) > .inputsLog")).click()
+      await driver.sleep(1000)
+      await driver.findElement(By.css("div:nth-child(1) > .inputsLog")).sendKeys(test.password)
+      await driver.sleep(1000)
+      await driver.findElement(By.css(".btnLog:nth-child(6)")).click()
+      await driver.sleep(5000)
+      assert(await driver.findElement(By.css(".rs-alert-item-content > div")).getText() == test.mensaje)
+      await driver.sleep(2000)
+    })
+
   })
 })
