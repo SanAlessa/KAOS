@@ -6,7 +6,7 @@ const userAction = {
   registerUser: (nuevoUsuario) => {
     return async (dispatch, getState) => {
       try {
-        const respuesta = await axios.post(`http://localhost:4000/api/user/signup`, nuevoUsuario)
+        const respuesta = await axios.post(`${API}/user/signup`, nuevoUsuario)
         if(!respuesta.data.success){
           return respuesta.data
         }

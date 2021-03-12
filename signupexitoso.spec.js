@@ -3,25 +3,28 @@ const { Builder, By, Key, until } = require('selenium-webdriver')
 const assert = require('assert')
 
 describe('Test SignUp Exitoso', function() {
-  this.timeout(30000)
+  this.timeout(40000)
   let driver
   let vars
   const data = [
-    {test: 'SIGNUP EXITOSO', nombre: 'Juan', apellido: 'Marquez', mail: 'juanmitaa1@gmail.com', password: 'Juan123', mensaje: 'Tu cuenta fue creada con exito'},
-    {test: 'SIGNUP ERRONEO - PW', nombre: 'Juan', apellido: 'Marquez', mail: 'juanm1@gmail.com', password: 'Juanc', mensaje: 'La contraseña debe contener al menos 5 caracteres'},
-    {test: 'SIGNUP ERRONEO - MAIL EXISTENTE', nombre: 'Juan', apellido: 'Marquez', mail: 'juanm@gmail.com', password: 'Juan123', mensaje: 'Este email ya se encuentra en uso!'}
+    {test: 'SIGNUP EXITOSO', nombre: 'Testeo', apellido: 'Marquez', mail: 'testeo@gmail.com', password: 'Juan123', mensaje: 'Tu cuenta fue creada con exito'},
+    {test: 'SIGNUP ERRONEO - PW', nombre: 'Juan', apellido: 'Marquez', mail: 'testeo1@gmail.com', password: 'Juanc', mensaje: "La contraseña debe tener al menos un número"},
+    {test: 'SIGNUP ERRONEO - MAIL EXISTENTE', nombre: 'Testeo', apellido: 'Marquez', mail: 'testeo@gmail.com', password: 'Juan123', mensaje: 'Este email ya se encuentra en uso!'}
   ]
   beforeEach(async function() {
     driver = await new Builder().forBrowser('chrome').build()
     vars = {}
+    
   })
   afterEach(async function() {
     await driver.quit();
+  
   })
   data.map(test=> {
     it(test.test, async function() {
       await driver.get("http://localhost:3000/")
       await driver.manage().window().maximize()
+      await driver.sleep(1000)
       await driver.findElement(By.linkText("SIGN IN")).click()
       await driver.sleep(1000)
       await driver.findElement(By.name("firstname")).click()
@@ -43,7 +46,6 @@ describe('Test SignUp Exitoso', function() {
       await driver.findElement(By.css(".btnLog:nth-child(6)")).click()
       await driver.sleep(5000)
       assert(await driver.findElement(By.css(".rs-alert-item-content > div")).getText() == test.mensaje)
-      await driver.sleep(2000)
     })
 
   })
