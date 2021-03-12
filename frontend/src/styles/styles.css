@@ -377,7 +377,41 @@ div.containerCart h{
     font-size: 3vw;
 }
 /* ESTILOS MAURI */
-
+/* ESTILOS DE LAS CARDHISTORYPURCHASE DE FABI */
+.containerCartCheckout{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2vw;
+}
+.containerPhotoPurchased{
+height: 100%;
+width: 40%;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+}
+.photoPurchased{
+height: 100%;
+width: 50%;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+}
+.cardPurchased{
+border: none;
+}
+.clothPurchased{
+background-color: #6048a325;
+transition: 300ms ease
+}
+.clothPurchased:hover {
+background-color: #866ccc60;
+transition: 300ms ease;
+}
+/* ESTILOS DE LAS CARDHISTORYPURCHASE DE FABI */
 .cajaPrueba{
   display: flex;
   flex-wrap: wrap;
@@ -520,6 +554,39 @@ div.containerCart h{
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+}
+.boxSuccess{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: #6CC8FC; */
+  margin-top: 2vh;
+ /*  height: 100vh; */
+}
+.containerSuccess{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.textoSuccess{
+  text-align: center;
+}
+.textoSuccess h2{
+  margin-top: 2vh;
+  font-size: 2vw;
+}
+.textoSuccess p{
+  width: 50vw;
+  font-size: 1.5vw;
+}
+.successBack{
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 40vw;
+  height: 60vh;
+  background-image: url('../assets/success.png');
 }
 /* ESTILOS MAURI */
 .containerContactInformation{

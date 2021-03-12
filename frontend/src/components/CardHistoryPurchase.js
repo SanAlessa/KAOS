@@ -18,22 +18,6 @@ const CardHistoryPurchase = ({product}) => {
                 </div>
             </div>
         </div>
-    // )
     )
 }
-
-// const mapStateToProps = state => {
-//   return {
-//     reload: state.purchaseR.reload
-//   }
-// }
-
-// const mapDispatchToProps = {
-//   checkout: purchaseAction.checkout,
-//   deleteClothes: purchaseAction.deleteClothes,
-//   incOne: purchaseAction.incOne,
-//   substOne: purchaseAction.substOne,
-//   forceReload: purchaseAction.forceReload
-// }
-
-export default /*connect(mapStateToProps, mapDispatchToProps)*/(CardHistoryPurchase)
+export default (CardHistoryPurchase)
