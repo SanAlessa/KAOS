@@ -8,7 +8,6 @@ import Product from './components/Product'
 import Header from './components/Header'
 import SignIn from './components/SignIn'
 import Buy from './components/Buy'
-import Payment from './components/Payment'
 import userAction from './redux/actions/userAction'
 import purchaseAction from './redux/actions/purchaseAction'
 import './styles/styles.css'
@@ -29,7 +28,6 @@ if(loggedUser){
     <Route path="/adminPanel" component={AdminPanel}/> 
     <Route path="/product/:id" component={Product}/>
     <Route exact path='/buy' component={Buy} />
-    <Route exact path='/payment' component={Payment}/>
     <Route exact path ='/userprofile' component={UserProfile} />
     <Redirect to="/"/>
     </Switch>
@@ -45,10 +43,7 @@ if(loggedUser){
     <Route exact path="/" component={Homepage}/>
     <Route path="/adminPanel" component={AdminPanel}/> 
     <Route exact path ='/userprofile' component={UserProfile} />
-    
     <Route exact path='/buy' component={Buy} />
-    <Route exact path='/payment' component={Payment}/>
-
     <Route path='/send-email' component={SendEmail}/>
     <Route path='/reset-password/:email' component={ForgotPassword}/>
     <Route path="/productStore" component={ProductStore}/>
