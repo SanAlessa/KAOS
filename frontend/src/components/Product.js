@@ -103,10 +103,10 @@ const Product = (props) => {
         <>
             {oneProduct.length === 0 ? <Loader/> : 
             <>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div className='contenedorGeneralProduct' style={{ display: 'flex', flexDirection: 'column' }}>
                 
                 <div className="mainProduct" style={{ height: '100vh' }}>
-                    <div style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}>
+                    <div className='mainProduct2' style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}>
                         <div className="cajaPrueba">
                             {images.length > 0 && images.length === 1 ? <div className='unaFotito' style={{ backgroundImage: `url(${images[0]})` }}></div> 
                             : images.map((color, index) => <div key={uuid()} className='pruebaFotitos' style={{ backgroundImage: `url(${color})` }}></div>)}
@@ -147,10 +147,12 @@ const Product = (props) => {
                     </div>
 
                 </div>
+               
                 <div className="mainProduct" style={{ height: '100vh' }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <p className="tituloMedio">NEW SEASON IS HERE!</p>
                     </div>
+                    
                     <div className="cardsProducts">
                         {props.lastClothes.map(card => {
                             return (

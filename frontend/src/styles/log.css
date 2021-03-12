@@ -165,7 +165,7 @@ margin-top: 1vh;}
         display: flex;
         flex-direction: column;
         width: 98%!important;
-        height:100%; 
+        height:80%; 
         margin-bottom:1vh;
         align-items: center;
         background-image: url('../assets/login.png');
