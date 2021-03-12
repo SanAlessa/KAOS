@@ -11,7 +11,8 @@ const purchaseController= {
     .catch(error => res.json({success: false, error}))
   },
   getPurchases: (req,res)=> {
-    Purchase.find({user:req.body.id})
+    console.log(req.body.id)
+    Purchase.find({'user': req.body.id})
     .then(response => res.json({success: true, response}))
     .catch(error => res.json({success: false, error}))
   }

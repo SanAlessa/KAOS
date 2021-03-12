@@ -73,7 +73,9 @@ const purchaseAction = {
         return async(dispatch)=>{
             try {
                 const response = await axios.post(`${API}/getPurchases`, {id} )
-                dispatch({type: 'NEW_PURCHASE', payload: response.data.response})
+                console.log(response.data.response[0])
+                dispatch({type: 'NEW_PURCHASE', payload: response.data.response[0].purchase})
+                console.log('despacho')
             }catch(error){
                 Alert.warning("Ups! Algo salio mal, intentalo nuevamente mas tarde", 3000)
             }

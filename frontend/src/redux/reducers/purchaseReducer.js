@@ -24,6 +24,7 @@ const purchaseReducer = (state=initState, action) => {
         total: action.payload
       }
     case 'NEW_PURCHASE':
+      console.log(action.payload)
       return {
         ...state,
         newPurchase: action.payload

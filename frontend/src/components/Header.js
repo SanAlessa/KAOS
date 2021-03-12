@@ -1,9 +1,9 @@
 import logo from '../assets/kaos.png'
 import { connect } from 'react-redux'
 import { Link , NavLink} from 'react-router-dom'
+import { IoPersonCircleOutline } from 'react-icons/io5'
 import Cart from './Cart'
 import { useEffect } from 'react'
-import {FaUser} from 'react-icons/fa'
 
 
 const Header = (props) => {
@@ -14,7 +14,7 @@ const Header = (props) => {
         <div className="linksHeader">
           <Link to="/userProfile">
           <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-around', width: '6vw'}}>
-          <FaUser style={{ fontSize: '2.2rem', color: 'black'}} />                                      
+          <IoPersonCircleOutline style={{ fontSize: '2.2rem', color: 'black'}} />                                      
             <h6 style={{margin: 0}}className="saludo">{props.loggedUser.firstname.split(' ', 1)}</h6>
           </div>
           </Link>

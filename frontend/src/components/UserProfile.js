@@ -5,12 +5,20 @@ import purchaseAction from '../redux/actions/purchaseAction'
 import userAction from '../redux/actions/userAction'
 import Footer from './Footer'
 
-const UserProfile = ({ loggedUser, getPurchases, newPurchase, addAdmin, disconnectUser, history, cart }) => {
+const UserProfile = ({ loggedUser, getPurchases, userPurchase, addAdmin, disconnectUser, history, cart }) => {
     const { firstname, lastname, email, id } = loggedUser
     
     useEffect(() => {
         getPurchases(id)
+        
     }, [])
+
+    useEffect(()=>{
+        console.log(userPurchase)
+    },[userPurchase.length>0])
+
+    console.log(userPurchase)
+
  
     return (
         <>
@@ -31,10 +39,10 @@ const UserProfile = ({ loggedUser, getPurchases, newPurchase, addAdmin, disconne
                     </div>
                     <div className='containerUserPurchase'>
                         <div className='containerTitleUserPurchase'>
-                            {newPurchase.length > 0 ?
+                            {userPurchase.length > 0 ?
                                 <div>
                                     <h2>Tus compras en KAOS</h2>
-                                    {cart.map(purchase => <CardHistoryPurchase product={purchase}/>)}
+                                    {userPurchase.map(purchase => <CardHistoryPurchase product={purchase}/>)}
                                 </div>
                                 : <h2>Aun no realizaste compras!</h2>}
                         </div>
@@ -50,7 +58,7 @@ const UserProfile = ({ loggedUser, getPurchases, newPurchase, addAdmin, disconne
 const mapStateToProps = state => {
     return {
         loggedUser: state.userR.loggedUser,
-        newPurchase: state.purchaseR.newPurchase,
+        userPurchase: state.purchaseR.newPurchase,
         cart: state.purchaseR.checkout,
     }
 }
