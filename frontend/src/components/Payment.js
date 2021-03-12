@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Paypal from './Paypal'
-import CartPurchase from './CartPurchase'
+import CardHistory from './CartPurchase'
 
 const Payment = (props) => {
   console.log(props.total)
@@ -20,7 +20,7 @@ const Payment = (props) => {
           <Link><div>Finalizar Compra</div></Link>
         </div>
         <div className='containerCartCheckout'>
-        <CartPurchase products={props.cart}/>
+        {props.cart.map(product => <CardHistoryPurchase product={product} />)}
         </div>
       </div>
     </div>
