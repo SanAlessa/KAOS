@@ -9,15 +9,20 @@
     /* overflow-y: scroll;
     scrollbar-width: thin; */
 }
-.containerCartCards {
+.containerCartCards1 {
     border: none;
     background-color: rgb(255, 255, 255);
     margin-top: 2vh;
+    width: 90%;
+    margin-left: 1vw;
+    height: 20vh;
 }
-.containerClothingCard {
+.containerClothingCards {
     display: flex;
     justify-content: space-between;
     border: none;
+    height: 20vh;
+    width: 100;
 }
 .containerPhotoPurchased{
     height: 100%;
@@ -25,14 +30,12 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-}
-.photoPurchased{
-    height: 100%;
-    width: 50%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+
 }
+
 .cardPurchased{
     border: none;
 }
@@ -56,25 +59,63 @@
 /* fin estilos carrito    */
 .containerMainBuy {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
+    /* flex-direction: column; */
+    justify-content: center;
     height: 100vh;
     width: 100%;
 }
+.div1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 60vw;
+    height: 90vh;
+}
+.div2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 40vw;
+    height: 70vh;
+}
 .containerContentCheckout {
     display: flex;
-    justify-content: space-evenly;
-    height: 50%;
+    justify-content: center;
+    height: 30vh;
     width: 90%;
 }
+.containerCartCheckoutDos {
+    height: 100%;
+    width: 30vw;
+    margin-top: 4vh;
+    overflow-y: auto;
+}
+
+.containerCartCheckoutDos::-webkit-scrollbar{
+    width: 10px;
+  }
+  
+  .containerCartCheckoutDos::-webkit-scrollbar-track{
+    background: #f1f1f1;  
+    border-radius: 6px;
+  }
+  .containerCartCheckoutDos::-webkit-scrollbar-thumb{
+    background: var(--primary-color);
+    border-radius: 5px;
+  }
+  .containerCartCheckoutDos::-webkit-scrollbar-thumb:hover {
+    background:var(--secondary-color);
+  }
+
 .containerAddress{
     background-color: rgb(255, 255, 255);
     width: 60%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    margin-top: -5vh;
 }
 
 .containerCartCheckout {
@@ -84,35 +125,35 @@
 
 .bannerBuy {
     width: 54%;
-    height: 7%;
+    height: 6vh;
     background-color: rgb(168, 112, 166);
-    margin-left: 6%;
     color: white;
     display: flex;
     align-items: center;
 }
 .bannerBuy p {
     font-size: 3vh;
-    text-align: center;
-    margin-left: 0%;
+    margin-left: 2vw;
 }
 
 .containerAddress input {
-    height: 80%;
-    width: 48%;
+    height: 5vh;
+    width: 15vw;
     outline: thin;
     outline-color: rgb(90, 23, 90);
+    margin: 1vw
 }
 .parInputs {
     height: 10%;
     display: flex;
     justify-content: space-evenly;
+    margin: 1.5vw;
 }
 .containerMainPay {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: flex-start;
+    align-items: center;
     min-height: 30vh;
     width: 100%;
 }
@@ -123,7 +164,6 @@
     align-items: center;
     width: 60%;
     height: 80%;
-    margin-left: 2vw;
 }
 .paypal {
     display: flex;

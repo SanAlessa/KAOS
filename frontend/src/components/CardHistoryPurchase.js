@@ -3,10 +3,9 @@ const CardHistoryPurchase = ({ product }) => {
     var { name, price, image, size, quantity } = product
 
     return (
-        <div className='containerCartCards cardPurchased'>
-            <div className='containerClothingCard'>
-                <div className='containerPhotoPurchased'>
-                    <div className='photoPurchased' style={{ backgroundImage: `url(${image})` }}></div>
+        <div className='containerCartCards1 cardPurchased'>
+            <div className='containerClothingCards'>
+                <div className='containerPhotoPurchased' style={{ backgroundImage: `url(${image})` }}>
                 </div>
                 <div className='containerDataClothing clothPurchased'>
                     <div className='containerTitle'>{name}</div>
@@ -17,7 +16,7 @@ const CardHistoryPurchase = ({ product }) => {
                             <div className='quantityPurchased'>
                                 Seleccionaste {quantity} unidades
                         </div> :
-                            <div className='quantityPurchased'>Seleccionaste {quantity} unidad</div>
+                            <div style={{paddingLeft: '0.5vw'}} className='quantityPurchased'>Cantidad seleccionada: {quantity} </div> 
                         }
                     </div>
                 </div>

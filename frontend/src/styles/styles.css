@@ -660,6 +660,7 @@ justify-content: space-evenly;
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px;
   transition: ease 0.3s;
+  background-color: white;
 }
 .buttonCheckout:hover{
   box-shadow: inset 265px 0 0 0 #6048a3;
