@@ -4,10 +4,12 @@ import { API } from '../../API'
 
 const userAction = {
   registerUser: (nuevoUsuario) => {
-    console.log(nuevoUsuario)
     return async (dispatch, getState) => {
       try {
-        const respuesta = await axios.post(`${API}/user/signup`, nuevoUsuario)
+        const respuesta = await axios.post(`http://localhost:4000/api/user/signup`, nuevoUsuario)
+        if(!respuesta.data.success){
+          return respuesta.data
+        }
         dispatch({
           type: 'LOGIN_USER',
           payload: respuesta.data

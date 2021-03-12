@@ -8,7 +8,6 @@ import Product from './components/Product'
 import Header from './components/Header'
 import SignIn from './components/SignIn'
 import Buy from './components/Buy'
-import Payment from './components/Payment'
 import userAction from './redux/actions/userAction'
 import purchaseAction from './redux/actions/purchaseAction'
 import './styles/styles.css'
@@ -26,11 +25,9 @@ if(loggedUser){
     <Switch>
     <Route exact path="/" component={Homepage}/>
     <Route path="/productStore" component={ProductStore}/>
-    {/* if(loggedUser.rol === 'admin')  */}
-    <Route path="/adminPanel" component={AdminPanel}/> 
+    {loggedUser.rol === 'admin' && <Route path="/adminPanel" component={AdminPanel}/>}
     <Route path="/product/:id" component={Product}/>
     <Route exact path='/buy' component={Buy} />
-    <Route exact path='/payment' component={Payment}/>
     <Route exact path ='/userprofile' component={UserProfile} />
     <Route path='/reset-password/:email' component={ForgotPassword}/>
     <Redirect to="/"/>
@@ -47,9 +44,7 @@ if(loggedUser){
     <Route exact path="/" component={Homepage}/>
     <Route path="/adminPanel" component={AdminPanel}/> 
     <Route exact path ='/userprofile' component={UserProfile} />
-    
     <Route exact path='/buy' component={Buy} />
-    <Route exact path='/payment' component={Payment}/>
     <Route exact path= '/success' component={Success}/>
     <Route path='/send-email' component={SendEmail}/>
     <Route path='/reset-password/:email' component={ForgotPassword}/>
