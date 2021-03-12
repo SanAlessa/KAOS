@@ -76,17 +76,27 @@ const Product = (props) => {
         setVisible(true)
         setProduct({ ...product, image: colorFilter[0].images[0], color: value })
     }
-
+    console.log(product)
     const addToCart = () => {
-        var productFiltered = props.cart.find(cloth=> cloth.name+cloth.color+cloth.size === product.name+product.color+product.size )
-        if(productFiltered){
-            var condition = (productFiltered.name+productFiltered.color+productFiltered.size) 
-            props.cart.map(cart=>(condition === (cart.name+cart.color+cart.size)) && cart.quantity++)
-            props.forceReload(!props.reload)
-        }else
-        props.checkout(product)
-        props.forceReload(!props.reload)
-        Alert.success("Producto agregado al carrito", 4000)
+        if (props.loggedUser){
+            if(product.size!==""){
+                var productFiltered = props.cart.find(cloth=> cloth.name+cloth.color+cloth.size === product.name+product.color+product.size )
+                 if(productFiltered){
+                var condition = (productFiltered.name+productFiltered.color+productFiltered.size) 
+                props.cart.map(cart=>(condition === (cart.name+cart.color+cart.size)) && cart.quantity++)
+                props.forceReload(!props.reload)
+                }else
+                props.checkout(product)
+                props.forceReload(!props.reload)
+                Alert.success("Producto agregado al carrito", 4000)
+        }else{
+            Alert.error("Selecciona un talle por favor", 3000)
+        }
+        
+        } else {
+            Alert.error("Necesitas ingresar tu cuenta para empezar a comprar", 3000)
+        }
+        
     }
 
     return (
@@ -187,6 +197,7 @@ const Product = (props) => {
 const mapStateToProps = state => {
     return {
         cart: state.purchaseR.checkout,
+        loggedUser: state.userR.loggedUser,
         clothes: state.clothesR.clothes,
         reload: state.purchaseR.reload,
         lastClothes: state.clothesR.lastClothes,

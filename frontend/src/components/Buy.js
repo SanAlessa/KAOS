@@ -61,7 +61,7 @@ const Buy = (props) => {
             </div>
           </div>
           <div className='containerCartCheckout'>
-          {props.cart.map(product => <CardHistoryPurchase product={product} />)}
+            {props.cart.map(product => <CardHistoryPurchase product={product} />)}
           </div>
         </div>
         <div className="bannerBuy">

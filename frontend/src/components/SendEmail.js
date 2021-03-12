@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import userAction from '../redux/actions/userAction'
 import Footer from './Footer'
+import '../styles/log.css'
+import 'rsuite/dist/styles/rsuite-default.css'
+import { Alert } from 'rsuite'
 
 
 const SendEmail = (props) => {
@@ -14,7 +17,7 @@ const SendEmail = (props) => {
     const validateUser = async e => { // function that runs when you click the create user button
         e.preventDefault() //prevent reloading the page
         if (checkIfInputsAreEmpty) {
-            alert("Por favor ingresá un mail válido")
+            Alert.warning("Por favor ingresá un mail válido")
             return true
         }
         setErrores([])
@@ -23,7 +26,7 @@ const SendEmail = (props) => {
         if (respuesta && !respuesta.success) {
             setErrores(respuesta.errores.details)
         } else {
-            alert("Se ha enviado un correo electrónico a tu cuenta")
+            Alert.success("Se ha enviado un correo electrónico a tu cuenta")
             setVisible(true)
         }
     }

@@ -39,12 +39,12 @@ const Homepage = (props) => {
                 <div className="sectionsDiv">
                     <div className="boxes" style={{ backgroundImage: `url(${box1})`, backgroundPosition: 'center', backgroundSize: 'cover' }}></div>
                     <div className="info">
-                        <p>OLVIDA LAS REGLAS....SI TE GUSTA,ÚSALO.</p>
+                        <p>NEW SEASON 2021. Descubrí todo lo nuevo que te trae KAOS para esta temporada! Buzos, remes, bermudas y más. Qué esperás para enloquecer? Corré al shop, que no va a durar mucho...</p>
                     </div>
                 </div>
                 <div className="sectionsDiv">
                     <div className="info">
-                        <p>LAS MODAS PASAN , EL ESTILO ES ETERNO</p>
+                        <p>Próximamente SUPER SALE para que te animes por si te quedaste con las ganas! Descuentos de hasta el 50% OFF! Seguinos en nuestras redes para estar al tanto, lanzaremos el evento el 27/3 y solo va a estar disponible por 24 horas! No digas que no te avisamos...</p>
                     </div>
                     <div className="boxes" style={{ backgroundImage: `url(${box2})`, backgroundPosition: 'center', backgroundSize: 'cover' }}></div>
                 </div>

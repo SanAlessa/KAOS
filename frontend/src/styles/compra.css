@@ -1,3 +1,59 @@
+/* estilos carrito */
+.containerCartCheckout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 40%;
+    min-height: 70vh;
+    align-items: center;
+    /* overflow-y: scroll;
+    scrollbar-width: thin; */
+}
+.containerCartCards {
+    border: none;
+    background-color: rgb(255, 255, 255);
+    margin-top: 2vh;
+}
+.containerClothingCard {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+}
+.containerPhotoPurchased{
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.photoPurchased{
+    height: 100%;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.cardPurchased{
+    border: none;
+}
+.clothPurchased{
+    background-color: #6048a325;
+    transition: 300ms ease
+}
+.clothPurchased:hover {
+    background-color: #866ccc60;
+    transition: 300ms ease;
+} 
+.containerQuantity {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.quantityPurchased {
+    text-align: start;
+    margin-right: 6vw;
+}
+/* fin estilos carrito    */
 .containerMainBuy {
     display: flex;
     flex-direction: column;
@@ -6,13 +62,6 @@
     height: 100vh;
     width: 100%;
 }
-.containerCartCheckout {
-    background-color: lightslategrey !important;
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
 .containerContentCheckout {
     display: flex;
     justify-content: space-evenly;
@@ -26,7 +75,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-  }
+}
 
 .containerCartCheckout {
     width: 20%;

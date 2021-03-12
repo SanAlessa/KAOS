@@ -16,7 +16,7 @@ const userAction = {
         })
       }
       catch (error) {
-        console.log(error)
+        Alert.warning("Ups! Algo salio mal, intentalo nuevamente mas tarde", 3000)
       }
     }
   },
@@ -30,7 +30,7 @@ const userAction = {
         })
       }
       catch (error) {
-        console.log(error)
+        Alert.warning("Ups! Algo salio mal, intentalo nuevamente mas tarde", 3000)
       }
     }
   },
@@ -65,7 +65,7 @@ const userAction = {
       }
       catch (error) {
         if (error.response.status === 401) {
-          alert("esta intentando ingresar sin permisos")
+          Alert.warning("Ups! Algo salio mal, intentalo nuevamente mas tarde", 3000)
           localStorage.clear()
           return true
         }
@@ -79,7 +79,7 @@ const userAction = {
             dispatch({type: 'RESET_PASSWORD'})
             console.log(response)
         }catch(error){
-            alert("error padre")
+          Alert.warning("Ups! Algo salio mal, intentalo nuevamente mas tarde", 3000)
         }
     }
 }, 
@@ -89,7 +89,7 @@ newPassword: (email, password) => {
           const response = await axios.put(`${API}/user/reset-password`, {email, password})
           dispatch({type: 'CHANGE_PASSWORD'})
       }catch(error){
-          alert("error en el coso")
+        Alert.warning("Ups! Algo salio mal, intentalo nuevamente mas tarde", 3000)
       }
   }
 },
@@ -107,9 +107,8 @@ newPassword: (email, password) => {
             Authorization: `Bearer ${token}`
           }
         })
-        console.log(response)
       }catch (error){
-        console.log(error)
+        Alert.warning("Ups! Algo salio mal, intentalo nuevamente mas tarde", 3000)
       }
     }
   }
