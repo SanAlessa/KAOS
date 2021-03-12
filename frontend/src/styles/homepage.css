@@ -35,6 +35,7 @@ font-size: 5vh;
 .motto {
     width: 50vw;
     height: 20vh;
+    margin-top:25vh;
     background-image: url('../assets/motto.png');
     background-position: center;
     background-size: cover; 
