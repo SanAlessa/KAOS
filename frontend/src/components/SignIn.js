@@ -115,7 +115,7 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
             <button className="btnLog" onClick={validarUsuario}>Ingresar</button>
             <div>
               <GoogleLogin
-                clientId="1002420018935-3pb1m3mp2kvibgd8sniqgbs1l6up1g3d.apps.googleusercontent.com"
+                clientId="359967007495-bqpfk2li40j7njsbkkcr97l4hijrmqia.apps.googleusercontent.com"
                 buttonText="Iniciar sesión con Google"
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
@@ -147,7 +147,7 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
             <div className="googlediv">
               <GoogleLogin
                 className='btngoogle'
-                clientId="1002420018935-3pb1m3mp2kvibgd8sniqgbs1l6up1g3d.apps.googleusercontent.com"
+                clientId="359967007495-bqpfk2li40j7njsbkkcr97l4hijrmqia.apps.googleusercontent.com"
                 buttonText="Crear una cuenta con Google"
                 onSuccess={responseGoogleReg}
                 onFailure={responseGoogleReg}
