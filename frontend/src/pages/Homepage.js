@@ -12,7 +12,7 @@ import box4 from '../assets/box4.png'
 
 const Homepage = (props) => {
     useEffect(() => {
-        props.getClothes()
+        props.getClothes() 
     }, [])
  
     return (
