@@ -1,4 +1,12 @@
-const Success = ()=>{
+import { useEffect } from "react"
+import { connect } from "react-redux"
+import purchaseAction from "../redux/actions/purchaseAction"
+
+const Success = (props)=>{
+
+    useEffect(()=>{
+        props.cleanCart()
+    },[])
     return (
         <>
             <div className='boxSuccess'>
@@ -14,4 +22,9 @@ const Success = ()=>{
         </>
     )
 }
-export default Success
+
+
+const mapDispatchToProps = {
+    cleanCart: purchaseAction.cleanCheckout
+}
+export default connect(null,mapDispatchToProps)(Success)

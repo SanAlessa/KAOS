@@ -574,18 +574,21 @@ transition: 300ms ease;
   text-align: center;
 }
 .textoSuccess h2{
+  color:#6048a3;
   margin-top: 2vh;
   font-size: 2vw;
 }
 .textoSuccess p{
   width: 50vw;
-  font-size: 1.5vw;
+  font-size: 1.3vw;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
 }
 .successBack{
   background-size: cover;
   background-repeat: no-repeat;
-  width: 40vw;
-  height: 60vh;
+  width: 50vw;
+  height: 65vh;
   background-image: url('../assets/success.png');
 }
 /* ESTILOS MAURI */

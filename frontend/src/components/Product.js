@@ -94,7 +94,7 @@ const Product = (props) => {
         }
         
         } else {
-            Alert.error("Necesitas ingresar tu cuenta para empezar a comprar", 3000)
+            Alert.error("Necesitas ingresar a tu cuenta para empezar a comprar", 3000)
         }
         
     }

@@ -24,10 +24,15 @@ const purchaseReducer = (state=initState, action) => {
         total: action.payload
       }
     case 'NEW_PURCHASE':
-      console.log(action.payload)
       return {
         ...state,
         newPurchase: action.payload
+      }
+    case 'CLEAN': 
+      console.log(action.payload)
+      return {
+        ...state,
+        checkout: action.payload
       }
     default: 
       return state

@@ -78,6 +78,13 @@ const purchaseAction = {
                 Alert.warning("Ups! Algo salio mal, intentalo nuevamente mas tarde", 3000)
             }
         }
+    },
+
+    cleanCheckout: ()=>{
+        return (dispatch)=>{
+            console.log('llega')
+            dispatch({type: 'CLEAN', payload: []})
+        }
     }
 }
 

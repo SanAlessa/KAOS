@@ -9,7 +9,7 @@ import '../styles/compra.css'
 
 const Buy = (props) => {
   console.log(props.total)
-  const [registro, setRegistro] = useState({
+   const [registro, setRegistro] = useState({
     nombre: '',
     apellido: '',
     pais: '',
@@ -61,7 +61,7 @@ const Buy = (props) => {
             </div>
           </div>
           <div className='containerCartCheckout'>
-          {props.cart.map(product => <CardHistoryPurchase product={product} />)}
+          {props.cart.map(product => <CardHistoryPurchase product={product} key={product.id} />)}
           </div>
         </div>
         <div className="bannerBuy">
@@ -70,8 +70,7 @@ const Buy = (props) => {
       </div>
       <div className="containerMainPay">
         <div className='containerPayInfo'>
-          <Paypal total={props.total} />
-          <Link><button className="botonCompra" onClick={validarCompra}>Finalizar Compra</button></Link>
+          <Paypal total={props.total} history={props.history} validarCompra={validarCompra}/>
         </div>
 
       </div>

@@ -5,7 +5,7 @@ import '../styles/log.css'
 import 'rsuite/dist/styles/rsuite-default.css'
 import { Alert } from 'rsuite'
 
-const Paypal =({total, sendPurchase, loggedUser})=>{
+const Paypal =({total, sendPurchase, loggedUser, history, validarCompra})=>{
   const paypal = useRef()
   useEffect(()=>{
     window.paypal.Buttons({
@@ -18,10 +18,11 @@ const Paypal =({total, sendPurchase, loggedUser})=>{
           actions.order.capture()
           Alert.success("Compra exitosa!")
           sendPurchase(loggedUser.token)
+          history.push("/success")
+          
         },
         onError: (error)=>{
           Alert.warning("Hubo un error en el pago, intente nuevamente")
-          console.log(error)
         }
     }).render(paypal.current)
   })
