@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import CartPurchase from './CartPurchase'
-import '../styles/compra.css'
 import Footer from './Footer'
 import Paypal from './Paypal'
-import uuid from 'react-uuid'
 import { Alert } from 'rsuite'
+import CardHistoryPurchase from './CardHistoryPurchase'
+import '../styles/compra.css'
 
 const Buy = (props) => {
   console.log(props.total)
@@ -60,11 +59,9 @@ const Buy = (props) => {
               <input type='text' name="telefono" placeholder='Indicanos el teléfono de contacto' onChange={leerInput}></input>
               <input type='text' name="email" placeholder='Indicanos un mail' onChange={leerInput}></input>
             </div>
-
-
           </div>
           <div className='containerCartCheckout'>
-            <CartPurchase products={props.cart} />
+            {props.cart.map(product => <CardHistoryPurchase product={product} />)}
           </div>
         </div>
         <div className="bannerBuy">

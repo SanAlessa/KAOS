@@ -17,7 +17,7 @@ class MenuUser extends React.Component {
     this.close = this.close.bind(this);
     this.toggleDrawer = this.toggleDrawer.bind(this);
     this.loggedUser = this.props.loggedUser
-    console.log(this.props)
+
   }
   close() {
     this.setState({

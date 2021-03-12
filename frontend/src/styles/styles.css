@@ -377,7 +377,6 @@ div.containerCart h{
     font-size: 3vw;
 }
 /* ESTILOS MAURI */
-
 .cajaPrueba{
   display: flex;
   flex-wrap: wrap;
@@ -521,6 +520,39 @@ div.containerCart h{
   justify-content: center;
   align-items: flex-start;
 }
+.boxSuccess{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: #6CC8FC; */
+  margin-top: 2vh;
+ /*  height: 100vh; */
+}
+.containerSuccess{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.textoSuccess{
+  text-align: center;
+}
+.textoSuccess h2{
+  margin-top: 2vh;
+  font-size: 2vw;
+}
+.textoSuccess p{
+  width: 50vw;
+  font-size: 1.5vw;
+}
+.successBack{
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 40vw;
+  height: 60vh;
+  background-image: url('../assets/success.png');
+}
 /* ESTILOS MAURI */
 .containerContactInformation{
   width: 100vw;
@@ -628,6 +660,23 @@ justify-content: space-evenly;
   box-shadow: inset 265px 0 0 0 #6048a3;
   transform: scale(1.1);
   color: whitesmoke;
+}
+
+.logOut {
+  width: 12vw;
+  padding: 0.5vw;
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  background-color: var(--terciary-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logOut:hover {
+  background-color: var(--primary-color);
+  transition: 0.3s linear;
+  transform: scale(1.1);
 }
 
  /* ---------------------------RESPONSIVE-------------------------------------------------------------*/

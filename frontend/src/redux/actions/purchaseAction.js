@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {API} from '../../API'
-
+import { Alert } from 'rsuite'
 
 const purchaseAction = {
     checkout: (clothes) => {
@@ -57,28 +57,25 @@ const purchaseAction = {
         return async (dispatch, getState)=>{
             var purchase = getState().purchaseR.checkout
             try {
-                const response = await axios.post(`http://localhost:4000/api/purchase`, purchase, {
+                const response = await axios.post(`${API}/purchase`, purchase, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
                 })
-                console.log(response)
                 dispatch({type: 'NEW_PURCHASE', payload: response.data.response})
             }catch(error){
-                console.log(error)
+                Alert.warning("Ups! Algo salio mal, intentalo nuevamente mas tarde", 3000)
             }
         }
     },
 
     getPurchases: (id)=>{
-        console.log(id)
         return async(dispatch)=>{
             try {
-                const response = await axios.post('http://localhost:4000/api/getPurchases', {id} )
+                const response = await axios.post(`${API}/getPurchases`, {id} )
                 dispatch({type: 'NEW_PURCHASE', payload: response.data.response})
-                console.log(response)
             }catch(error){
-                console.log(error)
+                Alert.warning("Ups! Algo salio mal, intentalo nuevamente mas tarde", 3000)
             }
         }
     }

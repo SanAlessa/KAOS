@@ -6,14 +6,13 @@ import 'rsuite/dist/styles/rsuite-default.css'
 import { Alert } from 'rsuite'
 
 const Paypal =({total, sendPurchase, loggedUser})=>{
-  console.log(total.toFixed(2))
   const paypal = useRef()
   useEffect(()=>{
     window.paypal.Buttons({
       createOrder: (data, actions, err) => {
         return actions.order.create({
           intent: "CAPTURE", 
-          purchase_units: [{description: "Compra", amount: {value: total.toFixed(2), currency_code: "USD"}}],
+          purchase_units: [{description: "Compra", amount: {value: total, currency_code: "USD"}}],
         })},
         onApprove: (data, actions) => {
           actions.order.capture()
