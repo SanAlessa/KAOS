@@ -1,0 +1,179 @@
+/* estilos carrito */
+.containerCartCheckout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 40%;
+    min-height: 70vh;
+    align-items: center;
+    /* overflow-y: scroll;
+    scrollbar-width: thin; */
+}
+.containerCartCards1 {
+    border: none;
+    background-color: rgb(255, 255, 255);
+    margin-top: 2vh;
+    width: 90%;
+    margin-left: 1vw;
+    height: 20vh;
+}
+.containerClothingCards {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    height: 20vh;
+    width: 100;
+}
+.containerPhotoPurchased{
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
+.cardPurchased{
+    border: none;
+}
+.clothPurchased{
+    background-color: #6048a325;
+    transition: 300ms ease
+}
+.clothPurchased:hover {
+    background-color: #866ccc60;
+    transition: 300ms ease;
+} 
+.containerQuantity {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.quantityPurchased {
+    text-align: start;
+    margin-right: 6vw;
+}
+/* fin estilos carrito    */
+.containerMainBuy {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+.div1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 60vw;
+    height: 90vh;
+}
+.div2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 40vw;
+    height: 70vh;
+}
+.containerContentCheckout {
+    display: flex;
+    justify-content: center;
+    height: 30vh;
+    width: 90%;
+}
+.containerCartCheckoutDos {
+    height: 100%;
+    width: 30vw;
+    margin-top: 4vh;
+    overflow-y: auto;
+}
+
+.containerCartCheckoutDos::-webkit-scrollbar{
+    width: 10px;
+  }
+  
+  .containerCartCheckoutDos::-webkit-scrollbar-track{
+    background: #f1f1f1;  
+    border-radius: 6px;
+  }
+  .containerCartCheckoutDos::-webkit-scrollbar-thumb{
+    background: var(--primary-color);
+    border-radius: 5px;
+  }
+  .containerCartCheckoutDos::-webkit-scrollbar-thumb:hover {
+    background:var(--secondary-color);
+  }
+
+.containerAddress{
+    background-color: rgb(255, 255, 255);
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: -5vh;
+}
+
+.containerCartCheckout {
+    width: 20%;
+    max-height: 90%;
+}
+
+.bannerBuy {
+    width: 54%;
+    height: 6vh;
+    background-color: rgb(168, 112, 166);
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.bannerBuy p {
+    font-size: 3vh;
+    margin-left: 2vw;
+}
+
+.containerAddress input {
+    height: 5vh;
+    width: 15vw;
+    outline: thin;
+    outline-color: rgb(90, 23, 90);
+    margin: 1vw
+}
+.parInputs {
+    height: 10%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1.5vw;
+}
+.containerMainPay {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 30vh;
+    width: 100%;
+}
+.containerPayInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 80%;
+}
+.paypal {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+.botonCompra {
+    background-color: rgb(168, 112, 166);
+    padding: 1vh;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    color: white;
+}

@@ -76,27 +76,37 @@ const Product = (props) => {
         setVisible(true)
         setProduct({ ...product, image: colorFilter[0].images[0], color: value })
     }
-
+    console.log(product)
     const addToCart = () => {
-        var productFiltered = props.cart.find(cloth=> cloth.name+cloth.color+cloth.size === product.name+product.color+product.size )
-        if(productFiltered){
-            var condition = (productFiltered.name+productFiltered.color+productFiltered.size) 
-            props.cart.map(cart=>(condition === (cart.name+cart.color+cart.size)) && cart.quantity++)
-            props.forceReload(!props.reload)
-        }else
-        props.checkout(product)
-        props.forceReload(!props.reload)
-        Alert.success("Producto agregado al carrito", 4000)
+        if (props.loggedUser){
+            if(product.size!==""){
+                var productFiltered = props.cart.find(cloth=> cloth.name+cloth.color+cloth.size === product.name+product.color+product.size )
+                 if(productFiltered){
+                var condition = (productFiltered.name+productFiltered.color+productFiltered.size) 
+                props.cart.map(cart=>(condition === (cart.name+cart.color+cart.size)) && cart.quantity++)
+                props.forceReload(!props.reload)
+                }else
+                props.checkout(product)
+                props.forceReload(!props.reload)
+                Alert.success("Producto agregado al carrito", 4000)
+        }else{
+            Alert.error("Selecciona un talle por favor", 3000)
+        }
+        
+        } else {
+            Alert.error("Necesitas ingresar a tu cuenta para empezar a comprar", 3000)
+        }
+        
     }
 
     return (
         <>
             {oneProduct.length === 0 ? <Loader/> : 
             <>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div className='contenedorGeneralProduct' style={{ display: 'flex', flexDirection: 'column' }}>
                 
                 <div className="mainProduct" style={{ height: '100vh' }}>
-                    <div style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}>
+                    <div className='mainProduct2' style={{ display: 'flex', width: '100%', height: '90%', justifyContent: 'space-evenly' }}>
                         <div className="cajaPrueba">
                             {images.length > 0 && images.length === 1 ? <div className='unaFotito' style={{ backgroundImage: `url(${images[0]})` }}></div> 
                             : images.map((color, index) => <div key={uuid()} className='pruebaFotitos' style={{ backgroundImage: `url(${color})` }}></div>)}
@@ -137,10 +147,12 @@ const Product = (props) => {
                     </div>
 
                 </div>
+               
                 <div className="mainProduct" style={{ height: '100vh' }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <p className="tituloMedio">NEW SEASON IS HERE!</p>
                     </div>
+                    
                     <div className="cardsProducts">
                         {props.lastClothes.map(card => {
                             return (
@@ -185,6 +197,7 @@ const Product = (props) => {
 const mapStateToProps = state => {
     return {
         cart: state.purchaseR.checkout,
+        loggedUser: state.userR.loggedUser,
         clothes: state.clothesR.clothes,
         reload: state.purchaseR.reload,
         lastClothes: state.clothesR.lastClothes,

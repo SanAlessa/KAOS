@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {API} from '../../API'
-
+import { Alert } from 'rsuite'
 
 const purchaseAction = {
     checkout: (clothes) => {
@@ -62,24 +62,28 @@ const purchaseAction = {
                         Authorization: `Bearer ${token}`
                     }
                 })
-                console.log(response)
                 dispatch({type: 'NEW_PURCHASE', payload: response.data.response})
             }catch(error){
-                console.log(error)
+                Alert.warning("Ups! Algo salio mal, intentalo nuevamente mas tarde", 3000)
             }
         }
     },
 
     getPurchases: (id)=>{
-        console.log(id)
         return async(dispatch)=>{
             try {
                 const response = await axios.post(`${API}/getPurchases`, {id} )
                 dispatch({type: 'NEW_PURCHASE', payload: response.data.response})
-                console.log(response)
             }catch(error){
-                console.log(error)
+                Alert.warning("Ups! Algo salio mal, intentalo nuevamente mas tarde", 3000)
             }
+        }
+    },
+
+    cleanCheckout: ()=>{
+        return (dispatch)=>{
+            console.log('llega')
+            dispatch({type: 'CLEAN', payload: []})
         }
     }
 }

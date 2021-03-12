@@ -30,7 +30,8 @@ const Header = (props) => {
             <div className="links">
                 <Link  className="links"to ="/">HOME</Link>
                 <Link className="links" to ="/productStore">SHOP</Link>
-                {!props.loggedUser && <NavLink className="links" to ="/signIn">SIGN IN/SIGN UP</NavLink>}
+                {!props.loggedUser && <NavLink className="links" to ="/signIn">SIGN IN</NavLink>}
+                {(props.loggedUser && props.loggedUser.rol === 'admin') && <Link className="links" to="/adminPanel">Admin Panel</Link>}
                 {links}
                 <Cart cart={props.cart} />
                 <h5>{props.cart.length}</h5>
@@ -46,8 +47,6 @@ const mapStateToProps = state => {
     reload: state.purchaseR.reload
   }
 }
-const mapDispatchToProps = {
-  disconnectUser: userAction.disconnectUser
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+
+export default connect(mapStateToProps)(Header)

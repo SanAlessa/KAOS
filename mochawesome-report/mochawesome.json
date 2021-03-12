@@ -1,0 +1,176 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-03-12T04:24:52.994Z",
+    "end": "2021-03-12T04:25:56.358Z",
+    "duration": 63364,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2d037f01-8dcc-487a-8714-d65041a855c8",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2d799e56-b3a5-4ebb-b486-460dcabadbd1",
+          "title": "Test SignUp Exitoso",
+          "fullFile": "D:\\Users\\Santiago\\Documents\\MindHub\\KAOS\\signupexitoso.spec.js",
+          "file": "\\signupexitoso.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Test SignUp Exitoso\"",
+              "fullTitle": "Test SignUp Exitoso \"before each\" hook in \"Test SignUp Exitoso\"",
+              "timedOut": false,
+              "duration": 715,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build()\nvars = {}",
+              "err": {},
+              "uuid": "b70a3136-a5ba-4c0c-83c3-9cc5adb91e6d",
+              "parentUUID": "2d799e56-b3a5-4ebb-b486-460dcabadbd1",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"Test SignUp Exitoso\"",
+              "fullTitle": "Test SignUp Exitoso \"after each\" hook in \"Test SignUp Exitoso\"",
+              "timedOut": false,
+              "duration": 70,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "f8c48fe1-cc69-4688-b5c0-12ab169ec4e5",
+              "parentUUID": "2d799e56-b3a5-4ebb-b486-460dcabadbd1",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "SIGNUP EXITOSO",
+              "fullTitle": "Test SignUp Exitoso SIGNUP EXITOSO",
+              "timedOut": false,
+              "duration": 21040,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://localhost:3000/\")\nawait driver.manage().window().maximize()\nawait driver.sleep(1000)\nawait driver.findElement(By.linkText(\"SIGN IN\")).click()\nawait driver.sleep(1000)\nawait driver.findElement(By.name(\"firstname\")).click()\nawait driver.sleep(1000)\nawait driver.findElement(By.name(\"firstname\")).sendKeys(test.nombre)\nawait driver.sleep(1000)\nawait driver.findElement(By.name(\"lastname\")).click()\nawait driver.sleep(1000)\nawait driver.findElement(By.name(\"lastname\")).sendKeys(test.apellido)\nawait driver.sleep(1000)\nawait driver.findElement(By.css(\"div:nth-child(4) > .inputsLog\")).click()\nawait driver.sleep(1000)\nawait driver.findElement(By.css(\"div:nth-child(4) > .inputsLog\")).sendKeys(test.mail)\nawait driver.sleep(1000)\nawait driver.findElement(By.css(\"div:nth-child(1) > .inputsLog\")).click()\nawait driver.sleep(1000)\nawait driver.findElement(By.css(\"div:nth-child(1) > .inputsLog\")).sendKeys(test.password)\nawait driver.sleep(1000)\nawait driver.findElement(By.css(\".btnLog:nth-child(6)\")).click()\nawait driver.sleep(5000)\nassert(await driver.findElement(By.css(\".rs-alert-item-content > div\")).getText() == test.mensaje)",
+              "err": {},
+              "uuid": "a6863874-91d1-47d9-80ea-15ed91ee45ea",
+              "parentUUID": "2d799e56-b3a5-4ebb-b486-460dcabadbd1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "SIGNUP ERRONEO - PW",
+              "fullTitle": "Test SignUp Exitoso SIGNUP ERRONEO - PW",
+              "timedOut": false,
+              "duration": 20925,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://localhost:3000/\")\nawait driver.manage().window().maximize()\nawait driver.sleep(1000)\nawait driver.findElement(By.linkText(\"SIGN IN\")).click()\nawait driver.sleep(1000)\nawait driver.findElement(By.name(\"firstname\")).click()\nawait driver.sleep(1000)\nawait driver.findElement(By.name(\"firstname\")).sendKeys(test.nombre)\nawait driver.sleep(1000)\nawait driver.findElement(By.name(\"lastname\")).click()\nawait driver.sleep(1000)\nawait driver.findElement(By.name(\"lastname\")).sendKeys(test.apellido)\nawait driver.sleep(1000)\nawait driver.findElement(By.css(\"div:nth-child(4) > .inputsLog\")).click()\nawait driver.sleep(1000)\nawait driver.findElement(By.css(\"div:nth-child(4) > .inputsLog\")).sendKeys(test.mail)\nawait driver.sleep(1000)\nawait driver.findElement(By.css(\"div:nth-child(1) > .inputsLog\")).click()\nawait driver.sleep(1000)\nawait driver.findElement(By.css(\"div:nth-child(1) > .inputsLog\")).sendKeys(test.password)\nawait driver.sleep(1000)\nawait driver.findElement(By.css(\".btnLog:nth-child(6)\")).click()\nawait driver.sleep(5000)\nassert(await driver.findElement(By.css(\".rs-alert-item-content > div\")).getText() == test.mensaje)",
+              "err": {},
+              "uuid": "cb9f8c2a-77c3-4425-ae73-105410ae3fe7",
+              "parentUUID": "2d799e56-b3a5-4ebb-b486-460dcabadbd1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "SIGNUP ERRONEO - MAIL EXISTENTE",
+              "fullTitle": "Test SignUp Exitoso SIGNUP ERRONEO - MAIL EXISTENTE",
+              "timedOut": false,
+              "duration": 18879,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://localhost:3000/\")\nawait driver.manage().window().maximize()\nawait driver.sleep(1000)\nawait driver.findElement(By.linkText(\"SIGN IN\")).click()\nawait driver.sleep(1000)\nawait driver.findElement(By.name(\"firstname\")).click()\nawait driver.sleep(1000)\nawait driver.findElement(By.name(\"firstname\")).sendKeys(test.nombre)\nawait driver.sleep(1000)\nawait driver.findElement(By.name(\"lastname\")).click()\nawait driver.sleep(1000)\nawait driver.findElement(By.name(\"lastname\")).sendKeys(test.apellido)\nawait driver.sleep(1000)\nawait driver.findElement(By.css(\"div:nth-child(4) > .inputsLog\")).click()\nawait driver.sleep(1000)\nawait driver.findElement(By.css(\"div:nth-child(4) > .inputsLog\")).sendKeys(test.mail)\nawait driver.sleep(1000)\nawait driver.findElement(By.css(\"div:nth-child(1) > .inputsLog\")).click()\nawait driver.sleep(1000)\nawait driver.findElement(By.css(\"div:nth-child(1) > .inputsLog\")).sendKeys(test.password)\nawait driver.sleep(1000)\nawait driver.findElement(By.css(\".btnLog:nth-child(6)\")).click()\nawait driver.sleep(5000)\nassert(await driver.findElement(By.css(\".rs-alert-item-content > div\")).getText() == test.mensaje)",
+              "err": {},
+              "uuid": "620c637b-bda8-47ae-878f-c006fd7ec4b6",
+              "parentUUID": "2d799e56-b3a5-4ebb-b486-460dcabadbd1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a6863874-91d1-47d9-80ea-15ed91ee45ea",
+            "cb9f8c2a-77c3-4425-ae73-105410ae3fe7",
+            "620c637b-bda8-47ae-878f-c006fd7ec4b6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 60844,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 40000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "8.3.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}

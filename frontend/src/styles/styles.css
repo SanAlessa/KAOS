@@ -377,12 +377,12 @@ div.containerCart h{
     font-size: 3vw;
 }
 /* ESTILOS MAURI */
-
 .cajaPrueba{
   display: flex;
   flex-wrap: wrap;
   /* background-color: aqua; */
-  width: 40%;
+  width:35vw;
+  height: 10vh;
 }
 .botonComprar{
   background-color: #6048a3;
@@ -402,6 +402,7 @@ div.containerCart h{
   align-items: center;
   color: white;
   font-weight: bold;
+  height:45vh;
 }
 .unaFotito{
     width: 100%;
@@ -521,6 +522,42 @@ div.containerCart h{
   justify-content: center;
   align-items: flex-start;
 }
+.boxSuccess{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: #6CC8FC; */
+  margin-top: 2vh;
+ /*  height: 100vh; */
+}
+.containerSuccess{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.textoSuccess{
+  text-align: center;
+}
+.textoSuccess h2{
+  color:#6048a3;
+  margin-top: 2vh;
+  font-size: 2vw;
+}
+.textoSuccess p{
+  width: 50vw;
+  font-size: 1.3vw;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+}
+.successBack{
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 50vw;
+  height: 65vh;
+  background-image: url('../assets/success.png');
+}
 /* ESTILOS MAURI */
 .containerContactInformation{
   width: 100vw;
@@ -546,26 +583,20 @@ margin-bottom: 5vw;
 display: flex;
 justify-content: space-evenly;
 }
-.containerCheckOut{
+/* .containerCheckOut{
   width: 100vw;
   height: 80vh;
   display: flex;
   flex-direction: column;
   background-color: #6CC8FC;
-}
-.containerContentCheckout{
+} */
+/* .containerContentCheckout{
   background-color: antiquewhite;
   width: 100%;
   height: 100%;
   display: flex;
-}
-.containerActionsCheckout{
-  background-color: brown;
-  width: 60%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
+} */
+
 .containerActionsCheckout a{
   text-decoration: none;
   text-align: center;
@@ -578,16 +609,13 @@ justify-content: space-evenly;
   font-weight: bold;
   color: black
 }
-.containerContactInfo, .containerPayInfo{
+.containerContactInfo {
   width: 60%;
   height: 80%;
   background-color: #FF7FFF;
   border: 1px solid black;
   margin-left: 2vw;
   margin-top: 2vw;
-}
-.containerPayInfo{
-  background-color: chartreuse;
 }
 .containerStateCheckOut{
   display: flex;
@@ -632,11 +660,29 @@ justify-content: space-evenly;
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px;
   transition: ease 0.3s;
+  background-color: white;
 }
 .buttonCheckout:hover{
   box-shadow: inset 265px 0 0 0 #6048a3;
   transform: scale(1.1);
   color: whitesmoke;
+}
+
+.logOut {
+  width: 12vw;
+  padding: 0.5vw;
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  background-color: var(--terciary-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logOut:hover {
+  background-color: var(--primary-color);
+  transition: 0.3s linear;
+  transform: scale(1.1);
 }
 
  /* ---------------------------RESPONSIVE-------------------------------------------------------------*/
@@ -725,8 +771,11 @@ justify-content: space-evenly;
     margin-bottom: 4vh;
     font-weight: 900;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
   }
+.titulo5{
+  margin-right: 10vw!important;
+  font-size: 0.5vh!important;
+}
   .titulos2 p {
     font-size: 1vh;
     font-weight: 900!important;
@@ -820,7 +869,25 @@ justify-content: space-evenly;
 
 @media(max-width: 600px){
   .containerCarousel{
-    height: 25vh;
+    height: 5vh;
+    margin-bottom: 5vw;
+  }
+  .main{
+    height: 100vh;
+    
+  }
+  .main1{
+    height: 90vh;
+    margin-top: -15vh;
+  }
+  .main2{
+    margin-bottom: 4vh;
+  }
+  .boxes{
+    margin-bottom: -5vh;
+  }
+  .info{
+    margin-top:6vh ;
   }
 }
 

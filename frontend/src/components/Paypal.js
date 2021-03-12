@@ -1,8 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import {connect} from 'react-redux'
 import purchaseAction from '../redux/actions/purchaseAction'
+import '../styles/log.css'
+import 'rsuite/dist/styles/rsuite-default.css'
+import { Alert } from 'rsuite'
 
-const Paypal =({total, sendPurchase, loggedUser})=>{
+const Paypal =({total, sendPurchase, loggedUser, history, validarCompra})=>{
   const paypal = useRef()
   useEffect(()=>{
     window.paypal.Buttons({
@@ -13,17 +16,18 @@ const Paypal =({total, sendPurchase, loggedUser})=>{
         })},
         onApprove: (data, actions) => {
           actions.order.capture()
-          alert('Compra Finalizada')
+          Alert.success("Compra exitosa!")
           sendPurchase(loggedUser.token)
+          history.push("/success")
+          
         },
         onError: (error)=>{
-          alert('algo fallo')
-          console.log(error)
+          Alert.warning("Hubo un error en el pago, intente nuevamente")
         }
     }).render(paypal.current)
   })
   return(
-    <div ref={paypal}></div>
+    <div className="paypal" ref={paypal}></div>
   )
 }
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { connect } from 'react-redux'
 import purchaseAction from '../redux/actions/purchaseAction'
+import {Alert} from 'rsuite'
 
 const CartCards = ({product, incOne, substOne, deleteClothes, reload, forceReload}) => {
     var {id, name, price, stock, image, size, quantity} = product
@@ -18,7 +19,7 @@ const CartCards = ({product, incOne, substOne, deleteClothes, reload, forceReloa
     }
 
     const incQuantity = () => {
-        setCantidad((cantidad+1) > stock ? (alert('No hay más productos disponibles'), cantidad) : (incOne(product), cantidad+1))
+        setCantidad((cantidad+1) > stock ? (Alert.error("No hay mas unidades para este modelo", 3000), cantidad) : (incOne(product), cantidad+1))
         forceReload(!reload)
     }
 

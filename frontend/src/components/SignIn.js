@@ -48,27 +48,24 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
     } else {
       const respuesta = await signIn(nuevoLogin)
       if (respuesta && !respuesta.success) {
-        setErrores(respuesta.mensaje)
+        respuesta.errores.map(respuesta=>Alert.error(respuesta.message))
       }
-      setTimeout(() => {
-        history.push('/')
-      }, 4000)
 
     }
   }
 
   const validarRegistro = async e => {
     e.preventDefault()
-    const respuesta = await registerUser(nuevoUsuario)
-    console.log(nuevoUsuario.email)
-
     if (nuevoUsuario.firstname === '' || nuevoUsuario.lastname === '' || nuevoUsuario.email === '' || nuevoUsuario.password === '') {
       Alert.warning('Todos los campos deben estar completos', 3000)
-    } else {
+    } 
+    const respuesta = await registerUser(nuevoUsuario)
+    if(respuesta && !respuesta.success){
+      respuesta.errors.map(respuesta=>Alert.error(respuesta.message, 5000))
+    }else {
       Alert.success('Tu cuenta fue creada con exito', 4000)
     }
-    
-    }
+  }
   
   const responseGoogle = async response => {
     if (response.error) {
@@ -118,7 +115,7 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
             <button className="btnLog" onClick={validarUsuario}>Ingresar</button>
             <div>
               <GoogleLogin
-                clientId="844411322334-bc3sorc4j8lcrmosuddqcab17jf1fs41.apps.googleusercontent.com"
+                clientId="1002420018935-3pb1m3mp2kvibgd8sniqgbs1l6up1g3d.apps.googleusercontent.com"
                 buttonText="Iniciar sesión con Google"
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
@@ -150,7 +147,7 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
             <div className="googlediv">
               <GoogleLogin
                 className='btngoogle'
-                clientId="56670268622-ujtfv11jtt2esb9qe4cgo4drut70tgu4.apps.googleusercontent.com"
+                clientId="1002420018935-3pb1m3mp2kvibgd8sniqgbs1l6up1g3d.apps.googleusercontent.com"
                 buttonText="Crear una cuenta con Google"
                 onSuccess={responseGoogleReg}
                 onFailure={responseGoogleReg}

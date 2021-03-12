@@ -6,8 +6,8 @@ var transport = nodemailer.createTransport({
     port: 465,
     host: 'smtp.gmail.com',
     auth: {
-        user: "kaosmindhub@gmail.com",
-        pass: "kaos1234"
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS
     },
     tls: {
         rejectUnauthorized: false
@@ -28,8 +28,7 @@ var transport = nodemailer.createTransport({
     const content = 
     `<h3>Este email se ha enviado por una solicitud para restablecer la contraseña en la pagina KAOS, si usted no lo solicito
     por favor ignore este correo, de lo contrario haga click en el boton de abajo</h3>
-    <button><a href="http://localhost:3000/reset-password/${email}">¡Recupera tu contraseña!</a></button>
-    "http://localhost:3000/reset-password/${email}"`
+    <button><a href="https://kaos-challenge.herokuapp.com/reset-password/${email}">¡Recupera tu contraseña!</a></button>`
     var mailOptions = {
         from: 'KAOS <kaosmindhub@gmail.com>',
         to: email,
