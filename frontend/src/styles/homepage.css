@@ -73,16 +73,24 @@ font-size: 5vh;
     align-items: center;
     height: 100vh;
 }
+.main2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
 .main h1 p {
     font-size: 200;
 }
+
 .sectionsDiv {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    height: 48%;
+    height: 70vh;
 }
 
 .boxes {
@@ -155,6 +163,7 @@ font-size: 5vh;
     
 }
 .logout{
+    margin-left: 10vw;
    
 }
 
@@ -166,7 +175,9 @@ border-radius: 1vh;
     display: flex;
     color: black;
 }
-
+.linksHeader div{
+padding: 1vh;
+}
 
 /* CARRUSEL */
 .divCarru {
@@ -174,13 +185,37 @@ border-radius: 1vh;
 }
 
   /* ---------------------------RESPONSIVE-------------------------------------------------------------*/
+  @media(max-width: 1400px){
+    .containerCarousel{
+      height: 70vh;
+    }
+  }
+   @media(max-width: 1200px){
+    .containerCarousel{
+      height: 70vh;
+    }
+  }
+   @media(max-width: 1000px){
+    .containerCarousel{
+      height: 40vh;
+    }
+  }
+  
+   @media(max-width: 800px){
+    .containerProductsStore {
+      width: 50vw;
+    }
+
+    .containerCarousel{
+      height: 40vh;
+    }
+   }
+
   @media(max-width: 700px){
     .banner {
         display: none;
         }   
-    /* .carrusel{
-        margin-bottom:-70vh;
-    } */
+
     .motto {
         width: 60vw;
         height: 10vh;
@@ -268,7 +303,10 @@ border-radius: 1vh;
         height: 60%;
         border-radius: 2%;
     }
-
-   
-
+    .main2{
+       margin-top: 20vh;
+    }
+    .bannerFrase{
+        margin-top:40vh;
+    }
 }

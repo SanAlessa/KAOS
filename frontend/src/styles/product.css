@@ -94,6 +94,11 @@
     justify-content: space-around;
     align-items: center;
 }
+ .tituloMedio{
+        font-size:1rem!important;
+        text-align: center;
+        margin-top:20vh;
+      }
 
 /* -------------------------------RESPONSIVE ------------------------------------------------------------*/
 @media(max-width: 700px){
@@ -122,20 +127,29 @@
       }
       .pruebaFotitos{
           width: 20vw;
-          height: 30vh;
+          height:30vh!important;
         }
         .descripcion{
           font-size:0.8rem!important;
         }
         .botonComprar{
           font-size:0.8rem!important;
-          width: 15vw;
-          height: 2vh; 
-          margin-right: 14vw;
+          width: 25vw;
+          height: 5vh!important; 
+          margin-right: 5vw;
         }
         .cardsProducts {
           width: 100%;
           height: 40%;
+          margin-top: -10vh;
+      }
+      .mainProduct2{
+        margin-top: -30vh;
+        height: 50vh!important;
+
+      }
+      .logoBanner{
+        border: 1px solid black;
       }
       .mainProduct1{
           align-items: center!important;
@@ -147,10 +161,10 @@
       }
       .tituloMedio{
         font-size:1rem!important;
-        border: 1px solid black;
-        width: 80vw;
+        width: 95vw;
         text-align: center;
-        margin-bottom: -10vh;
+        border: 1px solid rgba(0, 0, 0, 0.349);
+        margin-top:-20vh;
       }
       .menu-bars{
         font-size: 2.5vh!important;
@@ -176,6 +190,15 @@
     }
     .buttonDeletePurchase{
       width: 20vw!important;
+    }
+    .contenedorGeneralProduct{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .mainProduct{
+      height:100vh!important;
+
     }
    
 }

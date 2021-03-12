@@ -382,7 +382,8 @@ div.containerCart h{
   display: flex;
   flex-wrap: wrap;
   /* background-color: aqua; */
-  width: 40%;
+  width:35vw;
+  height: 10vh;
 }
 .botonComprar{
   background-color: #6048a3;
@@ -402,6 +403,7 @@ div.containerCart h{
   align-items: center;
   color: white;
   font-weight: bold;
+  height:45vh;
 }
 .unaFotito{
     width: 100%;
@@ -725,8 +727,11 @@ justify-content: space-evenly;
     margin-bottom: 4vh;
     font-weight: 900;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
   }
+.titulo5{
+  margin-right: 10vw!important;
+  font-size: 0.5vh!important;
+}
   .titulos2 p {
     font-size: 1vh;
     font-weight: 900!important;
@@ -820,7 +825,25 @@ justify-content: space-evenly;
 
 @media(max-width: 600px){
   .containerCarousel{
-    height: 25vh;
+    height: 5vh;
+    margin-bottom: 5vw;
+  }
+  .main{
+    height: 100vh;
+    
+  }
+  .main1{
+    height: 90vh;
+    margin-top: -15vh;
+  }
+  .main2{
+    margin-bottom: 4vh;
+  }
+  .boxes{
+    margin-bottom: -5vh;
+  }
+  .info{
+    margin-top:6vh ;
   }
 }
 

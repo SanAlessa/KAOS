@@ -35,7 +35,7 @@ const Homepage = (props) => {
                 </div>
 
             </div>
-            <div className="main">
+            <div className="main1">
                 <div className="sectionsDiv">
                     <div className="boxes" style={{ backgroundImage: `url(${box1})`, backgroundPosition: 'center', backgroundSize: 'cover' }}></div>
                     <div className="info">
@@ -49,7 +49,7 @@ const Homepage = (props) => {
                     <div className="boxes" style={{ backgroundImage: `url(${box2})`, backgroundPosition: 'center', backgroundSize: 'cover' }}></div>
                 </div>
             </div>
-            <div className="main">
+            <div className="main2">
                 <div className="bannerFrase">
                     <p>FIND NEW TRENDS AND ROCK YOUR STYLE</p>
                 </div>
