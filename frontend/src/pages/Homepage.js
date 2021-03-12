@@ -1,11 +1,10 @@
 import { connect } from 'react-redux'
 import clothesActions from '../redux/actions/clothesActions'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/homepage.css'
 import HomeBanner from '../components/HomeBanner'
 import Footer from '../components/Footer'
-import fotoPrueba from '../assets/fotoPrueba.jpeg'
 import box1 from '../assets/box1.png'
 import box2 from '../assets/box2.png'
 import box3 from '../assets/box3.png'
@@ -13,11 +12,9 @@ import box4 from '../assets/box4.png'
 
 const Homepage = (props) => {
     useEffect(() => {
-        props.getClothes()
+        props.getClothes() 
     }, [])
-    const newSeason = ["1", "2", "3", "4", "5"]
-     
-
+ 
     return (
         <>
             <HomeBanner></HomeBanner>
@@ -29,8 +26,10 @@ const Homepage = (props) => {
                 <div className="allCards">
                     {props.lastClothes.map(card => {
                         return (
-                            <div className="clothCard" style={{ backgroundImage: `url(${card.stock[0].images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
-                            </div>
+                            <Link to={`/product/${card._id}`} key={card._id} className="clothCardLink">
+                                <div className="clothCard" style={{ backgroundImage: `url(${card.stock[0].images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+                                </div>
+                            </Link>
                         )
                     })}
                 </div>
@@ -55,8 +54,8 @@ const Homepage = (props) => {
                     <p>FIND NEW TRENDS AND ROCK YOUR STYLE</p>
                 </div>
                 <div className="superSaleBanner">
-                    <img src={box3} className="jeansBox"></img>
-                    <img src={box4} className="jeansBox"></img>
+                    <img src={box3} className="jeansBox" alt={box3}></img>
+                    <img src={box4} className="jeansBox" alt={box4}></img>
 
                 </div>
 

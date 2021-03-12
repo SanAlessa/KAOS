@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const userController = require('../controllers/userController')
 const clothesController = require('../controllers/clothesController')
+const passwordController= require('../controllers/passwordController')
 const validator = require ('../controllers/validator')
 const passport = require('passport')
 const purchaseController = require('../controllers/purchaseController')
@@ -17,6 +18,10 @@ router.route('/user/signup')
 router.route('/user/signin')
 .post(userController.signIn)
 
+router.route("/user/reset-password")
+.post(passwordController.restartPassword)
+.put(passwordController.changePassword)
+
 router.route('/user/ls')
 .post(passport.authenticate('jwt', {session: false}), userController.logFromLS)
 
@@ -25,6 +30,9 @@ router.route('/clothes/addClothes')
 
 router.route('/clothes/getClothes')
 .get(clothesController.getClothes)
+
+router.route('/clothes/getOne/:id')
+.get(clothesController.getOne)
 
 router.route('/clothes/addStock')
 .post(clothesController.addToStock)
@@ -39,7 +47,13 @@ router.route('/clothes/modifyClothes')
 .post(clothesController.modifyClothes)
 
 router.route('/purchase')
-.post(purchaseController.newPurchase)
+.post(passport.authenticate('jwt', {session: false}), purchaseController.newPurchase)
+
+router.route('/getPurchases')
+.post(purchaseController.getPurchases)
+
+router.route('/addAdmin')
+.post(passport.authenticate('jwt', {session: false}), userController.addAdmin)
 
 
 module.exports = router

@@ -1,7 +1,6 @@
 import logo from '../assets/kaos.png'
-import Drawer from './Drawer'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link , NavLink} from 'react-router-dom'
 import { IoPersonCircleOutline } from 'react-icons/io5'
 import Cart from './Cart'
 import { useEffect } from 'react'
@@ -9,32 +8,34 @@ import userAction from '../redux/actions/userAction'
 
 const Header = (props) => {
   useEffect(() => {
-  }, [props.reload])
-
-
+  }, [props.reload])  
     if(props.loggedUser){
         var links = 
         <div className="linksHeader">
-            <Link  to = "/adminPanel">ADMIN</Link>
-            <div>Bienvenido {props.loggedUser.firstname}!</div>
-            <Link to = "/"  onClick={()=> props.disconnectUser()}>Cerrar Sesion</Link>
+          <Link to="/userProfile">
+          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-around', width: '6vw'}}>
+          <IoPersonCircleOutline style={{ fontSize: '2.2rem', color: 'black'}} />                                      
+            <h6 style={{margin: 0}}className="saludo">{props.loggedUser.firstname.split(' ', 1)}</h6>
+          </div>
+          </Link>
         </div> 
     }
-  
-    return (
+      return (
         <div className="logoBanner">
-            <Drawer />
-            <Link to='/' style={{ display: 'flex', justifyContent: 'center', height: '90%' ,width:'50%'}}>
-                <img src={logo} className="logo"></img>
+            <div style={{ display: 'flex', height: '90%' ,width:'50%', marginLeft: '2vw'}}>
+            <Link to='/'>
+                <img src={logo} className="logo" alt="logo"></img>
             </Link>
-            <div>
-            {links}
             </div>
-            <div className="iconsHeader">
-                <Link to='/signin' ><IoPersonCircleOutline style={{ fontSize: '2.2rem', color: 'black' }} /></Link>
+            <div className="links">
+                <Link  className="links"to ="/">HOME</Link>
+                <Link className="links" to ="/productStore">SHOP</Link>
+                {!props.loggedUser && <NavLink className="links" to ="/signIn">SIGN IN</NavLink>}
+                {(props.loggedUser && props.loggedUser.rol === 'admin') && <Link className="links" to="/adminPanel">Admin Panel</Link>}
+                {links}
                 <Cart cart={props.cart} />
+                <h5>{props.cart.length}</h5>
             </div>
-
         </div>
     )
 }
@@ -46,8 +47,6 @@ const mapStateToProps = state => {
     reload: state.purchaseR.reload
   }
 }
-const mapDispatchToProps = {
-  disconnectUser: userAction.disconnectUser
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+
+export default connect(mapStateToProps)(Header)

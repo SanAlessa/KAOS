@@ -1,9 +1,5 @@
-import { useEffect, useState } from "react"
-import { Footer } from "rsuite"
-
 const CardClothing = ({product}) => {
     const {name, stock,price} = product
-
     return(
         <div className='containerCardCloth'>
             <div className='containerCardClothPic'>

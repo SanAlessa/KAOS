@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {Link} from 'react-router-dom'
 import { Alert } from 'rsuite'
 import GoogleLogin from 'react-google-login'
 import { AiOutlineEye } from "react-icons/ai"
@@ -47,29 +48,26 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
     } else {
       const respuesta = await signIn(nuevoLogin)
       if (respuesta && !respuesta.success) {
-        setErrores(respuesta.mensaje)
+        respuesta.errores.map(respuesta=>Alert.error(respuesta.message))
       }
-      setTimeout(() => {
-        history.push('/')
-      }, 4000)
 
     }
   }
 
   const validarRegistro = async e => {
     e.preventDefault()
-    const respuesta = await registerUser(nuevoUsuario)
-    console.log(nuevoUsuario.email)
-
     if (nuevoUsuario.firstname === '' || nuevoUsuario.lastname === '' || nuevoUsuario.email === '' || nuevoUsuario.password === '') {
       Alert.warning('Todos los campos deben estar completos', 3000)
-    } else if (nuevoUsuario === nuevoUsuario) {
-      Alert.error("Tu email ya se encuentra registrado", 3000)
-
-    } else {
-      Alert.success('Tu cuenta fue creada con exito', 4000)
+    } 
+    const respuesta = await registerUser(nuevoUsuario)
+    console.log(respuesta)
+    if(respuesta && !respuesta.success){
+      respuesta.errors.map(respuesta=>Alert.error(respuesta.message))
+    }else {
+      Alert.success('Tu cuenta fue creada con exito', 20000)
     }
   }
+  
   const responseGoogle = async response => {
     if (response.error) {
       Alert.error("Algo pasó , vuelva a intentarlo...", 4000)
@@ -86,10 +84,6 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
   }
 
   const responseGoogleReg = async (response) => {
-
-    if (response === response) {
-      Alert.error("Tu email ya se encuentra registrado", 3000)
-    } else {
       const respuesta = await registerUserGoogle({
         firstname: response.profileObj.name,
         lastname: response.profileObj.familyName,
@@ -101,7 +95,7 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
       } else {
         Alert.success('Tu cuenta fue creada con exito', 4000)
       }
-    }
+    
   }
   return (
     <>
@@ -130,7 +124,7 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
                 className='btngoogle'
               />
             </div>
-
+            <Link to='/send-email'><p>Olvidé mi contraseña</p></Link>
           </div>
           <div className="signUp">
             <h2>NO TENÉS CUENTA? REGISTRATE!</h2>

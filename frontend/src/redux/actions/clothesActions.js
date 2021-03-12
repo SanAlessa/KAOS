@@ -21,6 +21,16 @@ const clothesActions = {
         console.log(error)
       }
     }
+  },
+  getOne:(id)=>{
+    return async (dispatch)=>{
+      try {
+        const response = await axios.get(`${API}/clothes/getOne/${id}`)
+        dispatch({type: 'GET_ONE', payload: response.data.response})
+      } catch (error){
+        console.log(error)
+      }
+    }
   }
 }
 

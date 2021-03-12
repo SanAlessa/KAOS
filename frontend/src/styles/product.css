@@ -33,10 +33,34 @@
     height: 60%;
     justify-content: space-evenly;
 }
-.talles {
+.color {
+    width: 9%; 
+    height: 85%; 
+    border-radius: 100%; 
+    margin-right: 2%;
     cursor: pointer;
-    width: 10%;
-    height:5%;
+    border: solid 2px rgba(61, 61, 61, 0.5)
+}
+
+.talles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width:8%;
+    font-weight: bolder;
+    color: white;
+    border-radius: 50px;
+    height:30%;
+    background-color: hotpink;
+    margin: 1vw;
+}
+.talles:active {
+    background-color: rgb(66, 66, 66);
+}
+
+.talles:focus {
+    background-color: rgb(66, 66, 66);
 }
 
 .botonComprar {
@@ -51,6 +75,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .mainProduct p {
@@ -70,3 +95,92 @@
     align-items: center;
 }
 
+/* -------------------------------RESPONSIVE ------------------------------------------------------------*/
+@media(max-width: 700px){
+    .tituloPrenda{
+        font-size:1rem!important;
+    }
+  
+    .precio{
+      font-size:0.9rem!important;
+    }
+    .titulos{
+      font-size:0.8rem!important;
+    }
+    .tituloPrenda{
+      font-size:0.8rem!important;
+  
+    }
+    .color{
+      width: 5vw; 
+      height: 3vh; }
+      .talles{
+          width: 5vw!important;
+          height:3vh;
+          border-radius: 100%;
+          font-size:0.6rem!important;
+      }
+      .pruebaFotitos{
+          width: 20vw;
+          height: 30vh;
+        }
+        .descripcion{
+          font-size:0.8rem!important;
+        }
+        .botonComprar{
+          font-size:0.8rem!important;
+          width: 15vw;
+          height: 2vh; 
+          margin-right: 14vw;
+        }
+        .cardsProducts {
+          width: 100%;
+          height: 40%;
+          
+      }
+      .containerCardMapping{
+        margin-top: 10vh;
+      }
+      .mainProduct1{
+          align-items: center!important;
+        margin-bottom: -20vh;
+      }
+      .clothCard{
+          width:auto;
+          height: 33vh;
+      }
+      .tituloMedio{
+        font-size:1rem!important;
+        border: 1px solid black;
+        width: 80vw;
+        text-align: center;
+        margin-bottom: -10vh;
+      }
+      .menu-bars{
+        font-size: 2.5vh!important;
+   
+      }
+      .menu-bars2{
+        font-size: 3.5vh!important;
+        color: blueviolet!important;
+   
+      }
+      .saludo{
+        font-size: 0.8rem;
+        margin-left: 4vw;
+      }
+      .saludo1{
+        font-size: 0.9rem;
+
+      }
+      .dropdown-toggle {
+      background-color: blueviolet
+      
+      
+    }
+    .buttonDeletePurchase{
+      width: 20vw!important;
+    }
+   
+}
+  

@@ -19,9 +19,20 @@
     align-items: center;
 }
 
-.login h2, .signUp h2 {
+.login h2, .signUp h2, .recuPass h2 {
     color: rgba(117, 10, 117, 0.671);
     text-shadow:-2px 2px rgba(255, 255, 255, 0.671);
+}
+.login p {
+    font-size: 2vh;
+    color:rgba(117, 10, 117, 0.671);
+}
+.login a{
+    text-decoration: none !important;
+}
+
+.login p:hover {
+    font-weight: bold;
 }
 
 .login div, .signUp div {
@@ -37,7 +48,6 @@
     height: 5vh;
     text-align: center;
     border: 1px solid rgb(121, 78, 121);
-
 }
 
 .btnLog {
@@ -93,10 +103,65 @@ margin-top: 1vh;}
     font-size: 1.5rem;
   }
 
+  /* RECUPERAR CONTRASEÑA */
+  .divMain {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    height:70%; 
+    margin-bottom:10vh;
+    align-items: center;
+    background-image: url('../assets/login.png');
+    background-size: cover;
+    background-position: center;
+    box-shadow: -10px 10px rgba(110, 64, 107, 0.671);
+  }
+
+  .recuPass {
+      display: flex;
+      height: 80%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+  }
+  .inputsRecu {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 50%;
+      width: 100%;
+  }
+  .inputsRecu input {
+    width: 80%;
+    height: 4vh;
+    text-align: center;
+    border: 1px solid rgb(121, 78, 121);
+  }
+
+  .recuPass p {
+      width: 80%;
+      font-size: 20px;
+      text-align: center;
+  }
+  .botonPassword {
+      height: 15%;
+      width: 80%;
+      background-color: rgba(121, 78, 121, 0.767);
+      color:white
+  }
+  .userNameAndPassword {
+      width: 100%;
+      height: 50%;
+  }
+  .inputCarga {
+      width: 100%;
+  }
+
 
   /* ---------------------------RESPONSIVE-------------------------------------------------------------*/
   @media(max-width: 900px){
-    .logSign {
+    .logSign, .divMain {
         display: flex;
         flex-direction: column;
         width: 98%!important;
@@ -222,12 +287,12 @@ margin-top: 1vh;}
     .container__items__footer{
         font-size: 1vh;
     }
-    .main {
+    /* .main {
         height: 50%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
+    } */
    
 }

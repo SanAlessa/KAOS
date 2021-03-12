@@ -8,27 +8,27 @@ const Footer = () => {
         <>
             <footer className="footer">
 
-                <div>
+                <div className="brandDiv">
                     <NavLink to="/" className="brand">
-                        <img src={logo} style={{width:'50%'}}></img>
+                        <img src={logo} style={{width:'50%'}} alt="Logo"></img>
                         </NavLink>
                 </div>
-                <div className="container__items__footer">
-                    <div className="linksFooter">
-                        <NavLink to="/">Home</NavLink>
-                        <NavLink to="/ProductStore">Tienda</NavLink>
-                        <NavLink to="/">SuperSale</NavLink>
-                        <NavLink to="/">Contacto</NavLink>
-                    </div>
-                    <div className="container__icons__social" >
-                        <div> <NavLink to="/" ><i class="fab fa-whatsapp fa-3x"></i></NavLink></div>
-                        <div> <NavLink to="/" ><i class="fab fa-instagram fa-3x"></i></NavLink></div>
-                        <div><NavLink to="/" ><i class="fab fa-facebook fa-3x"></i></NavLink></div>
-                        <div><NavLink to="/" ><i class="fab fa-twitter fa-3x"></i></NavLink></div>
+                <div className="seguir">
+                    <div><p>Seguinos en nuestras redes!</p></div>
+                    <div className="container__items__footer">
+                        {/* <div className="container__icons__social" > */}
+                        <div> <NavLink to="/" ><i className="fab fa-whatsapp fa-3x"></i></NavLink></div>
+                        <div> <NavLink to="/" ><i className="fab fa-instagram fa-3x"></i></NavLink></div>
+                        <div><NavLink to="/" ><i className="fab fa-facebook fa-3x"></i></NavLink></div>
+                        <div><NavLink to="/" ><i className="fab fa-twitter fa-3x"></i></NavLink></div>
+                        {/* </div> */}
                     </div>
                 </div>
-                <div style={{width:'30%'}}>
-
+                <div className="linksFooter">
+                    <NavLink to="/">HOME</NavLink>
+                    <NavLink to="/ProductStore">STORE</NavLink>
+                    <NavLink to="/">SUPERSALE</NavLink>
+                    <NavLink to="/">CONTACT</NavLink>
                 </div>
             </footer>
             <div className="all__reserved">

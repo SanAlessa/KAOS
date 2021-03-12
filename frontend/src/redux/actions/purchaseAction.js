@@ -1,3 +1,6 @@
+import axios from 'axios'
+import {API} from '../../API'
+
 
 const purchaseAction = {
     checkout: (clothes) => {
@@ -5,7 +8,6 @@ const purchaseAction = {
             var cart = getState().purchaseR.checkout
             cart.push(clothes)
             dispatch({type: 'CHECKOUT', payload: cart})
-            console.log(cart)
         }
     },
 
@@ -26,10 +28,8 @@ const purchaseAction = {
     },
 
     deleteClothes:(product) => {
-        console.log(product)
         return (dispatch, getState)=>{
             var cart = getState().purchaseR.checkout.filter(toModify => (toModify.id  !== product.id))
-            console.log(cart)
             dispatch({type: 'CHECKOUT', payload: cart})
         }
     },
@@ -42,9 +42,44 @@ const purchaseAction = {
     },
 
     forceReload:(reload) => {
-        console.log(reload)
         return (dispatch) => {
             dispatch({type: 'RELOAD', payload: reload})
+        }
+    },
+
+    addTotal: (total)=>{
+        return(dispatch)=>{
+            dispatch({type: 'TOTAL', payload: total})
+        }
+    },
+
+    sendPurchase: (token) => {
+        return async (dispatch, getState)=>{
+            var purchase = getState().purchaseR.checkout
+            try {
+                const response = await axios.post(`${API}/purchase`, purchase, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
+                console.log(response)
+                dispatch({type: 'NEW_PURCHASE', payload: response.data.response})
+            }catch(error){
+                console.log(error)
+            }
+        }
+    },
+
+    getPurchases: (id)=>{
+        console.log(id)
+        return async(dispatch)=>{
+            try {
+                const response = await axios.post(`${API}/getPurchases`, {id} )
+                dispatch({type: 'NEW_PURCHASE', payload: response.data.response})
+                console.log(response)
+            }catch(error){
+                console.log(error)
+            }
         }
     }
 }
