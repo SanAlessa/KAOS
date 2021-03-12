@@ -25,8 +25,7 @@ if(loggedUser){
     <Switch>
     <Route exact path="/" component={Homepage}/>
     <Route path="/productStore" component={ProductStore}/>
-    {/* if(loggedUser.rol === 'admin')  */}
-    <Route path="/adminPanel" component={AdminPanel}/> 
+    {loggedUser.rol === 'admin' && <Route path="/adminPanel" component={AdminPanel}/>}
     <Route path="/product/:id" component={Product}/>
     <Route exact path='/buy' component={Buy} />
     <Route exact path='/payment' component={Payment}/>
@@ -44,11 +43,6 @@ if(loggedUser){
     <Switch>
     <Route exact path="/" component={Homepage}/>
     <Route path="/adminPanel" component={AdminPanel}/> 
-    <Route exact path ='/userprofile' component={UserProfile} />
-    
-    <Route exact path='/buy' component={Buy} />
-    <Route exact path='/payment' component={Payment}/>
-
     <Route path='/send-email' component={SendEmail}/>
     <Route path='/reset-password/:email' component={ForgotPassword}/>
     <Route path="/productStore" component={ProductStore}/>

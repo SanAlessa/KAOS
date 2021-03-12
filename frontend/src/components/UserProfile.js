@@ -4,13 +4,13 @@ import purchaseAction from '../redux/actions/purchaseAction'
 import userAction from '../redux/actions/userAction'
 import Footer from './Footer'
 
-const UserProfile = ({ loggedUser, getPurchases, newPurchase, addAdmin }) => {
+const UserProfile = ({ loggedUser, getPurchases, newPurchase, addAdmin, disconnectUser }) => {
     const { firstname, lastname, email, id } = loggedUser
-    console.log(loggedUser)
+    
     useEffect(() => {
         getPurchases(id)
     }, [])
-    console.log(loggedUser)
+
     return (
         <>
             <div className='containerUserProfile'>
@@ -25,8 +25,8 @@ const UserProfile = ({ loggedUser, getPurchases, newPurchase, addAdmin }) => {
                         <h3>Tu dirección de correo</h3>
                         <h4>Quiero cambiar mi contraseña</h4>
                         {(loggedUser.rol !== 'admin' || !loggedUser.rol) && 
-                        <h4 onClick={()=>addAdmin(loggedUser.token)}>Solicitar Acceso de Admin</h4>
-                        }
+                        <h4 onClick={()=>addAdmin(loggedUser.token)}>Solicitar Acceso de Admin</h4>}
+                        <div className="logOut" onClick={()=>disconnectUser()}>Log Out</div>
                     </div>
                     <div className='containerUserPurchase'>
                         <div className='containerTitleUserPurchase'>
@@ -56,7 +56,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     getPurchases: purchaseAction.getPurchases,
-    addAdmin: userAction.addAdmin
+    addAdmin: userAction.addAdmin,
+    disconnectUser: userAction.disconnectUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)
