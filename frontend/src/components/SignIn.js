@@ -114,14 +114,14 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
             </div>
             <button className="btnLog" onClick={validarUsuario}>Ingresar</button>
             <div>
-              {/* <GoogleLogin
+              <GoogleLogin
                 clientId="359967007495-bqpfk2li40j7njsbkkcr97l4hijrmqia.apps.googleusercontent.com"
                 buttonText="Iniciar sesión con Google"
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
                 cookiePolicy={'single_host_origin'}
                 className='btngoogle'
-              /> */}
+              />
             </div>
             <Link to='/send-email'><p>Olvidé mi contraseña</p></Link>
           </div>
@@ -145,14 +145,14 @@ function SignIn({ signIn, history, loggedUser, registerUser, registerUserGoogle 
             </div>
             <button onClick={validarRegistro} className="btnLog" style={{ height: '20%' }}>Enviar Registro</button>
             <div className="googlediv">
-              {/* <GoogleLogin
+              <GoogleLogin
                 className='btngoogle'
                 clientId="359967007495-bqpfk2li40j7njsbkkcr97l4hijrmqia.apps.googleusercontent.com"
                 buttonText="Crear una cuenta con Google"
                 onSuccess={responseGoogleReg}
                 onFailure={responseGoogleReg}
                 cookiePolicy={'single_host_origin'}
-              /> */}
+              />
             </div>
           </div>
         </div>
